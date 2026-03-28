@@ -10,7 +10,7 @@ from coglet.lifelet import LifeLet
 from coglet.ticklet import TickLet, every
 from coglet.handle import CogletHandle, Command
 
-from cogames.policy import PolicyCoglet, PolicyAdapter
+from cogames.policy import PolicyCoglet
 
 
 class GameLet(Coglet, LifeLet, TickLet):
@@ -64,7 +64,7 @@ class GameLet(Coglet, LifeLet, TickLet):
         cmd = [
             "cogames", "play",
             "-m", m,
-            "-p", f"class=cogames.policy.PolicyAdapter",
+            "-p", f"class=cogames.policy.CogletPolicy",
             "-c", str(self._num_cogs),
             "-r", r,
             "--seed", str(seed),
@@ -91,7 +91,7 @@ class GameLet(Coglet, LifeLet, TickLet):
         s = season or self._season
         cmd = [
             "cogames", "upload",
-            "-p", f"class=cogames.policy.PolicyAdapter",
+            "-p", f"class=cogames.policy.CogletPolicy",
             "-n", n,
         ]
         if s:
