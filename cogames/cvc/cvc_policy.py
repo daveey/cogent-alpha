@@ -52,13 +52,14 @@ class CogletPolicy(CogletBasePolicy):
         super().__init__(policy_env_info, device=device, **kwargs)
         self._llm_client = None
         self._llm_log: list[dict[str, Any]] = []
+        self._shared_directive: dict[str, Any] = {}
         self._episode_start = time.time()
         self._game_id = kwargs.get("game_id", f"game_{int(time.time())}")
         self._init_llm()
 
     def _init_llm(self) -> None:
         """Initialize Anthropic client if API key is available."""
-        api_key = os.environ.get("COGORA_ANTHROPIC_KEY")
+        api_key = os.environ.get("COGORA_ANTHROPIC_KEY") or os.environ.get("ANTHROPIC_API_KEY")
         if not api_key:
             return
         try:
@@ -77,6 +78,7 @@ class CogletPolicy(CogletBasePolicy):
                 shared_junctions=self._shared_junctions,
                 llm_client=self._llm_client,
                 llm_log=self._llm_log,
+                shared_directive=self._shared_directive,
             )
         return self._agent_policies[agent_id]
 
@@ -85,6 +87,7 @@ class CogletPolicy(CogletBasePolicy):
         if self._agent_policies:
             self._write_learnings()
         self._llm_log.clear()
+        self._shared_directive.clear()
         self._episode_start = time.time()
         super().reset()
 
@@ -108,8 +111,8 @@ class CogletPolicy(CogletBasePolicy):
 class CogletBrainAgentPolicy(CogletAgentPolicy):
     """Agent policy with LLM brain that guides strategy mid-game.
 
-    Every _LLM_INTERVAL steps, calls Claude to analyze game state.
-    Logs analysis for Coach to review post-game.
+    Every _LLM_INTERVAL steps, calls Claude to analyze game state and
+    produce a MacroDirective that steers all agents' strategy.
     """
 
     def __init__(
@@ -122,6 +125,7 @@ class CogletBrainAgentPolicy(CogletAgentPolicy):
         shared_junctions: dict,
         llm_client: Any = None,
         llm_log: list | None = None,
+        shared_directive: dict | None = None,
     ) -> None:
         super().__init__(
             policy_env_info,
@@ -135,12 +139,20 @@ class CogletBrainAgentPolicy(CogletAgentPolicy):
         self._last_llm_step = 0
         self._llm_interval = _LLM_INTERVAL
         self._llm_latencies: list[float] = []
+        self._shared_directive = shared_directive if shared_directive is not None else {}
+
+    def _macro_directive(self, state: Any) -> Any:
+        """Return LLM-guided directive if available, else default."""
+        from mettagrid_sdk.sdk import MacroDirective
+        d = self._shared_directive
+        if d and d.get("resource_bias"):
+            return MacroDirective(resource_bias=d["resource_bias"])
+        return super()._macro_directive(state)
 
     def step(self, obs: Any) -> Any:
         action = super().step(obs)
 
         # LLM brain: analyze adaptively (agent 0 only to avoid redundancy)
-        # Interval shrinks if LLM is fast, grows if slow
         if (
             self._llm is not None
             and self._agent_id == 0
@@ -153,9 +165,8 @@ class CogletBrainAgentPolicy(CogletAgentPolicy):
         return action
 
     def _llm_analyze(self) -> None:
-        """Call Claude to analyze current game state and log insights."""
+        """Call Claude to analyze game state and produce a strategy directive."""
         try:
-            # Build context from current state
             state = self._previous_state
             if state is None:
                 return
@@ -167,8 +178,7 @@ class CogletBrainAgentPolicy(CogletAgentPolicy):
                 resources = {r: int(team.shared_inventory.get(r, 0)) for r in _ELEMENTS}
 
             lines = [
-                f"You are analyzing a CogsVsClips game at step {self._step_index}/10000.",
-                f"Agent 0 position: ({state.self_state.position.x}, {state.self_state.position.y})",
+                f"CvC game step {self._step_index}/10000. 88x88 map, 8 agents vs clips.",
                 f"HP: {inv.get('hp', 0)}, Hearts: {inv.get('heart', 0)}",
                 f"Gear: aligner={inv.get('aligner', 0)} scrambler={inv.get('scrambler', 0)} miner={inv.get('miner', 0)}",
                 f"Hub resources: {resources}",
@@ -179,16 +189,24 @@ class CogletBrainAgentPolicy(CogletAgentPolicy):
                     roles[m.role] = roles.get(m.role, 0) + 1
                 lines.append(f"Team roles: {roles}")
 
+            # Get junction count
+            friendly_j = len([e for e in state.visible_entities if e.entity_type == "junction" and e.attributes.get("owner") == (team.team_id if team else "")])
+            enemy_j = len([e for e in state.visible_entities if e.entity_type == "junction" and e.attributes.get("owner") not in {None, "neutral", (team.team_id if team else "")}])
+            neutral_j = len([e for e in state.visible_entities if e.entity_type == "junction" and e.attributes.get("owner") in {None, "neutral"}])
+            lines.append(f"Visible junctions: friendly={friendly_j} enemy={enemy_j} neutral={neutral_j}")
+
             lines.append(
-                "\nIn 2-3 sentences: What is going well? What's the biggest risk? "
-                "What one change would improve score most?"
+                "\nRespond with ONLY a JSON object (no other text):"
+                '\n{"resource_bias": "carbon"|"oxygen"|"germanium"|"silicon",'
+                ' "analysis": "1-2 sentence analysis"}'
+                "\nChoose resource_bias = the element with lowest supply."
             )
 
             t0 = time.perf_counter()
             response = self._llm.messages.create(
                 model="claude-sonnet-4-20250514",
-                max_tokens=200,
-                temperature=0.3,
+                max_tokens=150,
+                temperature=0.2,
                 messages=[{"role": "user", "content": "\n".join(lines)}],
             )
             latency_ms = (time.perf_counter() - t0) * 1000
@@ -199,18 +217,32 @@ class CogletBrainAgentPolicy(CogletAgentPolicy):
                     text = block.text
                     break
 
+            # Parse JSON directive
+            import json as _json
+            try:
+                directive = _json.loads(text)
+                if isinstance(directive, dict):
+                    if directive.get("resource_bias") in _ELEMENTS:
+                        self._shared_directive["resource_bias"] = directive["resource_bias"]
+                    analysis = directive.get("analysis", text[:100])
+                else:
+                    analysis = text[:100]
+            except (_json.JSONDecodeError, ValueError):
+                analysis = text[:100]
+
             self._llm_latencies.append(latency_ms)
             entry = {
                 "step": self._step_index,
                 "latency_ms": round(latency_ms),
                 "interval": self._llm_interval,
-                "analysis": text,
+                "analysis": analysis,
                 "resources": resources,
+                "directive": dict(self._shared_directive),
             }
             self._llm_log.append(entry)
             print(
                 f"[coglet] step={self._step_index} llm={latency_ms:.0f}ms "
-                f"interval={self._llm_interval}: {text[:100]}",
+                f"interval={self._llm_interval}: {analysis[:100]}",
                 flush=True,
             )
 
@@ -221,11 +253,7 @@ class CogletBrainAgentPolicy(CogletAgentPolicy):
             })
 
     def _adapt_interval(self) -> None:
-        """Adjust LLM call frequency based on measured latency.
-
-        If LLM is fast (<2s), call more often. If slow (>5s), back off.
-        Target: use ~10% of step time budget for LLM calls.
-        """
+        """Adjust LLM call frequency based on measured latency."""
         if not self._llm_latencies:
             return
         avg_ms = sum(self._llm_latencies[-5:]) / min(len(self._llm_latencies), 5)
@@ -233,4 +261,3 @@ class CogletBrainAgentPolicy(CogletAgentPolicy):
             self._llm_interval = max(200, self._llm_interval - 50)
         elif avg_ms > 5000:
             self._llm_interval = min(1000, self._llm_interval + 100)
-        # else keep current interval

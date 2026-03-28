@@ -126,7 +126,6 @@ def heart_batch_target(state: MettagridState, role: str) -> int:
         return 0
     target = _HEART_BATCH_TARGETS[role]
     step = state.step or 0
-    # Smoother ramp: 3 base → 4 at 500 → 5 at 2000 (less economy shock)
     if role == "aligner" and step >= 500:
         target = max(target, 4)
     if role == "aligner" and step >= 2_000:

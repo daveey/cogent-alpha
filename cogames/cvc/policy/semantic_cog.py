@@ -363,22 +363,19 @@ class SemanticCogAgentPolicy(AgentPolicy):
         safe_target = self._nearest_hub(state)
         safe_distance = 0 if safe_target is None else _h.manhattan(_h.absolute_position(state), safe_target.position)
 
-        # EARLY-GAME SURVIVAL: HP starts at 50, drains 1/tick, territory heals +100/tick.
-        # Territory radius is 10 tiles from hub/network junctions.
         hp = int(state.self_state.inventory.get("hp", 0))
         step = state.step or self._step_index
 
-        # Stay at hub until HP reaches 100. Territory heals +100/tick when in range.
-        # Timeout after 20 steps to avoid infinite waiting if territory never activates.
+        # Stay at hub until HP reaches 100 (territory heals +100/tick in range).
         if hp < 100 and hp > 0 and safe_target is not None and safe_distance <= 3 and step <= 20:
             return self._hold(summary="hub_camp_heal", vibe="change_vibe_default")
 
-        # If far from territory in early game, rush back before dying.
+        # Early game: rush back to territory before dying.
         if step < 150 and safe_target is not None and safe_distance > 8:
             if hp < 40 or (hp < 50 and safe_distance > 15):
                 return self._move_to_known(state, safe_target, summary="survival_retreat")
 
-        # WIPEOUT RECOVERY: If hp=0, move around near hub to try to trigger healing.
+        # Wipeout recovery: if hp=0, return to hub area.
         if hp == 0 and safe_target is not None:
             if safe_distance > 5:
                 return self._move_to_known(state, safe_target, summary="wipeout_return_hub")
@@ -1135,24 +1132,23 @@ class SemanticCogAgentPolicy(AgentPolicy):
 
     def _pressure_budgets(self, state: MettagridState, *, objective: str | None = None) -> tuple[int, int]:
         step = state.step or self._step_index
+
+        # Aggressive ramp with resource safety valve
         min_res = _h.team_min_resource(state)
         can_hearts = _h.team_can_refill_hearts(state)
-
-        # 2 aligners first 30 steps, then ramp up aggressively.
         if step < 30:
             pressure_budget = 2
         elif step < 3000:
-            pressure_budget = 5  # 4 aligners + 1 scrambler, 3 miners
+            pressure_budget = 5
             if min_res < 1 and not can_hearts:
-                pressure_budget = 2  # Critical: 6 miners
+                pressure_budget = 2
             elif min_res < 3:
-                pressure_budget = 4  # Low: 4 miners
+                pressure_budget = 4
         else:
-            pressure_budget = 6  # Late game: 4a+2s, 2 miners
+            pressure_budget = 6
             if min_res < 1 and not can_hearts:
                 pressure_budget = 3
 
-        # Scramblers to disrupt ship chains
         scrambler_budget = 0
         if step >= 3000:
             scrambler_budget = 2

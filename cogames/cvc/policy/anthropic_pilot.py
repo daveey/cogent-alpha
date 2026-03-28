@@ -34,24 +34,18 @@ def _least_resource(resources: dict[str, int]) -> str:
 
 
 class CogletAgentPolicy(SemanticCogAgentPolicy):
-    """Per-agent policy with optimized heuristics."""
+    """Per-agent policy with optimized heuristics.
+
+    Key improvements over base SemanticCogAgentPolicy:
+    - Resource-aware macro directives (mine least-available resource)
+    - Extra retreat safety for miners far from hub
+    - Cargo-aware retreat: retreat with hearts/resources before dying
+    """
 
     def _macro_directive(self, state: MettagridState) -> MacroDirective:
         resources = _shared_resources(state)
         least = _least_resource(resources)
         return MacroDirective(resource_bias=least)
-
-    def _pressure_budgets(self, state: MettagridState, *, objective: str | None = None) -> tuple[int, int]:
-        step = state.step or self._step_index
-        if step < 10:
-            return 2, 0
-        if step < 300:
-            return 5, 0
-        if objective == "resource_coverage":
-            return 0, 0
-        if objective == "economy_bootstrap":
-            return 2, 0
-        return 4, 1
 
     def _should_retreat(self, state: MettagridState, role: str, safe_target: KnownEntity | None) -> bool:
         if super()._should_retreat(state, role, safe_target):
