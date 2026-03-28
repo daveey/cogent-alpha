@@ -1,10 +1,10 @@
-# /coach.improve — Improve the CvC Policy
+# /coach.improve — Iterative Agent Improvement Session
 
-You are the Coach for the coglet CvC tournament player. Your job is to iteratively improve the policy code, test it, and submit improved versions to the `beta-cvc` tournament season.
+You are the Coach. Your job is to iteratively improve the agent, test changes locally, submit to the tournament, and learn from results.
+
+**Read `cvc/agent/README.md` first.** It has the full guide to how the agent works, how to test locally, submit, check scores, and debug. Do not duplicate that knowledge here — refer to it.
 
 ## Directory Layout
-
-All coaching state lives under `.coach/`:
 
 ```
 .coach/
@@ -13,139 +13,74 @@ All coaching state lives under `.coach/`:
   sessions/
     <timestamp>/
       plan.md         # what this session is trying and why
-      log.md          # running log of actions, results, observations
+      log.md          # running log: actions, results, observations, wait status
       diff.patch      # the code diff attempted (if any)
-      results.json    # tournament/local results collected
+      results.json    # local + tournament results collected
 ```
 
 ## Session Protocol
 
-### Step 1: Load State & Check for Incomplete Sessions
+### Step 1: Load State & Finalize Incomplete Sessions
 
-1. Read `.coach/state.json` for persistent state.
-2. Read `.coach/todos.md` for the current improvement backlog.
-3. Scan `.coach/sessions/` for the most recent session folder.
-4. If the last session's `log.md` indicates it was **waiting for tournament results** or **incomplete**:
-   - Check tournament API for those results now (see "Checking Scores" below).
+1. Read `.coach/state.json` and `.coach/todos.md`.
+2. Scan `.coach/sessions/` for the most recent session folder.
+3. If the last session's `log.md` says **WAITING** (submitted but no results yet):
+   - Check tournament scores now (see README for how).
    - Write findings into THIS session's log.
-   - Finalize the old session: update its `results.json`, mark it done in `log.md`.
-   - If the old session's changes improved scores, keep them. If not, consider reverting.
+   - If the old session's changes improved scores, keep them. If scores dropped, consider reverting.
+   - Update the old session's `results.json` and mark it finalized.
 
-### Step 2: Create a New Session
+### Step 2: Create New Session
 
-1. Create a new session folder: `.coach/sessions/YYYYMMDD-HHMMSS/`
-2. Write an initial `plan.md` describing:
-   - Current best score and rank
-   - What improvement you're attempting and why
-   - Which files you plan to modify
-3. Start `log.md` with a timestamp and the plan summary.
+1. Create `.coach/sessions/YYYYMMDD-HHMMSS/`
+2. Write `plan.md`: current best score/rank, what you're trying, which files, and why.
+3. Start `log.md` with a timestamp and plan summary.
 
-### Step 3: Analyze & Identify Improvements
+### Step 3: Analyze & Choose One Improvement
 
-Read the current policy code to understand what can be improved:
+1. Check current tournament scores (leaderboard + recent matches).
+2. Read `.coach/todos.md` for previously identified ideas.
+3. Read the relevant policy code (see README for file map).
+4. Pick ONE focused improvement. Don't stack multiple changes.
 
-**Key files to read:**
-- `cogames/cvc/cvc_policy.py` — Top-level policy with LLM brain
-- `cogames/cvc/policy/anthropic_pilot.py` — CogletAgentPolicy with macro directives
-- `cogames/cvc/policy/semantic_cog.py` — Base semantic policy (~1300 lines, the core logic)
-- `cogames/cvc/policy/helpers/targeting.py` — Target scoring for aligners/scramblers
-- `cogames/cvc/policy/helpers/resources.py` — Resource/inventory/phase logic
-- `cogames/cvc/policy/helpers/geometry.py` — Movement and navigation
-- `cogames/cvc/policy/helpers/types.py` — Constants and tuning parameters
+### Step 4: Test Locally
 
-**Analysis approach:**
-- Check the current tournament leaderboard scores (see below)
-- Look at match results for recent coglet submissions
-- Identify the weakest aspect: economy, combat, alignment strategy, resource management
-- Check `.coach/todos.md` for previously identified improvement ideas
-- Focus on ONE focused improvement per session (not a big rewrite)
-
-**Common improvement areas:**
-- Tuning constants (HP thresholds, heart batch targets, hub penalties, claim penalties)
-- Role allocation strategy (aligner/scrambler/miner ratios over game phases)
-- Target selection scoring (aligner_target_score, scramble_target_score weights)
-- Resource management (when to mine, when to deposit, emergency thresholds)
-- Retreat logic (when to retreat, safety margins)
-- Heart batching (how many hearts to collect before acting)
-- LLM brain prompts and directive handling
-
-### Step 4: Make the Improvement
-
-1. Make a focused, small change. Don't rewrite large sections.
-2. Log what you changed and why in the session `log.md`.
-3. Save the diff: `git diff > .coach/sessions/<session>/diff.patch`
-4. Commit the change with a descriptive message.
-
-### Step 5: Submit to Tournament
-
-Upload the improved policy to the tournament:
+**Before any tournament submission, validate locally:**
 
 ```bash
-cd /home/user/coglet/cogames && cogames upload \
+cd /home/user/coglet/cogames
+/home/user/.venv-cogames/bin/cogames scrimmage \
+  -m machina_1 \
   -p class=cvc.cvc_policy.CogletPolicy \
-  -n coglet-v0 \
-  -f cvc -f mettagrid_sdk -f setup_policy.py \
-  --setup-script setup_policy.py \
-  --season beta-cvc
+  -c 8 -e 1 --seed 42 \
+  --action-timeout-ms 30000
 ```
 
-**IMPORTANT**: The `cogames` CLI may not be installed. If not, the upload must be done via the tournament API directly. Check if `cogames` is available first. If not available, skip submission and note it in the log — the user can submit manually, or a future session can retry.
+- Check the "Average Per-Agent Reward" in the output.
+- Compare against baseline (previous local score before your change).
+- If score dropped significantly, reconsider the change before submitting.
+- Log the local test result in `log.md`.
 
-### Step 6: Log & Update State
+For more confidence, run multiple episodes (`-e 3`) or different seeds.
 
-1. Update `log.md` with:
-   - What was submitted (version number if available)
-   - "WAITING: submitted version N, checking results next session"
-2. Update `.coach/state.json` with `last_session` timestamp.
-3. Update `.coach/todos.md`:
-   - Mark completed items as done
-   - Add new ideas discovered during analysis
-   - Prioritize next improvements
+### Step 5: Commit & Submit
 
-## Checking Scores (Tournament API)
+1. Save diff: `git diff > .coach/sessions/<session>/diff.patch`
+2. Commit with a descriptive message. Push to the feature branch.
+3. Submit to tournament (see README for the `ship` command).
+4. Log the submission in `log.md` with: "WAITING: submitted, checking results next session"
 
-Since `cogames` CLI may not be installed, use the API directly:
+### Step 6: Update State
 
-```bash
-# Get leaderboard
-curl -s -H "Authorization: Bearer $COGAMES_TOKEN" \
-  "https://api.observatory.softmax-research.net/tournament/seasons/beta-cvc/leaderboard" \
-  | python3 -c "
-import sys, json
-data = json.load(sys.stdin)
-coglet = [e for e in data if 'coglet' in e.get('policy',{}).get('name','').lower()]
-for e in coglet:
-    p = e['policy']
-    print(f\"Rank #{e['rank']}/{len(data)}: {p['name']} v{p['version']} — Score: {e['score']:.3f} +/- {e['score_stddev']:.3f} ({e['matches']} matches)\")
-print(f'Top score: {data[0][\"score\"]:.3f} ({data[0][\"policy\"][\"name\"]} v{data[0][\"policy\"][\"version\"]})')
-"
+1. Update `.coach/state.json` (last_session, local score, etc.)
+2. Update `.coach/todos.md` (mark done items, add new ideas, reprioritize)
+3. Ensure `log.md` has a clear final status: DONE, WAITING, or FAILED
 
-# Get recent match results for our policy
-curl -s -H "Authorization: Bearer $COGAMES_TOKEN" \
-  "https://api.observatory.softmax-research.net/tournament/seasons/beta-cvc/matches?limit=20" \
-  | python3 -c "
-import sys, json
-data = json.load(sys.stdin)
-if isinstance(data, list):
-    for m in data[:10]:
-        print(json.dumps(m, indent=2, default=str)[:200])
-"
-```
+## Principles
 
-## Key Principles
-
-1. **One change at a time.** Make one focused improvement, submit, wait for results. Don't stack multiple changes.
-2. **Log everything.** Every session should leave a clear trail of what was tried and what happened.
-3. **Don't break what works.** If the current policy scores 2.3, a change that might score 0 is not worth the risk. Be conservative.
-4. **Learn from the leaderboard.** The top policies score ~6.4. Understand what they might be doing differently.
-5. **Prioritize high-impact changes.** Constants tuning is low-risk. Role allocation changes are medium. Algorithm rewrites are high-risk.
-6. **Git discipline.** Always commit before submitting. Use descriptive commit messages. Push to the feature branch.
-
-## Session Finalization
-
-At the end of each session, ensure:
-- `log.md` has a clear final status (DONE, WAITING, or FAILED with reason)
-- `results.json` has any scores collected
-- `.coach/state.json` is updated
-- `.coach/todos.md` reflects current priorities
-- All changes are committed and pushed to `claude/get-coglet-score-xxlME`
+1. **Test locally first.** Never submit untested changes to tournament.
+2. **One change at a time.** Make one focused improvement per session.
+3. **Don't break what works.** Conservative > ambitious. A regression is worse than no change.
+4. **Log everything.** Clear trail of what was tried, local results, tournament results.
+5. **Learn from results.** Read match logs. Understand why scores changed.
+6. **Git discipline.** Commit before submitting. Push to the feature branch.
