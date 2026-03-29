@@ -1,0 +1,19 @@
+{
+  "local_baseline": {
+    "episodes": [2.17, 2.74, 0.60],
+    "average": 1.84,
+    "seed": 42,
+    "episodes_count": 3
+  },
+  "local_improved": {
+    "episodes": [1.76, 13.89, 1.35],
+    "average": 5.67,
+    "seed": 42,
+    "episodes_count": 3
+  },
+  "tournament": {
+    "version": "coglet-v0:v11",
+    "pool": "qualifying",
+    "status": "WAITING"
+  }
+}

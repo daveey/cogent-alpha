@@ -1,0 +1,17 @@
+diff --git a/cogames/cvc/agent/coglet_policy.py b/cogames/cvc/agent/coglet_policy.py
+index 1b4f747..bc78a69 100644
+--- a/cogames/cvc/agent/coglet_policy.py
++++ b/cogames/cvc/agent/coglet_policy.py
+@@ -60,9 +60,10 @@ class CogletAgentPolicy(CvcEngine):
+             return 2, 0
+         if step < 10:
+             return 2, 0
+-        if step < 300:
++        if step < 100:
+             return 5, 0
+-        return 4, 1
++        # 2 scramblers to neutralize enemy junctions threatening our network
++        return 3, 2
+ 
+     def _should_retreat(self, state: MettagridState, role: str, safe_target: KnownEntity | None) -> bool:
+         if super()._should_retreat(state, role, safe_target):
