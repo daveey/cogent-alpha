@@ -43,7 +43,7 @@ class AlwaysAccept(ConstraintCoglet):
 
 
 class FakeLearner(LearnerCoglet):
-    async def learn(self, signals):
+    async def learn(self, experience, evaluation, signals):
         return {"diff": "improve things"}
 
 
@@ -64,7 +64,7 @@ class RetryLearner(LearnerCoglet):
         super().__init__(**kwargs)
         self._calls = 0
 
-    async def learn(self, signals):
+    async def learn(self, experience, evaluation, signals):
         self._calls += 1
         return {"diff": f"attempt {self._calls}"}
 

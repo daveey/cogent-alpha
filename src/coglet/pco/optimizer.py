@@ -81,12 +81,16 @@ class ProximalCogletOptimizer(Coglet, LifeLet):
         accepted = False
         reason = None
         update = None
-        learner_signals = signals
+        learner_context = {
+            "experience": experience,
+            "evaluation": evaluation,
+            "signals": signals,
+        }
 
         for _attempt in range(self._max_retries):
-            # 4. Learner: dispatch signals, collect update
+            # 4. Learner: dispatch full context, collect update
             update_sub = self._learner._bus.subscribe("update")
-            await self._learner._dispatch_listen("signals", learner_signals)
+            await self._learner._dispatch_listen("context", learner_context)
             update = await asyncio.wait_for(update_sub.get(), timeout=timeout)
 
             # 5. Constraints: dispatch patch to each, collect verdicts
@@ -114,8 +118,12 @@ class ProximalCogletOptimizer(Coglet, LifeLet):
             ]
             reason = "; ".join(reasons)
 
-            # Feed rejection back as additional signal for next attempt
-            learner_signals = signals + [{"rejection": reason}]
+            # Feed rejection back as additional context for next attempt
+            learner_context = {
+                "experience": experience,
+                "evaluation": evaluation,
+                "signals": signals + [{"rejection": reason}],
+            }
 
         # 7. If accepted, apply update to actor and critic
         if accepted:

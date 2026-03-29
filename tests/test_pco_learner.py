@@ -5,7 +5,7 @@ from coglet.pco.learner import LearnerCoglet
 
 
 class EchoLearner(LearnerCoglet):
-    async def learn(self, signals):
+    async def learn(self, experience, evaluation, signals):
         return {"diff": f"fix based on {len(signals)} signals"}
 
 
@@ -24,10 +24,14 @@ async def test_learner_produces_patch():
     task = asyncio.create_task(collect())
     await asyncio.sleep(0.01)
 
-    await coglet._dispatch_listen("signals", [
-        {"name": "policy", "magnitude": 0.5},
-        {"name": "complexity", "magnitude": 0.3},
-    ])
+    await coglet._dispatch_listen("context", {
+        "experience": {"data": "some rollout"},
+        "evaluation": {"score": 5},
+        "signals": [
+            {"name": "policy", "magnitude": 0.5},
+            {"name": "complexity", "magnitude": 0.3},
+        ],
+    })
 
     await asyncio.wait_for(task, timeout=1.0)
     assert "2 signals" in patches[0]["diff"]

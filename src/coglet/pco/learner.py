@@ -1,7 +1,7 @@
-"""LearnerCoglet — receives aggregated loss signals and produces updates.
+"""LearnerCoglet — observes experience and produces actor/critic updates.
 
-Listens on "signals" channel, calls the abstract learn() method,
-and transmits the result on "update".
+Receives the full epoch context (experience, evaluation, loss signals)
+and produces an update for the actor and critic.
 """
 
 from __future__ import annotations
@@ -14,13 +14,22 @@ from coglet.coglet import Coglet, listen
 class LearnerCoglet(Coglet):
     """Abstract base for learner coglets.
 
-    Subclasses must implement learn(signals) -> update dict.
+    Subclasses must implement learn(experience, evaluation, signals) -> update dict.
     """
 
-    @listen("signals")
-    async def _on_signals(self, signals: Any) -> None:
-        result = await self.learn(signals)
+    @listen("context")
+    async def _on_context(self, context: Any) -> None:
+        result = await self.learn(
+            experience=context["experience"],
+            evaluation=context["evaluation"],
+            signals=context["signals"],
+        )
         await self.transmit("update", result)
 
-    async def learn(self, signals: Any) -> Any:
+    async def learn(
+        self,
+        experience: Any,
+        evaluation: Any,
+        signals: list[Any],
+    ) -> Any:
         raise NotImplementedError("Subclasses must implement learn()")

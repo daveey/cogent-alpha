@@ -72,8 +72,9 @@ class ErrorCountLoss(LossCoglet):
 # ── Learner ────────────────────────────────────────────────
 
 class IncrementalLearner(LearnerCoglet):
-    """Learns one pattern per epoch from error examples.
+    """Learns one pattern per epoch from experience.
 
+    Looks at the evaluation errors directly. Fixes one case per epoch:
     Epoch 1: sees odd errors, learns the odd rule (multiply by 2).
     Epoch 2: sees even errors, learns the even rule (subtract 1).
     """
@@ -83,11 +84,8 @@ class IncrementalLearner(LearnerCoglet):
         self._odd_rule: float | None = None
         self._even_rule: float | None = None
 
-    async def learn(self, signals):
-        errors = []
-        for s in signals:
-            if isinstance(s, dict) and "errors" in s:
-                errors.extend(s["errors"])
+    async def learn(self, experience, evaluation, signals):
+        errors = evaluation.get("errors", [])
 
         odd_errors = [e for e in errors if e["input"] % 2 == 1]
         even_errors = [e for e in errors if e["input"] % 2 == 0]
