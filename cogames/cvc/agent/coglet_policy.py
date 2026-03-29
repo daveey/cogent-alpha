@@ -60,9 +60,10 @@ class CogletAgentPolicy(CvcEngine):
             return 2, 0
         if step < 10:
             return 2, 0
-        if step < 300:
+        if step < 100:
             return 5, 0
-        return 4, 1
+        # 2 scramblers to neutralize enemy junctions threatening our network
+        return 3, 2
 
     def _should_retreat(self, state: MettagridState, role: str, safe_target: KnownEntity | None) -> bool:
         if super()._should_retreat(state, role, safe_target):
