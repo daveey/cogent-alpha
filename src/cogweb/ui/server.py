@@ -1,7 +1,7 @@
 """CogWeb UI server — Starlette + WebSocket bridge to CogWebRegistry.
 
-Serves the graph editor frontend and provides:
-  GET  /           — single-page app (Canvas-based graph editor)
+Serves the React Flow graph editor (Vite build output) and provides:
+  GET  /           — single-page app (React Flow graph editor)
   GET  /api/graph  — JSON snapshot of the current graph
   WS   /ws         — live graph updates + control commands from browser
 """
@@ -10,6 +10,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import mimetypes
 from pathlib import Path
 from typing import Any
 
@@ -18,7 +19,9 @@ from coglet.weblet import CogWebRegistry
 
 logger = logging.getLogger("cogweb.ui")
 
+# Vite builds into static/dist/; fall back to static/ for legacy index.html
 _STATIC_DIR = Path(__file__).parent / "static"
+_DIST_DIR = _STATIC_DIR / "dist"
 
 
 class CogWebUI:
@@ -60,9 +63,15 @@ class CogWebUI:
         registry = self.registry
         ws_clients = self._ws_clients
 
+        def _resolve_index() -> Path:
+            """Find the SPA index.html — prefer Vite dist, fall back to legacy."""
+            dist_index = _DIST_DIR / "index.html"
+            if dist_index.exists():
+                return dist_index
+            return _STATIC_DIR / "index.html"
+
         async def index(request: Any) -> HTMLResponse:
-            html_path = _STATIC_DIR / "index.html"
-            return HTMLResponse(html_path.read_text())
+            return HTMLResponse(_resolve_index().read_text())
 
         async def api_graph(request: Any) -> JSONResponse:
             snap = registry.snapshot()
@@ -89,21 +98,44 @@ class CogWebUI:
                 if websocket in ws_clients:
                     ws_clients.remove(websocket)
 
-        async def static_file(request: Any) -> HTMLResponse:
+        async def _serve_file(file_path: Path) -> Any:
+            """Serve a static file with correct MIME type."""
+            from starlette.responses import Response
+            mime, _ = mimetypes.guess_type(file_path.name)
+            if mime is None:
+                mime = "application/octet-stream"
+            return Response(file_path.read_bytes(), media_type=mime)
+
+        async def assets(request: Any) -> Any:
+            """Serve Vite build assets (JS/CSS chunks in dist/assets/)."""
             filename = request.path_params.get("path", "")
-            file_path = _STATIC_DIR / filename
+            file_path = _DIST_DIR / "assets" / filename
             if file_path.exists() and file_path.is_file():
-                content_type = "text/css" if filename.endswith(".css") else "application/javascript"
-                from starlette.responses import Response
-                return Response(file_path.read_text(), media_type=content_type)
+                return await _serve_file(file_path)
             return HTMLResponse("Not found", status_code=404)
+
+        async def static_file(request: Any) -> Any:
+            """Serve files from static/ or dist/ directories."""
+            filename = request.path_params.get("path", "")
+            # Try dist/ first, then static/
+            for base in (_DIST_DIR, _STATIC_DIR):
+                file_path = base / filename
+                if file_path.exists() and file_path.is_file():
+                    return await _serve_file(file_path)
+            return HTMLResponse("Not found", status_code=404)
+
+        async def spa_fallback(request: Any) -> HTMLResponse:
+            """SPA fallback — serve index.html for unmatched routes."""
+            return HTMLResponse(_resolve_index().read_text())
 
         app = Starlette(
             routes=[
                 Route("/", index),
                 Route("/api/graph", api_graph),
+                Route("/assets/{path:path}", assets),
                 Route("/static/{path:path}", static_file),
                 WebSocketRoute("/ws", ws_endpoint),
+                Route("/{path:path}", spa_fallback),
             ],
         )
         return app

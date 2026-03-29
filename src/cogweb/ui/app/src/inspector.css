@@ -1,0 +1,131 @@
+/* ── Inspector Panel ─────────────────────────────────────────── */
+.inspector {
+  width: 300px;
+  background: #161b22;
+  border-left: 1px solid #30363d;
+  overflow-y: auto;
+  flex-shrink: 0;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+}
+
+.inspector-header {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #30363d;
+}
+
+.inspector-empty {
+  padding: 24px 16px;
+  color: #484f58;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Sections */
+.insp-section {
+  padding: 10px 16px;
+  border-bottom: 1px solid #21262d;
+}
+.insp-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+/* Fields */
+.insp-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 2px 0;
+}
+.insp-label { color: #8b949e; flex-shrink: 0; }
+.insp-value { color: #c9d1d9; text-align: right; word-break: break-all; }
+.insp-value.mono { font-size: 10px; }
+.insp-value.small { font-size: 10px; color: #8b949e; }
+
+/* Status badge */
+.status-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.status-badge.running { background: #0d3320; color: #3fb950; }
+.status-badge.error   { background: #3d1f1f; color: #f85149; }
+.status-badge.stopped { background: #21262d; color: #8b949e; }
+
+/* Tags */
+.tag-list { display: flex; flex-wrap: wrap; gap: 4px; }
+.insp-tag {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.insp-tag.mixin  { background: #1f3a5f; color: #58a6ff; }
+.insp-tag.listen { background: #1a3a5f; color: #58a6ff; }
+.insp-tag.enact  { background: #3d1f1f; color: #f85149; }
+
+/* Guide form */
+.guide-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.guide-input {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-family: inherit;
+  outline: none;
+}
+.guide-input:focus {
+  border-color: #58a6ff;
+}
+.guide-btn {
+  background: #238636;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.guide-btn:hover { background: #2ea043; }
+.guide-btn:disabled { opacity: 0.4; cursor: default; }
+
+/* Quick command buttons */
+.quick-cmds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+.quick-cmd {
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.quick-cmd:hover { background: #30363d; border-color: #484f58; }

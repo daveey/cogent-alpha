@@ -1,0 +1,110 @@
+/* ── CogWeb App layout ──────────────────────────────────────── */
+.cogweb-app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.cogweb-header {
+  height: 42px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+.cogweb-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #58a6ff;
+  letter-spacing: 0.5px;
+}
+.conn-status {
+  font-size: 11px;
+  color: #f85149;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.conn-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #f85149;
+}
+.conn-status.on { color: #3fb950; }
+.conn-status.on::before { background: #3fb950; box-shadow: 0 0 4px #3fb950; }
+
+.hdr-btn {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.hdr-btn:hover { background: #30363d; }
+
+/* ── Main ───────────────────────────────────────────────────── */
+.cogweb-main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.cogweb-canvas {
+  flex: 1;
+  position: relative;
+}
+
+/* ── Stats bar ──────────────────────────────────────────────── */
+.stats-bar {
+  display: flex;
+  gap: 16px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 4px 14px;
+  font-size: 11px;
+  color: #8b949e;
+}
+
+/* ── React Flow overrides for dark theme ────────────────────── */
+.react-flow {
+  background: #0d1117 !important;
+}
+.react-flow__edge-text {
+  fill: #8b949e !important;
+  font-size: 9px !important;
+}
+.react-flow__controls button {
+  background: #21262d !important;
+  border: none !important;
+  border-bottom: 1px solid #30363d !important;
+  color: #c9d1d9 !important;
+  fill: #c9d1d9 !important;
+}
+.react-flow__controls button:hover {
+  background: #30363d !important;
+}
+.react-flow__controls button svg {
+  fill: #c9d1d9 !important;
+}
+.react-flow__minimap {
+  border-radius: 8px !important;
+}
+.react-flow__selection {
+  background: rgba(88,166,255,0.08) !important;
+  border: 1px solid rgba(88,166,255,0.3) !important;
+}
