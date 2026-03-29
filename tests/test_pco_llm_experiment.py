@@ -11,6 +11,8 @@ import textwrap
 from pathlib import Path
 from typing import Any
 
+import anthropic
+
 import pytest
 
 from coglet import Coglet, CogletConfig, CogletRuntime, enact, listen
@@ -203,6 +205,245 @@ def run_solution(puzzle: dict, code: str) -> dict:
         "passed_tests": passed_tests,
         "error": first_error,
     }
+
+
+# ── LLM helpers ──────────────────────────────────────
+
+_HAS_API_KEY = bool(os.environ.get("ANTHROPIC_API_KEY"))
+
+
+def llm_call(prompt: str, *, system: str = "", max_tokens: int = 4096) -> str:
+    """Single Claude Sonnet call."""
+    client = anthropic.Anthropic()
+    kwargs: dict[str, Any] = dict(
+        model="claude-sonnet-4-20250514",
+        max_tokens=max_tokens,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    if system:
+        kwargs["system"] = system
+    response = client.messages.create(**kwargs)
+    return response.content[0].text
+
+
+def extract_json(text: str) -> Any:
+    """Extract JSON from LLM response, handling markdown code blocks."""
+    text = text.strip()
+    if text.startswith("```"):
+        lines = text.split("\n")
+        lines = [l for l in lines if not l.strip().startswith("```")]
+        text = "\n".join(lines)
+    return json.loads(text)
+
+
+# ── Coglets ──────────────────────────────────────────
+
+
+class CodeGenActor(Coglet):
+    """Actor that holds Python solutions to puzzles."""
+
+    def __init__(self, *, puzzles: list[dict], **kwargs):
+        super().__init__(**kwargs)
+        self.puzzles = puzzles
+        self.solutions: dict[str, str] = {}
+        self._initialized = False
+
+    @enact("run")
+    async def run_rollout(self, data):
+        if not self._initialized:
+            self._initialize_solutions()
+            self._initialized = True
+
+        results = []
+        for puzzle in self.puzzles:
+            code = self.solutions.get(puzzle["name"], "")
+            result = run_solution(puzzle, code)
+            result["code"] = code
+            results.append(result)
+
+        await self.transmit("experience", {"results": results})
+
+    def _initialize_solutions(self):
+        puzzle_specs = []
+        for p in self.puzzles:
+            puzzle_specs.append(f"### {p['name']}\n{p['description']}\n```python\n{p['signature']}\n```")
+
+        prompt = (
+            "Write a Python solution for each puzzle below. "
+            "Return a JSON object mapping puzzle name to the complete Python function code (as a string). "
+            "Each value must be a complete, standalone Python function. "
+            "Return ONLY the JSON object, no other text.\n\n"
+            + "\n\n".join(puzzle_specs)
+        )
+
+        response = llm_call(prompt, system="You are an expert Python programmer.")
+        self.solutions = extract_json(response)
+
+    @enact("update")
+    async def apply_update(self, patch):
+        new_solutions = patch.get("solutions", {})
+        self.solutions.update(new_solutions)
+
+
+class CodeReviewCritic(Coglet):
+    """Critic that predicts pass/fail for each solution."""
+
+    def __init__(self, *, puzzles: list[dict], **kwargs):
+        super().__init__(**kwargs)
+        self.puzzles = puzzles
+        self.strategy = "Look for common bugs: off-by-one errors, missing edge cases, wrong return types."
+
+    @listen("experience")
+    async def evaluate(self, experience):
+        results = experience["results"]
+        solution_texts = []
+        for r in results:
+            p = next((p for p in self.puzzles if p["name"] == r["name"]), None)
+            desc = p["description"] if p else ""
+            solution_texts.append(
+                f"### {r['name']}\nDescription: {desc}\n```python\n{r['code']}\n```"
+            )
+
+        prompt = (
+            f"Your evaluation strategy: {self.strategy}\n\n"
+            "For each solution below, predict whether it will PASS or FAIL all test cases. "
+            "Return a JSON object mapping puzzle name to 'pass' or 'fail'. "
+            "Return ONLY the JSON object.\n\n"
+            + "\n\n".join(solution_texts)
+        )
+
+        response = llm_call(prompt, system="You are a code reviewer predicting test outcomes.")
+        try:
+            predictions = extract_json(response)
+        except (json.JSONDecodeError, ValueError):
+            predictions = {}
+
+        evaluation = []
+        for r in results:
+            predicted = predictions.get(r["name"], "fail").lower().strip()
+            actual = "pass" if r["passed"] else "fail"
+            evaluation.append({
+                "name": r["name"],
+                "predicted": predicted,
+                "actual": actual,
+                "correct": predicted == actual,
+                "code": r["code"],
+                "error": r.get("error"),
+            })
+
+        await self.transmit("evaluation", {"predictions": evaluation})
+
+    @enact("update")
+    async def apply_update(self, patch):
+        new_strategy = patch.get("critic_strategy")
+        if new_strategy:
+            self.strategy = new_strategy
+
+
+# ── Losses ───────────────────────────────────────────
+
+
+class ActorLoss(LossCoglet):
+    async def compute_loss(self, experience, evaluation):
+        results = experience["results"]
+        failed = [r for r in results if not r["passed"]]
+        return {
+            "name": "actor_loss",
+            "magnitude": len(failed),
+            "total": len(results),
+            "failed_puzzles": [{"name": r["name"], "error": r.get("error"), "code": r["code"]} for r in failed],
+        }
+
+
+class CriticLoss(LossCoglet):
+    async def compute_loss(self, experience, evaluation):
+        preds = evaluation["predictions"]
+        wrong = [p for p in preds if not p["correct"]]
+        return {
+            "name": "critic_loss",
+            "magnitude": len(wrong),
+            "total": len(preds),
+            "wrong_predictions": wrong,
+        }
+
+
+# ── Constraint ───────────────────────────────────────
+
+
+class MaxRewritesConstraint(ConstraintCoglet):
+    async def check(self, patch):
+        n = len(patch.get("solutions", {}))
+        if n > 5:
+            return {"accepted": False, "reason": f"too many rewrites: {n} (max 5)"}
+        return {"accepted": True}
+
+
+# ── Learner ──────────────────────────────────────────
+
+
+class CodeGenLearner(LearnerCoglet):
+    """Learner that rewrites failing solutions and updates critic strategy."""
+
+    async def learn(self, experience, evaluation, signals):
+        actor_signal = next((s for s in signals if s.get("name") == "actor_loss"), None)
+        critic_signal = next((s for s in signals if s.get("name") == "critic_loss"), None)
+
+        new_solutions = {}
+        new_critic_strategy = None
+
+        # Fix failing solutions (max 5)
+        if actor_signal and actor_signal.get("failed_puzzles"):
+            failed = actor_signal["failed_puzzles"][:5]
+            puzzle_map = {p["name"]: p for p in PUZZLES}
+
+            fix_parts = []
+            for f in failed:
+                puzzle = puzzle_map.get(f["name"], {})
+                fix_parts.append(
+                    f"### {f['name']}\n"
+                    f"Description: {puzzle.get('description', 'N/A')}\n"
+                    f"Signature: {puzzle.get('signature', 'N/A')}\n"
+                    f"Current code:\n```python\n{f['code']}\n```\n"
+                    f"Error: {f['error']}"
+                )
+
+            prompt = (
+                "Fix these failing Python solutions. For each, return the corrected complete function. "
+                "Return a JSON object mapping puzzle name to the fixed Python code string. "
+                "Return ONLY the JSON object.\n\n"
+                + "\n\n".join(fix_parts)
+            )
+
+            response = llm_call(prompt, system="You are an expert Python programmer fixing bugs.")
+            try:
+                new_solutions = extract_json(response)
+            except (json.JSONDecodeError, ValueError):
+                pass
+
+        # Update critic strategy
+        if critic_signal and critic_signal.get("wrong_predictions"):
+            wrong = critic_signal["wrong_predictions"]
+            wrong_parts = []
+            for w in wrong:
+                wrong_parts.append(
+                    f"- {w['name']}: predicted {w['predicted']}, actually {w['actual']}"
+                    + (f" (error: {w['error']})" if w.get("error") else "")
+                )
+
+            prompt = (
+                "You are a code review critic. Your predictions were wrong for these puzzles:\n"
+                + "\n".join(wrong_parts)
+                + "\n\nWrite an improved evaluation strategy (1-3 sentences) that would help you "
+                "predict more accurately next time. Focus on specific patterns you missed."
+                "\n\nReturn ONLY the strategy text, no JSON or markdown."
+            )
+
+            new_critic_strategy = llm_call(prompt, max_tokens=200)
+
+        return {
+            "solutions": new_solutions,
+            "critic_strategy": new_critic_strategy,
+        }
 
 
 # ── Sanity tests (no API key needed) ──────────────────
