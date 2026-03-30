@@ -225,8 +225,12 @@ class CvcEngine(
         if self._stalled_steps >= 12:
             return self._unstick_action(state, role)
 
+        # Emergency mining: only aligners/scramblers without gear AND hearts
+        # help mine. Keeping geared agents on-task is more valuable than
+        # marginal resource gains from pulling them off.
         if role != "miner" and _h.needs_emergency_mining(state):
-            return self._miner_action(state, summary_prefix="emergency_")
+            if not _h.has_role_gear(state, role) and int(state.self_state.inventory.get("heart", 0)) <= 0:
+                return self._miner_action(state, summary_prefix="emergency_")
 
         if role == "aligner" and not _h.has_role_gear(state, role):
             if (state.step or self._step_index) < _ALIGNER_GEAR_DELAY_STEPS:
