@@ -61,37 +61,24 @@ def aligner_target_score(
         if any(manhattan(candidate.position, enemy.position) <= _JUNCTION_AOE_RANGE for enemy in enemy_junctions)
         else 0.0
     )
-    # Prefer junctions near friendly network: less travel, safer, faster cycling.
-    # Use minimum distance to any friendly source (hub or captured junction)
-    # so chain-building is rewarded — a junction near a captured junction gets
-    # a low penalty even if far from hub.
+    # Strongly prefer hub-proximal junctions: less travel, safer, faster cycling
     hub_penalty = 0.0
     if hub_position is not None:
         hub_dist = float(manhattan(hub_position, candidate.position))
-        network_dist = hub_dist
-        if friendly_sources:
-            for source in friendly_sources:
-                source_dist = float(manhattan(source.position, candidate.position))
-                if source_dist < network_dist:
-                    network_dist = source_dist
-        if network_dist > 25:
-            hub_penalty = (network_dist - 25) * 8.0 + 50.0
-        elif network_dist > 15:
-            hub_penalty = (network_dist - 15) * 3.0 + 10.0
-        elif network_dist > 10:
-            hub_penalty = (network_dist - 10) * 1.5 + 2.0
+        if hub_dist > 25:
+            hub_penalty = (hub_dist - 25) * 8.0 + 50.0
+        elif hub_dist > 15:
+            hub_penalty = (hub_dist - 15) * 3.0 + 10.0
+        elif hub_dist > 10:
+            hub_penalty = (hub_dist - 10) * 1.5 + 2.0
         else:
-            hub_penalty = network_dist * 0.3
-    hotspot_penalty = min(hotspot_count, 5) * 8.0
-    teammate_penalty = 10.0 if teammate_closer else 0.0
+            hub_penalty = hub_dist * 0.3
     return (
         distance
         - min(expansion * 5.0, 30.0)
         + enemy_aoe * 8.0
         + (_CLAIMED_TARGET_PENALTY if claimed_by_other else 0.0)
-        + hub_penalty
-        + hotspot_penalty
-        + teammate_penalty,
+        + hub_penalty,
         -float(expansion),
     )
 
