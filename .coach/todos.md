@@ -1,8 +1,9 @@
 # Coach TODO
 
 ## Current Priorities
-- [ ] Monitor beta:v56 freeplay and beta:v57 tournament results
-- [ ] If heart margin change helps in freeplay, try further retreat tuning
+- [ ] Monitor beta:v60 freeplay and beta:v61 tournament results (no teammate penalty)
+- [ ] If teammate penalty removal helps freeplay, also try increasing expansion bonus weight
+- [ ] Update IMPROVE.md constants: JUNCTION_ALIGN_DISTANCE=15 (not 3), JUNCTION_AOE_RANGE=10 (not 4)
 - [ ] Investigate programs.py dead code (_should_retreat extra logic never invoked)
 
 ## Improvement Ideas
@@ -60,3 +61,4 @@
 - [x] Session 36: teammate-aware aligner targeting (+30% avg self-play), submitted v26/v27
 - [x] Session 37 (ID): Fix double role-adjustment + wider enemy retreat + junction memory 400→600 (+11% self-play, v30/v31)
 - [x] Session 39 (ID): Reduced heart retreat margin (hearts*5→hearts*3), tested hotspot changes (reverted). Submitted v56/v57
+- [x] Session 40 (ID): Removed teammate penalty from aligner scoring (10.0→0). Self-play neutral (-3.6%). Submitted v60/v61
