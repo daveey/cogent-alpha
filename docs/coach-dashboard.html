@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coach Dashboard — beta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --font-body: 'Outfit', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --bg: #1e1e2e; --surface: #313244; --surface2: #45475a;
+    --border: rgba(205,214,244,0.08); --border-bright: rgba(205,214,244,0.15);
+    --text: #cdd6f4; --text-dim: #a6adc8; --subtext: #6c7086;
+    --green: #a6e3a1; --green-dim: rgba(166,227,161,0.12);
+    --red: #f38ba8; --red-dim: rgba(243,139,168,0.12);
+    --yellow: #f9e2af; --yellow-dim: rgba(249,226,175,0.12);
+    --blue: #89b4fa; --blue-dim: rgba(137,180,250,0.12);
+    --mauve: #cba6f7; --mauve-dim: rgba(203,166,247,0.12);
+    --teal: #94e2d5; --teal-dim: rgba(148,226,213,0.12);
+    --peach: #fab387; --peach-dim: rgba(250,179,135,0.12);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #eff1f5; --surface: #ffffff; --surface2: #e6e9ef;
+      --border: rgba(76,79,105,0.08); --border-bright: rgba(76,79,105,0.15);
+      --text: #4c4f69; --text-dim: #6c6f85; --subtext: #9ca0b0;
+      --green: #40a02b; --green-dim: rgba(64,160,43,0.08);
+      --red: #d20f39; --red-dim: rgba(210,15,57,0.08);
+      --yellow: #df8e1d; --yellow-dim: rgba(223,142,29,0.08);
+      --blue: #1e66f5; --blue-dim: rgba(30,102,245,0.08);
+      --mauve: #8839ef; --mauve-dim: rgba(136,57,239,0.08);
+      --teal: #179299; --teal-dim: rgba(23,146,153,0.08);
+      --peach: #fe640b; --peach-dim: rgba(254,100,11,0.08);
+    }
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    background-image: radial-gradient(ellipse at 20% 0%, var(--blue-dim) 0%, transparent 50%),
+                      radial-gradient(ellipse at 80% 100%, var(--mauve-dim) 0%, transparent 40%);
+    color: var(--text); font-family: var(--font-body); padding: 32px 20px; min-height: 100vh;
+  }
+  .page { max-width: 1100px; margin: 0 auto; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeScale { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+  @keyframes countUp { from { opacity:0; } to { opacity:1; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  .animate { animation: fadeUp 0.4s ease-out both; animation-delay: calc(var(--i,0) * 0.06s); }
+
+  h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .subtitle { font-family: var(--font-mono); font-size: 12px; color: var(--text-dim); margin-bottom: 28px; }
+
+  /* KPI row */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 12px; margin-bottom: 28px; }
+  .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; animation: fadeScale 0.4s ease-out both; }
+  .kpi-label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--subtext); margin-bottom: 6px; }
+  .kpi-value { font-size: 28px; font-weight: 700; }
+  .kpi-sub { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+  /* Card */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+  .card h2 { font-size: 18px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card h2 .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* Chart */
+  .chart-wrap { height: 260px; position: relative; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--subtext); padding: 8px 10px; border-bottom: 1px solid var(--border-bright); }
+  td { padding: 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:hover { background: var(--border); }
+  .badge { font-family: var(--font-mono); font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
+  .badge-green { background: var(--green-dim); color: var(--green); }
+  .badge-red { background: var(--red-dim); color: var(--red); }
+  .badge-yellow { background: var(--yellow-dim); color: var(--yellow); }
+  .badge-blue { background: var(--blue-dim); color: var(--blue); }
+  .mono { font-family: var(--font-mono); font-size: 12px; }
+
+  /* Lists */
+  .belief-list, .todo-list, .dead-list { list-style: none; }
+  .belief-list li, .todo-list li, .dead-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; line-height: 1.5; }
+  .belief-list li:last-child, .todo-list li:last-child, .dead-list li:last-child { border-bottom: none; }
+  .dead-list li { color: var(--subtext); text-decoration: line-through; }
+  .todo-list .priority { color: var(--peach); font-weight: 600; }
+
+  /* Two-col layout */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+  details summary { cursor: pointer; font-weight: 500; color: var(--text-dim); font-size: 13px; }
+  details summary:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1 class="animate" style="--i:0">Coach Dashboard</h1>
+<p class="subtitle animate" style="--i:1">beta &middot; beta-teams-tiny-fixed &middot; 35 sessions</p>
+
+<div class="kpis">
+  <div class="kpi animate" style="--i:2">
+    <div class="kpi-label">Tournament Rank</div>
+    <div class="kpi-value" style="color:var(--green)">#1</div>
+    <div class="kpi-sub">of 21 entrants</div>
+  </div>
+  <div class="kpi animate" style="--i:3">
+    <div class="kpi-label">Best Score</div>
+    <div class="kpi-value" style="color:var(--blue)">10.63</div>
+    <div class="kpi-sub">beta:v7, team-round-2</div>
+  </div>
+  <div class="kpi animate" style="--i:4">
+    <div class="kpi-label">Sessions</div>
+    <div class="kpi-value">35</div>
+    <div class="kpi-sub">22 with code changes</div>
+  </div>
+  <div class="kpi animate" style="--i:5">
+    <div class="kpi-label">Gap to #2</div>
+    <div class="kpi-value" style="color:var(--teal)">+0.09</div>
+    <div class="kpi-sub">alpha.0:v891 = 10.54</div>
+  </div>
+  <div class="kpi animate" style="--i:6">
+    <div class="kpi-label">PCO Epochs</div>
+    <div class="kpi-value">4</div>
+    <div class="kpi-sub">1 accepted improvement</div>
+  </div>
+  <div class="kpi animate" style="--i:7">
+    <div class="kpi-label">Status</div>
+    <div class="kpi-value" style="color:var(--green); font-size:20px">Complete</div>
+    <div class="kpi-sub">Tournament finished</div>
+  </div>
+</div>
+
+<div class="card animate" style="--i:8">
+  <h2><span class="dot" style="background:var(--blue)"></span> Score Progression</h2>
+  <div class="chart-wrap"><canvas id="scoreChart"></canvas></div>
+</div>
+
+<div class="card animate" style="--i:9">
+  <h2><span class="dot" style="background:var(--mauve)"></span> Experiment Log</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <thead><tr><th>Session</th><th>Change</th><th>Result</th><th>Score</th><th>Signals</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">S1-4</td><td>Baseline + LLM resource herding removal</td><td><span class="badge badge-green">+0.41</span></td><td>1.72</td><td>—</td></tr>
+      <tr><td class="mono">S5</td><td>Retreat/budget/heart tuning</td><td><span class="badge badge-yellow">neutral</span></td><td>1.72</td><td>—</td></tr>
+      <tr><td class="mono">S6</td><td>Fixed 4-agent role allocation</td><td><span class="badge badge-green">+0.95</span></td><td>0.95</td><td>—</td></tr>
+      <tr><td class="mono">S8</td><td>Shared junction memory + wider exploration</td><td><span class="badge badge-green">+0.70</span></td><td>1.65</td><td>—</td></tr>
+      <tr><td class="mono">S9</td><td>Fixed role misassignment bug</td><td><span class="badge badge-green">+4.53</span></td><td>6.18</td><td>—</td></tr>
+      <tr><td class="mono">S10</td><td>Chain-aware junction scoring</td><td><span class="badge badge-green">+2.56</span></td><td>8.74</td><td>—</td></tr>
+      <tr><td class="mono">S13</td><td>CRITICAL: agent_id normalization (%8)</td><td><span class="badge badge-green">+9.64</span></td><td>18.38</td><td>—</td></tr>
+      <tr><td class="mono">S15</td><td>Revert chain-aware scoring (tournament regression)</td><td><span class="badge badge-red">revert</span></td><td>—</td><td>—</td></tr>
+      <tr><td class="mono">S20</td><td>Alpha.0-aligned pressure budgets</td><td><span class="badge badge-yellow">testing</span></td><td>—</td><td>—</td></tr>
+      <tr><td class="mono">S21</td><td>Renamed CvCPolicyCoglet → CvCPolicy</td><td><span class="badge badge-blue">refactor</span></td><td>—</td><td>—</td></tr>
+      <tr><td class="mono">S22</td><td>First PCO epoch — learner prompt too vague</td><td><span class="badge badge-yellow">neutral</span></td><td>—</td><td>R:100 J:0 S:2</td></tr>
+      <tr><td class="mono">S23</td><td>Fix critic (team_resources + junctions)</td><td><span class="badge badge-green">+0.31</span></td><td>3.97→4.88</td><td>R:0 J:0 S:0</td></tr>
+      <tr><td class="mono">S24</td><td>Miner→aligner switch (PCO proposed)</td><td><span class="badge badge-red">reverted</span></td><td>collapsed</td><td>R:0 J:1272 S:0</td></tr>
+      <tr><td class="mono">S26</td><td>Remove hub penalty (match alpha.0)</td><td><span class="badge badge-red">reverted</span></td><td>3.60→1.70</td><td>—</td></tr>
+      <tr><td class="mono">S27</td><td>Earlier 2nd scrambler (step 1000)</td><td><span class="badge badge-red">reverted</span></td><td>3.60→1.74</td><td>—</td></tr>
+      <tr><td class="mono">S29</td><td>Learner API docs in prompt</td><td><span class="badge badge-green">infra</span></td><td>—</td><td>R:0 J:0 S:160</td></tr>
+      <tr><td class="mono">S33</td><td>Tournament: beta:v8 = 6.13 (#5)</td><td><span class="badge badge-green">+1.25</span></td><td>6.13</td><td>—</td></tr>
+      <tr><td class="mono">S35</td><td>Tournament: beta:v7 = 10.63 (#1!)</td><td><span class="badge badge-green">+4.50</span></td><td>10.63</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="card animate" style="--i:10">
+    <h2><span class="dot" style="background:var(--teal)"></span> Beliefs &amp; Learnings</h2>
+    <ul class="belief-list">
+      <li><strong>Bug fixes &gt; parameter tuning.</strong> The biggest wins came from fixing bugs (role misassignment, agent_id normalization, critic field mismatch) — not from tweaking thresholds.</li>
+      <li><strong>Hub penalty helps.</strong> Despite alpha.0 not having it, removing hub penalty caused 2x regression. Agents without it wander to distant junctions and waste time.</li>
+      <li><strong>Local scores don't predict tournament.</strong> v19 scored 18.38 local but only 2.76 in tournament. Cooperative team scoring amplifies strong play differently than self-play.</li>
+      <li><strong>Seed variance is extreme.</strong> Scores range 0.00–12.29 across seeds. Single-seed optimization is noise. Need 5+ seeds minimum.</li>
+      <li><strong>Agents capture junctions early but lose them.</strong> At step 1000: 8 friendly junctions. By step 3000: 0-2. Defense, not offense, is the bottleneck.</li>
+      <li><strong>PCO produces correct signals after critic fix.</strong> Junction loss magnitude (925-1522) correctly identifies the main weakness. Resource and survival are fine.</li>
+      <li><strong>PCO patches need API docs.</strong> Without GameState API reference, the learner invents non-existent methods. With docs, patches are clean and valid.</li>
+      <li><strong>No shared state between agents.</strong> Agents are independent, may run in separate processes. Junction memory is per-agent only.</li>
+    </ul>
+  </div>
+
+  <div>
+    <div class="card animate" style="--i:11">
+      <h2><span class="dot" style="background:var(--peach)"></span> TODOs</h2>
+      <ul class="todo-list">
+        <li class="priority">Test removing scramblers for cooperative scoring (1v1 mode)</li>
+        <li>Map topology analysis — understand wall patterns</li>
+        <li>Dynamic role switching based on game state</li>
+        <li>Better junction discovery behind walls</li>
+        <li>Run PCO on low-scoring seeds to fix worst cases</li>
+      </ul>
+    </div>
+
+    <div class="card animate" style="--i:12">
+      <h2><span class="dot" style="background:var(--red)"></span> Dead Ends</h2>
+      <details open>
+        <summary>13 dead ends — don't retry</summary>
+        <ul class="dead-list">
+          <li>Retreat threshold tuning — trades deaths for score regression</li>
+          <li>Heart batch target changes — 3 for aligners is sweet spot</li>
+          <li>Outer explore ring (manhattan 35) — agents die</li>
+          <li>Remove alignment network filter — required by mechanics</li>
+          <li>Expand alignment range +5 — targets unreachable junctions</li>
+          <li>Remove scramblers (self-play only) — scramblers help</li>
+          <li>Resource-aware pressure budgets — too aggressive</li>
+          <li>Wider A* margin (12→20) — slower, wastes ticks</li>
+          <li>Emergency mining threshold 50 or 10 — hurts good seeds</li>
+          <li>Remove hub penalty — 2x regression (agents scatter)</li>
+          <li>Earlier 2nd scrambler — takes aligner slot</li>
+          <li>Miner→aligner role switch in step — economy collapse</li>
+          <li>More aggressive retreat (HP&lt;80) — agents retreat too much</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</div>
+
+<div class="card animate" style="--i:13">
+  <h2><span class="dot" style="background:var(--green)"></span> PCO Signal History</h2>
+  <table>
+    <thead><tr><th>Session</th><th>Seed</th><th>Resource</th><th>Junction</th><th>Survival</th><th>Patch</th><th>Applied</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">S22</td><td>42</td><td><span class="badge badge-red">100</span></td><td>0</td><td>2</td><td>step, should_retreat</td><td><span class="badge badge-red">no (truncated)</span></td></tr>
+      <tr><td class="mono">S23</td><td>43</td><td>0</td><td>0</td><td>0</td><td>should_retreat</td><td><span class="badge badge-green">yes</span></td></tr>
+      <tr><td class="mono">S24</td><td>42</td><td>0</td><td><span class="badge badge-red">1272</span></td><td>0</td><td>step (miner→aligner)</td><td><span class="badge badge-red">reverted</span></td></tr>
+      <tr><td class="mono">S25</td><td>44</td><td>0</td><td><span class="badge badge-red">925</span></td><td>0</td><td>align (invalid API)</td><td><span class="badge badge-red">no</span></td></tr>
+      <tr><td class="mono">S29</td><td>44</td><td>0</td><td>0</td><td><span class="badge badge-red">160</span></td><td>should_retreat (HP&lt;80)</td><td><span class="badge badge-red">reverted</span></td></tr>
+      <tr><td class="mono">S34</td><td>45</td><td>0</td><td><span class="badge badge-red">1522</span></td><td>2</td><td>should_retreat (junction-aware)</td><td><span class="badge badge-yellow">skipped</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="text-align:center; color:var(--subtext); font-size:12px; margin-top:24px; font-family:var(--font-mono);">
+  Generated from .coach/ state &middot; beta:v7 #1 &middot; 10.63 score
+</p>
+
+</div>
+
+<script>
+const ctx = document.getElementById('scoreChart').getContext('2d');
+const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['S1','S2','S4','S6','S8','S9','S10','S11','S13','S15','S20','S22','S23','S33','S35'],
+    datasets: [{
+      label: 'Local Best Score',
+      data: [1.31, 1.72, 1.76, 0.95, 1.65, 6.18, 8.74, 8.74, 18.38, null, null, null, null, null, null],
+      borderColor: isDark ? '#89b4fa' : '#1e66f5',
+      backgroundColor: isDark ? 'rgba(137,180,250,0.1)' : 'rgba(30,102,245,0.1)',
+      tension: 0.3, fill: true, pointRadius: 4,
+    },{
+      label: 'Tournament Score',
+      data: [null, null, null, null, null, null, null, null, null, null, null, null, 3.97, 6.13, 10.63],
+      borderColor: isDark ? '#a6e3a1' : '#40a02b',
+      backgroundColor: isDark ? 'rgba(166,227,161,0.1)' : 'rgba(64,160,43,0.1)',
+      tension: 0.3, fill: true, pointRadius: 5, pointStyle: 'triangle',
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: isDark ? '#cdd6f4' : '#4c4f69', font: { family: "'Outfit'" } } }
+    },
+    scales: {
+      x: { ticks: { color: isDark ? '#6c7086' : '#9ca0b0', font: { family: "'JetBrains Mono'", size: 10 } }, grid: { color: isDark ? 'rgba(205,214,244,0.04)' : 'rgba(76,79,105,0.06)' } },
+      y: { ticks: { color: isDark ? '#6c7086' : '#9ca0b0', font: { family: "'JetBrains Mono'", size: 10 } }, grid: { color: isDark ? 'rgba(205,214,244,0.04)' : 'rgba(76,79,105,0.06)' }, beginAtZero: true }
+    }
+  }
+});
+</script>
+</body>
+</html>
