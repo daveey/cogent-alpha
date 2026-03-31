@@ -1,16 +1,17 @@
 {
-  "last_session": "20260331-003000",
+  "last_session": "20260331-100000",
   "best_score": 10.63,
-  "total_sessions": 35,
+  "total_sessions": 36,
   "policy_name": "beta",
   "season": "beta-teams-tiny-fixed",
   "tournament_best": 10.63,
   "tournament_rank": 1,
   "tournament_top": 10.63,
-  "latest_submission": "beta:v8",
-  "key_fix": "beta:v7 is #1 in tournament with 10.63, ahead of alpha.0 (10.54)",
+  "latest_submission": "beta:v27",
+  "freeplay_submission": "beta:v26",
+  "key_fix": "teammate-aware aligner targeting — avoid duplicate junction targets",
   "approach_stats": {
     "pco": {"attempts": 4, "improvements": 1, "last_used": "20260329-000000"},
-    "design": {"attempts": 10, "improvements": 6, "last_used": "20260331-000000"}
+    "design": {"attempts": 11, "improvements": 7, "last_used": "20260331-100000"}
   }
 }

@@ -1,17 +1,19 @@
 # Coach TODO
 
 ## Current Priorities
-- [ ] Wait for v19 tournament results (agent_id fix should be transformative)
+- [ ] Wait for v26/v27 freeplay+tournament results (teammate-aware targeting)
 - [ ] Test with 1v1 mode (`cogames run -c 16`) going forward, not just scrimmage
 - [ ] Investigate removing scramblers for cooperative scoring (both teams' scramblers reduce total junctions)
 
 ## Improvement Ideas
-- [ ] Remove scramblers entirely for cooperative scoring (test in 1v1 mode)
+- [ ] Read teammate vibes for more nuanced coordination (beyond position-based)
+- [ ] Wider enemy AOE with graduated bonus (not binary +10) — alpha.0 uses radius 20
 - [ ] Map topology analysis — understand wall patterns to improve exploration
 - [ ] Dynamic role switching — let agents switch roles based on game state
 - [ ] LLM brain integration — use analyze prompt for real-time strategic adaptation
 - [ ] PCO evolution — run PCO epochs to evolve program table
 - [ ] Better junction discovery — agents may miss junctions behind walls
+- [ ] Graduated enemy territory detection (small bonus at range 15, full bonus at range 4)
 
 ## Dead Ends (Don't Retry)
 - [x] Retreat threshold tuning — always trades deaths for score regression
@@ -27,6 +29,8 @@
 - [x] More aligners (6) / fewer miners (2) — economy can't sustain
 - [x] Wider A* margin (12→20) — slower computation wastes ticks
 - [x] Emergency mining threshold 50 or 10 — hurts high-scoring seeds more than helps low ones
+- [x] Wider enemy AOE radius 15 for retreat — agents retreat too much, avg 1.83 vs 2.10
+- [x] Delay scramblers to step 500 — avg 0.99 vs 2.10, opponent builds unchallenged
 
 ## Testing Notes
 - **ALWAYS test 1v1 with `cogames run -c 16 -p A -p B`** not just scrimmage
@@ -47,3 +51,4 @@
 - [x] Session 11: exhaustive parameter search — no improvement found, v18 is well-tuned
 - [x] Session 12: emergency mining threshold tests — no improvement found
 - [x] Session 13: CRITICAL FIX — agent_id normalization (% 8) for tournament mode (1v1 avg 18.38, v19)
+- [x] Session 36: teammate-aware aligner targeting (+30% avg self-play), submitted v26/v27
