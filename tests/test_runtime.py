@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
 
 from coglet import (
     Coglet, CogBase, CogletHandle, CogletRuntime, CogletTrace,
@@ -200,70 +201,58 @@ async def test_tree_empty():
 
 @pytest.mark.asyncio
 async def test_trace_records_transmit():
-    with tempfile.NamedTemporaryFile(suffix=".jsonl", delete=False) as f:
-        path = f.name
-    try:
-        trace = CogletTrace(path)
-        rt = CogletRuntime(trace=trace)
-        handle = await rt.spawn(CogBase(cls=Plain))
-        cog = handle.coglet
+    mem = InMemorySpanExporter()
+    trace = CogletTrace(exporter=mem)
+    rt = CogletRuntime(trace=trace)
+    handle = await rt.spawn(CogBase(cls=Plain))
+    cog = handle.coglet
 
-        await cog.transmit("ch", "data1")
-        await cog.transmit("ch", "data2")
+    await cog.transmit("ch", "data1")
+    await cog.transmit("ch", "data2")
 
-        await rt.shutdown()
-        entries = CogletTrace.load(path)
-        transmits = [e for e in entries if e["op"] == "transmit"]
-        assert len(transmits) == 2
-        assert transmits[0]["target"] == "ch"
-        assert transmits[1]["data"] == "data2"
-    finally:
-        Path(path).unlink(missing_ok=True)
+    await rt.shutdown()
+    spans = mem.get_finished_spans()
+    transmits = [s for s in spans if s.attributes.get("coglet.op") == "transmit"]
+    assert len(transmits) == 2
+    assert transmits[0].attributes["coglet.target"] == "ch"
+    assert '"data2"' in transmits[1].attributes["coglet.data"]
 
 
 @pytest.mark.asyncio
 async def test_trace_records_enact():
-    with tempfile.NamedTemporaryFile(suffix=".jsonl", delete=False) as f:
-        path = f.name
-    try:
-        trace = CogletTrace(path)
-        rt = CogletRuntime(trace=trace)
+    mem = InMemorySpanExporter()
+    trace = CogletTrace(exporter=mem)
+    rt = CogletRuntime(trace=trace)
 
-        class Enactable(Coglet):
-            @enact("ping")
-            async def on_ping(self, data): pass
+    class Enactable(Coglet):
+        @enact("ping")
+        async def on_ping(self, data): pass
 
-        handle = await rt.spawn(CogBase(cls=Enactable))
-        await handle.guide(Command("ping", "pong"))
+    handle = await rt.spawn(CogBase(cls=Enactable))
+    await handle.guide(Command("ping", "pong"))
 
-        await rt.shutdown()
-        entries = CogletTrace.load(path)
-        enacts = [e for e in entries if e["op"] == "enact"]
-        assert len(enacts) >= 1
-        assert enacts[0]["target"] == "ping"
-    finally:
-        Path(path).unlink(missing_ok=True)
+    await rt.shutdown()
+    spans = mem.get_finished_spans()
+    enacts = [s for s in spans if s.attributes.get("coglet.op") == "enact"]
+    assert len(enacts) >= 1
+    assert enacts[0].attributes["coglet.target"] == "ping"
 
 
 @pytest.mark.asyncio
 async def test_trace_timestamps_increase():
-    with tempfile.NamedTemporaryFile(suffix=".jsonl", delete=False) as f:
-        path = f.name
-    try:
-        trace = CogletTrace(path)
-        rt = CogletRuntime(trace=trace)
-        handle = await rt.spawn(CogBase(cls=Plain))
+    mem = InMemorySpanExporter()
+    trace = CogletTrace(exporter=mem)
+    rt = CogletRuntime(trace=trace)
+    handle = await rt.spawn(CogBase(cls=Plain))
 
-        await handle.coglet.transmit("a", 1)
-        await asyncio.sleep(0.01)
-        await handle.coglet.transmit("a", 2)
+    await handle.coglet.transmit("a", 1)
+    await asyncio.sleep(0.01)
+    await handle.coglet.transmit("a", 2)
 
-        await rt.shutdown()
-        entries = CogletTrace.load(path)
-        assert len(entries) >= 2
-        assert entries[-1]["t"] >= entries[0]["t"]
-    finally:
-        Path(path).unlink(missing_ok=True)
+    await rt.shutdown()
+    spans = mem.get_finished_spans()
+    assert len(spans) >= 2
+    assert spans[-1].start_time >= spans[0].start_time
 
 
 # ---- Restart / supervision ----

@@ -40,23 +40,47 @@ class CogletRuntime:
         return coglet
 
     def _install_trace(self, coglet: Coglet) -> None:
-        """Wrap transmit and _dispatch_enact to record trace events."""
-        trace = self._trace
+        """Wrap transmit and _dispatch_enact to record OpenTelemetry spans."""
+        tracer = self._trace.tracer
         coglet_name = type(coglet).__name__
 
         original_transmit = coglet.transmit
 
         async def traced_transmit(channel: str, data: Any) -> None:
-            trace.record(coglet_name, "transmit", channel, data)
-            await original_transmit(channel, data)
+            import json as _json
+            with tracer.start_as_current_span(
+                f"coglet.transmit",
+                attributes={
+                    "coglet.type": coglet_name,
+                    "coglet.op": "transmit",
+                    "coglet.target": channel,
+                },
+            ) as span:
+                try:
+                    span.set_attribute("coglet.data", _json.dumps(data, default=str))
+                except (TypeError, ValueError):
+                    span.set_attribute("coglet.data", repr(data))
+                await original_transmit(channel, data)
 
         coglet.transmit = traced_transmit  # type: ignore[assignment]
 
         original_dispatch = coglet._dispatch_enact
 
         async def traced_dispatch(command: Any) -> None:
-            trace.record(coglet_name, "enact", command.type, command.data)
-            await original_dispatch(command)
+            import json as _json
+            with tracer.start_as_current_span(
+                f"coglet.enact",
+                attributes={
+                    "coglet.type": coglet_name,
+                    "coglet.op": "enact",
+                    "coglet.target": command.type,
+                },
+            ) as span:
+                try:
+                    span.set_attribute("coglet.data", _json.dumps(command.data, default=str))
+                except (TypeError, ValueError):
+                    span.set_attribute("coglet.data", repr(command.data))
+                await original_dispatch(command)
 
         coglet._dispatch_enact = traced_dispatch  # type: ignore[assignment]
 

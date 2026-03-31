@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
 
 from coglet import (
     Coglet, CogBase, CogletHandle, CogletRuntime, CogletTrace,
@@ -188,30 +189,25 @@ async def test_tree_empty():
 
 @pytest.mark.asyncio
 async def test_trace():
-    """CogletTrace records transmit and enact events to jsonl."""
-    with tempfile.NamedTemporaryFile(suffix=".jsonl", delete=False) as f:
-        trace_path = f.name
+    """CogletTrace records transmit and enact events as OpenTelemetry spans."""
+    mem = InMemorySpanExporter()
+    trace = CogletTrace(exporter=mem)
+    rt = CogletRuntime(trace=trace)
+    handle = await rt.spawn(CogBase(cls=Collector))
+    cog: Collector = handle.coglet
 
-    try:
-        trace = CogletTrace(trace_path)
-        rt = CogletRuntime(trace=trace)
-        handle = await rt.spawn(CogBase(cls=Collector))
-        cog: Collector = handle.coglet
+    await cog.transmit("out", {"msg": "hello"})
+    await cog._dispatch_enact(Command("unknown", "test"))
 
-        await cog.transmit("out", {"msg": "hello"})
-        await cog._dispatch_enact(Command("unknown", "test"))
+    await rt.shutdown()
 
-        await rt.shutdown()
-
-        entries = CogletTrace.load(trace_path)
-        assert len(entries) >= 1
-        transmit_entries = [e for e in entries if e["op"] == "transmit"]
-        assert len(transmit_entries) >= 1
-        assert transmit_entries[0]["target"] == "out"
-        assert transmit_entries[0]["coglet"] == "Collector"
-        assert "t" in transmit_entries[0]
-    finally:
-        Path(trace_path).unlink(missing_ok=True)
+    spans = mem.get_finished_spans()
+    assert len(spans) >= 1
+    transmit_spans = [s for s in spans if s.attributes.get("coglet.op") == "transmit"]
+    assert len(transmit_spans) >= 1
+    assert transmit_spans[0].attributes["coglet.target"] == "out"
+    assert transmit_spans[0].attributes["coglet.type"] == "Collector"
+    assert transmit_spans[0].start_time is not None
 
 
 @pytest.mark.asyncio

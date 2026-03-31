@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
 
 from coglet import (
     Coglet, CogBase, CogletHandle, CogletRuntime, CogletTrace,
@@ -292,29 +293,25 @@ async def test_three_level_hierarchy():
 
 @pytest.mark.asyncio
 async def test_three_level_with_trace():
-    with tempfile.NamedTemporaryFile(suffix=".jsonl", delete=False) as f:
-        path = f.name
-    try:
-        trace = CogletTrace(path)
-        rt = CogletRuntime(trace=trace)
-        top_handle = await rt.spawn(CogBase(cls=TopLevel))
-        top: TopLevel = top_handle.coglet
-        mid: MidLevel = top.mid_handle.coglet
+    mem = InMemorySpanExporter()
+    trace = CogletTrace(exporter=mem)
+    rt = CogletRuntime(trace=trace)
+    top_handle = await rt.spawn(CogBase(cls=TopLevel))
+    top: TopLevel = top_handle.coglet
+    mid: MidLevel = top.mid_handle.coglet
 
-        sub = mid.leaf_handle.coglet._bus.subscribe("pong")
-        await mid.guide(mid.leaf_handle, Command("ping", "traced"))
-        await asyncio.wait_for(sub.get(), timeout=1.0)
+    sub = mid.leaf_handle.coglet._bus.subscribe("pong")
+    await mid.guide(mid.leaf_handle, Command("ping", "traced"))
+    await asyncio.wait_for(sub.get(), timeout=1.0)
 
-        await rt.shutdown()
+    await rt.shutdown()
 
-        entries = CogletTrace.load(path)
-        coglet_types = {e["coglet"] for e in entries}
-        assert "LeafWorker" in coglet_types
-        ops = {e["op"] for e in entries}
-        assert "transmit" in ops
-        assert "enact" in ops
-    finally:
-        Path(path).unlink(missing_ok=True)
+    spans = mem.get_finished_spans()
+    coglet_types = {s.attributes.get("coglet.type") for s in spans}
+    assert "LeafWorker" in coglet_types
+    ops = {s.attributes.get("coglet.op") for s in spans}
+    assert "transmit" in ops
+    assert "enact" in ops
 
 
 # ---- Integration: restart with supervision ----
