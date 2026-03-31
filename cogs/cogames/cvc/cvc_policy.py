@@ -210,6 +210,9 @@ class CvCPolicy(MultiAgentPolicy):
         self._game_id = kwargs.get("game_id", f"game_{int(time.time())}")
         self._init_llm()
 
+        import atexit
+        atexit.register(self._write_learnings)
+
     def _init_llm(self) -> None:
         if LLMExecutor is None:
             return

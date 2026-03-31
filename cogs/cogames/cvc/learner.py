@@ -50,7 +50,7 @@ class CvCLearner(LearnerCoglet):
         try:
             response = self.client.messages.create(
                 model=self.model,
-                max_tokens=2048,
+                max_tokens=4096,
                 messages=[{"role": "user", "content": prompt}],
             )
             text = response.content[0].text
@@ -116,11 +116,22 @@ class CvCLearner(LearnerCoglet):
 
         lines.append(
             "\n## Instructions"
-            "\nPropose improvements to one or more programs above."
-            "\nRespond with ONLY a JSON object mapping program names to patches:"
-            '\n{"program_name": {"type": "code"|"prompt", "source": "..."}}'
-            "\n\nFor code patches: provide a complete Python function definition."
-            "\nFor prompt patches: provide the new system prompt string."
+            "\n\nYou are optimizing a CvC (Cogs vs Clips) tournament agent. The agent has 8 independent agents"
+            "\non a team, competing to capture and hold junctions on an 88x88 grid for 10,000 steps."
+            "\n\nIMPORTANT RULES:"
+            "\n- Make ONE small, targeted change. Do NOT rewrite entire functions from scratch."
+            "\n- The `step` program delegates to `gs.choose_action(gs.role)` which is a proven decision tree."
+            "\n  Only modify `step` if you're adding a SPECIFIC check before delegation, not replacing it."
+            "\n- All programs receive a GameState `gs` object. Use `gs.*` methods — do not call other"
+            "\n  program functions directly (e.g., use `gs.should_retreat()` not `_should_retreat(gs)`)."
+            "\n- Focus on the HIGHEST loss signal. If resource magnitude is high, improve mining/economy."
+            "\n  If junction magnitude is high, improve alignment targeting. If survival is high, improve retreat."
+            "\n- Prefer tuning constants (thresholds, weights, distances) over rewriting logic."
+            "\n- The `_h` module (from `cvc.agent import helpers as _h`) has helper functions available."
+            "\n\nRespond with ONLY a JSON object mapping program names to patches:"
+            '\n{"program_name": {"type": "code", "source": "def _func_name(gs): ..."}}'
+            "\n\nFor code patches: provide the COMPLETE function definition. Import `Any` from typing if needed."
+            "\nFor prompt patches: provide the new system prompt string with type \"prompt\"."
         )
         return "\n".join(lines)
 
