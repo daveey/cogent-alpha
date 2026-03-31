@@ -195,6 +195,17 @@ class PressureMixin:
                 return True
         return False
 
+    def _near_enemy_territory(self, state: MettagridState, position: tuple[int, int], *, team_id: str) -> bool:
+        """Wider enemy detection (radius 20) for retreat decisions, matching alpha.0."""
+        enemies = self._known_junctions(  # type: ignore[attr-defined]
+            state,
+            predicate=lambda entity: entity.owner not in {None, "neutral", team_id},
+        )
+        for enemy in enemies:
+            if _h.manhattan(position, enemy.position) <= 20:
+                return True
+        return False
+
     def _should_retreat(self, state: MettagridState, role: str, safe_target: KnownEntity | None) -> bool:
         hp = int(state.self_state.inventory.get("hp", 0))
         if safe_target is None:
