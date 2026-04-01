@@ -1,7 +1,8 @@
 # Coach TODO
 
 ## Current Priorities
-- [ ] Monitor v76/v77 results (hotspot + network + mem800 + hub discount)
+- [ ] Monitor tournament play-ins (v67-v85 all entered, v67-v73 scoring 8.84)
+- [ ] Monitor v84 freeplay (all 6 improvements combined)
 - [ ] Update IMPROVE.md constants: JUNCTION_ALIGN_DISTANCE=15 (not 3), JUNCTION_AOE_RANGE=10 (not 4)
 - [ ] Investigate programs.py dead code (_should_retreat extra logic never invoked)
 
@@ -51,6 +52,7 @@
 - Need 7+ seeds minimum for any signal in self-play
 
 ## Done
+- [x] (ID) Scramble blocked_neutrals weight 4.0→6.0 — self-play neutral, submitted v84/v85
 - [x] (ID) Extractor memory 600→800 — self-play +4.1%, cumulative +37.9% vs baseline, submitted v80/v81
 - [x] (ID) Hub-proximal hotspot discount — self-play +9.6%, cumulative +32.5% vs baseline, submitted v76/v77
 - [x] (ID) Junction memory 400→800 steps — self-play +8.2%, submitted v72/v73

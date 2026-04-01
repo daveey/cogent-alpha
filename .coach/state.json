@@ -1,24 +1,24 @@
 {
-  "last_session": "20260401-024500",
-  "best_score": 10.00,
-  "total_sessions": 51,
+  "last_session": "20260401-031500",
+  "best_score": 8.84,
+  "total_sessions": 52,
   "policy_name": "beta",
   "season": "beta-teams-tiny-fixed",
-  "tournament_best": 10.00,
+  "tournament_best": 8.84,
   "tournament_rank": 1,
-  "tournament_top": 10.00,
+  "tournament_top": 8.84,
   "freeplay_best": 1.81,
   "freeplay_season": "beta-cvc",
-  "latest_submission": "beta:v81",
-  "freeplay_submission": "beta:v80",
-  "key_fix": "No improvement this session. v80/v81 remains best (cumulative +37.9%).",
+  "latest_submission": "beta:v85",
+  "freeplay_submission": "beta:v84",
+  "key_fix": "Scramble weight 4.0→6.0 (neutral). Tournament play-ins: v67-v73 scoring 8.84 (best).",
   "approach_stats": {
     "pco": {"attempts": 4, "improvements": 1, "last_used": "20260329-000000"},
-    "design": {"attempts": 23, "improvements": 14, "last_used": "20260401-024500"}
+    "design": {"attempts": 24, "improvements": 15, "last_used": "20260401-031500"}
   },
   "freeplay_experiments": {
-    "v76_hub_hotspot_discount": {"score": "pending", "result": "pending"},
     "v80_extractor_mem_800": {"score": "pending", "result": "pending"},
+    "v84_scramble_weight_6": {"score": "pending", "result": "pending"},
     "best_v15": {"score": 1.81, "result": "baseline_best"}
   }
 }
