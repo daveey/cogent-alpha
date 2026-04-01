@@ -1,10 +1,9 @@
 # Coach TODO
 
 ## Current Priorities
-- [ ] Monitor v102 freeplay (retreat 18 + reachable-blocked)
-- [ ] Monitor v103 freeplay (retreat 20 + reachable-blocked — matches alpha.0)
-- [ ] Monitor v100 freeplay (v84 params + reachable-blocked)
-- [ ] Based on results: pick best retreat margin for codebase
+- [ ] Monitor v105 freeplay (shared junctions — HIGHEST PRIORITY)
+- [ ] Monitor v102/v103 freeplay (retreat margin A/B test)
+- [ ] If v105 works: try combining with retreat margin 18-20
 - [ ] Update IMPROVE.md constants: JUNCTION_ALIGN_DISTANCE=15 (not 3), JUNCTION_AOE_RANGE=10 (not 4)
 
 ## Improvement Ideas
@@ -57,6 +56,7 @@
 - Need 7+ seeds minimum for any signal in self-play
 
 ## Done
+- [x] (ID) Re-enabled shared junction memory + claims — self-play +214%, v105/v106
 - [x] (ID) A/B testing RETREAT_MARGIN 18 vs 20 — v102/v103/v104
 - [x] (ID) Reverted ALL post-v84 regressions + reachable-blocked targeting — v100/v101
 - [x] (ID) Reachable-blocked scramble targeting — self-play +49.0%, freeplay pending
