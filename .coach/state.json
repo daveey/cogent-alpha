@@ -1,7 +1,7 @@
 {
-  "last_session": "20260401-040000",
+  "last_session": "20260401-044500",
   "best_score": 8.84,
-  "total_sessions": 53,
+  "total_sessions": 54,
   "policy_name": "beta",
   "season": "beta-teams-tiny-fixed",
   "tournament_best": 8.84,
@@ -9,16 +9,16 @@
   "tournament_top": 8.84,
   "freeplay_best": 1.81,
   "freeplay_season": "beta-cvc",
-  "latest_submission": "beta:v85",
-  "freeplay_submission": "beta:v84",
-  "key_fix": "No change (known_junctions fix reverted - extreme variance). Tournament stage 2 running.",
+  "latest_submission": "beta:v87",
+  "freeplay_submission": "beta:v86",
+  "key_fix": "Faster unstick (12→8 steps). Avg neutral but variance halved, min improved. No 0.00 seeds.",
   "approach_stats": {
     "pco": {"attempts": 4, "improvements": 1, "last_used": "20260329-000000"},
-    "design": {"attempts": 25, "improvements": 15, "last_used": "20260401-040000"}
+    "design": {"attempts": 26, "improvements": 16, "last_used": "20260401-044500"}
   },
   "freeplay_experiments": {
-    "v80_extractor_mem_800": {"score": "pending", "result": "pending"},
     "v84_scramble_weight_6": {"score": "pending", "result": "pending"},
+    "v86_unstick_8": {"score": "pending", "result": "pending"},
     "best_v15": {"score": 1.81, "result": "baseline_best"}
   }
 }

@@ -52,6 +52,7 @@
 - Need 7+ seeds minimum for any signal in self-play
 
 ## Done
+- [x] (ID) Faster unstick 12→8 steps — variance halved, min improved, submitted v86/v87
 - [x] (ID) Scramble blocked_neutrals weight 4.0→6.0 — self-play neutral, submitted v84/v85
 - [x] (ID) Extractor memory 600→800 — self-play +4.1%, cumulative +37.9% vs baseline, submitted v80/v81
 - [x] (ID) Hub-proximal hotspot discount — self-play +9.6%, cumulative +32.5% vs baseline, submitted v76/v77
