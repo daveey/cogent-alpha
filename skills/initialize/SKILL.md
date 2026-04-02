@@ -7,9 +7,14 @@ description: Create the cogent's identity — name, archetype, motto, philosophy
 
 RPG-style character creation. One question at a time, curated options plus custom. Fun and fast.
 
-## Flow
+## Pre-flight Check
 
-Read `.cogent/IDENTITY.md`. If already configured (no "Unknown Cogent"), ask if they want to reconfigure.
+Read `.cogent/IDENTITY.md` and check `.cogent/memory/` for existing content (session logs, learnings, summaries).
+
+- If IDENTITY.md is already configured (no "Unknown Cogent") **or** memory files exist, **warn the user**: this cogent already has an identity and/or memories. Re-initializing will overwrite the identity. Ask to confirm before proceeding.
+- If both are clean, proceed directly.
+
+## Flow
 
 ### 1. Name
 
