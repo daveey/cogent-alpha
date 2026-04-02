@@ -1,11 +1,11 @@
 # Cogent Memory
 
-The `.cogent/memory/` directory is the cogent's persistent memory across sessions. It stores what the cogent has learned from playing, improving, and competing — things that aren't captured in code or git history.
+The `cogent/memory/` directory is the cogent's persistent memory across sessions. It stores what the cogent has learned from playing, improving, and competing — things that aren't captured in code or git history.
 
 ## Structure
 
 ```
-.cogent/memory/
+cogent/memory/
 ├── sessions/          # Per-session logs
 │   └── YYYYMMDD-NNN.md
 ├── summaries/         # Periodic rollups

@@ -1,25 +1,20 @@
----
-name: dashboard
-description: Generate an HTML training dashboard from .cogent/ state showing experiments, scores, learnings, TODOs. Pulls live tournament status. Opens in browser. Use for "dashboard", "training status", "show progress".
----
-
 # Improve Dashboard
 
-Generate a self-contained HTML dashboard from `.cogent/` state.
+Generate a self-contained HTML dashboard from `cogent/` state.
 
 ## Steps
 
 1. **Read `docs/cogames.md`** for game-specific commands (leaderboard, submissions, scoring).
 
 2. **Read improve state**:
-   - `.cogent/state.json` — scores, approach stats, sessions
-   - `.cogent/todos.md` — TODOs and dead ends
+   - `cogent/state.json` — scores, approach stats, sessions
+   - `cogent/todos.md` — TODOs and dead ends
 
 3. **Pull live tournament status**:
    - Run the leaderboard/submissions commands from `docs/cogames.md`
    - Get current rank, score, matches for each season
 
-4. **Scan session logs** (`.cogent/*/plan.md`):
+4. **Scan session logs** (`cogent/*/plan.md`):
    - Extract: timestamp, approach (PCO/design), what was tried, result, score
    - Build experiment timeline
 

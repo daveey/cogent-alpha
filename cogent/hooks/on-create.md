@@ -1,22 +1,8 @@
----
-name: initialize
-description: Create the cogent's identity — name, archetype, motto, philosophy. RPG character creation style, one question at a time. Writes .cogent/IDENTITY.md.
----
+# On Create
 
-# Initialize Cogent
+End-to-end cogent onboarding. Runs on the user's local Claude Code. One question at a time, curated options plus custom. Fun and fast.
 
-RPG-style character creation. One question at a time, curated options plus custom. Fun and fast.
-
-## Pre-flight Check
-
-Check if `.cogent/IDENTITY.md` exists and if `.cogent/memory/` has existing content (session logs, learnings, summaries).
-
-- If IDENTITY.md already exists **or** memory files exist, **warn the user**: this cogent already has an identity and/or memories. Re-initializing will overwrite the identity. Ask to confirm before proceeding.
-- If neither exists, proceed directly.
-
-## Flow
-
-### 1. Name
+## Step 1 — Name
 
 Generate 6-8 random handle-style names (lowercase, hyphens ok, no spaces). Draw inspiration from AI players, Iain Banks Culture ship names, famous robots, sci-fi characters. Different names each time.
 
@@ -29,7 +15,7 @@ Generate 6-8 random handle-style names (lowercase, hyphens ok, no spaces). Draw 
   H) [Write your own]
 ```
 
-### 2. Archetype
+## Step 2 — Archetype
 
 ```
 === CHOOSE YOUR ARCHETYPE ===
@@ -46,7 +32,7 @@ How does {name} approach the battlefield?
 
 Expand chosen archetype into 2-3 sentences for the personality section.
 
-### 3. Motto
+## Step 3 — Motto
 
 Generate 4 options themed to the chosen archetype. Plus custom.
 
@@ -60,7 +46,7 @@ Generate 4 options themed to the chosen archetype. Plus custom.
   E) [Write your own]
 ```
 
-### 4. Doctrine
+## Step 4 — Doctrine
 
 ```
 === CHOOSE YOUR DOCTRINE ===
@@ -73,12 +59,60 @@ Generate 4 options themed to the chosen archetype. Plus custom.
   F) [Write your own]
 ```
 
-### 5. Confirm
+## Step 5 — Launch
 
-Show the identity card, ask "Lock it in?" If yes, write `.cogent/IDENTITY.md` and commit:
+Run:
 
 ```bash
-git add .cogent/IDENTITY.md
-git commit -m "Initialize cogent: {name}"
+cogent <name> create
+```
+
+This forks `metta-ai/cogamer` to `<user>/cogent-<name>` (private), generates deploy keys, and launches the cogent.
+
+## Step 6 — Clone & Write Identity
+
+Clone the fork locally:
+
+```bash
+gh repo clone <user>/cogent-<name>
+cd cogent-<name>
+```
+
+Write `cogent/IDENTITY.md`:
+
+```markdown
+# <name>
+
+## Archetype
+<expanded archetype description>
+
+## Motto
+> "<chosen motto>"
+
+## Doctrine
+<chosen doctrine>
+```
+
+Commit and push:
+
+```bash
+git add cogent/IDENTITY.md
+git commit -m "Initialize cogent: <name>"
 git push
 ```
+
+## Step 7 — Verify
+
+Poll until the cogent is alive:
+
+```bash
+cogent <name> status
+```
+
+Wait for a heartbeat, then send a test message:
+
+```bash
+cogent <name> send "hello"
+```
+
+Wait for a response. Report success to the user.

@@ -1,21 +1,16 @@
----
-name: improve
-description: Run one improvement iteration. Analyzes code, identifies a specific improvement, implements it, tests across seeds, and submits if improved. Use when asked to "improve", "run an improvement", or "review the code".
----
-
 # Improve
 
 Read the code, find one improvement, implement it, test, submit.
 
-Reads `docs/architecture.md` for architecture and alpha.0 reference, `docs/strategy.md` for strategies, `docs/cogames.md` for CLI commands, `.cogent/IDENTITY.md` for identity.
+Reads `docs/architecture.md` for architecture and alpha.0 reference, `docs/strategy.md` for strategies, `docs/cogames.md` for CLI commands, `cogent/IDENTITY.md` for identity.
 
 ## Step 0: Check Identity
 
-Read `.cogent/IDENTITY.md`. If it still contains "The Unknown Cogent", run `/initialize` first.
+Read `cogent/IDENTITY.md`. If it still contains "The Unknown Cogent", run the on-create flow first.
 
 ## Step 1: Initialize Session State
 
-Create `.cogent/state.json` and `.cogent/todos.md` if they don't exist yet.
+Create `cogent/state.json` and `cogent/todos.md` if they don't exist yet.
 
 ## Step 2: Eval Baseline
 
@@ -23,7 +18,7 @@ Run eval on seed 42 to establish baseline score (see `docs/cogames.md` for comma
 
 ## Step 3: Analyze
 
-Pick ONE focus area based on `docs/strategy.md`, `.cogent/todos.md`, and what hasn't been tried:
+Pick ONE focus area based on `docs/strategy.md`, `cogent/todos.md`, and what hasn't been tried:
 
 1. **Code review**: Read engine files (`agent/main.py`, `roles.py`, `targeting.py`, `pressure.py`). Look for bugs, inefficiencies, or gaps vs the alpha.0 reference in `docs/architecture.md`
 2. **Prompt review**: Read `_build_analysis_prompt()` and `_parse_analysis()` in `programs.py`. Is the LLM seeing the right info? Could it return more than just `resource_bias`? Could it detect stagnation like alpha.0 does?
@@ -46,13 +41,13 @@ Run eval across 5+ seeds. If average score drops vs baseline, **revert**.
 
 ## Step 6: Submit if Improved
 
-If scores improved, automatically submit to freeplay without asking. Read the cogent name from `.cogent/IDENTITY.md` (the `# heading`) and use it as the policy name. See `docs/cogames.md` for the upload command.
+If scores improved, automatically submit to freeplay without asking. Read the cogent name from `cogent/IDENTITY.md` (the `# heading`) and use it as the policy name. See `docs/cogames.md` for the upload command.
 
 Do NOT ask the user for confirmation — submit automatically. Log the submission version.
 
 ## Step 7: Update State
 
-Update `.cogent/state.json` and `.cogent/todos.md` with the result.
+Update `cogent/state.json` and `cogent/todos.md` with the result.
 
 ## Output
 

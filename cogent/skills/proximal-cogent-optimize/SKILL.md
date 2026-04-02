@@ -1,11 +1,6 @@
----
-name: proximal-cogent-optimize
-description: PCO improvement iteration. Plays a game, collects experience, runs CvCLearner to propose program patches, tests locally, and submits if improved. Use when asked to "run PCO" or "evolve programs".
----
-
 # PCO Improvement
 
-Run one PCO (Program Conditioned Optimization) cycle: play → collect experience → learner proposes patches → test → submit.
+Run one PCO (Program Conditioned Optimization) cycle: play -> collect experience -> learner proposes patches -> test -> submit.
 
 Reads eval/submit commands from `docs/cogames.md`.
 
