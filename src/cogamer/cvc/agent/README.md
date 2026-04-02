@@ -5,7 +5,7 @@ Per-agent heuristic decision engine for the CogsGuard (CvC) tournament. Each age
 ## Architecture
 
 ```
-CvCPolicy (MultiAgentPolicy)            # cvc/cvc_policy.py
+CvCPolicy (MultiAgentPolicy)            # cvc/cogamer_policy.py
   └── StatefulAgentPolicy[CvCAgentState]
        └── CvCPolicyImpl
             └── CvCAgentPolicy           # coglet_policy.py (heuristic overrides)
@@ -29,7 +29,6 @@ CvCPolicy (MultiAgentPolicy)            # cvc/cvc_policy.py
 | `junctions.py` | Junction memory, hub/depot lookups |
 | `world_model.py` | Per-agent entity memory (tracks known entities from observations) |
 | `coglet_policy.py` | CvCAgentPolicy: optimized heuristic overrides for CvcEngine |
-| `cogames_policy.py` | CvcBasePolicy: MultiAgentPolicy wrapper, creates one engine per agent |
 | [`helpers/`](helpers/) | Pure functions: geometry, resources, targeting, types |
 
 ## Rules

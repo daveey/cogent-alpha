@@ -101,7 +101,7 @@ def play_game(
     cmd = [
         "cogames", "play",
         "-m", mission,
-        "-p", "class=cvc.cvc_policy.CvCPolicy",
+        "-p", "class=cvc.cogamer_policy.CvCPolicy",
         "-c", str(num_cogs),
         "-r", render_mode,
         "--seed", str(seed),
@@ -144,7 +144,7 @@ def upload_policy(
     """Upload the current policy to cogames tournament."""
     cmd = [
         "cogames", "upload",
-        "-p", "class=cvc.cvc_policy.CvCPolicy",
+        "-p", "class=cvc.cogamer_policy.CvCPolicy",
         "-n", name,
         "-f", "cvc",
         "-f", "mettagrid_sdk",

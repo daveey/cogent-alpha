@@ -64,7 +64,7 @@ class GameLet(Coglet, LifeLet, TickLet):
         cmd = [
             "cogames", "play",
             "-m", m,
-            "-p", f"class=cvc.cvc_policy.CvCPolicy",
+            "-p", f"class=cvc.cogamer_policy.CvCPolicy",
             "-c", str(self._num_cogs),
             "-r", r,
             "--seed", str(seed),
@@ -91,7 +91,7 @@ class GameLet(Coglet, LifeLet, TickLet):
         s = season or self._season
         cmd = [
             "cogames", "upload",
-            "-p", f"class=cvc.cvc_policy.CvCPolicy",
+            "-p", f"class=cvc.cogamer_policy.CvCPolicy",
             "-n", n,
         ]
         if s:

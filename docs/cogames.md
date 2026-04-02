@@ -17,7 +17,7 @@ Play a game and check the "per cog" score:
 ```bash
 source .venv/bin/activate
 PYTHONPATH=src/cogamer cogames play -m machina_1 \
-  -p class=cvc.cvc_policy.CvCPolicy \
+  -p class=cvc.cogamer_policy.CvCPolicy \
   -c 8 -r none --seed 42
 ```
 
@@ -26,7 +26,7 @@ PYTHONPATH=src/cogamer cogames play -m machina_1 \
 Without LLM (matches tournament conditions):
 ```bash
 ANTHROPIC_API_KEY= PYTHONPATH=src/cogamer cogames play -m machina_1 \
-  -p class=cvc.cvc_policy.CvCPolicy \
+  -p class=cvc.cogamer_policy.CvCPolicy \
   -c 8 -r none --seed 42
 ```
 
@@ -36,7 +36,7 @@ Upload a policy to a season. Use the cogent name from `cogent/IDENTITY.md` as th
 
 ```bash
 cd src/cogamer && PYTHONPATH=. cogames upload \
-  -p class=cvc.cvc_policy.CvCPolicy \
+  -p class=cvc.cogamer_policy.CvCPolicy \
   -n <cogent-name> \
   -f cvc -f mettagrid_sdk -f setup_policy.py \
   --setup-script setup_policy.py \

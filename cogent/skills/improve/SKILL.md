@@ -24,7 +24,7 @@ Pick ONE focus area based on `docs/strategy.md`, `cogent/todos.md`, and what has
 2. **Prompt review**: Read `_build_analysis_prompt()` and `_parse_analysis()` in `programs.py`. Is the LLM seeing the right info? Could it return more than just `resource_bias`? Could it detect stagnation like alpha.0 does?
 3. **Scoring review**: Read `helpers/targeting.py`. Are `aligner_target_score` and `scramble_target_score` well-tuned? Compare weights vs alpha.0
 4. **Parameter comparison**: Compare constants in `helpers/types.py` and `pressure.py` against alpha.0 (e.g. `RETREAT_MARGIN` 15 vs 20, enemy AOE radius 4 vs 20)
-5. **Architecture improvement**: Read `cvc_policy.py`. Is the LLM feedback loop working? Could the `analyze` program influence more than mining? Could it adjust role allocation or targeting?
+5. **Architecture improvement**: Read `cogamer_policy.py`. Is the LLM feedback loop working? Could the `analyze` program influence more than mining? Could it adjust role allocation or targeting?
 
 ## Step 4: Implement
 

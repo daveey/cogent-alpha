@@ -47,7 +47,7 @@ CvCPolicy (MultiAgentPolicy)
 
 **Program table + policy** (`src/cogamer/cvc/`):
 - `programs.py` — **the 32 programs** (code functions + LLM prompt/parser). Primary evolvable surface
-- `cvc_policy.py` — CvCPolicy (MultiAgentPolicy), CvCPolicyImpl (per-agent dispatch), LLM executor, experience collection
+- `cogamer_policy.py` — CvCPolicy (MultiAgentPolicy), CvCPolicyImpl (per-agent dispatch), LLM executor, experience collection
 - `game_state.py` — GameState adapter wrapping CvcEngine for program table access
 
 **Engine** (`src/cogamer/cvc/agent/`) — infrastructure that programs delegate to:

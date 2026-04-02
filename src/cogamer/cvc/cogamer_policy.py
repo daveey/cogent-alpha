@@ -1,4 +1,4 @@
-"""CvCPolicy: program-table-driven CvC policy.
+"""CogamerPolicy: program-table-driven CvC policy.
 
 Dispatches through a flat program table operating on GameState.
 Each agent is fully independent — no shared state between agents.

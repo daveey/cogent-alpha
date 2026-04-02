@@ -108,11 +108,10 @@ Extends `CvcEngine` with:
 ### File Layout
 ```
 cvc/
-├── cvc_policy.py              # CvCPolicy + CvCPolicyImpl + CvCAgentState + LLM brain
+├── cogamer_policy.py              # CvCPolicy + CvCPolicyImpl + CvCAgentState + LLM brain
 ├── AGENTS.md                  # This file
 └── agent/
     ├── coglet_policy.py       # CvCAgentPolicy (heuristic overrides: resource bias, budgets, retreat)
-    ├── cogames_policy.py      # CvcBasePolicy (MultiAgentPolicy wrapper)
     ├── engine.py              # CvcEngine (heuristic decision tree, pathfinding, targeting)
     ├── world_model.py         # WorldModel (per-agent entity memory)
     └── helpers/
@@ -160,13 +159,13 @@ step >= 300: aligners=4, scramblers=1  (sustained play)
 
 ```bash
 # Play locally (with LLM if ANTHROPIC_API_KEY is set)
-cogames play -m machina_1 -p class=cvc.cvc_policy.CvCPolicy -c 8 --seed 42 -r none
+cogames play -m machina_1 -p class=cvc.cogamer_policy.CvCPolicy -c 8 --seed 42 -r none
 
 # Play without LLM (unset API key)
-ANTHROPIC_API_KEY= cogames play -m machina_1 -p class=cvc.cvc_policy.CvCPolicy -c 8 --seed 42 -r none
+ANTHROPIC_API_KEY= cogames play -m machina_1 -p class=cvc.cogamer_policy.CvCPolicy -c 8 --seed 42 -r none
 
 # Upload to tournament
-cogames upload -p class=cvc.cvc_policy.CvCPolicy -n coglet-v0 \
+cogames upload -p class=cvc.cogamer_policy.CvCPolicy -n coglet-v0 \
   -f cvc -f mettagrid_sdk -f setup_policy.py \
   --setup-script setup_policy.py --season beta-cvc \
   --secret-env "COGORA_ANTHROPIC_KEY=..."
