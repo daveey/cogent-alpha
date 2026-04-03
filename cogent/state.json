@@ -1,7 +1,7 @@
 {
   "approach_stats": {
     "pco": {"attempts": 0, "improvements": 0, "last_used": null},
-    "design": {"attempts": 7, "improvements": 4, "last_used": "20260403-009-reverted"}
+    "design": {"attempts": 8, "improvements": 4, "last_used": "20260403-010-reverted"}
   },
   "last_improvement": {
     "date": "20260403",
@@ -67,6 +67,14 @@
       "description": "Reduced _TARGET_CLAIM_STEPS from 30 to 20 for faster claim turnover in 4-team high-churn environment",
       "result": "MAJOR REGRESSION: 4.58 vs baseline 9.74 (-53.0%)",
       "analysis": "TOO SHORT. Reducing claim duration from 30 to 20 steps caused massive duplication. Agents re-claim same junctions multiple times before teammate arrives, wasting coordination. 30-step window (6 sec) is necessary for agents to actually reach claimed targets. Shorter claims = more churn, not better efficiency."
+    },
+    {
+      "date": "20260403",
+      "version": "010-reverted",
+      "focus": "Mid-game pressure ramp",
+      "description": "Changed pressure_budget=6 threshold from step 3000 to step 2000 to get 5 aligners + 1 scrambler earlier during critical window",
+      "result": "MAJOR REGRESSION: 5.15 vs baseline 9.74 (-47.13%)",
+      "analysis": "Ramping to 6 pressure budget 1000 steps earlier caused significant performance drop. Agents likely exhausted hearts/resources before establishing sustainable economy. Similar to failed attempt 003 (30→15 steps, -5.97%). Pattern confirms: premature pressure ramps hurt economy. Critical window 500-2000 refers to when to capitalize on existing resources, not when to ramp resource burn."
     }
   ],
   "mission": "four_score",
