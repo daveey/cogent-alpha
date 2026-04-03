@@ -4,26 +4,7 @@ Cogamer-specific wake hook. Runs after the platform has already loaded identity,
 
 ## Steps
 
-1. **Install dependencies** — Run these commands:
-   ```bash
-   uv sync
-   ```
-   This creates `.venv` if needed and installs all dependencies including `cogames`.
-
-2. **Verify cogames CLI** — Run:
-   ```bash
-   uv run cogames --version
-   ```
-   If this fails, run `uv pip install cogames` and retry.
-
-3. **Verify auth** — Run:
-   ```bash
-   uv run cogames auth status
-   ```
-   If not authenticated, get the token from secrets and run:
-   ```bash
-   uv run cogames auth set-token <token>
-   ```
+1. **Setup cogames** — Run `cogent/skills/cogames.md` to install dependencies, verify CLI, and authenticate.
 
 4. **Read approach state** — Read `cogent/state.json` to understand PCO vs design attempt history.
 

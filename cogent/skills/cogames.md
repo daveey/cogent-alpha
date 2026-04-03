@@ -1,0 +1,31 @@
+# CoGames Setup
+
+Install the cogames CLI, authenticate, and verify everything works.
+
+## Steps
+
+1. **Install dependencies**:
+   ```bash
+   uv sync
+   ```
+
+2. **Verify CLI**:
+   ```bash
+   uv run cogames --version
+   ```
+   If this fails, run `uv pip install cogames` and retry.
+
+3. **Authenticate**:
+   ```bash
+   uv run cogames auth status
+   ```
+   If not authenticated, get the token from secrets and run:
+   ```bash
+   uv run cogames auth set-token <token>
+   ```
+
+4. **Validate auth** — run a lightweight command that requires auth:
+   ```bash
+   uv run cogames leaderboard beta-cvc --mine
+   ```
+   If this succeeds, auth is working. If it fails with an auth error, repeat step 3.
