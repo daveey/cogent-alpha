@@ -13,17 +13,34 @@ _MOVE_DELTAS = {
 }
 
 _ALIGNER_EXPLORE_OFFSETS = (
-    (0, -22),
-    (16, -16),
-    (22, 0),
-    (16, 16),
-    (0, 22),
-    (-16, 16),
-    (-22, 0),
-    (-16, -16),
+    # Four_score corner-safe offsets: designed for NW corner, auto-flipped for others
+    # Max magnitude 15 to avoid out-of-bounds from any corner (hubs at ~15 or ~73)
+    # Focus: toward center (positive offsets from NW), moderate range (12-20 distance)
+    (15, 0),      # E: toward center horizontal
+    (15, 15),     # SE: diagonal toward center
+    (0, 15),      # S: toward center vertical
+    (12, 8),      # ENE: wide angle
+    (8, 12),      # SSE: wide angle
+    (15, 10),     # ESE: far horizontal
+    (10, 15),     # SSE: far vertical
+    (-8, 10),     # WSW: back angle (safe: 15-8=7)
 )
-_MINER_EXPLORE_OFFSETS = ((-28, -28), (28, -28), (-28, 28), (28, 28))
-_SCRAMBLER_EXPLORE_OFFSETS = ((36, -36), (36, 36), (-36, 36), (-36, -36))
+_MINER_EXPLORE_OFFSETS = (
+    # Four_score corner-safe: diagonal corners, stay within bounds
+    # Max magnitude 15 to work from corners at ~(15,15) or ~(73,73)
+    (-12, -12),   # Back corner (safe: 15-12=3)
+    (15, -12),    # Side diagonal
+    (-12, 15),    # Side diagonal
+    (15, 15),     # Toward center diagonal
+)
+_SCRAMBLER_EXPLORE_OFFSETS = (
+    # Four_score corner-safe: far exploration, flipped per corner
+    # Max magnitude 15 to ensure safety from all corners
+    (15, -10),    # Side far
+    (15, 15),     # Diagonal toward center
+    (-10, 15),    # Side far
+    (-10, -10),   # Back (safe: 15-10=5)
+)
 
 _ELEMENTS = ("carbon", "oxygen", "germanium", "silicon")
 _HP_THRESHOLDS = {

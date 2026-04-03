@@ -129,11 +129,33 @@ class NavigationMixin:
         offsets = explore_offsets(role)
         offset_index = (self._explore_index + self._role_id) % len(offsets)
         target = offsets[offset_index]
+
+        # Four_score corner spawn adjustment: flip offsets based on hub quadrant
+        # Offsets are designed for NW corner (x<44, y<44). Flip for other corners:
+        # NE (x>44): flip X, SW (y>44): flip Y, SE (both>44): flip both
+        if hub is not None:
+            flip_x = center[0] > 44  # Eastern corners (NE, SE)
+            flip_y = center[1] > 44  # Southern corners (SW, SE)
+            if flip_x or flip_y:
+                target = (
+                    -target[0] if flip_x else target[0],
+                    -target[1] if flip_y else target[1],
+                )
+
         absolute_target = (center[0] + target[0], center[1] + target[1])
         if manhattan(current_pos, absolute_target) <= 2:
             self._explore_index += 1
             offset_index = (self._explore_index + self._role_id) % len(offsets)
             target = offsets[offset_index]
+            # Apply same corner adjustments to next target
+            if hub is not None:
+                flip_x = center[0] > 44
+                flip_y = center[1] > 44
+                if flip_x or flip_y:
+                    target = (
+                        -target[0] if flip_x else target[0],
+                        -target[1] if flip_y else target[1],
+                    )
             absolute_target = (center[0] + target[0], center[1] + target[1])
         return self._move_to_position(state, absolute_target, summary=summary, vibe=role_vibe(role))
 
