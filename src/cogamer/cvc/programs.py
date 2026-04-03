@@ -253,12 +253,17 @@ def _build_analysis_prompt(context: dict) -> str:
         ' "analysis": "1-2 sentence strategic assessment"}'
         "\nRules:"
         "\n- resource_bias: element with lowest supply"
-        "\n- role: suggest role change ONLY if agent is stuck/stagnating or"
-        "\n  team composition is badly unbalanced. null = keep current role."
-        "\n- objective: 'expand' if friendly < enemy (need more junctions),"
-        "\n  'defend' if we have junctions but enemy is catching up,"
-        "\n  'economy_bootstrap' if resources are critically low,"
-        "\n  null = normal operation."
+        "\n- role: suggest role change ONLY in specific dysfunction cases:"
+        "\n  • Stalled=True: agent hasn't moved 12+ steps (stuck pathfinding)"
+        "\n  • Oscillating=True: agent repeating positions (circular movement)"
+        "\n  • Team badly unbalanced (e.g., 0 miners with low resources, 7 aligners with no neutrals)"
+        "\n  Examples: stalled miner far from extractors → try 'aligner' to explore new areas."
+        "\n  Oscillating aligner with no reachable neutrals → 'miner' to contribute differently."
+        "\n  STRONGLY PREFER null - role changes disrupt team coordination. Change ONLY when clearly beneficial."
+        "\n- objective: 'expand' if friendly < enemy (need more territory),"
+        "\n  'defend' if friendly > enemy but enemy advancing (need scramblers),"
+        "\n  'economy_bootstrap' if resources critically low (need miners),"
+        "\n  null = normal operation (default)."
     )
     return "\n".join(lines)
 
