@@ -48,7 +48,10 @@ Test PID 1173 running seeds sequentially. Expected completion: 50-75 minutes (10
 ## Results
 
 **Seed 42**: 6.03 per cog (baseline: 9.37) → **-35.6% regression**
-**Seed 43**: Running...
-**Seeds 44-46**: Pending
+**Seed 43**: 7.48 per cog (baseline: 11.44) → **-34.6% regression**
+**Seed 44**: Running...
+**Seeds 45-46**: Pending
 
-**Early indication**: Significant regression on seed 42. Continuing full 5-seed test for complete data.
+**Avg so far**: 6.76 (seeds 42-43) vs baseline avg 10.41 → **-35.1% regression**
+
+**Conclusion forming**: Consistent significant regression across seeds. Will complete full test then revert.
