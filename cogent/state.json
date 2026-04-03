@@ -43,6 +43,14 @@
       "description": "Removed corner_pressure bonus from scramble targeting to make scramblers more defensive",
       "result": "SLIGHT REGRESSION: 8.96 vs baseline 9.03 (-0.77%)",
       "analysis": "Minimal impact. Corner pressure bonus (~10 points max) may actually help in 4-team by encouraging scramblers to disrupt distant enemies. Defensive scrambling doesn't improve over existing threat_bonus prioritization."
+    },
+    {
+      "date": "20260403",
+      "version": "006-reverted",
+      "focus": "Network bonus increase",
+      "description": "Increased network bonus weight from 0.5 to 1.5 (3×) to prioritize chain-building near existing friendly junctions",
+      "result": "MAJOR REGRESSION: 3.23 vs baseline 9.03 (-64.2%)",
+      "analysis": "TOO AGGRESSIVE. Tripling network bonus caused agents to cluster around existing junctions instead of expanding. Leads to stagnant territory and missed opportunities. Expansion bonus (max 30) balanced against network bonus (max 2) for a reason - need both expansion and consolidation."
     }
   ],
   "mission": "four_score",
