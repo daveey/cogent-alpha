@@ -23,7 +23,11 @@ Current baseline: **9.74 avg per cog** (from attempt 007: early scrambler activa
 
 ## Results
 
-(Pending - check test_results_011.txt when PID 2246 completes)
+**Seed 42**: 19.42 per cog (baseline: 9.37) → **+107.2% improvement!**
+**Seed 43**: Running...
+**Seeds 44-46**: Pending
+
+**Early indication**: Major improvement on seed 42. More conservative retreat threshold appears to be working well.
 
 Expected completion: ~60-75 minutes (12-15 min/seed × 5 seeds)
 
