@@ -25,7 +25,13 @@
 - Cannot upload policy to dashboard until container restart
 - Season mismatch discovered: optimizing four_score but only beta-cvc (machina_1) exists for freeplay
 
+## Current Session (20260403 continued)
+- Testing improvement 011: teammate penalty 6→9 for 4-team coordination
+- **Discovery**: CPU testing very slow (~15-20min/seed), makes 30min improvement loop impractical
+- Auth resolved: cogames authenticated, can upload
+- Scheduled loops: 10min tick, 30min improve
+
 ## Next Session
-- Await improvement 009 results (mid-game ramp, trending negative)
-- Resolve auth to upload gamma
-- Consider machina_1 testing for beta-cvc submission
+- Check 011 results (tests running in background)
+- Consider shorter test protocol or GPU access for faster iteration
+- Upload validated improvements to beta-four-score (if season exists) or beta-cvc

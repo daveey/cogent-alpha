@@ -1,5 +1,8 @@
 # gamma — Improvement TODOs
 
+## In Progress
+- [~] (20260403-011) Teammate proximity penalty increase: 6.0→9.0 (50% increase) for better coordination in 4-team. Testing across seeds 42-46. **CPU testing slow (~15-20min/seed), tests running in background.**
+
 ## Completed
 - [x] (ID) Wider enemy AOE for retreat: wired _near_enemy_territory (radius 20) into _should_retreat — +458% avg score
 - [x] (20260403-001) LLM objective feature: wired up expand/defend/economy_bootstrap objectives to pressure budgets — was broken, now functional
