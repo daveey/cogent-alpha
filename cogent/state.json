@@ -1,15 +1,15 @@
 {
   "approach_stats": {
     "pco": {"attempts": 0, "improvements": 0, "last_used": null},
-    "design": {"attempts": 2, "improvements": 2, "last_used": "20260403-001"}
+    "design": {"attempts": 3, "improvements": 3, "last_used": "20260403-002"}
   },
   "last_improvement": {
     "date": "20260403",
-    "version": "001",
-    "focus": "LLM objective feature bug fix",
-    "description": "Wired up LLM objectives (expand/defend/economy_bootstrap) to pressure budget computation. Feature was broken - LLM could set objectives but they had no effect. Now functional.",
-    "status": "untested_four_score",
-    "notes": "Also documented four_score mission (multi-team format). Need to run full four_score evals to establish baseline."
+    "version": "002",
+    "focus": "LLM stagnation detection enhancement",
+    "description": "Enhanced LLM prompt with prescriptive anti-stagnation rules: stalled miner→aligner, stalled aligner→miner, oscillating→miner. Matches alpha.0's cyborg architecture for breaking stuck states.",
+    "status": "committed_awaiting_test",
+    "notes": "Previous improvement (001): LLM objective feature bug fix. Both improvements target LLM effectiveness."
   },
   "mission": "four_score",
   "season": "beta-four-score"
