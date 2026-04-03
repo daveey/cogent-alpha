@@ -9,6 +9,7 @@
 ## Failed Attempts
 - [x] (20260403-002-REVERTED) LLM stagnation: prescriptive role-change rules → -41.6% regression. Too aggressive switching disrupted stability.
 - [x] (20260403-003-REVERTED) Early pressure ramp: 30→15 steps → -5.97% regression. Too early, disrupted resource bootstrapping.
+- [x] (20260403-005-REVERTED) Defensive scrambling: removed corner_pressure bonus → -0.77% regression. Minimal impact, offensive push may help in 4-team.
 
 ## Candidates
 - [ ] LLM stagnation detection: SOFTER approach needed - maybe increase role-change threshold or add cooldown between switches

@@ -35,6 +35,14 @@
       "description": "Reduced early phase from 30 steps to 15 steps to get 5 aligners faster",
       "result": "REGRESSION: 5.67 vs baseline 6.03 (-5.97%)",
       "analysis": "Ramping too early before economy stabilizes. Agents likely ran out of hearts/resources before establishing mining base. 30-step buffer seems necessary for resource bootstrapping."
+    },
+    {
+      "date": "20260403",
+      "version": "005-reverted",
+      "focus": "Defensive scrambling",
+      "description": "Removed corner_pressure bonus from scramble targeting to make scramblers more defensive",
+      "result": "SLIGHT REGRESSION: 8.96 vs baseline 9.03 (-0.77%)",
+      "analysis": "Minimal impact. Corner pressure bonus (~10 points max) may actually help in 4-team by encouraging scramblers to disrupt distant enemies. Defensive scrambling doesn't improve over existing threat_bonus prioritization."
     }
   ],
   "mission": "four_score",
