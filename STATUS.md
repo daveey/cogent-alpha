@@ -1,14 +1,10 @@
 # Delta Status Report
 
-**Generated**: 2026-04-03 19:31 UTC
+**Generated**: 2026-04-03 21:42 UTC
 
 ## Current Activity
 
-**Testing attempt 010**: Softer LLM stagnation detection
-- **Status**: In progress (seed 42 running, ~7 min in)
-- **Test PID**: 1176
-- **Started**: 19:23 UTC
-- **Expected completion**: ~20:15 UTC (50-75 min total)
+**Idle** - Ready for next improvement cycle
 
 ## Latest Improvement
 
@@ -17,20 +13,23 @@
 - **Score**: 9.74 avg per cog (+7.84% over previous)
 - Seeds: 9.37, 11.44, 19.86, 2.64, 5.38
 
-## Active Test: 010
+## Most Recent Test: 010-llm-softer (REVERTED)
 
 **Change**: Enhanced LLM analysis prompt with softer stagnation detection
 - Added explicit definitions of Stalled/Oscillating
 - Suggestive examples instead of prescriptive rules
 - Strong bias toward null (maintain current role)
-- Better objective guidance
 
-**Hypothesis**: Failed attempt 002 (-41.6%) was too prescriptive. This gives LLM better context while avoiding role churn.
+**Result**: **MAJOR REGRESSION** -39.4% (5.91 vs 9.74 baseline)
+- Seeds: 6.03, 7.48, 5.98, 4.71, 5.33
 
-**Files modified**: `src/cogamer/cvc/programs.py`
+**Analysis**: Both prescriptive (002: -41.6%) and suggestive (010: -39.4%) LLM role guidance approaches fail with similar magnitude. The problem is not phrasing but the mechanism itself. **LLM-driven role changes marked as ABANDONED** - neither approach works.
 
 ## Recent History
 
+- **010-llm-softer-reverted**: Softer LLM stagnation → -39.4% (verbose guidance no better)
+- **012-reverted**: Nearby teammate LLM → +3.8% but 40% catastrophic failure rate
+- **010-reverted**: Mid-game pressure 3000→2000 → -47.1% (premature resource burn)
 - **009-reverted**: Claim duration 30→20 steps → -53.0% (too short, duplication)
 - **008-reverted**: Scrambler threat_bonus 10→15 → -17.0% (over-defending)
 - **007-validated**: Early scrambler step 100→50 → +7.84% ✓
@@ -42,25 +41,22 @@
 
 ## Top Priorities
 
-1. ✓ Softer LLM stagnation detection (testing now)
-2. Teammate role awareness (avoid duplicate aligners)
+1. ~~Softer LLM stagnation detection~~ **ABANDONED** (tested, failed)
+2. Teammate role awareness (avoid duplicate aligners) - non-LLM approach
 3. Teammate vibe awareness in targeting
 4. Four_score spawn corner adjustments
+5. Analyze parameter differences vs alpha.0 reference
 
 ## System Status
 
 - **Mission**: four_score (4-team multi-directional)
 - **Season**: beta-cvc (beta-four-score not available)
 - **Auth**: No COGAMES_TOKEN (cannot upload/check leaderboard)
-- **Disk**: 79% used (cleared cache earlier)
+- **Baseline**: 9.74 avg per cog (attempt 007)
 - **Runtime**: Python 3 + cogames 0.23.1 (globally available)
 
-## Monitoring
+## Key Learnings
 
-Check test progress:
-```bash
-./check_test.sh
-tail -f test_results.txt
-```
-
-Tick loop runs every 10 minutes to monitor and update status.
+- **LLM role guidance**: Both prescriptive and suggestive approaches fail (-40% range). Mechanism itself appears flawed.
+- **Testing speed**: CPU-only testing takes 10-15 min/seed, ~60-75 min for 5-seed validation
+- **Pressure timing**: Multiple attempts to adjust pressure ramps have failed. Current timing appears near-optimal.
