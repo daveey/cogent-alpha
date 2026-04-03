@@ -1,7 +1,17 @@
 {
   "approach_stats": {
     "pco": {"attempts": 0, "improvements": 0, "last_used": null},
-    "design": {"attempts": 13, "improvements": 5, "last_used": "20260403-014-validated"}
+    "design": {"attempts": 14, "improvements": 5, "last_used": "20260403-016-testing"}
+  },
+  "testing_in_progress": {
+    "date": "20260403",
+    "version": "016",
+    "focus": "Expansion bonus increase for aggressive territory control",
+    "description": "Increased expansion bonus from 5.0 to 6.0 per unreachable junction (+20%), max from 30 to 36",
+    "rationale": "Synergizes with 014's enemy avoidance. Encourages more aggressive capture of expansion-unlocking junctions in unclaimed territory.",
+    "upload": "gamma_v4:v1",
+    "season": "beta-cvc",
+    "uploaded_at": "20260403 22:57 UTC"
   },
   "last_improvement": {
     "date": "20260403",

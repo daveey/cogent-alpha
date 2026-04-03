@@ -1,6 +1,7 @@
 # gamma — Improvement TODOs
 
 ## In Progress
+- [ ] (20260403-016) Expansion bonus increase: 5.0→6.0 per junction (+20%) for aggressive territory control. Uploaded as gamma_v4:v1, awaiting tournament validation.
 
 ## Completed
 - [x] (20260403-014) Enemy AOE penalty increase: 8.0→10.0 (+25%) → +42.3% improvement (7.45→10.60). Uploaded as gamma_v2:v1, rank #37 on beta-cvc.
