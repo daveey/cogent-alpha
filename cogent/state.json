@@ -8,27 +8,28 @@
     "version": "011",
     "focus": "Teammate proximity penalty increase for coordination",
     "description": "Increased teammate_closer penalty from 6.0 to 9.0 in aligner_target_score to reduce duplicate targeting in multi-team format.",
-    "result": "VALIDATED VIA TOURNAMENT: gamma:v1 avg 9.96 per cog (rank #46) across 13 matches on beta-cvc",
+    "result": "VALIDATED VIA TOURNAMENT: gamma:v1 avg 7.74 per cog (rank #60) across 19 matches on beta-cvc",
     "tournament_scores": {
-      "matches": 13,
-      "avg": 9.96,
-      "range": "0.00-21.19",
-      "rank": 46,
+      "matches": 19,
+      "avg": 7.74,
+      "range": "0.00-26.01",
+      "rank": 60,
       "season": "beta-cvc"
     },
-    "status": "uploaded_as_gamma_v1",
-    "notes": "Conservative 50% increase (6.0→9.0) for better coordination. Local CPU testing failed (75+ min, no output), validated via tournament instead. Includes improvements 004+007+011. Beta-cvc is machina_1 (2-team), not four_score target."
+    "status": "baseline_established",
+    "notes": "Baseline for gamma:v1 stabilizing around 7.74 avg (was 9.96 with 13 matches, natural variance). Includes improvements 004+007+011+RETREAT_MARGIN."
   },
   "testing_in_progress": {
     "date": "20260403",
-    "version": "014",
-    "focus": "Enemy AOE penalty increase for contested territory avoidance",
-    "description": "Increased enemy_aoe weight from 8.0 to 10.0 (+25%) in aligner_target_score to discourage targeting junctions near enemy territory",
-    "rationale": "Four_score has 3x more scramblers (4 teams). Contested junctions get scrambled quickly. Higher penalty steers aligners toward stable territory.",
-    "upload": "gamma_v2:v1",
+    "version": "012",
+    "focus": "Scrambler territorial denial optimization",
+    "description": "Increased scrambler blocked_neutrals bonus from 6.0 to 8.0 (+33%) to prioritize enemy junctions that block multiple neutral junctions",
+    "rationale": "Better territorial denial - scramblers should target high-impact enemy junctions that prevent expansion",
+    "upload": "gamma:v2",
     "season": "beta-cvc",
     "status": "uploaded_awaiting_matches",
-    "uploaded_at": "20260403 22:26 UTC"
+    "uploaded_at": "20260403 22:36 UTC",
+    "parallel_test": "gamma_v2:v1 (aligner enemy_aoe 8.0→10.0) also running"
   },
   "failed_attempts": [
     {
