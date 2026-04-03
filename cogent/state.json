@@ -11,14 +11,24 @@
     "status": "committed_untested",
     "notes": "Documented four_score (multi-team format). BLOCKED: No cogames auth token for freeplay submission."
   },
-  "last_failed_attempt": {
-    "date": "20260403",
-    "version": "002-reverted",
-    "focus": "LLM stagnation detection enhancement",
-    "description": "Enhanced LLM prompt with prescriptive anti-stagnation role-change rules",
-    "result": "REGRESSION: 3.52 vs baseline 6.03 (-41.6%)",
-    "analysis": "Too aggressive role switching disrupted team stability. Prescriptive rules (stalled miner→aligner, stalled aligner→miner) caused excessive role churn. May need softer approach or better stall detection threshold."
-  },
+  "failed_attempts": [
+    {
+      "date": "20260403",
+      "version": "002-reverted",
+      "focus": "LLM stagnation detection enhancement",
+      "description": "Enhanced LLM prompt with prescriptive anti-stagnation role-change rules",
+      "result": "REGRESSION: 3.52 vs baseline 6.03 (-41.6%)",
+      "analysis": "Too aggressive role switching disrupted team stability. Prescriptive rules (stalled miner→aligner, stalled aligner→miner) caused excessive role churn. May need softer approach or better stall detection threshold."
+    },
+    {
+      "date": "20260403",
+      "version": "003-reverted",
+      "focus": "Earlier pressure ramp",
+      "description": "Reduced early phase from 30 steps to 15 steps to get 5 aligners faster",
+      "result": "REGRESSION: 5.67 vs baseline 6.03 (-5.97%)",
+      "analysis": "Ramping too early before economy stabilizes. Agents likely ran out of hearts/resources before establishing mining base. 30-step buffer seems necessary for resource bootstrapping."
+    }
+  ],
   "mission": "four_score",
   "season": "beta-four-score",
   "baseline_four_score": {

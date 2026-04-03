@@ -7,6 +7,7 @@
 
 ## Failed Attempts
 - [x] (20260403-002-REVERTED) LLM stagnation: prescriptive role-change rules → -41.6% regression. Too aggressive switching disrupted stability.
+- [x] (20260403-003-REVERTED) Early pressure ramp: 30→15 steps → -5.97% regression. Too early, disrupted resource bootstrapping.
 
 ## Candidates
 - [ ] Hotspot tracking: already tracked in _hotspots dict, used in scoring — verify it's working correctly in four_score
