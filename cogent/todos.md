@@ -19,6 +19,7 @@
 - [x] (20260403-009-REVERTED) Claim duration reduction: 30→20 steps → -53.0% regression. Too short, caused massive claim duplication and wasted coordination.
 - [x] (20260403-010-REVERTED) Mid-game pressure ramp: step 3000→2000 → -47.13% regression. Premature resource burn, exhausted economy before sustainable.
 - [x] (20260403-012-REVERTED) Nearby teammate role awareness in LLM: +3.8% avg BUT 40% catastrophic failure rate (variance 22.14). Extreme instability, LLM role suggestions trigger pathological behavior.
+- [x] (20260403-010-llm-softer-REVERTED) Softer LLM stagnation detection: detailed guidance + "STRONGLY PREFER null" emphasis → -39.4% regression (5.91 vs 9.74). Verbose prompt with examples performed as badly as prescriptive approach (-41.6%). Both attempts to improve LLM role suggestions have failed catastrophically. Pattern: LLM-driven role changes may be fundamentally flawed.
 
 ## Testing Strategy Adjustments (CPU Constraint)
 - [ ] **Option A - Single seed quick test**: Test only seed 42, accept higher variance
@@ -29,7 +30,7 @@
 
 ## Candidates
 - [ ] Read teammate vibes: Count nearby teammate roles to avoid duplicate aligners heading to same area
-- [ ] LLM stagnation detection: SOFTER approach - detect oscillation/stalled behavior, suggest gentle role switches
+- [ ] ~~LLM stagnation detection~~ **ABANDONED** - Both prescriptive (-41.6%) and softer (-39.4%) approaches failed. LLM role suggestions appear fundamentally problematic.
 - [ ] Teammate vibe awareness in targeting: If teammate vibe shows aligning to nearby junction, deprioritize that junction
 - [ ] Test mixed-policy matches (vs alpha.0, corgy) to validate competitive performance
 - [ ] Four_score spawn corners: Adjust initial exploration offsets for corner spawns vs center hubs

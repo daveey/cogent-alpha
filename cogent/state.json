@@ -1,7 +1,7 @@
 {
   "approach_stats": {
     "pco": {"attempts": 0, "improvements": 0, "last_used": null},
-    "design": {"attempts": 10, "improvements": 4, "last_used": "20260403-012-reverted"}
+    "design": {"attempts": 11, "improvements": 4, "last_used": "20260403-010-llm-reverted"}
   },
   "last_improvement": {
     "date": "20260403",
@@ -84,6 +84,15 @@
       "result": "UNSTABLE: avg 10.11 vs baseline 9.74 (+3.8%), but variance 22.14 with 40% catastrophic failure rate",
       "scores_by_seed": {"42": 2.43, "43": 10.37, "44": 12.49, "45": 23.71, "46": 1.57},
       "analysis": "EXTREME INSTABILITY. Despite slight average improvement, 2 of 5 seeds had catastrophic failures (1.57, 2.43). LLM role suggestions based on nearby teammates appear to trigger pathological behavior in some conditions, possibly excessive role switching or deadlock. 40% failure rate unacceptable for production. Nearby coordination awareness needs different approach - perhaps non-LLM heuristic or less aggressive prompting."
+    },
+    {
+      "date": "20260403",
+      "version": "010-llm-softer-reverted",
+      "focus": "Softer LLM stagnation detection guidance",
+      "description": "Enhanced LLM analysis prompt with explicit Stalled/Oscillating definitions, suggestive examples, and 'STRONGLY PREFER null' emphasis",
+      "result": "MAJOR REGRESSION: 5.91 vs baseline 9.74 (-39.4%)",
+      "scores_by_seed": {"42": 6.03, "43": 7.48, "44": 5.98, "45": 4.71, "46": 5.33},
+      "analysis": "WORSE THAN PRESCRIPTIVE APPROACH. Attempt to soften failed attempt 002's prescriptive rules (-41.6%) resulted in similar magnitude regression (-39.4%). Adding detailed explanations, examples, and strong 'prefer null' bias actually degraded performance vs simpler prompt. LLM may be confused by verbose guidance or 'STRONGLY PREFER null' is too restrictive. Pattern suggests: LLM role guidance itself may be problematic regardless of phrasing - both prescriptive (002: -41.6%) and suggestive (this: -39.4%) approaches fail. Consider abandoning LLM-driven role changes entirely or use only for extreme dysfunction detection with very high threshold."
     }
   ],
   "mission": "four_score",

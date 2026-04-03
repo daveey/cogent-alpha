@@ -51,8 +51,14 @@ Test PID 1173 running seeds sequentially. Expected completion: 50-75 minutes (10
 **Seed 43**: 7.48 per cog (baseline: 11.44) → **-34.6% regression**
 **Seed 44**: 5.98 per cog (baseline: 19.86) → **-69.9% regression**
 **Seed 45**: 4.71 per cog (baseline: 2.64) → **+78.4% improvement**
-**Seed 46**: Running (final seed)...
+**Seed 46**: 5.33 per cog (baseline: 5.38) → **-0.9% regression**
 
-**Avg so far**: 6.05 (seeds 42-45) vs baseline avg 10.83 → **-44.1% regression**
+**Final Average**: 5.91 per cog vs baseline 9.74 → **-39.4% REGRESSION**
 
-**Conclusion**: Overall severe regression despite seed 45 outlier improvement. Softer LLM prompt performing significantly worse than baseline. Will revert after seed 46 completes.
+## Conclusion: REVERTED
+
+Major regression confirmed. Reverted `programs.py` to original simpler prompt.
+
+**Key Learning**: Both prescriptive (attempt 002: -41.6%) and softer/suggestive (this attempt: -39.4%) LLM role guidance approaches fail with similar magnitude. The problem is not the phrasing but likely the LLM role suggestion mechanism itself. Adding verbose guidance, examples, and "STRONGLY PREFER null" emphasis did not help - performance nearly identical to prescriptive failure.
+
+**Recommendation**: Abandon LLM-driven role changes entirely. Consider alternative coordination mechanisms that don't rely on LLM suggestions.
