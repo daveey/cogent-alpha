@@ -73,6 +73,12 @@ def compute_pressure_budgets(
         return 0, 0
     if objective == "economy_bootstrap":
         return min(aligner_budget, _ECONOMY_BOOTSTRAP_ALIGNER_BUDGET), 0
+    if objective == "expand":
+        # Aggressive expansion: maximize aligners, add scrambler
+        return min(aligner_budget + 1, 6), min(scrambler_budget, 1)
+    if objective == "defend":
+        # Defensive: boost scramblers to disrupt enemy expansion
+        return max(aligner_budget - 1, 2), min(scrambler_budget + 1, 2)
     return aligner_budget, scrambler_budget
 
 

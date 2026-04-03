@@ -89,6 +89,7 @@ class CvcEngine(
         self._sticky_target_kind: str | None = None
         self._hotspots: dict[tuple[int, int], int] = {}
         self._current_directive = MacroDirective()
+        self._llm_objective: str | None = None
 
     def step(self, obs: AgentObservation) -> Action:
         self._step_index += 1
@@ -174,7 +175,7 @@ class CvcEngine(
 
     def _macro_directive(self, state: MettagridState) -> MacroDirective:
         del state
-        return MacroDirective()
+        return MacroDirective(objective=self._llm_objective)
 
     def render_skill_library(self) -> str:
         return _COGSGUARD_SURFACE.render_skill_library()
