@@ -26,12 +26,12 @@ Current baseline: **9.74 avg per cog** (from attempt 007: early scrambler activa
 **Seed 42**: 19.42 per cog (baseline: 9.37) → **+107.2% improvement**
 **Seed 43**: 2.45 per cog (baseline: 11.44) → **-78.6% regression**
 **Seed 44**: 12.22 per cog (baseline: 19.86) → **-38.5% regression**
-**Seed 45**: Running...
-**Seed 46**: Pending
+**Seed 45**: 5.95 per cog (baseline: 2.64) → **+125.4% improvement**
+**Seed 46**: Running (final seed)...
 
-**Avg so far**: 11.36 (seeds 42-44) vs baseline avg 13.56 → **-16.2% regression**
+**Avg so far**: 10.01 (seeds 42-45) vs baseline avg 10.83 → **-7.6% regression**
 
-**High variance continues**: Extreme swings (42: +107%, 43: -79%, 44: -38%). Pattern suggests instability. More conservative retreat may help some scenarios but hurt others. Need final 2 seeds to complete assessment.
+**EXTREME INSTABILITY**: Two seeds with massive improvements (42: +107%, 45: +125%), two seeds with major regressions (43: -79%, 44: -38%). This variance pattern is catastrophic for production use. Need seed 46 to finalize, but likely revert due to unpredictability.
 
 Expected completion: ~60-75 minutes (12-15 min/seed × 5 seeds)
 
