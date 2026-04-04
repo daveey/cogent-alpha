@@ -1,0 +1,6 @@
+Testing attempt 012-delta: corner_pressure divisor 8.0→7.0
+Baseline: 9.74 avg (seeds: 9.37, 11.44, 19.86, 2.64, 5.38)
+
+=== Seed 42 ===
+│ Score    │ per cog   │        │      │  5.42 │
+=== Seed 43 ===
