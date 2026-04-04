@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (129) Aligner hub penalty 10-15 multiplier reduction (1.46→1.44): scissors_v45:v1 qualifying - 10-15 range multiplier (-1%, stacks with 087-128)
 - [ ] (128) Aligner hub penalty 15-25 multiplier reduction (2.94→2.91): scissors_v44:v1 qualifying - 15-25 range multiplier (-1%, stacks with 087-127)
 - [ ] (127) Junction align distance increase (16.0→16.16): scissors_v43:v1 qualifying - improved chain-building reach (+1%, stacks with 087-126)
 - [ ] (126) Hub align distance increase (26.0→26.3): scissors_v42:v1 qualifying - extended hub reach (+1%, stacks with 087-125)
