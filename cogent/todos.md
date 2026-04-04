@@ -1,18 +1,16 @@
 # scissors — Improvement TODOs
 
 ## In Progress
-- [ ] (20260404-029) Wider enemy AOE: Change _in_enemy_aoe to use radius 20 (vs 10), matching alpha.0. Uploaded as scissors_v1_v13:v1, awaiting results.
-- [ ] (20260404-030) Hotspot decay: Time-aware hotspot tracking with decay (1 per 2000 steps). Uploaded as scissors_v1_v14:v1, awaiting results.
-- [ ] (20260404-031) LLM hotspot awareness: Enhanced LLM context to see contested targets for better stagnation detection. Uploaded as scissors_v1_v15:v1, awaiting results.
-- [ ] (20260404-032) Extractor memory reduction: 800→600 steps (-25%) for fresher resource targeting. Uploaded as scissors_v1_v16:v1, awaiting results.
-- [ ] (20260404-033) Claim duration reduction: 30→25 steps (-17%) for faster stale claim recovery. Uploaded as scissors_v1_v17:v1, awaiting results.
-- [ ] (20260404-034) Claimed target penalty reduction: 12.0→10.0 (-17%) for better coordination flexibility. Uploaded as scissors_v1_v18:v1, awaiting results.
-- [ ] (20260404-035) Junction alignment distance: 15→14 (-7%) for tighter network consolidation. Uploading as scissors_v1_v19:v1.
+- [ ] (20260404-036) Teammate penalty reduction: 9.0→7.0 (-22%) [delta branch]. Uploaded as scissors_v1_v20:v1, awaiting results.
+- [ ] (20260404-037) Hotspot weight reduction: 12.0→11.0 (-8%) [delta branch, stacked]. Pending upload.
+- [ ] (20260404-038) Enemy AOE penalty reduction: 10.0→9.5 (-5%) [delta branch, stacked]. Pending upload.
+- [ ] (20260404-039) Network bonus cap increase: 4→5 (+25% max) [scissors branch]. Uploaded as scissors_v1_v21:v1, awaiting results.
 
 ## Current Status (20260404 UTC)
 **Tournament Rankings (beta-cvc):**
 - 🏆 gamma_v6:v1: rank #9, 15.84 avg (27 matches) - **TOP 10!**
   - Stack: 014 + 015 + 016 + 018 (network_bonus 0.5→0.75)
+  - Baseline for both delta and scissors branches
 - gamma_v5:v1: rank #11, 15.25 avg (30 matches)
   - Stack: 014 + 015 + 016 (previous best)
 - gamma_v3:v1: rank #33, 12.02 avg (40 matches)
@@ -20,6 +18,10 @@
 - Baseline gamma:v1: rank #73, 7.45 avg (21 matches)
 
 **Progress:** +113% improvement from baseline (7.45 → 15.84)
+
+**Active Testing:**
+- Delta branch: 036-038 stack (penalty reductions: teammate, hotspot, enemy_aoe)
+- Scissors branch: 039 (network_bonus cap increase 4→5)
 
 ## Completed (Design Approach: 7 validated improvements)
 - [x] (004) Hotspot penalty increase: 8→12 base - avoid contested far junctions
@@ -59,6 +61,7 @@
 - [x] (026) Scrambler corner pressure increase (8.0→7.0 divisor): -44.3%
 - [x] (027) Target switch threshold reduction (3.0→2.5): -33.3%
 - [x] (028) Hotspot cap increase (3→4): -33.8%
+- [x] (029-035) Parallel experiments batch: Reverted before validation. Violated "one change per session" principle.
 
 ## Strategy
 - **Tournament-based validation** works well - continue using beta-cvc for fast feedback
