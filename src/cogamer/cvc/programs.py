@@ -237,14 +237,21 @@ def _summarize(gs: Any) -> dict:
 def _build_analysis_prompt(context: dict) -> str:
     """Build the LLM analysis prompt from extracted game context."""
     j = context["junctions"]
+    target_hotspot = context.get('target_hotspot', 0)
+    hotspot_note = f" (contested {target_hotspot}x)" if target_hotspot > 0 else ""
     lines = [
         f"CvC game step {context['step']}/10000. 88x88 map, 8 agents per team.",
         f"Score = junctions held over time. MAXIMIZE friendly junctions held.",
         f"",
-        f"Agent {context['agent_id']}: Role={context.get('role', 'unknown')}",
+        f"Agent {context['agent_id']}: HP={context['hp']}, Hearts={context['hearts']}, Role={context.get('role', 'unknown')}",
+        f"Position: {context.get('position', 'unknown')}",
+        f"Gear: aligner={context['aligner']} scrambler={context['scrambler']} miner={context['miner']}",
         f"Hub resources: {context['resources']}",
         f"Team roles: {context.get('roles', 'unknown')}",
         f"Junctions: friendly={j['friendly']} enemy={j['enemy']} neutral={j['neutral']}",
+        f"Stalled: {context.get('stalled', False)}, Oscillating: {context.get('oscillating', False)}",
+        f"Safe distance to hub: {context.get('safe_distance', 'unknown')}",
+        f"Current target{hotspot_note}",
     ]
 
     lines.append(
