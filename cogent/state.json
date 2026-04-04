@@ -6,19 +6,19 @@
       "last_used": null
     },
     "design": {
-      "attempts": 34,
+      "attempts": 35,
       "improvements": 7,
-      "last_used": "20260404-069-testing"
+      "last_used": "20260404-070-testing"
     }
   },
   "testing_in_progress": {
-    "version": "069",
+    "version": "070",
     "date": "20260404",
-    "focus": "In-enemy-AOE retreat margin increase",
-    "description": "Increased in_enemy_aoe retreat margin from 10 to 11 HP (more cautious in direct enemy AOE zones)",
-    "upload": "gamma:v13",
+    "focus": "Late game aligner/scrambler retreat margin increase",
+    "description": "Increased late game aligner/scrambler retreat margin from 10 to 11 HP (more protective of offensive roles in late game)",
+    "upload": "gamma:v14",
     "status": "qualifying",
-    "previous": "061-068 (v5-v12) also qualifying"
+    "previous": "061-069 (v5-v13) also qualifying"
   },
   "local_testing_status": {
     "status": "FAILED",

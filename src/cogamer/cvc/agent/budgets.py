@@ -106,7 +106,7 @@ def compute_retreat_margin(
     if not has_gear:
         margin += 9
     if late_game:
-        margin += 10 if role in {"aligner", "scrambler"} else 6
+        margin += 11 if role in {"aligner", "scrambler"} else 6
     return hp <= safe_steps + margin
 
 
