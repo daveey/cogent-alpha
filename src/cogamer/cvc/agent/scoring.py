@@ -62,12 +62,11 @@ def aligner_target_score(
         else 0.0
     )
     # Strongly prefer hub-proximal junctions: less travel, safer, faster cycling
-    # Four_score: reduced far-range penalty (8.0→6.0) for center-map control
     hub_penalty = 0.0
     if hub_position is not None:
         hub_dist = float(manhattan(hub_position, candidate.position))
         if hub_dist > 25:
-            hub_penalty = (hub_dist - 25) * 6.0 + 50.0
+            hub_penalty = (hub_dist - 25) * 8.0 + 50.0
         elif hub_dist > 15:
             hub_penalty = (hub_dist - 15) * 3.0 + 10.0
         elif hub_dist > 10:
@@ -95,8 +94,7 @@ def aligner_target_score(
             and manhattan(candidate.position, source.position) <= _JUNCTION_ALIGN_DISTANCE
         )
         network_bonus = min(nearby_friendly, 4) * 0.5
-    # Four_score: increased from 9.0→10.0 for even better multi-agent coordination
-    teammate_penalty = 10.0 if teammate_closer else 0.0
+    teammate_penalty = 9.0 if teammate_closer else 0.0
     return (
         distance
         - min(expansion * 6.0, 36.0)

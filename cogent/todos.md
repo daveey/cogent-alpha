@@ -1,9 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
-- [ ] (20260404-021) Hotspot weight reduction: 12.0→11.0 (-8%) with improved enemy_aoe avoidance. Uploaded as scissors_v1:v4, awaiting tournament validation.
-- [ ] (20260404-020) Teammate penalty increase: 9.0→10.0 (+11%) for even better multi-agent coordination. Uploaded as scissors_v1:v3, awaiting tournament validation.
-- [ ] (20260403-019) Hub penalty reduction: 8.0→6.0 (-25%) for far junctions (>25 distance) to encourage center-map control in four_score. Uploaded as scissors_v1:v2, awaiting tournament validation.
+- [ ] (20260404-021) Hotspot weight reduction: 12.0→11.0 (-8%) with improved enemy_aoe avoidance. Uploaded as scissors_v1:v4, EARLY LEAD: 16.70 avg (4 matches), rank #7. Needs more matches for validation.
 
 ## Current Status (20260403 23:35 UTC)
 **Tournament Rankings (beta-cvc):**
@@ -45,6 +43,8 @@
 - [x] (010-llm-softer) Softer LLM stagnation: -39.4%
 - [x] (017) Corner-safe exploration (22→15 offsets): -62.8%
 - [x] (018) Network bonus +50% (0.5→0.75): -20%
+- [x] (019) Hub penalty reduction (8.0→6.0): -48.6%
+- [x] (020) Teammate penalty increase (9.0→10.0): -42.8%
 
 ## Strategy
 - **Tournament-based validation** works well - continue using beta-cvc for fast feedback

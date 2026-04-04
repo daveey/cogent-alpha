@@ -167,6 +167,34 @@
         "season": "beta-cvc"
       },
       "analysis": "Even moderate +50% increase hurt performance. Agents over-indexed on consolidation instead of expansion. Pattern from 006 (-64%) and this attempt (-20%) confirms: network_bonus at 0.5 is optimal. Any increase causes clustering behavior that hurts overall score."
+    },
+    {
+      "date": "20260404",
+      "version": "019-reverted",
+      "focus": "Hub penalty reduction for center control",
+      "description": "Reduced far-range hub_penalty multiplier from 8.0 to 6.0 (-25%) for junctions >25 distance to encourage center-map territory",
+      "result": "MAJOR REGRESSION: scissors_v1:v2 avg 7.83 vs baseline 15.22 (-48.6%)",
+      "tournament_scores": {
+        "matches": 15,
+        "avg": 7.83,
+        "rank": 68,
+        "season": "beta-cvc"
+      },
+      "analysis": "TOO AGGRESSIVE. Reducing hub penalty caused agents to overextend to distant junctions, likely dying more often or wasting time on low-value targets. Hub-proximal strategy is core to success in four_score corner spawns. 8.0 multiplier is correctly calibrated."
+    },
+    {
+      "date": "20260404",
+      "version": "020-reverted",
+      "focus": "Teammate penalty increase",
+      "description": "Increased teammate_penalty from 9.0 to 10.0 (+11%) to further reduce multi-agent duplication",
+      "result": "MAJOR REGRESSION: scissors_v1:v3 avg 8.71 vs baseline 15.22 (-42.8%)",
+      "tournament_scores": {
+        "matches": 16,
+        "avg": 8.71,
+        "rank": 64,
+        "season": "beta-cvc"
+      },
+      "analysis": "Increasing teammate penalty beyond 9.0 hurt coordination. Agents may have avoided too many junctions when teammates were nearby, missing opportunities or creating gaps in coverage. 9.0 appears to be the optimal balance found in attempt 011."
     }
   ],
   "mission": "four_score",
