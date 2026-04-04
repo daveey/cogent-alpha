@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 26,
+      "attempts": 27,
       "improvements": 7,
-      "last_used": "20260404-091-testing"
+      "last_used": "20260404-092-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "091",
-    "focus": "Target claim duration increase for better coordination",
-    "description": "Increased _TARGET_CLAIM_STEPS from 30 to 32 (+7%)",
-    "rationale": "30-step claim duration works well. Attempt 009's reduction to 20 failed catastrophically (-53%). Modest increase to 32 gives teammates slightly more time to reach claimed targets, potentially reducing duplication in high-churn scenarios. Stacks with 087-090.",
-    "upload": "scissors:v7",
+    "version": "092",
+    "focus": "Hub alignment distance increase for extended reach",
+    "description": "Increased _HUB_ALIGN_DISTANCE from 25 to 26 (+4%)",
+    "rationale": "Hub alignment distance determines how far from hub agents can capture junctions while maintaining alignment network. Modest increase to 26 could allow slightly more distant junction captures while preserving hub-proximal strategy. Stacks with 087-091.",
+    "upload": "scissors:v8",
     "season": "beta-four-score",
     "uploaded_at": "20260404",
-    "note": "Scissors attempt 091. Clean baseline coordination exploration continuing. Awaiting tournament validation."
+    "note": "Scissors attempt 092. Clean baseline spatial parameter exploration continuing. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

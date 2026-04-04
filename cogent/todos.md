@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (092) Hub alignment distance increase (25→26): scissors:v8 qualifying - extended hub reach (+4%, stacks with 087-091)
 - [ ] (091) Target claim duration increase (30→32): scissors:v7 qualifying - longer claim validity (+7%, stacks with 087-090)
 - [ ] (090) Claimed target penalty reduction (12.0→11.5): scissors:v6 qualifying - flexible claim override (-4%, stacks with 087-089)
 - [ ] (089) Aligner HP threshold reduction (50→47): scissors:v5 qualifying - safer retreats for valuable role (-6%, stacks with 087+088)
