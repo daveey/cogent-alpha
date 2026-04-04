@@ -44,7 +44,7 @@ _SCRAMBLER_EXPLORE_OFFSETS = (
 
 _ELEMENTS = ("carbon", "oxygen", "germanium", "silicon")
 _HP_THRESHOLDS = {
-    "miner": 15,
+    "miner": 18,  # Increased from 15 (+20%) for more aggressive resource gathering
     "aligner": 50,
     "scrambler": 30,
     "scout": 30,
