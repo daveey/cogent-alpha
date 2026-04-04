@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 73,
+      "attempts": 74,
       "improvements": 7,
-      "last_used": "20260404-073-pending"
+      "last_used": "20260404-074-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "073",
-    "focus": "Scrambler blocked neutrals weight increase for expansion blocking",
-    "description": "Increased scrambler blocked_neutrals weight from 8.5 to 8.6 (+1.2%) in scoring.py",
-    "rationale": "Builds on attempts 059 (8.4→8.5, +1.2%), 041 (8.0→8.4, +5%), and validated 015 (6.0→8.0, +33%) for continued expansion blocking optimization. Prioritizes scramblers disrupting enemy neutral junction captures. Synergizes with threat_bonus increases (043, 058, 072) for balanced offense/defense scrambler strategy. Progressive blocked_neutrals weight increases strengthen scrambler offensive capability.",
-    "upload": "scissors_v1_v55:v1",
+    "version": "074",
+    "focus": "Claimed target penalty reduction for flexible coordination",
+    "description": "Reduced _CLAIMED_TARGET_PENALTY from 10.8 to 10.7 (-0.9%) in types.py",
+    "rationale": "Builds on attempt 054 (11.0→10.8, -1.8%) for continued claim coordination flexibility. Allows more flexible claim override when one agent is significantly closer. Synergizes with teammate penalty reductions (049, 056, 068: 9.0→7.0→6.8→6.7→6.6) for comprehensive multi-agent coordination. Attempt 009 showed reducing claim duration failed badly (-53%), confirming penalty reductions better than duration changes. Progressive claim penalty reductions enable more dynamic multi-agent targeting.",
+    "upload": "scissors_v1_v56:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T10:37:46Z",
-    "note": "Thirty-fifth scissors improvement. Continues scrambler offensive optimization (041, 059, 073)."
+    "uploaded_at": "2026-04-04T10:41:23Z",
+    "note": "Thirty-sixth scissors improvement. Continues coordination optimization (054, 074)."
   },
   "last_improvement": {
     "date": "20260404",
