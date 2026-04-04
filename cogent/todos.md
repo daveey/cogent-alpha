@@ -1,7 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
-(none)
+- [ ] (087) Miner HP threshold increase (15→18): scissors:v3 qualifying - more aggressive resource gathering (+20% threshold)
 
 ## Current Status (20260404 UTC)
 **Tournament Rankings (beta-cvc):**

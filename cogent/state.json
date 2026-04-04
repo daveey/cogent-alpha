@@ -6,12 +6,22 @@
       "last_used": null
     },
     "design": {
-      "attempts": 21,
+      "attempts": 22,
       "improvements": 7,
-      "last_used": "20260404-018-validated"
+      "last_used": "20260404-087-testing"
     }
   },
-  "testing_in_progress": null,
+  "testing_in_progress": {
+    "date": "20260404",
+    "version": "087",
+    "focus": "Miner HP threshold increase for aggressive resource gathering",
+    "description": "Increased miner retreat HP threshold from 15 to 18 (+20%)",
+    "rationale": "Miners retreat very conservatively at 15 HP compared to other roles (aligner 50, scrambler 30). Modest increase may improve resource collection efficiency without excessive death risk. Built on clean gamma_v6:v1 baseline.",
+    "upload": "scissors:v3",
+    "season": "beta-four-score",
+    "uploaded_at": "20260404",
+    "note": "Scissors attempt 087. Clean baseline exploration (orthogonal to v1/v2 LLM changes and main branch micro-adjustments). Awaiting tournament validation."
+  },
   "last_improvement": {
     "date": "20260404",
     "version": "018",
