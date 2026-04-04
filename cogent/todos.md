@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (091) Target claim duration increase (30→32): scissors:v7 qualifying - longer claim validity (+7%, stacks with 087-090)
 - [ ] (090) Claimed target penalty reduction (12.0→11.5): scissors:v6 qualifying - flexible claim override (-4%, stacks with 087-089)
 - [ ] (089) Aligner HP threshold reduction (50→47): scissors:v5 qualifying - safer retreats for valuable role (-6%, stacks with 087+088)
 - [ ] (088) Scrambler HP threshold increase (30→33): scissors:v4 qualifying - more aggressive disruption (+10% threshold, stacks with 087)
