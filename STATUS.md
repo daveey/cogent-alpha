@@ -5,7 +5,7 @@
 
 ## Current Activity
 
-**BLOCKED** - Delta paused improve cycles due to missing COGAMES_TOKEN (see BLOCKING.md)
+**TESTING** - Running local 5-seed validation of penalty reduction stack (036-040) as fallback. ETA: 75-90 min.
 
 ## Latest Validated Improvement
 

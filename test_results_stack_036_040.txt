@@ -1,0 +1,7 @@
+Testing delta stack 036+037+038+040 (penalty reduction)
+Changes: teammate_penalty 7.0, hotspot_weight 11.0, enemy_aoe 9.5, claimed_target_penalty 11.0
+
+Baseline: gamma_v6:v1 (15.90 tournament avg)
+Note: Local testing has poor correlation with tournament, but better than no testing
+
+=== Seed 42 ===
