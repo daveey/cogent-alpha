@@ -45,7 +45,7 @@
       "focus": "LLM stagnation detection enhancement",
       "description": "Enhanced LLM prompt with prescriptive anti-stagnation role-change rules",
       "result": "REGRESSION: 3.52 vs baseline 6.03 (-41.6%)",
-      "analysis": "Too aggressive role switching disrupted team stability. Prescriptive rules (stalled miner→aligner, stalled aligner→miner) caused excessive role churn. May need softer approach or better stall detection threshold."
+      "analysis": "Too aggressive role switching disrupted team stability. Prescriptive rules (stalled miner\u2192aligner, stalled aligner\u2192miner) caused excessive role churn. May need softer approach or better stall detection threshold."
     },
     {
       "date": "20260403",
@@ -67,7 +67,7 @@
       "date": "20260403",
       "version": "006-reverted",
       "focus": "Network bonus increase",
-      "description": "Increased network bonus weight from 0.5 to 1.5 (3×) to prioritize chain-building near existing friendly junctions",
+      "description": "Increased network bonus weight from 0.5 to 1.5 (3\u00d7) to prioritize chain-building near existing friendly junctions",
       "result": "MAJOR REGRESSION: 3.23 vs baseline 9.03 (-64.2%)",
       "analysis": "TOO AGGRESSIVE. Tripling network bonus caused agents to cluster around existing junctions instead of expanding. Leads to stagnant territory and missed opportunities. Expansion bonus (max 30) balanced against network bonus (max 2) for a reason - need both expansion and consolidation."
     },
@@ -93,7 +93,7 @@
       "focus": "Mid-game pressure ramp",
       "description": "Changed pressure_budget=6 threshold from step 3000 to step 2000 to get 5 aligners + 1 scrambler earlier during critical window",
       "result": "MAJOR REGRESSION: 5.15 vs baseline 9.74 (-47.13%)",
-      "analysis": "Ramping to 6 pressure budget 1000 steps earlier caused significant performance drop. Agents likely exhausted hearts/resources before establishing sustainable economy. Similar to failed attempt 003 (30→15 steps, -5.97%). Pattern confirms: premature pressure ramps hurt economy. Critical window 500-2000 refers to when to capitalize on existing resources, not when to ramp resource burn."
+      "analysis": "Ramping to 6 pressure budget 1000 steps earlier caused significant performance drop. Agents likely exhausted hearts/resources before establishing sustainable economy. Similar to failed attempt 003 (30\u219215 steps, -5.97%). Pattern confirms: premature pressure ramps hurt economy. Critical window 500-2000 refers to when to capitalize on existing resources, not when to ramp resource burn."
     },
     {
       "date": "20260404",
@@ -114,7 +114,7 @@
       "date": "20260403",
       "version": "012-reverted",
       "focus": "Nearby teammate role awareness for LLM",
-      "description": "Added nearby teammate role counts (≤20 tiles) to LLM analysis prompt to detect clustering and suggest role switches",
+      "description": "Added nearby teammate role counts (\u226420 tiles) to LLM analysis prompt to detect clustering and suggest role switches",
       "result": "UNSTABLE: avg 10.11 vs baseline 9.74 (+3.8%), but variance 22.14 with 40% catastrophic failure rate",
       "scores_by_seed": {
         "42": 2.43,
@@ -144,7 +144,7 @@
       "date": "20260403",
       "version": "017-reverted",
       "focus": "Corner-safe exploration",
-      "description": "Fixed out-of-bounds exploration: reduced offset magnitudes (22→15), added dynamic flipping for corner detection. All roles now 100% valid exploration (was 63% OOB for aligners, 75% for miners/scramblers).",
+      "description": "Fixed out-of-bounds exploration: reduced offset magnitudes (22\u219215), added dynamic flipping for corner detection. All roles now 100% valid exploration (was 63% OOB for aligners, 75% for miners/scramblers).",
       "result": "MAJOR REGRESSION: gamma_scissors:v1 avg 6.26 vs baseline 16.84 (-62.8%)",
       "tournament_scores": {
         "matches": 5,
@@ -152,7 +152,7 @@
         "rank": 71,
         "season": "beta-cvc"
       },
-      "analysis": "Despite fixing OOB pathfinding issue, performance collapsed. Agents may have been over-exploring instead of capturing junctions, or reduced exploration range (22→15) limited territory discovery. Original exploration offsets (even with OOB failures) apparently worked better due to sticky targets keeping agents focused on valid junctions most of the time."
+      "analysis": "Despite fixing OOB pathfinding issue, performance collapsed. Agents may have been over-exploring instead of capturing junctions, or reduced exploration range (22\u219215) limited territory discovery. Original exploration offsets (even with OOB failures) apparently worked better due to sticky targets keeping agents focused on valid junctions most of the time."
     },
     {
       "date": "20260404",
@@ -286,7 +286,7 @@
         "rank": 49,
         "season": "beta-cvc"
       },
-      "analysis": "MAJOR FAILURE. Increasing hotspot cap caused agents to over-avoid contested junctions. Max penalty increase (36→48 for far junctions) likely made agents too cautious, missing valuable contested junctions that are worth fighting for despite scrambles. Current cap of 3 scrambles is correctly calibrated. Pattern: 11TH CONSECUTIVE FAILURE (019-028). ALL incremental parameter tuning attempts have failed. Current gamma_v6:v1 parameters appear OPTIMAL for this architecture. Further improvements likely require architectural changes, not parameter adjustments."
+      "analysis": "MAJOR FAILURE. Increasing hotspot cap caused agents to over-avoid contested junctions. Max penalty increase (36\u219248 for far junctions) likely made agents too cautious, missing valuable contested junctions that are worth fighting for despite scrambles. Current cap of 3 scrambles is correctly calibrated. Pattern: 11TH CONSECUTIVE FAILURE (019-028). ALL incremental parameter tuning attempts have failed. Current gamma_v6:v1 parameters appear OPTIMAL for this architecture. Further improvements likely require architectural changes, not parameter adjustments."
     },
     {
       "date": "20260404",
@@ -302,6 +302,21 @@
         "46": 1.74
       },
       "analysis": "MAJOR FAILURE with EXTREME INSTABILITY. Removing tactical context from LLM prompt caused -43% regression with massive variance (1.74 to 14.83 per cog). Only 1 of 5 seeds above baseline. Similar instability to failed attempts 011/012. LLM apparently needs tactical context (HP, position, stalled/oscillating status) to make good resource_bias and objective decisions, even though these fields seem unrelated to strategic choices. Reverted immediately. Note: Scissors uploaded this as scissors:v2 to tournament before delta testing completed - await tournament results for comparison with local testing."
+    },
+    {
+      "date": "20260404",
+      "version": "119-reverted",
+      "focus": "Revert corner-safe exploration to original offsets",
+      "description": "Reverted exploration offsets from corner-safe (magnitude 15) back to original radial pattern (magnitude 22)",
+      "result": "REGRESSION: avg 6.21 vs baseline 7.46 (-16.8%)",
+      "scores_by_seed": {
+        "42": 7.46,
+        "43": 12.33,
+        "44": 3.64,
+        "45": 4.19,
+        "46": 3.42
+      },
+      "analysis": "MAJOR REGRESSION with EXTREME VARIANCE. Reverting to original exploration offsets (magnitude 22) performed worse than corner-safe offsets (magnitude 15), contradicting attempt 017's -62.8% regression claim. Individual seeds ranged from -54.2% to +65.3% (3.6x range), indicating severe instability. The original offsets may work better with different parameter tuning, but current HEAD configuration (attempt 118 parameters with _CLAIMED_TARGET_PENALTY=10.3) is calibrated for corner-safe exploration. Baseline 7.46 is significantly worse than historical baselines (~9-16), suggesting current HEAD may be in degraded state or these offsets fundamentally incompatible with latest parameter stack."
     }
   ],
   "mission": "four_score",

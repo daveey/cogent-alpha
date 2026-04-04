@@ -61,6 +61,7 @@
 - [x] (027) Target switch threshold reduction (3.0→2.5): -33.3%
 - [x] (028) Hotspot cap increase (3→4): -33.8%
 - [x] (029-035) Parallel experiments batch: Reverted before validation. Violated "one change per session" principle.
+- [x] (119) Revert corner-safe to original exploration offsets: -16.8% (extreme variance)
 
 ## Strategy
 - **Tournament-based validation** works well - continue using beta-cvc for fast feedback
