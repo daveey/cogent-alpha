@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 47,
+      "attempts": 48,
       "improvements": 7,
-      "last_used": "20260404-047-pending"
+      "last_used": "20260404-048-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "047",
-    "focus": "Mid-range hub penalty reduction for expanded safe territory",
-    "description": "Reduced hub penalty multiplier from 1.5 to 1.47 (-2%) for junctions 10-15 distance from hub",
-    "rationale": "Attempts 019 (-48.6%) and 023 (-29%) failed with far/mid penalties. This targets 10-15 range (between near-hub 044 and failed mid 023). Conservative -2% reduction (1.5→1.47) extends hub-proximal optimization. Synergizes with scissors 044 (near-hub penalty 0.28) and 046 (mid-range hotspot 5.8) for comprehensive mid-range optimization.",
-    "upload": "scissors_v1_v29:v1",
+    "version": "048",
+    "focus": "Expansion weight increase for aggressive territory acquisition",
+    "description": "Increased expansion bonus weight from 6.0 to 6.15 (+2.5%) in aligner_target_score",
+    "rationale": "Attempt 016 successfully increased 5.0→6.0 (+20%). Conservative +2.5% further increase (6.0→6.15) continues expansion prioritization. More conservative than scissors 040 (+4% in v22) which tested on delta's stack. Synergizes with scissors 041 (scrambler blocking 8.4) for expansion protection.",
+    "upload": "scissors_v1_v30:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T07:13:12Z",
-    "note": "Ninth scissors improvement. Completes mid-range optimization: 046 (hotspot 5.8), 047 (penalty 1.47)."
+    "uploaded_at": "2026-04-04T07:34:41Z",
+    "note": "Tenth scissors improvement. Returns to expansion optimization after hub-proximal focus (044-047)."
   },
   "last_improvement": {
     "date": "20260404",
