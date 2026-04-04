@@ -8,7 +8,7 @@
     "design": {
       "attempts": 16,
       "improvements": 6,
-      "last_used": "20260403-018-testing"
+      "last_used": "20260404-011-reverted"
     }
   },
   "testing_in_progress": {
@@ -124,6 +124,21 @@
         "46": 5.33
       },
       "analysis": "WORSE THAN PRESCRIPTIVE APPROACH. Attempt to soften failed attempt 002's prescriptive rules (-41.6%) resulted in similar magnitude regression (-39.4%). Adding detailed explanations, examples, and strong 'prefer null' bias actually degraded performance vs simpler prompt. LLM may be confused by verbose guidance or 'STRONGLY PREFER null' is too restrictive. Pattern suggests: LLM role guidance itself may be problematic regardless of phrasing - both prescriptive (002: -41.6%) and suggestive (this: -39.4%) approaches fail. Consider abandoning LLM-driven role changes entirely or use only for extreme dysfunction detection with very high threshold."
+    },
+    {
+      "date": "20260404",
+      "version": "011-reverted",
+      "focus": "RETREAT_MARGIN increase to match alpha.0",
+      "description": "Increased RETREAT_MARGIN from 15 to 20 to match alpha.0's more conservative retreat threshold for better agent survival",
+      "result": "SLIGHT REGRESSION: 9.34 vs baseline 9.74 (-4.0%), but EXTREME INSTABILITY with variance 6.63",
+      "scores_by_seed": {
+        "42": 19.42,
+        "43": 2.45,
+        "44": 12.22,
+        "45": 5.95,
+        "46": 6.68
+      },
+      "analysis": "UNACCEPTABLE VARIANCE despite small regression. Individual seeds ranged from -79% to +125% (42: +107%, 43: -79%, 44: -38%, 45: +125%, 46: +24%). More conservative retreat creates unpredictable behavior: some scenarios agents survive longer for massive gains, other scenarios agents retreat too early for major losses. Similar to attempt 012 (+3.8% avg but 40% catastrophic failure rate). Standard deviation 6.63 (similar to baseline 6.61) but extreme individual swings make this unsuitable for production. RETREAT_MARGIN=15 appears better calibrated for four_score dynamics than alpha.0's machina_1-tuned value."
     }
   ],
   "mission": "four_score",

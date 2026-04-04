@@ -27,11 +27,21 @@ Current baseline: **9.74 avg per cog** (from attempt 007: early scrambler activa
 **Seed 43**: 2.45 per cog (baseline: 11.44) → **-78.6% regression**
 **Seed 44**: 12.22 per cog (baseline: 19.86) → **-38.5% regression**
 **Seed 45**: 5.95 per cog (baseline: 2.64) → **+125.4% improvement**
-**Seed 46**: Running (final seed)...
+**Seed 46**: 6.68 per cog (baseline: 5.38) → **+24.2% improvement**
 
-**Avg so far**: 10.01 (seeds 42-45) vs baseline avg 10.83 → **-7.6% regression**
+**Final Average**: 9.34 per cog vs baseline 9.74 → **-4.0% REGRESSION**
+**Standard Deviation**: 6.63 (baseline: 6.61)
 
-**EXTREME INSTABILITY**: Two seeds with massive improvements (42: +107%, 45: +125%), two seeds with major regressions (43: -79%, 44: -38%). This variance pattern is catastrophic for production use. Need seed 46 to finalize, but likely revert due to unpredictability.
+## Conclusion: REVERTED
+
+Slight regression confirmed (-4.0%), but more critically **EXTREME INSTABILITY** detected:
+- Individual seed swings: +107%, -79%, -38%, +125%, +24%
+- Score range: 2.45 to 19.42 (8× spread)
+- Unpredictable pattern: some scenarios massive gains, others catastrophic failures
+
+**Key Learning**: RETREAT_MARGIN 20 (vs 15) creates unpredictable behavior. More conservative retreat helps some scenarios (agents survive longer) but hurts others (agents retreat too early, miss scoring opportunities). Similar to attempt 012 which showed +3.8% avg but was reverted due to 40% catastrophic failure rate.
+
+**Reverted** budgets.py to RETREAT_MARGIN = 15. Alpha.0's value (20) appears tuned for machina_1 (2-team), not four_score (4-team) dynamics. Current value 15 better calibrated for multi-directional threat environment.
 
 Expected completion: ~60-75 minutes (12-15 min/seed × 5 seeds)
 

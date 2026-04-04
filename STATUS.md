@@ -1,13 +1,10 @@
 # Delta Status Report
 
-**Generated**: 2026-04-03 21:42 UTC
+**Generated**: 2026-04-04 00:12 UTC
 
 ## Current Activity
 
-**Testing attempt 011**: RETREAT_MARGIN 15→20 (match alpha.0)
-- **Status**: In progress (seed 42 started 21:45 UTC)
-- **Test PID**: 2246
-- **Expected completion**: ~22:50 UTC (60-75 min)
+**Idle** - Ready for next improvement cycle
 
 ## Latest Improvement
 
@@ -16,20 +13,20 @@
 - **Score**: 9.74 avg per cog (+7.84% over previous)
 - Seeds: 9.37, 11.44, 19.86, 2.64, 5.38
 
-## Most Recent Test: 010-llm-softer (REVERTED)
+## Most Recent Test: 011-RETREAT_MARGIN (REVERTED)
 
-**Change**: Enhanced LLM analysis prompt with softer stagnation detection
-- Added explicit definitions of Stalled/Oscillating
-- Suggestive examples instead of prescriptive rules
-- Strong bias toward null (maintain current role)
+**Change**: Increased RETREAT_MARGIN from 15 to 20 to match alpha.0
+- More conservative retreat threshold for better survival
 
-**Result**: **MAJOR REGRESSION** -39.4% (5.91 vs 9.74 baseline)
-- Seeds: 6.03, 7.48, 5.98, 4.71, 5.33
+**Result**: **SLIGHT REGRESSION** -4.0% (9.34 vs 9.74 baseline) but **EXTREME INSTABILITY**
+- Seeds: 19.42 (+107%), 2.45 (-79%), 12.22 (-38%), 5.95 (+125%), 6.68 (+24%)
+- Standard deviation: 6.63 (vs baseline 6.61)
 
-**Analysis**: Both prescriptive (002: -41.6%) and suggestive (010: -39.4%) LLM role guidance approaches fail with similar magnitude. The problem is not phrasing but the mechanism itself. **LLM-driven role changes marked as ABANDONED** - neither approach works.
+**Analysis**: Unacceptable variance despite small regression. Individual seed swings from -79% to +125% create unpredictable behavior. More conservative retreat helps some scenarios but catastrophically hurts others. Similar to attempt 012 (+3.8% avg but 40% catastrophic failure rate = reverted). Alpha.0's RETREAT_MARGIN=20 appears tuned for machina_1 (2-team), not four_score (4-team) multi-directional threats. Current value 15 better calibrated.
 
 ## Recent History
 
+- **011-reverted**: RETREAT_MARGIN 15→20 → -4.0% with extreme instability (variance unacceptable)
 - **010-llm-softer-reverted**: Softer LLM stagnation → -39.4% (verbose guidance no better)
 - **012-reverted**: Nearby teammate LLM → +3.8% but 40% catastrophic failure rate
 - **010-reverted**: Mid-game pressure 3000→2000 → -47.1% (premature resource burn)
