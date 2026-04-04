@@ -93,3 +93,10 @@ Delta's 036-040 are committed but not uploaded (no COGAMES_TOKEN).
 - **Base**: Delta's 036-038 + scissors 039-050
 - **Status**: Awaiting tournament results (need 20+ matches)
 - **Rationale**: Completes hotspot optimization trilogy: near (045), mid (046), far (051). Builds on delta's 037 (12.0→11.0).
+
+## scissors_v1_v34:v1 (Attempt 052)
+- **Uploaded**: 2026-04-04T08:04:08Z
+- **Change**: Network bonus weight 0.8→0.82 (+2.5%)
+- **Base**: Delta's 036-038 + scissors 039-051
+- **Status**: Awaiting tournament results (need 20+ matches)
+- **Rationale**: Builds on attempts 018 (0.5→0.75) and 042 (0.75→0.8). Conservative further increase for chain-building.
