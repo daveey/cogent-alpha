@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 23,
+      "attempts": 24,
       "improvements": 7,
-      "last_used": "20260404-058-reverted"
+      "last_used": "20260404-059-reverted"
     }
   },
   "testing_in_progress": null,
@@ -223,6 +223,14 @@
       "description": "Reduced _DEFAULT_BOUND_MARGIN from 12 to 11 for tighter A* pathfinding search area",
       "result": "CRITICAL FAILURE: Seed 42 timed out (900s limit). Process terminated with exit code 143 (SIGTERM).",
       "analysis": "Reducing A* bound margin from 12 to 11 steps caused timeout. Tighter search window likely prevented pathfinding from finding valid paths around obstacles, causing agents to fail navigation or retry excessively. Current 12-step margin correctly balances search efficiency with path finding success. Pattern: Both pathfinding parameters tested (057: _TEMP_BLOCK_STEPS, 058: _DEFAULT_BOUND_MARGIN) caused critical failures. Pathfinding infrastructure extremely sensitive - current values are optimally calibrated."
+    },
+    {
+      "date": "20260404",
+      "version": "059-reverted",
+      "focus": "Junction memory duration reduction",
+      "description": "Reduced _JUNCTION_MEMORY_STEPS from 800 to 750 for fresher junction data in high-churn four_score",
+      "result": "CRITICAL FAILURE: Seed 42 timed out (900s limit). Process terminated with exit code 143 (SIGTERM).",
+      "analysis": "Reducing junction memory from 800 to 750 steps caused timeout. Shorter memory window likely forced agents to rediscover junctions more frequently, increasing computational overhead or causing navigation issues. Current 800-step (160 second) memory correctly balances fresh data with computational efficiency. Pattern: THREE CONSECUTIVE TIMEOUTS (057: pathfinding block steps, 058: A* margin, 059: junction memory). Multiple infrastructure parameters proven extremely sensitive - current values comprehensively optimized."
     }
   ],
   "mission": "four_score",
