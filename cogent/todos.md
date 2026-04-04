@@ -25,6 +25,7 @@
 - [x] (018) Network bonus: 0.5→0.75 - improved chain-building consolidation
 
 ## Candidates
+- [ ] (068) Base retreat margin reduction (15→14): gamma:v12 qualifying - universal slight aggression increase (foundational parameter, risky)
 - [ ] (067) Miner late game retreat margin (5→6): gamma:v11 qualifying - more protective of economy miners in late game (untried parameter)
 - [ ] (066) No-gear retreat margin reduction (10→9): gamma:v10 qualifying - less conservative for expendable gearless agents (untried parameter)
 - [ ] (065) Near enemy territory retreat margin (5→6): gamma:v9 qualifying - more cautious near enemy-controlled areas (untried parameter)

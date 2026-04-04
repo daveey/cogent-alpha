@@ -6,19 +6,19 @@
       "last_used": null
     },
     "design": {
-      "attempts": 32,
+      "attempts": 33,
       "improvements": 7,
-      "last_used": "20260404-067-testing"
+      "last_used": "20260404-068-testing"
     }
   },
   "testing_in_progress": {
-    "version": "067",
+    "version": "068",
     "date": "20260404",
-    "focus": "Miner late game retreat margin increase",
-    "description": "Increased miner late game retreat margin from 5 to 6 HP (more protective of economy miners in late game)",
-    "upload": "gamma:v11",
+    "focus": "Base retreat margin reduction",
+    "description": "Reduced _RETREAT_MARGIN from 15 to 14 (universal slight aggression increase across all agents)",
+    "upload": "gamma:v12",
     "status": "qualifying",
-    "previous": "061 (v5), 062 (v6), 063 (v7), 064 (v8), 065 (v9), 066 (v10) also qualifying"
+    "previous": "061 (v5), 062 (v6), 063 (v7), 064 (v8), 065 (v9), 066 (v10), 067 (v11) also qualifying"
   },
   "local_testing_status": {
     "status": "FAILED",
