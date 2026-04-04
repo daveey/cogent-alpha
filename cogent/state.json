@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 65,
+      "attempts": 66,
       "improvements": 7,
-      "last_used": "20260404-130-testing"
+      "last_used": "20260404-131-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "130",
-    "focus": "Aligner hub penalty very-close multiplier reduction",
-    "description": "Reduced hub penalty multiplier from 0.28 to 0.277 (-1%) for junctions ≤10 distance",
-    "rationale": "Attempt 102 reduced from 0.3 to 0.28 (-7%). Conservative -1% further reduction for very close junctions (≤10 distance from hub). Encourages even tighter hub clustering for safer territory control in four_score corner spawns. Complements hub penalty reductions across all tiers. Stacks with 087-129.",
-    "upload": "scissors_v46:v1",
+    "version": "131",
+    "focus": "Aligner near-hub hotspot weight reduction",
+    "description": "Reduced near-hub hotspot_weight from 1.9 to 1.88 (-1%)",
+    "rationale": "Attempt 103 reduced from 2.0 to 1.9 (-5%). Conservative -1% further reduction for near-hub contested junctions (≤10 distance from hub). Encourages even stronger recapture of contested territory near hub in four_score. Complements attempts 104/120 on other hotspot tiers. Stacks with 087-130.",
+    "upload": "scissors_v47:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260404",
-    "note": "Scissors attempt 130. Clean baseline hub penalty very-close multiplier exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 131. Clean baseline near-hub hotspot weight exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
