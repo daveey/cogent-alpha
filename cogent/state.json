@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 66,
+      "attempts": 67,
       "improvements": 7,
-      "last_used": "20260404-131-testing"
+      "last_used": "20260404-132-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "131",
-    "focus": "Aligner near-hub hotspot weight reduction",
-    "description": "Reduced near-hub hotspot_weight from 1.9 to 1.88 (-1%)",
-    "rationale": "Attempt 103 reduced from 2.0 to 1.9 (-5%). Conservative -1% further reduction for near-hub contested junctions (≤10 distance from hub). Encourages even stronger recapture of contested territory near hub in four_score. Complements attempts 104/120 on other hotspot tiers. Stacks with 087-130.",
-    "upload": "scissors_v47:v1",
+    "version": "132",
+    "focus": "Aligner mid-range hotspot weight reduction",
+    "description": "Reduced mid-range hotspot_weight from 5.8 to 5.74 (-1%)",
+    "rationale": "Attempt 104 reduced from 6.0 to 5.8 (-3%). Conservative -1% further reduction for mid-range contested junctions (10-15 distance from hub). Complements attempts 103/131/120 on other hotspot tiers (near-hub, far-range). Stacks with 087-131.",
+    "upload": "scissors_v48:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260404",
-    "note": "Scissors attempt 131. Clean baseline near-hub hotspot weight exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 132. Clean baseline mid-range hotspot weight exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
