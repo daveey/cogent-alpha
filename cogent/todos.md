@@ -1,7 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
-- [ ] (20260404-024) Expansion cap increase: 36→42 (+17%) for junctions unlocking 7+ unreachables. Uploaded as scissors_v1:v7, awaiting tournament validation.
+(none)
 
 ## Current Status (20260404 UTC)
 **Tournament Rankings (beta-cvc):**
@@ -48,6 +48,7 @@
 - [x] (021) Hotspot weight base reduction (12.0→11.0): -9.8%
 - [x] (022) Hotspot weight mid-tier reduction (6.0→5.5): canceled (built on failed 021)
 - [x] (023) Hub penalty mid-tier reduction (3.0→2.7): -29.0%
+- [x] (024) Expansion cap increase (36→42): -20.7%
 
 ## Strategy
 - **Tournament-based validation** works well - continue using beta-cvc for fast feedback

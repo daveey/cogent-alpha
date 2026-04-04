@@ -97,7 +97,7 @@ def aligner_target_score(
     teammate_penalty = 9.0 if teammate_closer else 0.0
     return (
         distance
-        - min(expansion * 6.0, 42.0)  # Increased cap from 36 to 42 for high-expansion junctions
+        - min(expansion * 6.0, 36.0)
         + enemy_aoe * 10.0
         + (_CLAIMED_TARGET_PENALTY if claimed_by_other else 0.0)
         + hub_penalty

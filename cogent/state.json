@@ -6,22 +6,12 @@
       "last_used": null
     },
     "design": {
-      "attempts": 22,
+      "attempts": 23,
       "improvements": 7,
-      "last_used": "20260404-024-testing"
+      "last_used": "20260404-024-reverted"
     }
   },
-  "testing_in_progress": {
-    "date": "20260404",
-    "version": "024",
-    "focus": "Expansion cap increase for high-value junctions",
-    "description": "Increased expansion bonus cap from 36.0 to 42.0 (6→7 junctions) to better value exceptional expansion opportunities",
-    "rationale": "Current cap limits expansion bonus at 6 unreachable junctions (36 points). In dense junction clusters, some positions may unlock 7+ junctions. Increasing cap to 42 allows these exceptional positions to be properly valued. Conservative change - only affects top-tier expansion junctions.",
-    "upload": "scissors_v1:v7",
-    "season": "beta-cvc",
-    "uploaded_at": "20260404 UTC",
-    "note": "Building on validated gamma_v6 baseline. Unlike failed parameter reductions (019-023), this increases reward for already-successful behavior (expansion)."
-  },
+  "testing_in_progress": null,
   "last_improvement": {
     "date": "20260404",
     "version": "018",
@@ -217,6 +207,20 @@
         "season": "beta-cvc"
       },
       "analysis": "Worse than attempt 019 (-48.6%). Even conservative -10% reduction to mid-tier hub penalty hurt badly. Hub-proximal strategy is fundamental to four_score success. All three hub penalty tiers (0.3, 1.5, 3.0, 8.0) are correctly calibrated and should not be reduced."
+    },
+    {
+      "date": "20260404",
+      "version": "024-reverted",
+      "focus": "Expansion cap increase",
+      "description": "Increased expansion bonus cap from 36.0 to 42.0 (+17%) to better value exceptional high-expansion junctions (7 unreachables vs 6)",
+      "result": "MAJOR REGRESSION: scissors_v1:v7 avg 12.56 vs baseline 15.84 (-20.7%)",
+      "tournament_scores": {
+        "matches": 16,
+        "avg": 12.56,
+        "rank": 29,
+        "season": "beta-cvc"
+      },
+      "analysis": "Significant regression. Increasing expansion cap encouraged agents to pursue exceptional expansion opportunities that may have been riskier or further from optimal paths. Cap of 36 (6 unreachables) appears to be the sweet spot - it rewards good expansion without over-prioritizing extreme cases. Pattern: parameter increases that 'amplify' existing behavior don't always improve - the current calibration is often optimal."
     }
   ],
   "mission": "four_score",
