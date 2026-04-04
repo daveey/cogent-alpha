@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (111) Aligner hub penalty far-range multiplier reduction (8.0→7.92): scissors_v27:v1 qualifying - far-range multiplier penalty (-1%, stacks with 087-110)
 - [ ] (110) Aligner hub penalty far-range base reduction (50.0→49.5): scissors_v26:v1 qualifying - far-range base penalty (-1%, stacks with 087-109)
 - [ ] (109) Aligner teammate penalty increase (9.0→9.15): scissors_v25:v1 qualifying - stronger coordination (+2%, stacks with 087-108)
 - [ ] (108) Aligner hub penalty 15-25 base reduction (10.0→9.8): scissors_v24:v1 qualifying - 15-25 range base penalty (-2%, stacks with 087-107)
