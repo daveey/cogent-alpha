@@ -44,3 +44,10 @@ Delta's 036-040 are committed but not uploaded (no COGAMES_TOKEN).
 - **Base**: Delta's 036-038 + scissors 039-043
 - **Status**: Awaiting tournament results (need 20+ matches)
 - **Rationale**: Near-hub zone safest. Far/mid hub penalty reductions failed badly (019: -48.6%, 023: -29%).
+
+## scissors_v1_v27:v1 (Attempt 045)
+- **Uploaded**: 2026-04-04T07:07:35Z
+- **Change**: Near-hub hotspot weight 2.0→1.9 (-5%)
+- **Base**: Delta's 036-038 + scissors 039-044
+- **Status**: Awaiting tournament results (need 20+ matches)
+- **Rationale**: Completes near-hub optimization with 044. Encourages aggressive near-hub recapture despite contest.
