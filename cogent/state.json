@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 110,
+      "attempts": 111,
       "improvements": 7,
-      "last_used": "20260404-110-pending"
+      "last_used": "20260404-111-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "110",
-    "focus": "Claimed target penalty reduction for flexible claim override",
-    "description": "Reduced _CLAIMED_TARGET_PENALTY from 10.5 to 10.4 (-0.9%) in types.py",
-    "rationale": "Builds on attempts 102 (10.6→10.5, -0.9%), 087 (10.7→10.6, -0.9%), 074 (10.8→10.7, -0.9%), 054 (11.0→10.8, -1.8%), and validated 040 (12.0→11.0, improvement) for continued claim penalty optimization. Cumulative -13.3% reduction from baseline 12.0 to 10.4. Synergizes with teammate penalty reductions (049, 056, 068, 075, 083, 096, 106) for comprehensive multi-agent coordination flexibility. Progressive claim penalty reductions enable increasingly flexible claim override when strategically beneficial while maintaining coordination stability.",
-    "upload": "scissors_v1_v92:v1",
+    "version": "111",
+    "focus": "Far-range hotspot weight reduction for contested junction flexibility",
+    "description": "Reduced far-range hotspot_weight from 10.4 to 10.3 (-0.9%) in scoring.py",
+    "rationale": "Builds on attempts 103 (10.5→10.4, -0.9%), 088 (10.6→10.5, -0.9%), 079 (10.7→10.6, -0.9%), 062 (10.8→10.7, -0.9%), 051 (11.0→10.8, -1.8%), and validated baseline reduction from 12.0 to 11.0 in attempt 021 context for continued far-range hotspot optimization. Cumulative -14.2% reduction from baseline 12.0 to 10.3. Synergizes with enemy AOE penalty reductions (050, 057, 071, 078, 084, 097, 107) and mid-range hotspot reductions (046, 063, 080, 095) for comprehensive contested territory strategy. Progressive far-range hotspot weight reductions enable increasingly aggressive far-range contested junction pursuit.",
+    "upload": "scissors_v1_v93:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T12:34:59Z",
-    "note": "Seventy-second scissors improvement. Continues claimed penalty optimization (040, 054, 074, 087, 102, 110)."
+    "uploaded_at": "2026-04-04T12:37:26Z",
+    "note": "Seventy-third scissors improvement. Continues far-range hotspot optimization (051, 062, 079, 088, 103, 111)."
   },
   "last_improvement": {
     "date": "20260404",

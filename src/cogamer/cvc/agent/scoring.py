@@ -75,7 +75,7 @@ def aligner_target_score(
             hub_penalty = hub_dist * 0.26  # Reduced from 0.27 for slightly stronger near-hub preference
     # Reduce hotspot penalty for hub-proximal junctions (worth defending)
     # Four_score: higher base penalty due to 3x more scramblers (4 teams)
-    hotspot_weight = 10.4  # Reduced from 10.5 for far-range contested junction flexibility
+    hotspot_weight = 10.3  # Reduced from 10.4 for far-range contested junction flexibility
     if hub_position is not None:
         hub_dist = float(manhattan(hub_position, candidate.position))
         if hub_dist <= 10:
