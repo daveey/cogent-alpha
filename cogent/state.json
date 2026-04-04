@@ -6,19 +6,19 @@
       "last_used": null
     },
     "design": {
-      "attempts": 30,
+      "attempts": 31,
       "improvements": 7,
-      "last_used": "20260404-065-testing"
+      "last_used": "20260404-066-testing"
     }
   },
   "testing_in_progress": {
-    "version": "065",
+    "version": "066",
     "date": "20260404",
-    "focus": "Near enemy territory retreat margin increase",
-    "description": "Increased near_enemy_territory retreat margin from 5 to 6 HP (more cautious near enemy-controlled areas)",
-    "upload": "gamma:v9",
+    "focus": "No-gear retreat margin reduction",
+    "description": "Reduced no-gear retreat margin from 10 to 9 HP (slightly less conservative for expendable gearless agents)",
+    "upload": "gamma:v10",
     "status": "qualifying",
-    "previous": "061 (v5), 062 (v6), 063 (v7), 064 (v8) also qualifying"
+    "previous": "061 (v5), 062 (v6), 063 (v7), 064 (v8), 065 (v9) also qualifying"
   },
   "local_testing_status": {
     "status": "FAILED",
