@@ -317,6 +317,21 @@
         "46": 3.42
       },
       "analysis": "MAJOR REGRESSION with EXTREME VARIANCE. Reverting to original exploration offsets (magnitude 22) performed worse than corner-safe offsets (magnitude 15), contradicting attempt 017's -62.8% regression claim. Individual seeds ranged from -54.2% to +65.3% (3.6x range), indicating severe instability. The original offsets may work better with different parameter tuning, but current HEAD configuration (attempt 118 parameters with _CLAIMED_TARGET_PENALTY=10.3) is calibrated for corner-safe exploration. Baseline 7.46 is significantly worse than historical baselines (~9-16), suggesting current HEAD may be in degraded state or these offsets fundamentally incompatible with latest parameter stack."
+    },
+    {
+      "date": "20260404",
+      "version": "085-revert-reverted",
+      "focus": "Revert attempt 085 to restore stable baseline",
+      "description": "Reverted attempt 085 (LLM role field removal) to eliminate instability and restore gamma_v6:v1 stable baseline",
+      "result": "MAJOR REGRESSION: 5.61 vs baseline 7.31 (-23.3%)",
+      "scores_by_seed": {
+        "42": 4.41,
+        "43": 10.48,
+        "44": 4.31,
+        "45": 4.88,
+        "46": 3.95
+      },
+      "analysis": "FAILED STABILITY RESTORATION. Attempt to revert 085 (LLM role field removal) to eliminate variance caused -23% regression. Despite 085's instability (seed 42 ranged 3.57-11.76-7.31 across runs), reverting it performed even worse. Only 1 of 5 seeds above baseline with 085. Variance range 3.95 to 10.48 (2.7x) still high. Decision: Keep 085 despite instability, as it performs better on average than alternatives. The high variance may be inherent to this architecture regardless of role field presence. Need different approach to improve stability (possibly tournament validation vs local testing)."
     }
   ],
   "mission": "four_score",
