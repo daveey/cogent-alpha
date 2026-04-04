@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 90,
+      "attempts": 91,
       "improvements": 7,
-      "last_used": "20260404-090-pending"
+      "last_used": "20260404-091-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "090",
-    "focus": "Expansion weight increase for territory acquisition",
-    "description": "Increased expansion weight from 6.4 to 6.45 (+0.8%) in scoring.py",
-    "rationale": "Builds on attempts 082 (6.35→6.4, +0.8%), 077 (6.3→6.35, +0.8%), 070 (6.25→6.3, +0.8%), 061 (6.2→6.25, +0.8%), 055 (6.15→6.2, +0.8%), 048 (6.1→6.15, +0.8%), 040 (6.0→6.15, +2.5%), and validated 016 (5.0→6.0, improvement) for continued expansion weight optimization. Cumulative +29% increase from baseline 5.0 to 6.45. Synergizes with hub penalty and hotspot weight reductions for hub-proximal expansion strategy. Progressive expansion weight increases enable increasingly aggressive safe territory acquisition.",
-    "upload": "scissors_v1_v72:v1",
+    "version": "091",
+    "focus": "Mid-range hub penalty reduction for hub-proximal expansion",
+    "description": "Reduced mid-range hub_penalty multiplier from 1.45 to 1.44 (-0.7%) in scoring.py",
+    "rationale": "Builds on attempts 065 (1.47→1.45, -1.4%) and 047 (1.5→1.47, -2%) for continued mid-range hub penalty optimization (10-15 distance). Synergizes with hub penalty reductions across all ranges: near-hub (044, 066), mid-range (047, 065, 091), and mid-far (053, 067). Also synergizes with hotspot weight reductions (045, 046, 051, 062, 063, 064, 079, 080, 088) and expansion weight increases (040, 048, 055, 061, 070, 077, 082, 090) for comprehensive hub-proximal expansion strategy. Progressive mid-range hub penalty reductions enable increasingly flexible mid-range junction targeting.",
+    "upload": "scissors_v1_v73:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T11:46:57Z",
-    "note": "Fifty-second scissors improvement. Continues expansion weight optimization (016, 040, 048, 055, 061, 070, 077, 082, 090)."
+    "uploaded_at": "2026-04-04T11:47:53Z",
+    "note": "Fifty-third scissors improvement. Continues mid-range hub penalty optimization (047, 065, 091)."
   },
   "last_improvement": {
     "date": "20260404",
