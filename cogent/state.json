@@ -6,19 +6,19 @@
       "last_used": null
     },
     "design": {
-      "attempts": 36,
+      "attempts": 37,
       "improvements": 7,
-      "last_used": "20260404-071-testing"
+      "last_used": "20260404-072-testing"
     }
   },
   "testing_in_progress": {
-    "version": "071",
+    "version": "072",
     "date": "20260404",
-    "focus": "Heart count retreat margin multiplier increase",
-    "description": "Increased heart count retreat margin multiplier from 5 to 6 (more protective of agents carrying hearts)",
-    "upload": "gamma:v15",
+    "focus": "Network bonus cap increase for denser chain consolidation",
+    "description": "Increased network_bonus cap from 4 to 5 junctions (max bonus 3.75 vs 3.0)",
+    "upload": "gamma:v16",
     "status": "qualifying",
-    "previous": "061-070 (v5-v14) also qualifying"
+    "previous": "061-071 (v5-v15) also qualifying"
   },
   "local_testing_status": {
     "status": "FAILED",

@@ -25,6 +25,7 @@
 - [x] (018) Network bonus: 0.5→0.75 - improved chain-building consolidation
 
 ## Candidates
+- [ ] (072) Network bonus cap increase (4→5): gamma:v16 qualifying - allow denser chain consolidation (max bonus 3.75 vs 3.0)
 - [ ] (071) Heart count retreat margin multiplier (5→6): gamma:v15 qualifying - more protective of agents carrying hearts
 - [ ] (070) Late game aligner/scrambler retreat margin (10→11): gamma:v14 qualifying - more protective of offensive roles in late game
 - [ ] (069) In-enemy-AOE retreat margin (10→11): gamma:v13 qualifying - more cautious in direct enemy AOE (highest risk zones)
