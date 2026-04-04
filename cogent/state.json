@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 60,
+      "attempts": 61,
       "improvements": 7,
-      "last_used": "20260404-125-testing"
+      "last_used": "20260404-126-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "125",
-    "focus": "Claimed target penalty reduction",
-    "description": "Reduced _CLAIMED_TARGET_PENALTY from 11.5 to 11.38 (-1%)",
-    "rationale": "Attempt 090 reduced from 12.0 to 11.5 (-4%). Conservative -1% further reduction for more flexible claim override. Helps agents override stale teammate claims when needed without excessive duplication in four_score team coordination. Stacks with 087-124.",
-    "upload": "scissors_v41:v1",
+    "version": "126",
+    "focus": "Hub align distance increase",
+    "description": "Increased _HUB_ALIGN_DISTANCE from 26 to 26.3 (+1%)",
+    "rationale": "Attempt 092 increased from 25 to 26 (+4%). Conservative +1% further increase for slightly extended hub reach. Helps agents align junctions slightly farther from hub while maintaining hub-proximal strategy in four_score. Stacks with 087-125.",
+    "upload": "scissors_v42:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260404",
-    "note": "Scissors attempt 125. Clean baseline claimed target penalty exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 126. Clean baseline hub align distance exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
