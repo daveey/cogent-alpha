@@ -4,3 +4,4 @@ Baseline: 9.74 avg (seeds: 9.37, 11.44, 19.86, 2.64, 5.38)
 === Seed 42 ===
 │ Score    │ per cog   │        │      │  5.42 │
 === Seed 43 ===
+│ Score    │ per cog   │        │      │  6.21 │
