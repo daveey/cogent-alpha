@@ -102,7 +102,7 @@ def compute_retreat_margin(
     elif near_enemy_territory:
         margin += 5
     margin += heart_count * 5
-    margin += min(resource_cargo, 12) // 2
+    margin += min(resource_cargo, 14) // 2
     if not has_gear:
         margin += 10
     if late_game:

@@ -6,19 +6,19 @@
       "last_used": null
     },
     "design": {
-      "attempts": 28,
+      "attempts": 29,
       "improvements": 7,
-      "last_used": "20260404-063-testing"
+      "last_used": "20260404-064-testing"
     }
   },
   "testing_in_progress": {
-    "version": "063",
+    "version": "064",
     "date": "20260404",
-    "focus": "Late game threshold reduction",
-    "description": "Reduced late game threshold from 2500 to 2200 steps (earlier conservative behavior during critical window end)",
-    "upload": "gamma:v7",
+    "focus": "Resource cargo retreat margin cap increase",
+    "description": "Increased cargo retreat margin cap from 12 to 14 (miners with heavy cargo retreat 1 HP earlier)",
+    "upload": "gamma:v8",
     "status": "qualifying",
-    "previous": "061 (gamma:v5), 062 (gamma:v6) also qualifying"
+    "previous": "061 (gamma:v5), 062 (gamma:v6), 063 (gamma:v7) also qualifying"
   },
   "local_testing_status": {
     "status": "FAILED",
