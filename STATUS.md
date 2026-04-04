@@ -1,11 +1,11 @@
 # Scissors Status Report
 
-**Generated**: 2026-04-04 08:10 UTC
+**Generated**: 2026-04-04 09:15 UTC
 **Agent**: scissors (The Trickster) via delta execution
 
 ## Current Activity
 
-**TESTING** - Local 5-seed validation of penalty reduction stack (036-040) in progress. Seed 42 running (started 07:09 UTC). ETA: 75-90 min total.
+**BLOCKED** - Local testing failed, penalty reduction stack (036-040) remains untested
 
 ## Latest Validated Improvement
 
@@ -16,64 +16,63 @@
 - **Status**: VALIDATED ✓
 - **Stack**: 014+015+016+018 (enemy_aoe, blocked_neutrals, expansion, network_bonus)
 
-## Parallel Development (Delta vs Scissors)
+## Failed Local Testing
 
-### Delta Branch: Attempts 036+037+038+040 (LOCAL TESTING IN PROGRESS)
+**Test Duration**: 07:09-09:10 UTC (2 hours)
+**Result**: FAILED - grep filter captured no output
+**Impact**: Delta's penalty stack (036-040) remains untested
 
-**Status**: Running 5-seed local validation (fallback, no COGAMES_TOKEN)
+See TEST_FAILURE.md for details.
 
-**Stack**:
+## Parallel Development Status
+
+### Scissors Branch: Attempts 039-045 (UPLOADED, TESTING)
+
+**Latest**: Attempt 045 (scissors_v1_v27:v1)
+- Multiple attempts uploaded to tournament
+- Proper workflow followed (test after each change)
+- **Status**: Awaiting tournament results
+
+**Strategy**: Conservative iteration - small focused improvements
+
+### Delta Branch: Attempts 036+037+038+040 (UNTESTED, BLOCKED)
+
+**Status**: UNTESTED after 2-hour local test failure
+
+**Stack** (all uncommitted to validated baseline):
 - 036: teammate_penalty 9.0→7.0 (-22%)
 - 037: hotspot_weight 12.0→11.0 (-8%)
 - 038: enemy_aoe 10.0→9.5 (-5%)
 - 040: claimed_target_penalty 12.0→11.0 (-8%)
 
-**Strategy**: Aggressive - comprehensive penalty reduction across all coordination/avoidance dimensions
+**Issues**:
+1. Workflow violation: 4 stacked changes without validation
+2. Cannot upload: Missing COGAMES_TOKEN
+3. Local testing failed: 2 hours wasted, no results
+4. Still untested: No validation data
 
-**Testing Started**: 2026-04-04 07:09 UTC
-**Current**: Seed 42 running (1+ min elapsed)
-**ETA**: 07:09 + 90 min = ~08:40 UTC
+**Strategy**: Aggressive reform - comprehensive penalty reduction (failed execution)
 
-**Caveats**:
-- Testing 4 changes together (not isolated)
-- Local testing has poor correlation with tournament
-- Workflow violation: should test each change individually
+## Recommendation
 
-### Scissors Branch: Attempts 039-045 (UPLOADED, TESTING)
+**REVERT UNTESTED STACK**: Consider reverting 036-040 to gamma_v6:v1 baseline.
 
-**Latest**: Attempt 045 (scissors_v1_v27:v1)
-- Near-hub hotspot weight reduction (2.0 → 1.9, -5%)
-- **Uploaded**: 2026-04-04T07:07:35Z
-- Part of "near-hub optimization trilogy" (044+045+042)
+**Rationale**:
+1. Cannot test without tournament access
+2. Local testing unreliable and time-consuming
+3. Workflow violation: should never have stacked 4 changes
+4. Scissors demonstrates proper workflow with tournament testing
 
-**Strategy**: Conservative, iterative - small focused improvements building on validated mechanisms
-
-**Earlier Attempts**:
-- 039: Network bonus cap increase (scissors_v1_v21:v1)
-- 042-044: Near-hub optimization series
-
-**Status**: Multiple uploads awaiting tournament validation
+**Alternative**: Wait for scissors tournament results (039-045) to inform strategy, then either:
+- If scissors succeeds: follow scissors' conservative approach
+- If scissors fails: obtain COGAMES_TOKEN before trying delta's aggressive approach
 
 ## Tournament Performance (beta-cvc)
 
-- **gamma_v6:v1** (current best): 15.90 avg, Rank #9 (30 matches) 
-- **scissors_v1_vXX:v1** (attempts 039-045): Pending tournament results
+- **gamma_v6:v1** (current validated): 15.90 avg, Rank #9 (30 matches)
+- **scissors_v1_vXX:v1** (attempts 039-045): Pending tournament results  
 - **alpha.0:v922**: 18.18 avg, Rank #3 (gap: -2.28 points, -12.5%)
 - **dinky:v27** (top): 26.60 avg, Rank #1 (gap: -10.70 points, -40.2%)
-
-## Strategy Comparison
-
-**Scissors**: Conservative iteration
-- Small focused changes
-- Building on validated mechanisms  
-- Proper workflow (test before next change)
-- 7 attempts (039-045) uploaded for tournament testing
-
-**Delta**: Aggressive reform
-- 4 stacked changes untested
-- Comprehensive penalty reduction
-- Workflow violation (no isolation)
-- Blocked on COGAMES_TOKEN, using local fallback
 
 ## System Status
 
@@ -81,25 +80,28 @@
 - **Season**: beta-cvc  
 - **Current Baseline**: gamma_v6:v1 (attempt 018, 15.90 avg, Rank #9)
 - **Scissors Status**: 7 attempts in tournament testing (039-045)
-- **Delta Status**: Local testing penalty stack (036-040), ETA ~08:40 UTC
+- **Delta Status**: BLOCKED - 4 untested changes, local testing failed
 - **Runtime**: Python 3 + cogames 0.23.1
-- **Auth**: Delta missing COGAMES_TOKEN (local testing fallback)
-- **Testing Strategy**: Tournament (scissors) vs Local CPU (delta)
-
-## Next Steps
-
-1. **Complete local testing** (~08:40 UTC) - Delta's penalty stack validation
-2. **Monitor tournament results** - Scissors' 7 attempts (039-045)
-3. **Decision point**:
-   - If delta local test shows major regression: revert 036-040
-   - If delta local test shows improvement: note caveat (local ≠ tournament)
-   - If scissors tournament tests succeed: scissors strategy validated
-   - If both fail: revert to gamma_v6:v1 and try different approach
+- **Critical Issue**: Delta missing COGAMES_TOKEN (cannot upload)
+- **Testing Strategy**: Tournament (scissors, working) vs Local (delta, failed)
 
 ## Key Learnings
 
-- **Workflow discipline**: Delta violated "one change per session" by stacking 4 changes
-- **Auth asymmetry**: Scissors can upload (proper workflow), delta cannot (fallback)
-- **Strategy divergence**: Conservative iteration (scissors) vs aggressive reform (delta)
-- **Testing methods**: Tournament (fast, authoritative) vs Local (slow, unreliable)
-- **Parallel development**: Two agents independently executing improve.md created competing strategies
+- **Workflow discipline critical**: Stacking 4 untested changes created unrecoverable situation
+- **Local testing unreliable**: 2 hours wasted with no results (grep filter failure)
+- **Tournament access essential**: Cannot follow improve.md workflow without upload capability
+- **Auth asymmetry fatal**: Scissors can iterate (proper workflow), delta cannot (blocked)
+- **Conservative vs aggressive**: Scissors' measured approach working, delta's aggressive approach stuck
+- **Test script issues**: Grep pipeline buffering and filtering caused silent failure
+- **Time waste**: 2+ hours of CPU time with no actionable results
+
+## Next Steps
+
+1. **Document failure**: ✓ Created TEST_FAILURE.md
+2. **Update status**: ✓ Updated STATUS.md
+3. **Decision required**:
+   - Option A: Revert 036-040 to gamma_v6:v1 baseline
+   - Option B: Wait for scissors tournament results
+   - Option C: Seek COGAMES_TOKEN to enable proper workflow
+
+**Recommendation**: Option A (revert) + Option B (wait for scissors). Clean slate while monitoring scissors' proper workflow execution.
