@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 116,
+      "attempts": 117,
       "improvements": 7,
-      "last_used": "20260404-116-pending"
+      "last_used": "20260404-117-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "116",
-    "focus": "Scrambler threat bonus increase for network defense",
-    "description": "Increased scrambler threat_bonus from 11.0 to 11.1 (+0.9%) in scoring.py",
-    "rationale": "Builds on attempts 108 (10.9→11.0, +0.9%), 100 (10.8→10.9, +0.9%), 085 (10.7→10.8, +0.9%), 072 (10.6→10.7, +0.9%), 058 (10.5→10.6, +1.0%), 043 (10.0→10.5, +5%), and baseline 10.0 for continued scrambler threat_bonus optimization. Cumulative +11% increase from baseline 10.0 to 11.1. Synergizes with network bonus increases (039, 042, 052, 060, 069, 076, 081, 089, 098, 104, 112) to protect consolidated junction clusters from enemy scramblers. Progressive threat_bonus increases enable increasingly effective defensive scrambler positioning near friendly junction networks.",
-    "upload": "scissors_v1_v98:v1",
+    "version": "117",
+    "focus": "Scrambler blocked neutrals weight increase for expansion blocking",
+    "description": "Increased scrambler blocked_neutrals weight from 8.9 to 9.0 (+1.1%) in scoring.py",
+    "rationale": "Builds on attempts 109 (8.8→8.9, +1.1%), 101 (8.7→8.8, +1.1%), 086 (8.6→8.7, +1.2%), 073 (8.5→8.6, +1.2%), 059 (8.4→8.5, +1.2%), 041 (8.0→8.4, +5%), and validated 015 (6.0→8.0, improvement) for continued scrambler blocked_neutrals optimization. Cumulative +50% increase from baseline 6.0 to 9.0. Synergizes with threat_bonus increases (043, 058, 072, 085, 100, 108, 116) for balanced scrambler strategy targeting both expansion blocking (blocked_neutrals) and network defense (threat_bonus). Progressive blocked_neutrals weight increases enable increasingly effective enemy expansion disruption.",
+    "upload": "scissors_v1_v99:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T13:03:49Z",
-    "note": "Seventy-eighth scissors improvement. Continues scrambler threat_bonus optimization (043, 058, 072, 085, 100, 108, 116)."
+    "uploaded_at": "2026-04-04T13:05:02Z",
+    "note": "Seventy-ninth scissors improvement. Continues scrambler blocked_neutrals optimization (015, 041, 059, 073, 086, 101, 109, 117)."
   },
   "last_improvement": {
     "date": "20260404",
