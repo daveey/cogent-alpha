@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 40,
+      "attempts": 41,
       "improvements": 7,
-      "last_used": "20260404-040-pending"
+      "last_used": "20260404-041-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "040",
-    "focus": "Claimed target penalty reduction for flexible coordination (delta stack)",
-    "description": "Reduced _CLAIMED_TARGET_PENALTY from 12.0 to 11.0 (-8%) in types.py",
-    "rationale": "Current 12.0 penalty for teammate-claimed junctions may prevent valid target overrides when one agent is significantly closer. Conservative -8% reduction to 11.0 allows more flexible claim override. Stacks with 036 (teammate_penalty 7.0) + 037 (hotspot_weight 11.0) + 038 (enemy_aoe 9.5). Unified penalty reduction theme. Built on gamma_v6:v1 baseline. Diverges from scissors' 039 (network bonus cap increase).",
-    "upload": "pending_upload",
+    "version": "041",
+    "focus": "Scrambler blocked_neutrals weight increase for stronger expansion blocking",
+    "description": "Increased blocked_neutrals weight from 8.0 to 8.4 (+5%) in scramble_target_score",
+    "rationale": "Attempt 015 successfully increased blocked_neutrals 6.0→8.0 for better scrambler targeting. Conservative +5% further increase to 8.4 encourages scramblers to prioritize high-impact targets that block multiple neutral junctions. Synergizes with scissors 039 (network_bonus) and 040-scissors (expansion) by helping scramblers protect expanding territory.",
+    "upload": "scissors_v1_v23:v1",
     "season": "beta-cvc",
-    "uploaded_at": "TBD",
-    "note": "Fourth change in delta's penalty reduction stack (036-038-040). Scissors 039 tests different approach. Tournament will compare both strategies independently. No COGAMES_TOKEN for delta upload."
+    "uploaded_at": "2026-04-04T06:46:50Z",
+    "note": "Third scissors improvement (039: network cap, 040-scissors: expansion, 041: scrambler blocking). Independent of delta's 036-040 penalty stack."
   },
   "last_improvement": {
     "date": "20260404",

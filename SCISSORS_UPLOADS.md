@@ -1,0 +1,25 @@
+# Scissors Tournament Uploads
+
+Scissors branch uploads (independent of delta's stack):
+
+## scissors_v1_v21:v1 (Attempt 039)
+- **Uploaded**: 2026-04-04T06:33:58Z
+- **Change**: Network bonus cap 4→5 (+25% max bonus: 3.0→3.75)
+- **Base**: gamma_v6:v1 (e073b3e)
+- **Status**: Awaiting tournament results (need 20+ matches)
+
+## scissors_v1_v22:v1 (Attempt 040 - scissors variant)
+- **Uploaded**: 2026-04-04T06:43:55Z
+- **Change**: Expansion weight 6.0→6.25 (+4%)
+- **Base**: Delta's 036-038 stack (teammate 7.0, hotspot 11.0, enemy_aoe 9.5)
+- **Status**: Awaiting tournament results (need 20+ matches)
+- **Note**: Conflicts with delta's 040 (claimed penalty). Both test different improvements.
+
+Delta's 036-040 are committed but not uploaded (no COGAMES_TOKEN).
+
+## scissors_v1_v23:v1 (Attempt 041)
+- **Uploaded**: 2026-04-04T06:46:50Z
+- **Change**: Scrambler blocked_neutrals weight 8.0→8.4 (+5%)
+- **Base**: Delta's 036-038 stack
+- **Status**: Awaiting tournament results (need 20+ matches)
+- **Rationale**: Builds on attempt 015's success (6.0→8.0). Stronger scrambler targeting for expansion blocking.
