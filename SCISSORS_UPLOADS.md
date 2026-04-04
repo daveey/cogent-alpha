@@ -79,3 +79,10 @@ Delta's 036-040 are committed but not uploaded (no COGAMES_TOKEN).
 - **Base**: Delta's 036-038 + scissors 039-048
 - **Status**: Awaiting tournament results (need 20+ matches)
 - **Rationale**: Builds on delta's 036 (9.0→7.0). Conservative further reduction for flexible coordination.
+
+## scissors_v1_v32:v1 (Attempt 050)
+- **Uploaded**: 2026-04-04T07:41:23Z
+- **Change**: Enemy AOE penalty 9.5→9.3 (-2.1%)
+- **Base**: Delta's 036-038 + scissors 039-049
+- **Status**: Awaiting tournament results (need 20+ matches)
+- **Rationale**: Builds on delta's 038 (10.0→9.5). Conservative further reduction for aggressive contested territory.
