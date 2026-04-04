@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 60,
+      "attempts": 61,
       "improvements": 7,
-      "last_used": "20260404-060-pending"
+      "last_used": "20260404-061-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "060",
-    "focus": "Network bonus weight increase for chain-building consolidation",
-    "description": "Increased network_bonus weight from 0.82 to 0.84 (+2.4%) in scoring.py",
-    "rationale": "Builds on attempt 052 (0.8→0.82, +2.5%), attempt 042 (0.75→0.8, +7%), and validated attempt 018 (0.5→0.75, +50%, +3.9%) for continued consolidation optimization. Synergizes with threat_bonus increases (043, 058) to both build and defend junction clusters. Progressive increases show sustained improvements in chain-building strategy.",
-    "upload": "scissors_v1_v42:v1",
+    "version": "061",
+    "focus": "Expansion weight increase for aggressive territory acquisition",
+    "description": "Increased expansion bonus weight from 6.2 to 6.25 (+0.8%) in scoring.py",
+    "rationale": "Builds on attempts 055 (6.15→6.2, +0.8%), 048 (6.1→6.15), and 040 (6.0→6.15, +2.5%) for continued expansion optimization. Synergizes with hub penalty reductions (044-047,053) and hotspot weight reductions (045, 046, 051) for comprehensive hub-proximal expansion strategy. Progressive increases in expansion weight show sustained territory acquisition improvements.",
+    "upload": "scissors_v1_v43:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T09:04:08Z",
-    "note": "Twenty-second scissors improvement. Continues network consolidation optimization (018, 042, 052, 060)."
+    "uploaded_at": "2026-04-04T09:07:36Z",
+    "note": "Twenty-third scissors improvement. Continues expansion optimization (040, 048, 055, 061)."
   },
   "last_improvement": {
     "date": "20260404",
