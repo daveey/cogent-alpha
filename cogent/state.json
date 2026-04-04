@@ -19,7 +19,7 @@
     "rationale": "Agents claim targets to prevent duplication, with claims lasting 30 steps. If claiming agent gets stuck/diverted, other agents wait 30 steps before reconsidering the target. Reducing to 25 allows faster recovery from stagnation without being too aggressive. Independent of experiments 029-032.",
     "upload": "scissors_v1_v17:v1",
     "season": "beta-cvc",
-    "uploaded_at": "TBD",
+    "uploaded_at": "20260404 04:54 UTC",
     "note": "Conservative 17% reduction. Balances avoiding duplicate work vs recovering from stalled agents. Fifth parallel experiment (029-033) - violates 'one change per session' but tests independent parameters."
   },
   "last_improvement": {
