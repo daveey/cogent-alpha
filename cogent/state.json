@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 31,
+      "attempts": 32,
       "improvements": 7,
-      "last_used": "20260404-096-testing"
+      "last_used": "20260404-097-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "096",
-    "focus": "Expansion bonus weight increase for stronger expansion incentive",
-    "description": "Increased expansion bonus weight from 6.0 to 6.2 (+3%)",
-    "rationale": "Current weight 6.0 validated in attempt 016. Cap of 36.0 is correct (attempt 024's increase to 42 failed -20.7%). Modest increase to weight from 6.0 to 6.2 could further prioritize expansion-enabling junctions without over-prioritizing extreme cases. Stacks with 087-095.",
-    "upload": "scissors:v12",
+    "version": "097",
+    "focus": "Network bonus weight increase for stronger chain-building",
+    "description": "Increased network bonus weight from 0.75 to 0.77 (+3%)",
+    "rationale": "Current weight 0.75 validated in attempt 018 (0.5→0.75, +50%, gamma_v6 improvement). Modest further increase to 0.77 could strengthen chain-building consolidation without over-clustering. Conservative increment on proven improvement direction. Cap remains 4 junctions. Stacks with 087-096.",
+    "upload": "scissors:v13",
     "season": "beta-four-score",
     "uploaded_at": "20260404",
-    "note": "Scissors attempt 096. Clean baseline scoring weight exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 097. Clean baseline scoring weight exploration continuing. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

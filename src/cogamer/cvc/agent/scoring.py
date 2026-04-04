@@ -150,7 +150,7 @@ def scramble_target_score(
         )
         threat_bonus = threatened * 10.0
     return (
-        distance - blocked_neutrals * 8.0 - corner_pressure - threat_bonus,
+        distance - blocked_neutrals * 8.5 - corner_pressure - threat_bonus,  # Increased from 8.0 to 8.5 (+6%)
         -float(blocked_neutrals),
     )
 
