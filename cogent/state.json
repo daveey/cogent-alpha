@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 95,
+      "attempts": 96,
       "improvements": 7,
-      "last_used": "20260404-095-pending"
+      "last_used": "20260404-096-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "095",
-    "focus": "Mid-range hotspot weight reduction for contested junction flexibility",
-    "description": "Reduced mid-range hotspot_weight from 5.6 to 5.5 (-1.8%) in scoring.py",
-    "rationale": "Builds on attempts 080 (5.7→5.6, -1.8%), 063 (5.8→5.7, -1.7%), and 046 (6.0→5.8, -3.3%) for continued mid-range hotspot optimization (10-15 distance). Completes comprehensive hotspot weight optimization across all hub distance ranges: near-hub (045, 064, 094), mid-range (046, 063, 080, 095), and far-range (051, 062, 079, 088). Synergizes with mid-range hub penalty reductions (047, 065, 091) and enemy AOE penalty reductions for comprehensive mid-range contested junction strategy. Progressive mid-range hotspot weight reductions from 6.0 to 5.5 enable increasingly flexible mid-range contested junction pursuit.",
-    "upload": "scissors_v1_v77:v1",
+    "version": "096",
+    "focus": "Teammate penalty reduction for multi-agent coordination flexibility",
+    "description": "Reduced teammate_penalty from 6.4 to 6.3 (-1.6%) in scoring.py",
+    "rationale": "Builds on attempts 083 (6.5→6.4, -1.5%), 075 (6.6→6.5, -1.5%), 068 (6.7→6.6, -1.5%), 056 (6.8→6.7, -1.5%), 049 (7.0→6.8, -2.9%), and validated 036 (9.0→7.0, -22%) for continued teammate penalty optimization. Cumulative -30% reduction from baseline 9.0 to 6.3. Synergizes with claim penalty reductions (054, 074, 087) for comprehensive multi-agent coordination flexibility. Progressive teammate penalty reductions enable increasingly flexible multi-agent coordination without excessive duplication while maintaining effective territory coverage.",
+    "upload": "scissors_v1_v78:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T11:51:35Z",
-    "note": "Fifty-seventh scissors improvement. Continues mid-range hotspot optimization (046, 063, 080, 095)."
+    "uploaded_at": "2026-04-04T11:52:30Z",
+    "note": "Fifty-eighth scissors improvement. Continues teammate penalty optimization (036, 049, 056, 068, 075, 083, 096)."
   },
   "last_improvement": {
     "date": "20260404",
