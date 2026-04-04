@@ -471,3 +471,10 @@ Delta's 036-040 are committed but not uploaded (no COGAMES_TOKEN).
 - **Base**: Delta's 036-038 + scissors 039-104
 - **Status**: Awaiting tournament results (need 20+ matches)
 - **Rationale**: Builds on attempts 099 (6.45→6.5), 090 (6.4→6.45), 082 (6.35→6.4), 077 (6.3→6.35), 070 (6.25→6.3), 061 (6.2→6.25), 055 (6.15→6.2), 048 (6.1→6.15), 040 (6.0→6.15), and validated 016 (5.0→6.0). Synergizes with hub penalty and hotspot weight reductions for hub-proximal expansion.
+
+## scissors_v1_v88:v1 (Attempt 106)
+- **Uploaded**: 2026-04-04T12:08:52Z
+- **Change**: Teammate penalty 6.3→6.2 (-1.6%)
+- **Base**: Delta's 036-038 + scissors 039-105
+- **Status**: Awaiting tournament results (need 20+ matches)
+- **Rationale**: Builds on attempts 096 (6.4→6.3), 083 (6.5→6.4), 075 (6.6→6.5), 068 (6.7→6.6), 056 (6.8→6.7), 049 (7.0→6.8), and validated 036 (9.0→7.0). Synergizes with claim penalty reductions (054, 074, 087, 102) for multi-agent coordination flexibility.
