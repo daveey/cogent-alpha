@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 51,
+      "attempts": 52,
       "improvements": 7,
-      "last_used": "20260404-051-pending"
+      "last_used": "20260404-052-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "051",
-    "focus": "Far-range hotspot weight reduction for contested junction flexibility",
-    "description": "Reduced base hotspot_weight from 11.0 to 10.8 (-1.8%) for contested junctions >15 distance from hub",
-    "rationale": "Delta's attempt 037 reduced 12.0→11.0. Attempt 021 tried same reduction on gamma_v6 and failed (-9.8%), but now with scissors 045+046 optimizing near/mid-range, a conservative -1.8% reduction (11.0→10.8) for far-range may work. Completes hotspot optimization trilogy: near (045), mid (046), far (051).",
-    "upload": "scissors_v1_v33:v1",
+    "version": "052",
+    "focus": "Network bonus weight increase for stronger chain-building",
+    "description": "Increased network_bonus weight from 0.8 to 0.82 (+2.5%) in aligner_target_score",
+    "rationale": "Attempt 018 validated 0.5→0.75 (+50%, +3.9%). Attempt 042 increased to 0.8 (+7%). Conservative +2.5% further increase (0.8→0.82) continues strengthening chain-building incentive. Synergizes with scissors 045+046+051 (hotspot weight reductions) by making consolidated networks more attractive despite contest.",
+    "upload": "scissors_v1_v34:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T07:43:53Z",
-    "note": "Thirteenth scissors improvement. Completes hotspot weight optimization across all distance ranges."
+    "uploaded_at": "2026-04-04T08:04:08Z",
+    "note": "Fourteenth scissors improvement. Returns to network bonus optimization after completing hotspot trilogy."
   },
   "last_improvement": {
     "date": "20260404",
