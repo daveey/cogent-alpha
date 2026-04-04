@@ -195,6 +195,28 @@
         "season": "beta-cvc"
       },
       "analysis": "Increasing teammate penalty beyond 9.0 hurt coordination. Agents may have avoided too many junctions when teammates were nearby, missing opportunities or creating gaps in coverage. 9.0 appears to be the optimal balance found in attempt 011."
+    },
+    {
+      "date": "20260404",
+      "version": "021-reverted",
+      "focus": "Hotspot weight reduction with improved enemy avoidance",
+      "description": "Reduced base hotspot_weight from 12.0 to 11.0 (-8%) for far junctions",
+      "result": "REGRESSION: scissors_v1:v4 avg 13.73 vs baseline 15.22 (-9.8%)",
+      "tournament_scores": {
+        "matches": 11,
+        "avg": 13.73,
+        "rank": 17,
+        "season": "beta-cvc"
+      },
+      "analysis": "Early 4-match sample showed false positive (+9.7%, 16.70 avg, rank #7) but regressed with more matches. Reducing hotspot penalty caused agents to pursue contested junctions too aggressively. 12.0 base weight is correctly calibrated for four_score multi-team dynamics. Pattern confirms: small-sample tournament results can be misleading."
+    },
+    {
+      "date": "20260404",
+      "version": "022-canceled",
+      "focus": "Hotspot weight mid-tier reduction",
+      "description": "Reduced mid-range hotspot_weight from 6.0 to 5.5 (-8%) for junctions at hub distance 10-15",
+      "result": "CANCELED: Built on failed attempt 021",
+      "analysis": "Attempt 022 (scissors_v1:v5) uploaded but not validated. Canceled after attempt 021 failed, as both reduce hotspot penalties. No need to wait for tournament results."
     }
   ],
   "mission": "four_score",

@@ -1,8 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
-- [ ] (20260404-022) Hotspot weight mid-tier reduction: 6.0→5.5 (-8%) for junctions at hub distance 10-15. Uploaded as scissors_v1:v5, awaiting tournament validation.
-- [ ] (20260404-021) Hotspot weight base reduction: 12.0→11.0 (-8%) with improved enemy_aoe avoidance. Uploaded as scissors_v1:v4, EARLY LEAD: 16.70 avg (4 matches), rank #7. Needs more matches for validation.
+(none)
 
 ## Current Status (20260403 23:35 UTC)
 **Tournament Rankings (beta-cvc):**
@@ -46,6 +45,8 @@
 - [x] (018) Network bonus +50% (0.5→0.75): -20%
 - [x] (019) Hub penalty reduction (8.0→6.0): -48.6%
 - [x] (020) Teammate penalty increase (9.0→10.0): -42.8%
+- [x] (021) Hotspot weight base reduction (12.0→11.0): -9.8%
+- [x] (022) Hotspot weight mid-tier reduction (6.0→5.5): canceled (built on failed 021)
 
 ## Strategy
 - **Tournament-based validation** works well - continue using beta-cvc for fast feedback
