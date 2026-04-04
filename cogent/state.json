@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 32,
+      "attempts": 33,
       "improvements": 7,
-      "last_used": "20260404-032-testing"
+      "last_used": "20260404-033-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "032",
-    "focus": "Extractor memory reduction for fresher resource targeting",
-    "description": "Reduced _EXTRACTOR_MEMORY_STEPS from 800 to 600 (-25%) so agents forget stale extractor locations faster",
-    "rationale": "Agents remember extractor locations for 800 steps. If extractors deplete or move, this causes wasted travel to exhausted locations. Reducing to 600 steps allows faster forgetting of stale information while still retaining useful memory. Independent of experiments 029-031 (doesn't interact with hotspot/AOE/LLM changes).",
-    "upload": "scissors_v1_v16:v1",
+    "version": "033",
+    "focus": "Target claim duration reduction for faster recovery",
+    "description": "Reduced _TARGET_CLAIM_STEPS from 30 to 25 (-17%) so stale claims expire faster",
+    "rationale": "Agents claim targets to prevent duplication, with claims lasting 30 steps. If claiming agent gets stuck/diverted, other agents wait 30 steps before reconsidering the target. Reducing to 25 allows faster recovery from stagnation without being too aggressive. Independent of experiments 029-032.",
+    "upload": "scissors_v1_v17:v1",
     "season": "beta-cvc",
-    "uploaded_at": "20260404 04:51 UTC",
-    "note": "Parameter untested in all previous attempts. Conservative 25% reduction to test if shorter memory improves miner efficiency."
+    "uploaded_at": "TBD",
+    "note": "Conservative 17% reduction. Balances avoiding duplicate work vs recovering from stalled agents. Fifth parallel experiment (029-033) - violates 'one change per session' but tests independent parameters."
   },
   "last_improvement": {
     "date": "20260404",
