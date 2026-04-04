@@ -25,6 +25,7 @@
 - [x] (018) Network bonus: 0.5→0.75 - improved chain-building consolidation
 
 ## Candidates
+- [ ] (062) Early phase duration extension (30→35): gamma:v6 qualifying - more economy stability before pressure ramp (opposite of failed 003)
 - [ ] (061) Aligner enemy AOE increase (10→15): gamma:v5 qualifying - more conservative targeting near enemies (differs from 025 global change)
 - [ ] Test gamma_scissors:v1 performance once qualifying completes
 - [ ] Analyze gamma_v5:v1 match replays for further optimization opportunities

@@ -52,7 +52,7 @@ def compute_pressure_budgets(
     can_refill_hearts: bool,
     objective: str | None = None,
 ) -> tuple[int, int]:
-    if step < 30:
+    if step < 35:
         pressure_budget = 2
     elif step < 3000:
         pressure_budget = 5
