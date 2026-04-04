@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 68,
+      "attempts": 69,
       "improvements": 7,
-      "last_used": "20260404-068-pending"
+      "last_used": "20260404-069-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "068",
-    "focus": "Teammate penalty reduction for coordination flexibility",
-    "description": "Reduced teammate_penalty from 6.7 to 6.6 (-1.5%) in scoring.py",
-    "rationale": "Builds on attempts 056 (6.8→6.7, -1.5%) and 049 (7.0→6.8, -2.9%) for continued coordination flexibility. Synergizes with claim penalty reduction 054 (11.0→10.8) for comprehensive multi-agent coordination. Attempt 020 showed increasing to 10.0 failed badly (-42.8%), confirming lower penalties improve coordination. Progressive teammate penalty reductions enable more flexible multi-agent targeting.",
-    "upload": "scissors_v1_v50:v1",
+    "version": "069",
+    "focus": "Network bonus weight increase for chain-building consolidation",
+    "description": "Increased network_bonus weight from 0.84 to 0.86 (+2.4%) in scoring.py",
+    "rationale": "Builds on attempts 060 (0.82→0.84, +2.4%), 052 (0.8→0.82, +2.5%), 042 (0.75→0.8, +7%), and validated attempt 018 (0.5→0.75, +50%, +3.9%) for continued consolidation optimization. Synergizes with threat_bonus increases (043, 058) to both build and defend junction clusters. Progressive increases in network bonus show sustained improvements in chain-building strategy.",
+    "upload": "scissors_v1_v51:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T10:04:15Z",
-    "note": "Thirtieth scissors improvement. Continues coordination optimization (049, 056, 068)."
+    "uploaded_at": "2026-04-04T10:07:30Z",
+    "note": "Thirty-first scissors improvement. Continues network consolidation optimization (018, 042, 052, 060, 069)."
   },
   "last_improvement": {
     "date": "20260404",
