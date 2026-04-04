@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 51,
+      "attempts": 52,
       "improvements": 7,
-      "last_used": "20260404-116-testing"
+      "last_used": "20260404-117-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "116",
-    "focus": "Aligner heart batch target increase",
-    "description": "Increased aligner heart batch target from 3 to 3.2 (+7%)",
-    "rationale": "Attempt 094 increased scrambler from 2 to 3 (+50%). Conservative +7% increase for aligner to improve persistence and reduce heart trips. Aligners are critical for scoring, so better persistence helps maintain junction control in four_score. Stacks with 087-115.",
-    "upload": "scissors_v32:v1",
+    "version": "117",
+    "focus": "Extractor memory steps increase",
+    "description": "Increased _EXTRACTOR_MEMORY_STEPS from 800 to 820 (+2.5%)",
+    "rationale": "Extractor memory determines how long agents remember extractor locations (800 steps = 160 seconds). Conservative +2.5% increase extends memory slightly, helping agents relocate resources more effectively after memory expires. Reduces wasted exploration time in four_score. Stacks with 087-116.",
+    "upload": "scissors_v33:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260404",
-    "note": "Scissors attempt 116. Clean baseline aligner heart batch target exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 117. Clean baseline extractor memory exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
