@@ -203,6 +203,12 @@ def _summarize(gs: Any) -> dict:
             role_counts[m.role] = role_counts.get(m.role, 0) + 1
         roles_str = ", ".join(f"{k}={v}" for k, v in sorted(role_counts.items()))
 
+    # Hotspot information for stagnation detection
+    target_hotspot = 0
+    if hasattr(gs.engine, '_sticky_target_position') and gs.engine._sticky_target_position is not None:
+        if hasattr(gs.engine, '_hotspot_count'):
+            target_hotspot = gs.engine._hotspot_count(gs.engine._sticky_target_position)
+
     return {
         "step": gs.step_index,
         "agent_id": gs.agent_id,
@@ -219,6 +225,7 @@ def _summarize(gs: Any) -> dict:
         "has_gear": gs.has_role_gear(gs.role),
         "emergency_mining": gs.needs_emergency_mining(),
         "roles": roles_str,
+        "target_hotspot": target_hotspot,
     }
 
 
@@ -230,6 +237,8 @@ def _summarize(gs: Any) -> dict:
 def _build_analysis_prompt(context: dict) -> str:
     """Build the LLM analysis prompt from extracted game context."""
     j = context["junctions"]
+    target_hotspot = context.get('target_hotspot', 0)
+    hotspot_note = f" (contested {target_hotspot}x)" if target_hotspot > 0 else ""
     lines = [
         f"CvC game step {context['step']}/10000. 88x88 map, 8 agents per team.",
         f"Score = junctions held over time. MAXIMIZE friendly junctions held.",
@@ -242,6 +251,7 @@ def _build_analysis_prompt(context: dict) -> str:
         f"Junctions: friendly={j['friendly']} enemy={j['enemy']} neutral={j['neutral']}",
         f"Stalled: {context.get('stalled', False)}, Oscillating: {context.get('oscillating', False)}",
         f"Safe distance to hub: {context.get('safe_distance', 'unknown')}",
+        f"Current target{hotspot_note}",
     ]
 
     lines.append(
@@ -253,7 +263,8 @@ def _build_analysis_prompt(context: dict) -> str:
         ' "analysis": "1-2 sentence strategic assessment"}'
         "\nRules:"
         "\n- resource_bias: element with lowest supply"
-        "\n- role: suggest role change ONLY if agent is stuck/stagnating or"
+        "\n- role: suggest role change ONLY if agent is stuck/stagnating"
+        "\n  (e.g. stalled=True, or targeting heavily contested junction) or"
         "\n  team composition is badly unbalanced. null = keep current role."
         "\n- objective: 'expand' if friendly < enemy (need more junctions),"
         "\n  'defend' if we have junctions but enemy is catching up,"

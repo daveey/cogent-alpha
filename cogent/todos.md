@@ -2,7 +2,8 @@
 
 ## In Progress
 - [ ] (20260404-029) Wider enemy AOE: Change _in_enemy_aoe to use radius 20 (vs 10), matching alpha.0. Uploaded as scissors_v1_v13:v1, awaiting results.
-- [ ] (20260404-030) Hotspot decay: Time-aware hotspot tracking with decay (1 per 2000 steps). Uploading as scissors_v1_v14:v1.
+- [ ] (20260404-030) Hotspot decay: Time-aware hotspot tracking with decay (1 per 2000 steps). Uploaded as scissors_v1_v14:v1, awaiting results.
+- [ ] (20260404-031) LLM hotspot awareness: Enhanced LLM context to see contested targets for better stagnation detection. Uploading as scissors_v1_v15:v1.
 
 ## Current Status (20260404 UTC)
 **Tournament Rankings (beta-cvc):**

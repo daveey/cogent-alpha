@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 30,
+      "attempts": 31,
       "improvements": 7,
-      "last_used": "20260404-030-testing"
+      "last_used": "20260404-031-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "030",
-    "focus": "Hotspot decay for time-aware junction targeting",
-    "description": "Implemented hotspot decay: junctions now decay by 1 count per 2000 steps. Hotspot storage changed from int to (count, last_scramble_step) tuple.",
-    "rationale": "Current implementation permanently penalizes junctions once scrambled. In 10,000 step games, junctions contested at step 500 still have penalties at step 10,000. Time-aware decay allows agents to reconsider valuable junctions that were contested early but are now safe. Decay rate: 1 per 2000 steps (3-count hotspot becomes 0 after 6000 steps).",
-    "upload": "scissors_v1_v14:v1",
+    "version": "031",
+    "focus": "LLM hotspot awareness for stagnation detection",
+    "description": "Enhanced LLM context with target hotspot information. LLM now sees when agent is targeting contested junctions (e.g. 'contested 3x') and can suggest role changes if stagnating on hotspots.",
+    "rationale": "Attempt 012 (prescriptive LLM role changes) failed catastrophically with 40% failure rate. This is a softer approach: give LLM visibility into hotspot data without prescriptive rules. LLM can detect when stalled+targeting hotspot indicates real stagnation vs temporary blockage. Combined with 030's hotspot decay, enables time-aware stagnation detection.",
+    "upload": "scissors_v1_v15:v1",
     "season": "beta-cvc",
-    "uploaded_at": "20260404 04:05 UTC",
-    "note": "Architectural improvement to hotspot tracking. After 11 consecutive parameter failures and 029 testing wider AOE, this adds time-awareness to existing hotspot system."
+    "uploaded_at": "TBD",
+    "note": "Softer LLM enhancement vs failed 012. Provides context rather than prescribing actions. Builds on 030's hotspot decay infrastructure."
   },
   "last_improvement": {
     "date": "20260404",
