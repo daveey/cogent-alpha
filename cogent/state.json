@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 61,
+      "attempts": 62,
       "improvements": 7,
-      "last_used": "20260404-061-pending"
+      "last_used": "20260404-062-pending"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "061",
-    "focus": "Expansion weight increase for aggressive territory acquisition",
-    "description": "Increased expansion bonus weight from 6.2 to 6.25 (+0.8%) in scoring.py",
-    "rationale": "Builds on attempts 055 (6.15→6.2, +0.8%), 048 (6.1→6.15), and 040 (6.0→6.15, +2.5%) for continued expansion optimization. Synergizes with hub penalty reductions (044-047,053) and hotspot weight reductions (045, 046, 051) for comprehensive hub-proximal expansion strategy. Progressive increases in expansion weight show sustained territory acquisition improvements.",
-    "upload": "scissors_v1_v43:v1",
+    "version": "062",
+    "focus": "Far-range hotspot weight reduction for contested junction flexibility",
+    "description": "Reduced far-range hotspot_weight from 10.8 to 10.7 (-0.9%) in scoring.py",
+    "rationale": "Builds on attempt 051 (11.0→10.8, -1.8%) for continued far-range contested junction optimization. Synergizes with enemy AOE penalty reductions (050, 057) and mid-range hotspot reduction (046) for comprehensive contested territory strategy. Attempt 021 showed reducing base from 12.0→11.0 failed (-9.8%), but conservative incremental reductions from 11.0 may succeed.",
+    "upload": "scissors_v1_v44:v1",
     "season": "beta-cvc",
-    "uploaded_at": "2026-04-04T09:07:36Z",
-    "note": "Twenty-third scissors improvement. Continues expansion optimization (040, 048, 055, 061)."
+    "uploaded_at": "2026-04-04T09:11:17Z",
+    "note": "Twenty-fourth scissors improvement. Continues far-range hotspot optimization (051, 062)."
   },
   "last_improvement": {
     "date": "20260404",
