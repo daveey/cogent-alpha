@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (106) Aligner hub penalty 15-25 range reduction (3.0→2.94): scissors_v22:v1 qualifying - 15-25 range penalty (-2%, stacks with 087-105)
 - [ ] (105) Aligner hub penalty mid-range reduction (1.5→1.46): scissors_v21:v1 qualifying - mid-range hub proximity (-3%, stacks with 087-104)
 - [ ] (104) Aligner mid-range hotspot weight reduction (6.0→5.8): scissors_v20:v1 qualifying - mid-range contested recapture (-3%, stacks with 087-103)
 - [ ] (103) Aligner near-hub hotspot weight reduction (2.0→1.9): scissors_v19:v1 qualifying - stronger near-hub recapture (-5%, stacks with 087-102)

@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 40,
+      "attempts": 41,
       "improvements": 7,
-      "last_used": "20260404-105-testing"
+      "last_used": "20260404-106-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "105",
-    "focus": "Aligner hub penalty mid-range reduction",
-    "description": "Reduced hub penalty multiplier from 1.5 to 1.46 (-3%) for junctions 10-15 distance",
-    "rationale": "Complements attempt 102 (0.3→0.28 for ≤10 distance). Conservative -3% reduction for mid-range tier (10-15) to further strengthen hub-proximal strategy. Failed attempts 019/023 showed large hub penalty reductions hurt badly. Stacks with 087-104.",
-    "upload": "scissors_v21:v1",
+    "version": "106",
+    "focus": "Aligner hub penalty 15-25 range reduction",
+    "description": "Reduced hub penalty multiplier from 3.0 to 2.94 (-2%) for junctions 15-25 distance",
+    "rationale": "Failed attempt 023 tried 3.0→2.7 (-10%) and regressed -29%. Much more conservative -2% reduction to slightly favor mid-far range junctions without major disruption. Complements 102/105 hub penalty reductions in closer tiers. Stacks with 087-105.",
+    "upload": "scissors_v22:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260404",
-    "note": "Scissors attempt 105. Clean baseline hub penalty mid-range exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 106. Clean baseline hub penalty 15-25 range exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
