@@ -114,3 +114,10 @@ Delta's 036-040 are committed but not uploaded (no COGAMES_TOKEN).
 - **Base**: Delta's 036-038 + scissors 039-053
 - **Status**: Awaiting tournament results (need 20+ matches)
 - **Rationale**: Builds on delta's 040 (12.0→11.0). Conservative further reduction for flexible claim override.
+
+## scissors_v1_v37:v1 (Attempt 055)
+- **Uploaded**: 2026-04-04T08:14:44Z
+- **Change**: Expansion weight 6.15→6.2 (+0.8%)
+- **Base**: Delta's 036-038 + scissors 039-054
+- **Status**: Awaiting tournament results (need 20+ matches)
+- **Rationale**: Builds on attempts 040 (6.0→6.15) and 048 (6.1→6.15). Synergizes with hub penalty reductions (044-047,053) and far hotspot reduction (051).
