@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 49,
+      "attempts": 50,
       "improvements": 7,
-      "last_used": "20260404-114-testing"
+      "last_used": "20260404-115-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260404",
-    "version": "114",
-    "focus": "Aligner network bonus cap increase",
-    "description": "Increased network bonus cap from 4 to 4.2 (+5%)",
-    "rationale": "Failed attempt 006 tripled weight (0.5→1.5) causing over-clustering (-64.2%). Conservative +5% cap increase for dense cluster scenarios (5+ nearby friendly junctions). Complements attempts 018/097 weight increases. Only affects extreme clustering cases. Stacks with 087-113.",
-    "upload": "scissors_v30:v1",
+    "version": "115",
+    "focus": "Junction AOE range increase",
+    "description": "Increased _JUNCTION_AOE_RANGE from 10 to 10.3 (+3%)",
+    "rationale": "Affects both aligner enemy_aoe detection and scrambler blocked_neutrals calculation. Conservative +3% increase for slightly larger area-of-effect detection radius. Helps aligners avoid enemy-contested areas and scramblers count blocked neutral junctions more effectively. Stacks with 087-114.",
+    "upload": "scissors_v31:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260404",
-    "note": "Scissors attempt 114. Clean baseline network bonus cap exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 115. Clean baseline junction AOE range exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
