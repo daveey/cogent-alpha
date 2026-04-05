@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 248,
+      "attempts": 249,
       "improvements": 7,
-      "last_used": "20260405-313-testing"
+      "last_used": "20260405-314-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "313",
-    "focus": "Network bonus cap increase",
-    "description": "Increased aligner network bonus cap from 4.4 to 4.42 (+0.45%)",
-    "rationale": "Higher cap allows network bonus to scale higher when many friendly junctions nearby. Conservative +0.45% increase builds on validated improvements. Stacks with 087-312.",
-    "upload": "scissors_v229:v1",
+    "version": "314",
+    "focus": "Scrambler corner pressure cap increase",
+    "description": "Increased scrambler corner pressure cap from 10.74 to 10.76 (+0.19%)",
+    "rationale": "Higher cap allows corner pressure bonus to scale higher for distant enemy junctions. Conservative +0.19% increase builds on validated improvements. Stacks with 087-313.",
+    "upload": "scissors_v230:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 313. Clean baseline network clustering tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 314. Clean baseline scrambler corner pressure tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
