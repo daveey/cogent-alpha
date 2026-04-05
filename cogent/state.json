@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 179,
+      "attempts": 180,
       "improvements": 14,
-      "last_used": "20260405-expansion-cap-37"
+      "last_used": "20260405-claim-penalty-102"
     }
   },
   "testing_in_progress": null,
@@ -1163,6 +1163,33 @@
       },
       "status": "reverted",
       "notes": "Delta Cycle 56 - Higher expansion cap caused agents to over-prioritize extreme expansion scenarios at expense of balanced positioning. Confirms cap of 36.0 is optimal for preventing over-expansion."
+    },
+    {
+      "date": "20260405",
+      "version": "claim-penalty-102-reverted",
+      "focus": "Claimed target penalty reduction",
+      "description": "Reduced _CLAIMED_TARGET_PENALTY from 10.3 to 10.2 (-1.0%) to allow more flexible claim override between teammates",
+      "result": "REGRESSION: avg 15.06 vs baseline 15.73 (-4.2%)",
+      "local_scores": {
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          15.35,
+          13.84,
+          12.65,
+          16.79,
+          16.69
+        ],
+        "avg": 15.06,
+        "baseline": 15.73
+      },
+      "status": "reverted",
+      "notes": "Delta Cycle 57 - Lower claim penalty caused agents to override each other's claims too readily, leading to coordination conflicts. Confirms 10.3 is optimal for claim respect."
     }
   ],
   "mission": "arena",
