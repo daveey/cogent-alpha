@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (217) Emergency resource low threshold increase (2.32→2.34): scissors_v133:v1 qualifying - continued earlier emergency mining (+0.86%, stacks with 087-216)
 - [ ] (216) Scrambler HP threshold increase (34.05→34.07): scissors_v132:v1 qualifying - continued aggressive disruption (+0.059%, stacks with 087-215)
 - [ ] (215) Miner HP threshold increase (18.42→18.44): scissors_v131:v1 qualifying - continued aggressive resource gathering (+0.11%, stacks with 087-214)
 - [ ] (214) Aligner HP threshold reduction (45.9→45.88): scissors_v130:v1 qualifying - continued retreat timing tuning (-0.044%, stacks with 087-213)
