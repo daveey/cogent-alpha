@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (295) Target claim steps increase (32.95→33.0): scissors_v211:v1 qualifying - continued longer claim validity tuning (+0.15%, stacks with 087-294)
 - [ ] (294) Claimed target penalty reduction (11.21→11.19): scissors_v210:v1 qualifying - continued flexible claim override tuning (-0.18%, stacks with 087-293)
 - [ ] (293) Junction AOE range increase (10.46→10.48): scissors_v209:v1 qualifying - continued larger area-of-effect detection (+0.19%, stacks with 087-292)
 - [ ] (292) Junction align distance increase (16.26→16.28): scissors_v208:v1 qualifying - continued chain-building reach (+0.12%, stacks with 087-291)
