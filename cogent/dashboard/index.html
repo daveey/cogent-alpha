@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>scissors Dashboard</title>
+    <title>scissors — Cogent Dashboard</title>
     <style>
-        /* Catppuccin Mocha Palette */
+        /* Catppuccin Mocha */
         :root {
-            --ctp-base: #1e1e2e;
-            --ctp-mantle: #181825;
-            --ctp-crust: #11111b;
-            --ctp-surface0: #313244;
-            --ctp-surface1: #45475a;
-            --ctp-surface2: #585b70;
-            --ctp-text: #cdd6f4;
-            --ctp-subtext0: #a6adc8;
-            --ctp-subtext1: #bac2de;
-            --ctp-green: #a6e3a1;
-            --ctp-red: #f38ba8;
-            --ctp-yellow: #f9e2af;
-            --ctp-blue: #89b4fa;
-            --ctp-mauve: #cba6f7;
-            --ctp-peach: #fab387;
-            --ctp-teal: #94e2d5;
+            --base: #1e1e2e;
+            --mantle: #181825;
+            --crust: #11111b;
+            --text: #cdd6f4;
+            --subtext1: #bac2de;
+            --subtext0: #a6adc8;
+            --overlay2: #9399b2;
+            --overlay1: #7f849c;
+            --surface0: #313244;
+            --surface1: #45475a;
+            --surface2: #585b70;
+            --blue: #89b4fa;
+            --green: #a6e3a1;
+            --red: #f38ba8;
+            --yellow: #f9e2af;
+            --peach: #fab387;
+            --mauve: #cba6f7;
+            --teal: #94e2d5;
+            --sky: #89dceb;
         }
 
         * {
@@ -32,582 +35,434 @@
         }
 
         body {
-            background: var(--ctp-base);
-            color: var(--ctp-text);
-            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-            font-size: 13px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--base);
+            color: var(--text);
             line-height: 1.6;
-            padding: 20px;
+            padding: 2rem;
         }
 
         header {
-            background: var(--ctp-mantle);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--ctp-mauve);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--surface1);
+            padding-bottom: 1rem;
         }
 
         h1 {
-            font-size: 24px;
-            color: var(--ctp-mauve);
-            margin-bottom: 4px;
+            color: var(--mauve);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
         h2 {
-            font-size: 18px;
-            color: var(--ctp-blue);
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--ctp-surface0);
+            color: var(--blue);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 1px solid var(--surface1);
+            padding-bottom: 0.5rem;
         }
 
         h3 {
-            font-size: 14px;
-            color: var(--ctp-teal);
-            margin-bottom: 8px;
+            color: var(--sky);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.75rem 0;
         }
 
         .subtitle {
-            color: var(--ctp-subtext0);
-            font-size: 12px;
+            color: var(--subtext0);
+            font-size: 1.1rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        .panel {
-            background: var(--ctp-mantle);
-            padding: 20px;
+        .card {
+            background: var(--mantle);
+            border: 1px solid var(--surface1);
             border-radius: 8px;
-            border: 1px solid var(--ctp-surface0);
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 15px;
+            padding: 1.5rem;
         }
 
         .kpi {
-            background: var(--ctp-surface0);
-            padding: 12px;
-            border-radius: 6px;
-        }
-
-        .kpi-label {
-            color: var(--ctp-subtext0);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            text-align: center;
         }
 
         .kpi-value {
-            font-size: 24px;
+            font-size: 3rem;
             font-weight: bold;
-            margin-top: 4px;
+            color: var(--green);
         }
 
-        .kpi-value.rank {
-            color: var(--ctp-green);
+        .kpi-label {
+            color: var(--subtext0);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .kpi-value.score {
-            color: var(--ctp-blue);
-        }
-
-        .kpi-value.gap {
-            color: var(--ctp-yellow);
-        }
-
-        .kpi-value.matches {
-            color: var(--ctp-teal);
-        }
-
-        .todo-list {
-            list-style: none;
-            margin-top: 12px;
-        }
-
-        .todo-item {
-            padding: 10px;
-            margin-bottom: 8px;
-            background: var(--ctp-surface0);
-            border-radius: 4px;
-            border-left: 3px solid var(--ctp-yellow);
-        }
-
-        .experiment-log {
-            max-height: 600px;
-            overflow-y: auto;
-            margin-top: 12px;
-        }
-
-        .experiment {
-            background: var(--ctp-surface0);
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            border-left: 3px solid var(--ctp-surface1);
-        }
-
-        .experiment.success {
-            border-left-color: var(--ctp-green);
-        }
-
-        .experiment.failure {
-            border-left-color: var(--ctp-red);
-        }
-
-        .experiment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-
-        .experiment-version {
-            color: var(--ctp-blue);
-            font-weight: bold;
-        }
-
-        .experiment-date {
-            color: var(--ctp-subtext0);
-            font-size: 11px;
-        }
-
-        .experiment-focus {
-            color: var(--ctp-subtext1);
-            font-size: 12px;
-            margin-bottom: 4px;
-        }
-
-        .experiment-result {
-            font-size: 12px;
-            margin-top: 6px;
-            padding: 6px;
-            background: var(--ctp-crust);
-            border-radius: 3px;
+        .kpi-sublabel {
+            color: var(--overlay1);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         .badge {
             display: inline-block;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
-        .badge.success {
-            background: var(--ctp-green);
-            color: var(--ctp-crust);
+        .badge-success { background: var(--green); color: var(--base); }
+        .badge-failure { background: var(--red); color: var(--base); }
+        .badge-blocked { background: var(--yellow); color: var(--base); }
+        .badge-design { background: var(--blue); color: var(--base); }
+        .badge-pco { background: var(--mauve); color: var(--base); }
+
+        .rank-trophy { color: var(--yellow); font-size: 2rem; }
+        .rank-5 { color: var(--green); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
         }
 
-        .badge.failure {
-            background: var(--ctp-red);
-            color: var(--ctp-crust);
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--surface1);
         }
 
-        .badge.design {
-            background: var(--ctp-blue);
-            color: var(--ctp-crust);
+        th {
+            background: var(--surface0);
+            color: var(--blue);
+            font-weight: 600;
         }
 
-        .badge.pco {
-            background: var(--ctp-mauve);
-            color: var(--ctp-crust);
+        tr:hover {
+            background: var(--surface0);
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 12px;
+        .timeline {
+            list-style: none;
+            border-left: 2px solid var(--surface1);
+            padding-left: 1.5rem;
+            margin-left: 1rem;
         }
 
-        .stat-box {
-            background: var(--ctp-surface0);
-            padding: 10px;
+        .timeline li {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -2.2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--blue);
+            border: 2px solid var(--base);
+        }
+
+        .timeline-date {
+            color: var(--overlay1);
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--text);
+            margin: 0.25rem 0;
+        }
+
+        .timeline-desc {
+            color: var(--subtext0);
+            font-size: 0.95rem;
+        }
+
+        .alert {
+            background: var(--surface0);
+            border-left: 4px solid var(--yellow);
+            padding: 1rem;
+            margin: 1rem 0;
             border-radius: 4px;
         }
 
-        .stat-label {
-            color: var(--ctp-subtext0);
-            font-size: 11px;
+        .alert-title {
+            font-weight: 600;
+            color: var(--yellow);
+            margin-bottom: 0.5rem;
         }
 
-        .stat-value {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 4px;
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--overlay1);
+            font-style: italic;
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 6px;
-            background: var(--ctp-surface0);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-top: 4px;
+        button {
+            background: var(--blue);
+            color: var(--base);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .progress-fill {
-            height: 100%;
-            background: var(--ctp-green);
-            transition: width 0.3s ease;
+        button:hover {
+            background: var(--sky);
+            transform: translateY(-2px);
         }
 
         footer {
-            margin-top: 30px;
-            padding: 15px;
-            background: var(--ctp-mantle);
-            border-radius: 8px;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--surface1);
             text-align: center;
-            color: var(--ctp-subtext0);
-            font-size: 11px;
+            color: var(--overlay1);
+            font-size: 0.9rem;
+        }
+
+        .chat-view {
+            background: var(--surface0);
+            border-radius: 8px;
+            padding: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .progress-bar {
+            background: var(--surface0);
+            border-radius: 4px;
+            height: 24px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .progress-fill {
+            background: var(--green);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--base);
+            font-weight: 600;
+            font-size: 0.85rem;
         }
 
         code {
-            background: var(--ctp-surface0);
-            padding: 2px 4px;
+            background: var(--surface0);
+            padding: 0.2rem 0.4rem;
             border-radius: 3px;
-            font-family: inherit;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--ctp-surface0);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--ctp-surface2);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--ctp-subtext0);
+            font-family: 'Courier New', monospace;
+            color: var(--peach);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>scissors</h1>
-        <div class="subtitle">Cogent Dashboard — The Trickster</div>
+        <h1>🎯 scissors</h1>
+        <p class="subtitle">The Trickster — Finding seams in every plan</p>
     </header>
 
+    <h2>🏆 Tournament Status</h2>
     <div class="grid">
-        <div class="panel">
-            <h2>Tournament Status</h2>
-            <div class="kpi-grid">
-                <div class="kpi">
-                    <div class="kpi-label">Current Rank</div>
-                    <div class="kpi-value rank">#5</div>
-                </div>
-                <div class="kpi">
-                    <div class="kpi-label">Best Score</div>
-                    <div class="kpi-value score">17.16</div>
-                </div>
-                <div class="kpi">
-                    <div class="kpi-label">Matches Played</div>
-                    <div class="kpi-value matches">51</div>
-                </div>
-                <div class="kpi">
-                    <div class="kpi-label">Gap to #3</div>
-                    <div class="kpi-value gap">+7.2%</div>
-                </div>
-            </div>
-            <div style="margin-top: 15px;">
-                <div class="stat-label">Season: <code>beta-cvc</code></div>
-                <div class="stat-label">Best Policy: <code>gamma_v6:v1</code></div>
-                <div class="stat-label">Mission: <code>arena</code></div>
-            </div>
+        <div class="card kpi">
+            <div class="rank-trophy">🥇</div>
+            <div class="kpi-value rank-5">#5</div>
+            <div class="kpi-label">Current Rank</div>
+            <div class="kpi-sublabel">beta-cvc</div>
         </div>
-
-        <div class="panel">
-            <h2>Approach Stats</h2>
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-label"><span class="badge design">Design</span> Attempts</div>
-                    <div class="stat-value" style="color: var(--ctp-blue);">155</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label"><span class="badge design">Design</span> Success</div>
-                    <div class="stat-value" style="color: var(--ctp-green);">13</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 8.4%;"></div>
-                    </div>
-                    <div class="stat-label" style="margin-top: 2px;">8.4% hit rate</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label"><span class="badge pco">PCO</span> Attempts</div>
-                    <div class="stat-value" style="color: var(--ctp-mauve);">0</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label"><span class="badge pco">PCO</span> Success</div>
-                    <div class="stat-value" style="color: var(--ctp-green);">0</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%;"></div>
-                    </div>
-                    <div class="stat-label" style="margin-top: 2px;">—</div>
-                </div>
-            </div>
-            <div style="margin-top: 15px;">
-                <div class="stat-label">Last Design: <code>hub-camp-dist-2</code></div>
-            </div>
+        <div class="card kpi">
+            <div class="kpi-value">17.16</div>
+            <div class="kpi-label">Best Score</div>
+            <div class="kpi-sublabel">gamma_v6:v1 (51 matches)</div>
+        </div>
+        <div class="card kpi">
+            <div class="kpi-value">+130%</div>
+            <div class="kpi-label">Improvement</div>
+            <div class="kpi-sublabel">From baseline 7.45</div>
+        </div>
+        <div class="card kpi">
+            <div class="kpi-value">-1.24</div>
+            <div class="kpi-label">Gap to Next</div>
+            <div class="kpi-sublabel">beta:v84 at 17.02</div>
         </div>
     </div>
 
+    <div class="alert">
+        <div class="alert-title">⚠️ Testing Infrastructure Blocked</div>
+        <p><strong>Issue:</strong> Local four_score tests take 50+ minutes for 5-seed validation. Arena mission hits observation budget errors.</p>
+        <p><strong>Workaround:</strong> Tournament-based validation via direct beta-cvc submission (5-15 min feedback).</p>
+        <p><strong>Status:</strong> improve.md workflow suspended - 30min loop incompatible with test duration.</p>
+    </div>
+
+    <h2>📋 Active TODOs</h2>
+    <div class="card">
+        <h3>In Progress</h3>
+        <p><span class="badge badge-blocked">BLOCKED</span> Testing infrastructure - Local tests too slow (10+ min/seed), arena errors. Improve.md 30-min loop incompatible.</p>
+
+        <h3>Current Status</h3>
+        <table>
+            <tr>
+                <th>Policy</th>
+                <th>Rank</th>
+                <th>Score</th>
+                <th>Matches</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td><code>gamma_v6:v1</code></td>
+                <td class="rank-5"><strong>#5</strong></td>
+                <td>17.16</td>
+                <td>51</td>
+                <td><span class="badge badge-success">TOP 5! 🎉</span></td>
+            </tr>
+            <tr>
+                <td><code>scissors_v1:v13</code></td>
+                <td>#64</td>
+                <td>9.75</td>
+                <td>20</td>
+                <td><span class="badge badge-failure">FAILED (-37.2%)</span></td>
+            </tr>
+        </table>
+
+        <h3>Critical Learning</h3>
+        <p>Local testing on arena mission is <strong>UNRELIABLE</strong>. scissors_v1:v13 showed +84.5% locally but -37.2% in tournament (most extreme mismatch observed). All future changes MUST be tournament-validated.</p>
+
+        <h3>Top Priority</h3>
+        <ul style="list-style-position: inside; margin-left: 1rem;">
+            <li>Monitor gamma_v6:v1 stability at rank #5</li>
+            <li>Continue iterative improvements targeting top 3</li>
+            <li>Gap to leader (alpha.0:v922 at 18.40): +7.2%</li>
+        </ul>
+    </div>
+
+    <h2>📊 Approach Statistics</h2>
     <div class="grid">
-        <div class="panel">
-            <h2>Active TODOs</h2>
-            <ul class="todo-list">
-                <li class="todo-item">
-                    <strong>In Progress:</strong> Network bonus cap 4→5 (scissors_v1:v13 qualifying)
-                    <div style="margin-top: 4px; font-size: 11px; color: var(--ctp-subtext0);">
-                        Rewards highly connected junction chains (+84.5% local)
-                    </div>
-                </li>
-                <li class="todo-item">
-                    <strong>Monitor:</strong> gamma_v6:v1 at rank #5 (17.16 avg, 51 matches)
-                    <div style="margin-top: 4px; font-size: 11px; color: var(--ctp-subtext0);">
-                        Stack: 014 + 015 + 016 + 018
-                    </div>
-                </li>
-                <li class="todo-item">
-                    <strong>Next:</strong> Target top 3 on beta-cvc leaderboard
-                    <div style="margin-top: 4px; font-size: 11px; color: var(--ctp-subtext0);">
-                        Current gap to #3 (alpha.0:v922): 18.40 vs 17.16 (+7.2%)
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="panel">
-            <h2>Latest Improvement</h2>
-            <div class="experiment success">
-                <div class="experiment-header">
-                    <span class="experiment-version">hub-camp-dist-2</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge success">+1.7%</span>
-                    <span class="badge design">Design</span>
-                    Early game efficiency - hub camp distance
-                </div>
-                <div style="margin-top: 8px; font-size: 12px;">
-                    Reduced hub camp distance threshold from 3 to 2 (-33%) to allow agents to venture out slightly earlier while healing
-                </div>
-                <div class="experiment-result">
-                    <strong>Result:</strong> avg 15.52 vs baseline 15.26 (+1.7%)<br>
-                    <strong>Status:</strong> local-only<br>
-                    <strong>Note:</strong> Delta Cycle 27 - Fifth successful improve.md cycle on arena. Cumulative improvement: 19.8% from arena start (12.96→15.52).
-                </div>
+        <div class="card">
+            <h3><span class="badge badge-design">DESIGN</span> Design Approach</h3>
+            <p style="margin: 1rem 0;"><strong>185</strong> attempts</p>
+            <p style="margin: 1rem 0;"><strong>14</strong> improvements</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 7.6%;">7.6%</div>
             </div>
+            <p style="color: var(--overlay1); font-size: 0.9rem; margin-top: 0.5rem;">Hit rate</p>
+            <p style="margin-top: 1rem; color: var(--subtext0);">Last used: <code>20260405-corner-cap-101</code></p>
+        </div>
+        <div class="card">
+            <h3><span class="badge badge-pco">PCO</span> PCO Approach</h3>
+            <p style="margin: 1rem 0;"><strong>0</strong> attempts</p>
+            <p style="margin: 1rem 0;"><strong>0</strong> improvements</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%; background: var(--overlay1);">N/A</div>
+            </div>
+            <p style="color: var(--overlay1); font-size: 0.9rem; margin-top: 0.5rem;">Not yet used</p>
         </div>
     </div>
 
-    <div class="panel">
-        <h2>Recent Experiments</h2>
-        <div class="experiment-log">
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">hub-camp-dist-1 (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
+    <h2>🔬 Recent Experiments</h2>
+    <div class="card">
+        <ul class="timeline">
+            <li>
+                <div class="timeline-date">2026-04-05 <span class="badge badge-success">SUCCESS</span> <span class="badge badge-design">design</span></div>
+                <div class="timeline-title">expansion-067: Expansion incentive - aligner targeting weight</div>
+                <div class="timeline-desc">
+                    Increased aligner expansion weight from 6.6 to 6.7 (+1.5%) to more strongly prioritize junctions that expand reach to new unreachable entities.
+                    <br><strong>Result:</strong> avg 15.73 vs baseline 15.52 (+1.4%)
+                    <br><strong>Status:</strong> Local-only validation
+                    <br><strong>Note:</strong> Delta Cycle 43 - First successful scoring weight improvement. Cumulative improvement: 21.4% from arena start (12.96→15.73).
                 </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-14.0%</span>
-                    <span class="badge design">Design</span>
-                    Early game efficiency - hub camp distance continued
+            </li>
+            <li>
+                <div class="timeline-date">2026-04-05 <span class="badge badge-failure">REGRESSION</span></div>
+                <div class="timeline-title">network-bonus-cap-5: Network bonus cap increase</div>
+                <div class="timeline-desc">
+                    Increased network bonus cap from 4 to 5 (+25%) to reward highly connected junction chains with 5 nearby friendlies.
+                    <br><strong>Result:</strong> scissors_v1:v13 avg 9.75 vs baseline 15.52 (-37.2%)
+                    <br><strong>Analysis:</strong> CATASTROPHIC FAILURE. Local testing showed +84.5% improvement but tournament revealed -37.2% regression. Most extreme local-vs-tournament mismatch observed. Network bonus cap of 4 is optimal.
                 </div>
-                <div class="experiment-result">
-                    13.35 vs 15.52 baseline. Seed 44 collapsed (7.43, -52%). Hub camp distance 1 too restrictive. Optimal is 2.
+            </li>
+            <li>
+                <div class="timeline-date">2026-04-04 <span class="badge badge-failure">REGRESSION</span></div>
+                <div class="timeline-title">RETREAT_MARGIN increase to 20</div>
+                <div class="timeline-desc">
+                    Increased RETREAT_MARGIN from 15 to 20 to match alpha.0's conservative retreat threshold.
+                    <br><strong>Result:</strong> avg 9.34 vs baseline 9.74 (-4.0%), variance 6.63
+                    <br><strong>Analysis:</strong> UNACCEPTABLE VARIANCE. Individual seeds ranged from -79% to +125%. More conservative retreat creates unpredictable behavior. RETREAT_MARGIN=15 better calibrated for four_score.
                 </div>
-            </div>
+            </li>
+            <li>
+                <div class="timeline-date">2026-04-04 <span class="badge badge-failure">REGRESSION</span></div>
+                <div class="timeline-title">Hub penalty reduction for center control</div>
+                <div class="timeline-desc">
+                    Reduced far-range hub_penalty from 8.0 to 6.0 (-25%) to encourage center-map territory.
+                    <br><strong>Result:</strong> scissors_v1:v2 avg 7.83 vs baseline 15.22 (-48.6%)
+                    <br><strong>Analysis:</strong> Center junctions are high-churn contested zones. Current 8.0 penalty is optimal for four_score corner-spawn strategy.
+                </div>
+            </li>
+        </ul>
+    </div>
 
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">distant-retreat-12 (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-22.1%</span>
-                    <span class="badge design">Design</span>
-                    Early game survival - distant retreat threshold
-                </div>
-                <div class="experiment-result">
-                    11.88 vs 15.26 baseline. Seed 46 collapsed (-57%). Makes agents too conservative.
-                </div>
-            </div>
-
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">stall-unstick-15 (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-9.7%</span>
-                    <span class="badge design">Design</span>
-                    Behavioral stability - stall threshold final increment
-                </div>
-                <div class="experiment-result">
-                    13.78 vs 15.26 baseline. Seeds 42-43 collapsed. Optimal stall unstick threshold is 14 steps.
-                </div>
-            </div>
-
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">hub-camp-condition (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-16.3%</span>
-                    <span class="badge design">Design</span>
-                    Code review - hub camp heal condition
-                </div>
-                <div class="experiment-result">
-                    12.69 vs 15.16 baseline. Seed 45 collapsed (-63%). hp > 0 check NOT redundant - pipeline order matters.
-                </div>
-            </div>
-
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">early-retreat-dist-10 (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-10.6%</span>
-                    <span class="badge design">Design</span>
-                    Early game territory control - early retreat distance
-                </div>
-                <div class="experiment-result">
-                    13.55 vs 15.16 baseline. Seed 46 collapsed (-57%). Hub distance 8 is optimal.
-                </div>
-            </div>
-
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">early-retreat-hp-35 (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-13.1%</span>
-                    <span class="badge design">Design</span>
-                    Early game aggression - early retreat HP
-                </div>
-                <div class="experiment-result">
-                    13.17 vs 15.16 baseline. Seed 42 collapsed (-41%). 40 HP is optimal early retreat threshold.
-                </div>
-            </div>
-
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">hub-camp-90 (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-21.4%</span>
-                    <span class="badge design">Design</span>
-                    Early game survival - hub camp HP
-                </div>
-                <div class="experiment-result">
-                    11.92 vs 15.16 baseline. Seed 46 collapsed (-56%). 85 HP is optimal hub camp threshold.
-                </div>
-            </div>
-
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">oscillation-5 (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-23.4%</span>
-                    <span class="badge design">Design</span>
-                    Behavioral stability - oscillation threshold
-                </div>
-                <div class="experiment-result">
-                    10.86 vs 14.19 baseline. Seeds 44 & 46 collapsed (-50%). Oscillation threshold at 4 steps is optimal.
-                </div>
-            </div>
-
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">aligner-gear-delay-5 (reverted)</span>
-                    <span class="experiment-date">2026-04-05</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-24.2%</span>
-                    <span class="badge design">Design</span>
-                    Early game economy - aligner gear delay
-                </div>
-                <div class="experiment-result">
-                    10.82 vs 14.28 baseline. Seeds 45-46 catastrophic (-60%). Agents need immediate gear access.
-                </div>
-            </div>
-
-            <div class="experiment failure">
-                <div class="experiment-header">
-                    <span class="experiment-version">LLM role guidance (002, 010-llm-softer)</span>
-                    <span class="experiment-date">2026-04-03</span>
-                </div>
-                <div class="experiment-focus">
-                    <span class="badge failure">-40%+</span>
-                    <span class="badge design">Design</span>
-                    LLM stagnation detection enhancement
-                </div>
-                <div class="experiment-result">
-                    Both prescriptive (-41.6%) and suggestive (-39.4%) LLM role guidance failed catastrophically. LLM role changes fundamentally flawed.
-                </div>
-            </div>
+    <h2>🗣️ Recent Conversations</h2>
+    <div class="card">
+        <div class="empty-state">
+            <p>📭 No conversations yet</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Messages from operator and other cogents will appear here</p>
         </div>
     </div>
 
-    <div class="panel">
-        <h2>Key Learnings</h2>
-        <div style="margin-top: 12px;">
-            <h3>What Works</h3>
-            <ul style="margin-left: 20px; margin-top: 8px; color: var(--ctp-green);">
-                <li>Conservative incremental changes (small adjustments like 8→10, 6→8)</li>
-                <li>Tournament-based validation for fast feedback (5-15 min vs 75+ min local)</li>
-                <li>Synergistic improvements compound better than isolated changes</li>
-                <li>Defensive avoidance (enemy_aoe penalty) helps aligners</li>
-                <li>Smart scrambling (blocked_neutrals bonus) targets high-impact junctions</li>
-            </ul>
+    <h2>🎯 Strategy Insights</h2>
+    <div class="card">
+        <h3>What Works (Validated Stack)</h3>
+        <ul style="list-style-position: inside; margin-left: 1rem; line-height: 2;">
+            <li><strong>Conservative incremental changes:</strong> Small adjustments (8→10, 6→8) succeed</li>
+            <li><strong>Synergistic improvements:</strong> Combined 014+015+016 outperforms either alone</li>
+            <li><strong>Defensive avoidance:</strong> enemy_aoe penalty helps aligners avoid contested zones</li>
+            <li><strong>Smart scrambling:</strong> blocked_neutrals bonus targets high-impact enemy junctions</li>
+            <li><strong>Aggressive expansion:</strong> expansion bonus capitalizes on safe territory</li>
+        </ul>
 
-            <h3 style="margin-top: 15px;">What Fails</h3>
-            <ul style="margin-left: 20px; margin-top: 8px; color: var(--ctp-red);">
-                <li>LLM role suggestions (both prescriptive and softer approaches fail catastrophically)</li>
-                <li>Aggressive tuning (3× multipliers, 50% increases consistently regress)</li>
-                <li>Premature pressure ramps (earlier transitions hurt economy)</li>
-                <li>Over-defending (increased defensive weights backfire)</li>
-                <li>Parameter tuning exhaustion (11+ consecutive failures indicate optimal calibration)</li>
-            </ul>
+        <h3 style="margin-top: 2rem;">What Fails (Dead Ends)</h3>
+        <ul style="list-style-position: inside; margin-left: 1rem; line-height: 2;">
+            <li><strong>LLM role suggestions:</strong> Both prescriptive (-41.6%) and softer (-39.4%) approaches fail catastrophically</li>
+            <li><strong>Aggressive tuning:</strong> 3× multipliers, 50% increases consistently regress</li>
+            <li><strong>Premature pressure:</strong> Earlier ramps (30→15 steps, 3000→2000 steps) hurt economy</li>
+            <li><strong>Over-defending:</strong> Increased defensive weights backfire (threat_bonus 15.0: -17%)</li>
+            <li><strong>Parameter tuning exhausted:</strong> 11 consecutive failures (attempts 019-028). Current gamma_v6:v1 parameters are optimal for this architecture</li>
+        </ul>
 
-            <h3 style="margin-top: 15px;">Strategy</h3>
-            <div style="margin-top: 8px; padding: 10px; background: var(--ctp-surface0); border-radius: 4px;">
-                <strong style="color: var(--ctp-yellow);">Current parameters are OPTIMAL for this architecture.</strong>
-                <div style="margin-top: 6px; font-size: 12px;">
-                    155 design attempts with 8.4% success rate. Recent 11+ consecutive parameter tuning failures suggest architectural improvements needed:
-                    <ul style="margin-left: 15px; margin-top: 4px;">
-                        <li>Junction discovery improvements</li>
-                        <li>Teammate coordination via vibes</li>
-                        <li>PCO evolution with more epochs</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <h3 style="margin-top: 2rem;">Next Steps</h3>
+        <p style="margin-top: 1rem; color: var(--yellow);"><strong>⚠️ CRITICAL:</strong> Parameter tuning has hit a wall. Need architectural improvements:</p>
+        <ul style="list-style-position: inside; margin-left: 1rem; line-height: 2; margin-top: 1rem;">
+            <li>LLM stagnation detection (docs/strategy.md "What To Try")</li>
+            <li>Better junction discovery - agents miss junctions behind walls</li>
+            <li>Read teammate vibes for better coordination</li>
+            <li>PCO evolution - run more epochs</li>
+        </ul>
+        <p style="margin-top: 1rem; color: var(--overlay1);">Gap to leaders (dinky:v27 at 26.91: +71%) suggests architectural differences, not parameter tuning.</p>
     </div>
 
     <footer>
-        Generated 2026-04-05 16:20 UTC — scissors cogent dashboard
+        <p>Generated: 2026-04-05 21:46 UTC</p>
+        <p style="margin-top: 0.5rem;">
+            <button onclick="fetch('/regenerate',{method:'POST'}).then(()=>{this.textContent='Regenerating...';setTimeout(()=>location.reload(),30000)})">🔄 Regenerate</button>
+        </p>
+        <p style="margin-top: 1rem; color: var(--overlay2); font-size: 0.85rem;">scissors • The Trickster • "Every plan has a seam — I find it."</p>
     </footer>
 </body>
 </html>
