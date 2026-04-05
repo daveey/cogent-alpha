@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (302) Hub penalty far-range multiplier reduction (7.9→7.89): scissors_v218:v1 qualifying - continued far-range multiplier tuning (-0.13%, stacks with 087-301)
 - [ ] (301) Hub penalty 15-25 range multiplier reduction (2.88→2.87): scissors_v217:v1 qualifying - continued 15-25 range multiplier tuning (-0.35%, stacks with 087-300)
 - [ ] (300) Hub penalty 15-25 range base reduction (9.64→9.63): scissors_v216:v1 qualifying - continued 15-25 range base penalty tuning (-0.10%, stacks with 087-299) [MILESTONE: 300 attempts]
 - [ ] (299) Hub penalty 10-15 range multiplier reduction (1.41→1.40): scissors_v215:v1 qualifying - continued 10-15 range multiplier tuning (-0.71%, stacks with 087-298)
