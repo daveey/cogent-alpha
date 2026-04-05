@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 111,
+      "attempts": 112,
       "improvements": 7,
-      "last_used": "20260405-176-testing"
+      "last_used": "20260405-177-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "176",
-    "focus": "Aligner enemy AOE penalty increase",
-    "description": "Increased enemy AOE penalty from 10.5 to 10.52 (+0.19%)",
-    "rationale": "Enemy AOE penalty determines how strongly aligners avoid junctions within AOE range of enemy junctions. Conservative +0.19% increase builds on validated improvements 014 (8.0→10.0), 101 (10.0→10.3), 139 (10.3→10.4), 170 (10.4→10.5). Higher penalty encourages safer junction selection. Stacks with 087-175.",
-    "upload": "scissors_v92:v1",
+    "version": "177",
+    "focus": "Aligner HP threshold reduction",
+    "description": "Reduced aligner HP threshold from 46.0 to 45.9 (-0.22%)",
+    "rationale": "Aligner HP threshold determines when aligners should retreat to hub. Conservative -0.22% reduction builds on validated improvements 089 (50→47), 122 (47→46.5), 155 (46.5→46.0). Systematic exploration of retreat timing balance. Stacks with 087-176.",
+    "upload": "scissors_v93:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 176. Clean baseline enemy avoidance exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 177. Clean baseline aligner HP threshold exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
