@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 191,
+      "attempts": 192,
       "improvements": 14,
-      "last_used": "20260405-aligner-hearts-2"
+      "last_used": "20260405-oscillation-5"
     }
   },
   "testing_in_progress": null,
@@ -1487,6 +1487,33 @@
       },
       "status": "reverted",
       "notes": "Delta Cycle 68 - Smaller heart batches reduced aligner survivability and effectiveness. Catastrophic failures on seeds 44 and 46. Confirms batch target of 3 is optimal for aligner HP management."
+    },
+    {
+      "date": "20260405",
+      "version": "oscillation-5-reverted",
+      "focus": "Oscillation unstick threshold",
+      "description": "Increased _OSCILLATION_UNSTICK_STEPS from 4 to 5 (+25%) to allow more oscillation before triggering unstick",
+      "result": "REGRESSION: avg 15.09 vs baseline 15.73 (-4.1%)",
+      "local_scores": {
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          16.86,
+          13.22,
+          12.65,
+          15.0,
+          17.7
+        ],
+        "avg": 15.09,
+        "baseline": 15.73
+      },
+      "status": "reverted",
+      "notes": "Delta Cycle 69 - Allowing more oscillation before unstick reduced effectiveness. Confirms threshold of 4 steps is optimal for breaking oscillation loops."
     }
   ],
   "mission": "arena",
