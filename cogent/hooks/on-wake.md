@@ -15,6 +15,7 @@ Memory lives in `memory/` (repo root). See `memory/memory.md` for what to rememb
    uv run cogames leaderboard beta-cvc --mine
    uv run cogames matches --season beta-cvc
    ```
+   **Important**: Only pay attention to policies whose name starts with your cogent name (from `cogent/IDENTITY.md`). Other policies (e.g. `gamma`, `alpha`) belong to other cogents — ignore them even if `--mine` lists them.
 
 4. **Report status** — Brief summary:
    - Current scores / ranking

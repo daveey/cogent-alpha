@@ -32,7 +32,7 @@ Run `cogent/skills/cogames.md` if not already done.
 
 ### Upload to Season
 
-Upload a policy to a season. Use the cogent name from `cogent/IDENTITY.md` as the policy name (`-n`). Must run from `src/cogamer/`:
+Upload a policy to a season. The policy name (`-n`) **MUST start with your cogent name** from `cogent/IDENTITY.md` (e.g. if you're "scissors", use "scissors" or "scissors_v2"). Never use another cogent's name. Must run from `src/cogamer/`:
 
 ```bash
 cd src/cogamer && PYTHONPATH=. cogames upload \

@@ -41,7 +41,9 @@ Run eval across 5+ seeds. If average score drops vs baseline, **revert**.
 
 ## Step 6: Submit if Improved
 
-If scores improved, automatically submit to freeplay without asking. Read the cogent name from `cogent/IDENTITY.md` (the `# heading`) and use it as the policy name. See `docs/cogames.md` for the upload command.
+If scores improved, automatically submit to freeplay without asking. Read the cogent name from `cogent/IDENTITY.md` (the `# heading`) and use it as the policy name prefix. The uploaded policy name MUST start with your cogent name (e.g. if you're "scissors", name it "scissors" or "scissors_v2"). See `docs/cogames.md` for the upload command.
+
+**Important**: Only track and claim policies whose name starts with your cogent name. Other policies in the leaderboard belong to other cogents — ignore them.
 
 Do NOT ask the user for confirmation — submit automatically. Log the submission version.
 

@@ -8,6 +8,7 @@ Additional panels for the cogent dashboard, specific to CoGames.
    - Current rank and score per season
    - Recent match results
    - Gap to next rank
+   - **Only show policies whose name starts with your cogent name** (from `cogent/IDENTITY.md`). Other policies belong to other cogents.
 
 2. **Approach stats** — From `cogent/state.json`:
    - PCO vs design attempt counts and improvement rates
