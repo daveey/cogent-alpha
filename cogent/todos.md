@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (438) Hotspot weight near-hub reduction (1.72→1.70): scissors_v354:v1 qualifying - continued near-hub recapture tuning (-1.16%, stacks with 087-437)
 - [ ] (437) Hotspot weight mid-range reduction (5.54→5.52): scissors_v353:v1 qualifying - continued mid-range contested junction tuning (-0.36%, stacks with 087-436)
 - [ ] (436) Hotspot weight far-range reduction (11.60→11.58): scissors_v352:v1 qualifying - continued far-range contested junction tuning (-0.17%, stacks with 087-435)
 - [ ] (435) Hub penalty far-range base reduction (48.89→48.88): scissors_v351:v1 qualifying - continued far-range base tuning (-0.02%, stacks with 087-434)
