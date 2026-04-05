@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 185,
+      "attempts": 186,
       "improvements": 14,
-      "last_used": "20260405-corner-cap-101"
+      "last_used": "20260405-claim-steps-29"
     }
   },
   "testing_in_progress": null,
@@ -1325,6 +1325,33 @@
       },
       "status": "reverted",
       "notes": "Delta Cycle 62 - Higher corner pressure cap caused catastrophic failures on seeds 44 and 46. Scramblers over-extended to far corners. Confirms cap of 10.0 is critical for preventing over-aggression."
+    },
+    {
+      "date": "20260405",
+      "version": "claim-steps-29-reverted",
+      "focus": "Target claim duration",
+      "description": "Reduced _TARGET_CLAIM_STEPS from 30 to 29 (-3.3%) to test if shorter claim duration improves coordination flexibility",
+      "result": "REGRESSION: avg 13.42 vs baseline 15.73 (-14.7%)",
+      "local_scores": {
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          14.92,
+          14.46,
+          5.62,
+          14.7,
+          17.38
+        ],
+        "avg": 13.42,
+        "baseline": 15.73
+      },
+      "status": "reverted",
+      "notes": "Delta Cycle 63 - Shorter claim duration caused coordination conflicts. Agents overrode claims too quickly, particularly damaging on seed 44 (5.62). Confirms 30 steps is optimal claim duration."
     }
   ],
   "mission": "arena",
