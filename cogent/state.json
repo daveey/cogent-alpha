@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 210,
+      "attempts": 211,
       "improvements": 7,
-      "last_used": "20260405-275-testing"
+      "last_used": "20260405-276-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "275",
-    "focus": "Aligner network bonus weight increase",
-    "description": "Increased network_bonus weight from 0.84 to 0.85 (+1.19%)",
-    "rationale": "Network bonus weight determines chain-building priority near friendly junctions. Conservative +1.19% increase builds on validated improvements 246. Higher weight strengthens network consolidation. Stacks with 087-274.",
-    "upload": "scissors_v191:v1",
+    "version": "276",
+    "focus": "Aligner expansion bonus weight increase",
+    "description": "Increased expansion bonus weight from 6.44 to 6.46 (+0.31%)",
+    "rationale": "Expansion bonus weight determines priority for junctions that unlock unreachable entities. Conservative +0.31% increase builds on validated improvements 247. Higher weight strengthens expansion emphasis. Stacks with 087-275.",
+    "upload": "scissors_v192:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 275. Clean baseline network consolidation tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 276. Clean baseline expansion emphasis tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (276) Aligner expansion bonus weight increase (6.44→6.46): scissors_v192:v1 qualifying - further expansion emphasis (+0.31%, stacks with 087-275)
 - [ ] (275) Aligner network bonus weight increase (0.84→0.85): scissors_v191:v1 qualifying - stronger network consolidation (+1.19%, stacks with 087-274)
 - [ ] (274) Aligner hub penalty far-range base reduction (48.94→48.93): scissors_v190:v1 qualifying - far-range base penalty (-0.02%, stacks with 087-273)
 - [ ] (273) Aligner hub penalty far-range multiplier reduction (7.91→7.9): scissors_v189:v1 qualifying - far-range multiplier (-0.13%, stacks with 087-272)
