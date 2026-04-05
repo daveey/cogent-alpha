@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 124,
+      "attempts": 125,
       "improvements": 7,
-      "last_used": "20260405-189-testing"
+      "last_used": "20260405-190-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "189",
-    "focus": "Aligner expansion bonus cap increase",
-    "description": "Increased expansion bonus cap from 37.1 to 37.15 (+0.13%)",
-    "rationale": "Expansion bonus cap determines maximum bonus for extreme expansion scenarios. Conservative +0.13% increase builds on validated improvements 113 (36.0\u219236.5), 141 (36.5\u219236.8), 168 (36.8\u219237.1). Higher cap allows better rewards in dense unreachable junction scenarios. Stacks with 087-188.",
-    "upload": "scissors_v105:v1",
+    "version": "190",
+    "focus": "Aligner network bonus cap increase",
+    "description": "Increased network bonus cap from 4.3 to 4.32 (+0.47%)",
+    "rationale": "Network bonus cap determines maximum bonus for dense junction clusters. Conservative +0.47% increase builds on validated improvements 114 (4.0\u21924.2), 142 (4.2\u21924.25), 169 (4.25\u21924.3). Higher cap rewards denser network formation for better territorial consolidation. Stacks with 087-189.",
+    "upload": "scissors_v106:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 189. Clean baseline expansion cap exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 190. Clean baseline network cap exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
