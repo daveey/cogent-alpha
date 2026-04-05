@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 195,
+      "attempts": 196,
       "improvements": 15,
-      "last_used": "20260405-oscillation-3"
+      "last_used": "20260405-oscillation-2"
     }
   },
   "testing_in_progress": null,
@@ -1568,6 +1568,33 @@
       },
       "status": "reverted",
       "notes": "Delta Cycle 71 - Triggering unstick too early caused catastrophic failures on seeds 42 and 44. Agents need full 14 steps to determine if truly stalled. Bidirectional validation confirms 14 is optimal."
+    },
+    {
+      "date": "20260405",
+      "version": "oscillation-2-reverted",
+      "focus": "Oscillation unstick threshold reduction",
+      "description": "Reduced _OSCILLATION_UNSTICK_STEPS from 3 to 2 (-33%) to test if even faster oscillation detection improves",
+      "result": "REGRESSION: avg 13.41 vs baseline 15.87 (-15.5%)",
+      "local_scores": {
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          15.38,
+          13.12,
+          10.16,
+          12.76,
+          15.63
+        ],
+        "avg": 13.41,
+        "baseline": 15.87
+      },
+      "status": "reverted",
+      "notes": "Delta Cycle 73 - Bidirectional validation. Triggering oscillation detection at 2 steps was too aggressive, causing false positives. Confirms 3 steps is optimal balance."
     }
   ],
   "mission": "arena",
