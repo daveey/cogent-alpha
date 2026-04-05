@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 126,
+      "attempts": 127,
       "improvements": 7,
-      "last_used": "20260405-191-testing"
+      "last_used": "20260405-192-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "191",
-    "focus": "Aligner teammate penalty increase",
-    "description": "Increased teammate penalty from 9.25 to 9.27 (+0.22%)",
-    "rationale": "Teammate penalty determines how strongly aligners avoid junctions when teammates are closer. Conservative +0.22% increase builds on validated improvements 011 (6.0\u21929.0), 109 (9.0\u21929.15), 140 (9.15\u21929.2), 171 (9.2\u21929.25). Higher penalty improves multi-agent coordination. Stacks with 087-190.",
-    "upload": "scissors_v107:v1",
+    "version": "192",
+    "focus": "Aligner hotspot penalty cap increase",
+    "description": "Increased hotspot penalty cap from 3.09 to 3.1 (+0.32%)",
+    "rationale": "Hotspot penalty cap determines maximum penalty for heavily contested junctions. Conservative +0.32% increase builds on validated improvements 044 (2.0\u21923.0), 133 (3.0\u21923.06), 153 (3.06\u21923.09). Higher cap allows stronger penalties in extreme multi-team contested scenarios. Stacks with 087-191.",
+    "upload": "scissors_v108:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 191. Clean baseline teammate coordination exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 192. Clean baseline hotspot cap exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

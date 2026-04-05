@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (192) Aligner hotspot penalty cap increase (3.09→3.1): scissors_v108:v1 qualifying - continued contested junction penalty cap (+0.32%, stacks with 087-191)
 - [ ] (191) Aligner teammate penalty increase (9.25→9.27): scissors_v107:v1 qualifying - continued better coordination (+0.22%, stacks with 087-190)
 - [ ] (190) Aligner network bonus cap increase (4.3→4.32): scissors_v106:v1 qualifying - denser network clustering (+0.47%, stacks with 087-189)
 - [ ] (189) Aligner expansion bonus cap increase (37.1→37.15): scissors_v105:v1 qualifying - higher expansion bonus ceiling (+0.13%, stacks with 087-188)
