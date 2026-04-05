@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 178,
+      "attempts": 179,
       "improvements": 14,
-      "last_used": "20260405-expansion-066-validation"
+      "last_used": "20260405-expansion-cap-37"
     }
   },
   "testing_in_progress": null,
@@ -1136,6 +1136,33 @@
       },
       "status": "reverted",
       "notes": "Delta Cycle 55 - Bidirectional validation confirms Cycle 43's expansion weight increase to 6.7 was a critical improvement. Reverting to 6.6 caused massive performance collapse on seeds 44-46. Expansion weight 6.7 is STRONGLY validated as optimal."
+    },
+    {
+      "date": "20260405",
+      "version": "expansion-cap-37-reverted",
+      "focus": "Expansion bonus cap increase",
+      "description": "Increased expansion bonus cap from 36.0 to 37.0 (+2.8%) to allow slightly higher rewards for very high expansion scenarios",
+      "result": "REGRESSION: avg 15.16 vs baseline 15.73 (-3.6%)",
+      "local_scores": {
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          15.24,
+          12.53,
+          14.58,
+          16.08,
+          17.38
+        ],
+        "avg": 15.16,
+        "baseline": 15.73
+      },
+      "status": "reverted",
+      "notes": "Delta Cycle 56 - Higher expansion cap caused agents to over-prioritize extreme expansion scenarios at expense of balanced positioning. Confirms cap of 36.0 is optimal for preventing over-expansion."
     }
   ],
   "mission": "arena",
