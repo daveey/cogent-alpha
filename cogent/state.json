@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 102,
+      "attempts": 103,
       "improvements": 7,
-      "last_used": "20260405-167-testing"
+      "last_used": "20260405-168-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "167",
-    "focus": "Aligner expansion bonus weight increase",
-    "description": "Increased expansion bonus weight from 6.3 to 6.35 (+0.8%)",
-    "rationale": "Expansion bonus rewards junctions that unlock new territory. Conservative +0.8% increase builds on validated 016 (5.0→6.0) and attempts 096 (6.0→6.2), 135 (6.2→6.28), 144 (6.28→6.3). Continues emphasis on aggressive safe territory expansion in four_score. Stacks with 087-166.",
-    "upload": "scissors_v83:v1",
+    "version": "168",
+    "focus": "Aligner expansion bonus cap increase",
+    "description": "Increased expansion bonus cap from 36.8 to 37.1 (+0.8%)",
+    "rationale": "Expansion bonus cap limits maximum bonus from unlocking new territory. Conservative +0.8% increase builds on attempts 113 (36.0→36.5), 141 (36.5→36.8). Higher cap allows slightly more reward for junctions unlocking 6+ unreachable entities (extreme expansion cases). Stacks with 087-167.",
+    "upload": "scissors_v84:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 167. Clean baseline expansion bonus weight exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 168. Clean baseline expansion cap exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

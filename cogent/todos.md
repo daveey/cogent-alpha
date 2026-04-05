@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (168) Aligner expansion bonus cap increase (36.8→37.1): scissors_v84:v1 qualifying - higher expansion bonus ceiling (+0.8%, stacks with 087-167)
 - [ ] (167) Aligner expansion bonus weight increase (6.3→6.35): scissors_v83:v1 qualifying - continued expansion emphasis (+0.8%, stacks with 087-166)
 - [ ] (166) Aligner network bonus weight increase (0.79→0.8): scissors_v82:v1 qualifying - continued network consolidation (+1.3%, stacks with 087-165)
 - [ ] (165) Extractor memory steps increase (820→830): scissors_v81:v1 qualifying - continued longer extractor memory (+1.2%, stacks with 087-164)
