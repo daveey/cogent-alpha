@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 330,
+      "attempts": 331,
       "improvements": 7,
-      "last_used": "20260405-395-testing"
+      "last_used": "20260405-396-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "395",
-    "focus": "Extractor memory steps increase",
-    "description": "Increased extractor memory steps from 842 to 844 (+0.24%)",
-    "rationale": "Extractor memory steps determines how long miners remember extractor locations before forgetting. Higher value allows miners to reuse known extractors for longer, reducing exploration overhead. Conservative +0.24% increase builds on validated improvements. Stacks with 087-394.",
-    "upload": "scissors_v311:v1",
+    "version": "396",
+    "focus": "Hub penalty very-close multiplier reduction",
+    "description": "Reduced hub penalty very-close multiplier from 0.268 to 0.267 (-0.37%)",
+    "rationale": "Hub penalty very-close multiplier affects junctions within 10 steps of hub. Lower value encourages tighter hub clustering for safer, more defensible networks. Conservative -0.37% reduction builds on validated improvements. Stacks with 087-395.",
+    "upload": "scissors_v312:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 395. Clean baseline longer extractor memory tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 396. Clean baseline tighter hub clustering tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
