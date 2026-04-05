@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 271,
+      "attempts": 273,
       "improvements": 7,
-      "last_used": "20260405-336-testing"
+      "last_used": "20260405-338-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "336",
-    "focus": "Hub penalty far-range base reduction",
-    "description": "Reduced hub penalty far-range base from 48.92 to 48.91 (-0.02%)",
-    "rationale": "Lower base penalty for very distant junctions (>25 distance) slightly reduces penalty on far exploration. Conservative -0.02% reduction builds on validated improvements. Stacks with 087-335.",
-    "upload": "scissors_v252:v1",
+    "version": "338",
+    "focus": "Hotspot weight mid-range reduction",
+    "description": "Reduced aligner hotspot weight mid-range from 5.60 to 5.58 (-0.36%)",
+    "rationale": "Lower penalty for contested mid-range junctions (10-15 from hub) encourages more aggressive recapture attempts. Conservative -0.36% reduction builds on validated improvements. Stacks with 087-337.",
+    "upload": "scissors_v254:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 336. Clean baseline hub penalty tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 338. Clean baseline hotspot weight tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
