@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (163) Claimed target penalty reduction (11.38→11.27): scissors_v79:v1 qualifying - continued flexible claim override (-1%, stacks with 087-162)
 - [ ] (162) Junction AOE range increase (10.3→10.4): scissors_v78:v1 qualifying - continued larger detection radius (+1%, stacks with 087-161)
 - [ ] (161) Junction align distance increase (16.16→16.2): scissors_v77:v1 qualifying - continued chain-building reach (+0.25%, stacks with 087-160)
 - [ ] (160) Hub align distance increase (26.3→26.4): scissors_v76:v1 qualifying - continued extended hub reach (+0.4%, stacks with 087-159)
