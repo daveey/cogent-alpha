@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 123,
+      "attempts": 124,
       "improvements": 7,
-      "last_used": "20260405-188-testing"
+      "last_used": "20260405-189-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "188",
-    "focus": "Extractor memory steps increase",
-    "description": "Increased extractor memory steps from 830 to 832 (+0.24%)",
-    "rationale": "Extractor memory steps determines how long extractors remain valid for miner targeting. Conservative +0.24% increase builds on validated improvements 117 (800\u2192820), 165 (820\u2192830). Longer memory improves miner efficiency by maintaining extractor validity longer. Stacks with 087-187.",
-    "upload": "scissors_v104:v1",
+    "version": "189",
+    "focus": "Aligner expansion bonus cap increase",
+    "description": "Increased expansion bonus cap from 37.1 to 37.15 (+0.13%)",
+    "rationale": "Expansion bonus cap determines maximum bonus for extreme expansion scenarios. Conservative +0.13% increase builds on validated improvements 113 (36.0\u219236.5), 141 (36.5\u219236.8), 168 (36.8\u219237.1). Higher cap allows better rewards in dense unreachable junction scenarios. Stacks with 087-188.",
+    "upload": "scissors_v105:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 188. Clean baseline extractor memory exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 189. Clean baseline expansion cap exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
