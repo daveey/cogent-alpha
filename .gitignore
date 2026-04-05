@@ -9,9 +9,13 @@ uv.lock
 
 # Memory (ephemeral, regenerated each run)
 .memory/
+memory/conversation.jsonl
 
 
 # Test experiment results (ephemeral)
 .tests/
+
+# Dashboard (ephemeral, served live)
+cogent/dashboard/
 
 runtime/
