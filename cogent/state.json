@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 165,
-      "improvements": 13,
-      "last_used": "20260405-network-bonus-080"
+      "attempts": 166,
+      "improvements": 14,
+      "last_used": "20260405-expansion-067"
     }
   },
   "testing_in_progress": null,
@@ -20,10 +20,10 @@
   },
   "last_improvement": {
     "date": "20260405",
-    "version": "hub-camp-dist-2",
-    "focus": "Early game efficiency - hub camp distance",
-    "description": "Reduced hub camp distance threshold from 3 to 2 (-33%) to allow agents to venture out slightly earlier while healing",
-    "result": "IMPROVEMENT: avg 15.52 vs baseline 15.26 (+1.7%)",
+    "version": "expansion-067",
+    "focus": "Expansion incentive - aligner targeting weight",
+    "description": "Increased aligner expansion weight from 6.6 to 6.7 (+1.5%) to more strongly prioritize junctions that expand reach to new unreachable entities",
+    "result": "IMPROVEMENT: avg 15.73 vs baseline 15.52 (+1.4%)",
     "local_scores": {
       "seeds": [
         42,
@@ -33,17 +33,17 @@
         46
       ],
       "scores": [
-        15.68,
-        14.64,
-        13.38,
-        16.79,
-        17.11
+        16.56,
+        14.72,
+        12.54,
+        16.67,
+        18.17
       ],
-      "avg": 15.52,
-      "baseline": 15.26
+      "avg": 15.73,
+      "baseline": 15.52
     },
     "status": "local-only",
-    "notes": "Delta Cycle 27 - Fifth successful improve.md cycle on arena. Hub camp distance reduced from 3 to 2 allows agents to start moving earlier while still benefiting from hub healing. Consistent improvement across all seeds. Cumulative improvement: 19.8% from arena start (12.96\u219215.52). NOTE: scissors_v1:v13 failed change (network_bonus cap 5) was reverted back to 4 on 20260405. RETREAT_MARGIN bug fixed: reverted from 20\u219215 on 20260405 (was accidentally re-introduced after af1ab0f revert)."
+    "notes": "Delta Cycle 43 - First successful scoring weight improvement. Expansion weight increase from 6.6 to 6.7 improved performance across most seeds, particularly seed 46 (18.17). Cumulative improvement: 21.4% from arena start (12.96\u219215.73)."
   },
   "failed_attempts": [
     {
