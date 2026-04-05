@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 258,
+      "attempts": 259,
       "improvements": 7,
-      "last_used": "20260405-323-testing"
+      "last_used": "20260405-324-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "323",
-    "focus": "Scrambler heart batch target increase",
-    "description": "Increased scrambler heart batch target from 3.38 to 3.40 (+0.59%)",
-    "rationale": "Higher target allows scramblers to hold more hearts before crafting gear for better resource efficiency. Conservative +0.59% increase builds on validated improvements. Stacks with 087-322.",
-    "upload": "scissors_v239:v1",
+    "version": "324",
+    "focus": "Hub align distance increase",
+    "description": "Increased hub align distance from 26.48 to 26.50 (+0.08%)",
+    "rationale": "Higher distance extends alignment range from hub for broader alignment network. Conservative +0.08% increase builds on validated improvements. Stacks with 087-323.",
+    "upload": "scissors_v240:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 323. Clean baseline scrambler persistence tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 324. Clean baseline hub reach tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
