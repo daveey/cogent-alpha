@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 245,
+      "attempts": 246,
       "improvements": 7,
-      "last_used": "20260405-310-testing"
+      "last_used": "20260405-311-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "310",
-    "focus": "Expansion bonus cap increase",
-    "description": "Increased aligner expansion bonus cap from 37.35 to 37.4 (+0.13%)",
-    "rationale": "Higher cap allows expansion bonus to scale higher for junctions unlocking many neutrals. Conservative +0.13% increase builds on validated improvements. Stacks with 087-309.",
-    "upload": "scissors_v226:v1",
+    "version": "311",
+    "focus": "Teammate penalty increase",
+    "description": "Increased aligner teammate penalty from 9.35 to 9.37 (+0.21%)",
+    "rationale": "Higher penalty further reduces multi-agent duplication by discouraging pursuit of same target. Conservative +0.21% increase builds on validated improvements. Stacks with 087-310.",
+    "upload": "scissors_v227:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 310 [MILESTONE: 310 attempts, 70 this session]. Clean baseline expansion bonus tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 311. Clean baseline coordination tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
