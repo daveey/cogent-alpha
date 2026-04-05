@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 92,
+      "attempts": 93,
       "improvements": 7,
-      "last_used": "20260405-157-testing"
+      "last_used": "20260405-158-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "157",
-    "focus": "Emergency resource low threshold increase",
-    "description": "Increased emergency resource low threshold from 2.2 to 2.3 (+5%)",
-    "rationale": "Emergency resource low threshold triggers emergency mining when any resource drops below this level. Conservative +5% increase builds on attempts 095 (1→2), 119 (2→2.2). Triggers emergency mining slightly earlier to prevent resource starvation, ensuring agents can afford critical gear changes. Stacks with 087-156.",
-    "upload": "scissors_v73:v1",
+    "version": "158",
+    "focus": "Aligner heart batch target increase",
+    "description": "Increased aligner heart batch target from 3.2 to 3.3 (+3%)",
+    "rationale": "Aligner heart batch target determines when aligners return to hub for hearts. Conservative +3% increase builds on attempts 094 (2→3), 116 (3→3.2). Allows aligners to capture one more junction before returning, improving persistence in field. Valuable for expensive aligner role. Stacks with 087-157.",
+    "upload": "scissors_v74:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 157. Clean baseline emergency resource threshold exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 158. Clean baseline aligner heart batch target exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
