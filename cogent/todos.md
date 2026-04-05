@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (330) Hub penalty very-close multiplier reduction (0.270→0.269): scissors_v246:v1 qualifying - continued tighter hub clustering tuning (-0.37%, stacks with 087-329) [MILESTONE: 330 attempts]
 - [ ] (329) Extractor memory steps increase (838→840): scissors_v245:v1 qualifying - continued longer extractor memory tuning (+0.24%, stacks with 087-328)
 - [ ] (328) Target claim steps increase (33.0→33.05): scissors_v244:v1 qualifying - continued longer claim validity tuning (+0.15%, stacks with 087-327)
 - [ ] (327) Claimed target penalty reduction (11.19→11.17): scissors_v243:v1 qualifying - continued flexible claim override tuning (-0.18%, stacks with 087-326)
