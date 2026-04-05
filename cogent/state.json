@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 140,
+      "attempts": 141,
       "improvements": 7,
-      "last_used": "20260405-205-testing"
+      "last_used": "20260405-206-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "205",
-    "focus": "Scrambler corner pressure divisor reduction",
-    "description": "Reduced corner pressure divisor from 7.7 to 7.68 (-0.26%)",
-    "rationale": "Corner pressure divisor determines pressure growth rate. Conservative -0.26% reduction builds on validated improvements 107 (8.0\u21927.8), 143 (7.8\u21927.75), 172 (7.75\u21927.7). Lower divisor enables faster far-enemy pressure growth. Stacks with 087-204.",
-    "upload": "scissors_v121:v1",
+    "version": "206",
+    "focus": "Scrambler corner pressure cap increase",
+    "description": "Increased corner pressure cap from 10.7 to 10.72 (+0.19%)",
+    "rationale": "Corner pressure cap determines maximum far-enemy disruption incentive. Conservative +0.19% increase builds on validated improvements 100 (10.0\u219210.5), 136 (10.5\u219210.6), 173 (10.6\u219210.7). Higher cap allows slightly stronger incentive for targeting extremely distant enemy junctions. Stacks with 087-205.",
+    "upload": "scissors_v122:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 205. Clean baseline corner pressure divisor exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 206. Clean baseline corner pressure cap exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
