@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 422,
+      "attempts": 426,
       "improvements": 7,
-      "last_used": "20260405-488-testing"
+      "last_used": "20260405-492-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "488",
-    "focus": "Scrambler heart batch target increase",
-    "description": "Increased scrambler heart batch target from 3.48 to 3.50 (+0.57%)",
-    "rationale": "Heart batch target controls how many hearts scramblers collect before deploying. Higher value improves persistence and survival during disruption missions. Conservative +0.57% increase builds on validated improvements. Stacks with 087-487.",
-    "upload": "scissors_v405:v1",
+    "version": "492",
+    "focus": "Claimed target penalty reduction",
+    "description": "Reduced claimed target penalty from 11.09 to 11.07 (-0.18%)",
+    "rationale": "Claimed target penalty discourages pursuing junctions already claimed by teammates. Lower value allows more flexible claim overrides when beneficial. Conservative -0.18% reduction builds on validated improvements. Stacks with 087-491.",
+    "upload": "scissors_v409:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 488. Clean baseline scrambler persistence tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 492. Clean baseline flexible claim override tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
