@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 116,
+      "attempts": 117,
       "improvements": 7,
-      "last_used": "20260405-181-testing"
+      "last_used": "20260405-182-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "181",
-    "focus": "Aligner heart batch target increase",
-    "description": "Increased aligner heart batch target from 3.3 to 3.32 (+0.61%)",
-    "rationale": "Aligner heart batch target determines persistence before role change. Conservative +0.61% increase builds on validated improvements 094 (2\u21923), 116 (3\u21923.2), 158 (3.2\u21923.3). Higher target increases aligner longevity and territorial control. Stacks with 087-180.",
-    "upload": "scissors_v97:v1",
+    "version": "182",
+    "focus": "Scrambler heart batch target increase",
+    "description": "Increased scrambler heart batch target from 3.3 to 3.32 (+0.61%)",
+    "rationale": "Scrambler heart batch target determines persistence before role change. Conservative +0.61% increase builds on validated improvements 094 (2\u21923), 118 (3\u21923.2), 159 (3.2\u21923.3). Higher target increases scrambler longevity and enemy disruption. Stacks with 087-181.",
+    "upload": "scissors_v98:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 181. Clean baseline aligner persistence exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 182. Clean baseline scrambler persistence exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
