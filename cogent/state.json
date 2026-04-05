@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 122,
+      "attempts": 123,
       "improvements": 7,
-      "last_used": "20260405-miner-hp-test-harness-failure"
+      "last_used": "20260405-miner-hp-18-cycle2-failure"
     }
   },
   "testing_in_progress": null,
@@ -345,6 +345,21 @@
       "description": "Increased miner retreat threshold from 15 to 18 HP (+20%)",
       "result": "TEST HARNESS FAILURE: No scores captured",
       "analysis": "Tests ran for ~30 minutes (5 seeds) but grep buffering prevented score capture in test script. Output piped through grep was buffered and not written to results file. Change reverted conservatively since no scores available to evaluate vs baseline (9.74). Need to fix test harness: remove grep pipe filtering, write full output to file, then parse results. Tests themselves completed successfully (confirmed by timing) but evaluation impossible."
+    },
+    {
+      "date": "20260405",
+      "version": "miner-hp-18-cycle2-reverted",
+      "focus": "Miner HP threshold increase (retry with fixed harness)",
+      "description": "Increased miner retreat threshold from 15 to 18 HP (+20%). Retried with fixed test harness capturing full output.",
+      "result": "TEST INFRASTRUCTURE FAILURE: No scores produced (0/5 seeds)",
+      "scores_by_seed": {
+        "42": "ERROR: No score found",
+        "43": "ERROR: No score found",
+        "44": "ERROR: No score found",
+        "45": "ERROR: No score found",
+        "46": "ERROR: No score found"
+      },
+      "analysis": "Fixed test harness (capture full output, then parse) ran successfully for 57 minutes (04:12-05:09 UTC), but cogames failed to produce 'per cog' score output for all 5 seeds. Same infrastructure issue affecting baseline evals. Seeds 42-43 completed in ~5-6 min each (normal), but seed 44 ran 10+ minutes suggesting hanging/timeout. Root cause: cogames not producing expected output format, not test harness design. Change reverted conservatively. Cannot evaluate miner HP change without working cogames output. May need different evaluation approach or cogames environment fix."
     }
   ],
   "mission": "four_score",
