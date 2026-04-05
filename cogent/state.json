@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 86,
+      "attempts": 87,
       "improvements": 7,
-      "last_used": "20260405-151-testing"
+      "last_used": "20260405-152-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "151",
-    "focus": "Aligner hotspot weight near-hub reduction",
-    "description": "Reduced hotspot_weight near-hub from 1.88 to 1.86 (-1%)",
-    "rationale": "Hotspot weight near-hub (≤10 distance) controls penalty for contested junctions close to hub. Conservative -1% reduction builds on attempts 103 (2.0→1.9), 131 (1.9→1.88). Makes aligners even less cautious about recapturing near-hub contested junctions, prioritizing defense of core territory. Stacks with 087-150.",
-    "upload": "scissors_v67:v1",
+    "version": "152",
+    "focus": "Aligner hotspot weight mid-range reduction",
+    "description": "Reduced hotspot_weight mid-range from 5.74 to 5.68 (-1%)",
+    "rationale": "Hotspot weight mid-range (10-15 distance) controls penalty for contested junctions at moderate hub distance. Conservative -1% reduction builds on attempts 104 (6.0→5.8), 132 (5.8→5.74). Makes aligners slightly less cautious about mid-range contested junctions, balancing between near-hub defense and expansion. Completes second round of mid-range hotspot weight tuning. Stacks with 087-151.",
+    "upload": "scissors_v68:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 151. Clean baseline near-hub hotspot weight exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 152. Clean baseline mid-range hotspot weight exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
