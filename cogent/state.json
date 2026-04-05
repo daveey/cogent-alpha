@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 187,
+      "attempts": 188,
       "improvements": 14,
-      "last_used": "20260405-hub-align-24"
+      "last_used": "20260405-junction-align-14"
     }
   },
   "testing_in_progress": null,
@@ -1379,6 +1379,33 @@
       },
       "status": "reverted",
       "notes": "Delta Cycle 64 - Tighter hub alignment distance catastrophically reduced network flexibility. Agents couldn't expand effectively from hub. Particularly damaging on seeds 42 and 44. Confirms 25 is optimal."
+    },
+    {
+      "date": "20260405",
+      "version": "junction-align-14-reverted",
+      "focus": "Junction alignment distance",
+      "description": "Reduced _JUNCTION_ALIGN_DISTANCE from 15 to 14 (-6.7%) to test if tighter junction network improves chain building",
+      "result": "CATASTROPHIC REGRESSION: avg 10.02 vs baseline 15.73 (-36.3%)",
+      "local_scores": {
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          8.01,
+          13.34,
+          6.47,
+          5.88,
+          16.39
+        ],
+        "avg": 10.02,
+        "baseline": 15.73
+      },
+      "status": "reverted",
+      "notes": "Delta Cycle 65 - Catastrophic failure. Tighter junction alignment distance destroyed network expansion capability. Massive failures on seeds 42, 44, 45. Confirms 15 is critical for effective chaining."
     }
   ],
   "mission": "arena",
