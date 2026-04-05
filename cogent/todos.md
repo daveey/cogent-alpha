@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (378) Network bonus weight increase (0.87→0.88): scissors_v294:v1 qualifying - continued stronger network consolidation (+1.15%, stacks with 087-377)
 - [ ] (377) Teammate penalty increase (9.39→9.41): scissors_v293:v1 qualifying - continued coordination tuning (+0.21%, stacks with 087-376)
 - [ ] (376) Expansion bonus cap increase (37.45→37.50): scissors_v292:v1 qualifying - continued higher expansion bonus ceiling (+0.13%, stacks with 087-375)
 - [ ] (375) Expansion bonus weight increase (6.50→6.52): scissors_v291:v1 qualifying - continued expansion emphasis (+0.31%, stacks with 087-374)
