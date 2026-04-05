@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 147,
+      "attempts": 148,
       "improvements": 7,
-      "last_used": "20260405-212-testing"
+      "last_used": "20260405-213-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "212",
-    "focus": "Aligner network bonus cap increase",
-    "description": "Increased network bonus cap from 4.32 to 4.34 (+0.46%)",
-    "rationale": "Network bonus cap determines maximum bonus for dense junction clusters. Conservative +0.46% increase builds on validated improvements 114, 142, 169, 190. Higher cap rewards denser network formation for better territorial consolidation. Stacks with 087-211.",
-    "upload": "scissors_v128:v1",
+    "version": "213",
+    "focus": "Aligner hotspot penalty cap increase",
+    "description": "Increased hotspot penalty cap from 3.1 to 3.11 (+0.32%)",
+    "rationale": "Hotspot penalty cap determines maximum penalty for heavily contested junctions. Conservative +0.32% increase builds on validated improvements 044, 133, 153, 192. Higher cap allows stronger penalties in extreme multi-team contested scenarios. Stacks with 087-212.",
+    "upload": "scissors_v129:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 212. Clean baseline network cap exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 213. Clean baseline hotspot cap exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
