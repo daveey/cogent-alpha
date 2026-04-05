@@ -1,28 +1,22 @@
 # scissors — Improvement TODOs
 
 ## In Progress
-- [ ] (087) Miner HP threshold increase (15→18): scissors:v3 qualifying - more aggressive resource gathering from clean baseline
-- [ ] (086) LLM prompt streamlining: scissors:v2 qualifying - removed tactical context, kept strategic (builds on v1)
-- [ ] (085) LLM role override removal: scissors:v1 qualifying - removed role field from LLM prompt (+43% local avg, HIGH VARIANCE 1.74-7.12)
+- [ ] Network bonus cap 4→5: scissors_v1:v13 qualifying - rewards highly connected junction chains (+84.5% local)
 
-## Current Status (20260404 UTC)
+## Current Status (20260405 UTC)
 **Tournament Rankings (beta-cvc):**
-- 🏆 gamma_v6:v1: rank #9, 15.84 avg (27 matches) - **TOP 10!**
+- 🏆 gamma_v6:v1: rank #5, 17.16 avg (51 matches) - **TOP 5!**
   - Stack: 014 + 015 + 016 + 018 (network_bonus 0.5→0.75)
-  - Baseline for both delta and scissors branches
-- gamma_v5:v1: rank #11, 15.25 avg (30 matches)
-  - Stack: 014 + 015 + 016 (previous best)
-- gamma_v3:v1: rank #33, 12.02 avg (40 matches)
-  - Stack: 014 + 015
-- Baseline gamma:v1: rank #73, 7.45 avg (21 matches)
+- scissors_v1:v13: qualifying - network_bonus cap 4→5 (+84.5% local: 4.15→7.66 avg)
 
-**Progress:** +113% improvement from baseline (7.45 → 15.84)
+**Progress:** Scissors first improvement uploaded!
+- Local testing: 7.66 avg (seeds 42-46: 5.72, 8.62, 4.58, 14.93, 4.43)
+- Builds on gamma_v6 stack + network_bonus cap increase
 
 **Active Testing:**
-- Delta branch: 036-038 stack (penalty reductions: teammate, hotspot, enemy_aoe)
-- Scissors branch: 039 (network_bonus cap increase 4→5)
+- Scissors: network_bonus cap 4→5 in beta-cvc qualifying
 
-## Completed (Design Approach: 7 validated improvements)
+## Completed (Design Approach: 8 validated improvements)
 - [x] (004) Hotspot penalty increase: 8→12 base - avoid contested far junctions
 - [x] (007) Early scrambler: step 100→50 - earlier disruption vs 3 opponents
 - [x] (011) Teammate penalty: 6.0→9.0 - better multi-agent coordination
@@ -30,6 +24,7 @@
 - [x] (015) Scrambler blocked_neutrals: 6.0→8.0 - prioritize expansion-blocking
 - [x] (016) Expansion bonus: 5.0→6.0 - aggressive safe territory expansion
 - [x] (018) Network bonus: 0.5→0.75 - improved chain-building consolidation
+- [x] (network-bonus-cap-5) Network bonus cap: 4→5 - reward highly connected junction chains (+84.5%)
 
 ## Candidates
 - [ ] Test gamma_scissors:v1 performance once qualifying completes

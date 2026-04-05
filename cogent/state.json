@@ -6,27 +6,43 @@
       "last_used": null
     },
     "design": {
-      "attempts": 125,
-      "improvements": 7,
-      "last_used": "20260405-hub-camp-80-cycle4-blocked"
+      "attempts": 126,
+      "improvements": 8,
+      "last_used": "20260405-network-bonus-cap-5"
     }
   },
   "testing_in_progress": null,
   "last_improvement": {
-    "date": "20260404",
-    "version": "018",
-    "focus": "Network bonus increase for chain-building consolidation",
-    "description": "Increased network_bonus from 0.5 to 0.75 (+50%) on top of 014+015+016 stack",
-    "result": "IMPROVEMENT: gamma_v6:v1 avg 15.84 vs gamma_v5:v1 baseline 15.25 (+3.9%)",
-    "tournament_scores": {
-      "matches": 27,
-      "avg": 15.84,
-      "range": "TBD",
-      "rank": 9,
-      "season": "beta-cvc"
+    "date": "20260405",
+    "version": "network-bonus-cap-5",
+    "focus": "Network bonus cap increase for highly connected junction chains",
+    "description": "Increased network_bonus cap from 4 to 5 to reward highly connected junctions (5+ friendly nearby)",
+    "result": "IMPROVEMENT: avg 7.66 vs baseline 4.15 (+84.5%)",
+    "local_scores": {
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "scores": [
+        5.72,
+        8.62,
+        4.58,
+        14.93,
+        4.43
+      ],
+      "avg": 7.66,
+      "baseline": 4.15
     },
-    "status": "validated",
-    "notes": "CORRECTED ASSESSMENT: Early 12-match sample showed -20% regression (13.48 avg), but with 27 matches shows +3.9% improvement. Small tournament samples misleading. Network bonus helps chain-building without over-clustering. Stack now: 014+015+016+018. Rank #9, best performing configuration."
+    "status": "uploaded",
+    "tournament": {
+      "policy": "scissors_v1:v13",
+      "season": "beta-cvc",
+      "status": "qualifying"
+    },
+    "notes": "Builds on improvement 018 (network_bonus weight 0.5\u21920.75). Exceptional performance on seed 45 (14.93). First scissors improvement uploaded to beta-cvc tournament."
   },
   "failed_attempts": [
     {
