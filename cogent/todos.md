@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (445) Enemy AOE penalty increase (10.68→10.70): scissors_v361:v1 qualifying - continued enemy avoidance tuning (+0.19%, stacks with 087-444)
 - [ ] (444) Expansion bonus cap increase (37.55→37.60): scissors_v360:v1 qualifying - continued higher expansion bonus ceiling (+0.13%, stacks with 087-443)
 - [ ] (443) Expansion bonus weight increase (6.54→6.56): scissors_v359:v1 qualifying - continued expansion emphasis (+0.31%, stacks with 087-442)
 - [ ] (442) Teammate penalty increase (9.43→9.45): scissors_v358:v1 qualifying - continued coordination tuning (+0.21%, stacks with 087-441)
