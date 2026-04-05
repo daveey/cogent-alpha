@@ -6,7 +6,7 @@
       "last_used": null
     },
     "design": {
-      "attempts": 148,
+      "attempts": 149,
       "improvements": 11,
       "last_used": "20260405-stall-unstick-13"
     }
@@ -511,6 +511,21 @@
         "46": 17.75
       },
       "analysis": "Seed 42 collapsed (8.98, -41%). Reducing retreat threshold from 40 to 35 HP makes agents too aggressive in early game, likely dying more often. Combined with Cycle 13's failed attempt (40\u219245, timeouts), confirms 40 HP is optimal early retreat threshold. Both increasing and decreasing from 40 cause failures. Pattern: early game HP thresholds are precisely calibrated."
+    },
+    {
+      "date": "20260405",
+      "version": "early-retreat-dist-10-reverted",
+      "focus": "Early game territory control - early retreat distance",
+      "description": "Increased early retreat hub distance threshold from 8 to 10 (+25%) to allow farther agents to continue working",
+      "result": "REGRESSION: avg 13.55 vs baseline 15.16 (-10.6%)",
+      "scores_by_seed": {
+        "42": 17.13,
+        "43": 14.86,
+        "44": 14.3,
+        "45": 15.01,
+        "46": 6.46
+      },
+      "analysis": "Seed 46 collapsed (6.46, -57%). Increasing distance threshold from 8 to 10 allows agents too far from hub to continue in early game, likely leading to more deaths when they encounter enemies. Hub distance 8 is optimal - agents within this range can safely operate, beyond it they're too exposed. Pattern: early game safety parameters are precisely calibrated. All attempts to relax early game constraints (retreat HP, retreat distance, hub camp HP) have failed."
     }
   ],
   "mission": "arena",
