@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (398) Hub penalty 10-15 range multiplier reduction (1.38→1.37): scissors_v314:v1 qualifying - continued 10-15 range multiplier tuning (-0.72%, stacks with 087-397)
 - [ ] (397) Hub penalty 10-15 range base reduction (1.88→1.87): scissors_v313:v1 qualifying - continued 10-15 range base penalty tuning (-0.53%, stacks with 087-396)
 - [ ] (396) Hub penalty very-close multiplier reduction (0.268→0.267): scissors_v312:v1 qualifying - continued tighter hub clustering tuning (-0.37%, stacks with 087-395)
 - [ ] (395) Extractor memory steps increase (842→844): scissors_v311:v1 qualifying - continued longer extractor memory tuning (+0.24%, stacks with 087-394)
