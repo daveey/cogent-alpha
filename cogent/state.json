@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 284,
+      "attempts": 285,
       "improvements": 7,
-      "last_used": "20260405-349-testing"
+      "last_used": "20260405-350-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "349",
-    "focus": "Scrambler threat bonus increase",
-    "description": "Increased scrambler threat bonus from 10.46 to 10.48 (+0.19%)",
-    "rationale": "Higher threat bonus prioritizes enemy junctions near friendly network, improving defensive disruption. Conservative +0.19% increase builds on validated improvements. Stacks with 087-348.",
-    "upload": "scissors_v265:v1",
+    "version": "350",
+    "focus": "Scrambler blocked neutrals weight increase",
+    "description": "Increased scrambler blocked neutrals weight from 8.66 to 8.68 (+0.23%)",
+    "rationale": "Higher weight prioritizes enemy junctions that block neutral expansion, improving expansion-blocking disruption. Conservative +0.23% increase builds on validated improvements. Stacks with 087-349.",
+    "upload": "scissors_v266:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 349. Clean baseline defensive priority tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 350. MILESTONE: 350 attempts. Clean baseline expansion-blocking tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
