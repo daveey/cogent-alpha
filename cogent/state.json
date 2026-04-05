@@ -6,7 +6,7 @@
       "last_used": null
     },
     "design": {
-      "attempts": 157,
+      "attempts": 158,
       "improvements": 13,
       "last_used": "20260405-hub-camp-dist-2"
     }
@@ -614,6 +614,21 @@
         "46": 16.33
       },
       "analysis": "Seed 44 collapsed (7.43, -52%). Hub camp distance 1 is too restrictive - agents only camp when literally at hub (distance \u22641), which is too limiting. Pattern: 3\u21922 (+1.7%), 2\u21921 (-14.0%). Optimal hub camp distance is 2. Similar to stall threshold pattern where optimal value exists with regression in both directions."
+    },
+    {
+      "date": "20260405",
+      "version": "retreat-distance-3-reverted",
+      "focus": "Code review - retreat logic examination",
+      "description": "Increased retreat hub distance threshold from 2 to 3 (+50%) to allow agents farther from hub to move toward it when retreating",
+      "result": "MAJOR REGRESSION: avg 12.97 vs baseline 15.52 (-16.4%)",
+      "scores_by_seed": {
+        "42": 15.38,
+        "43": 12.53,
+        "44": 12.83,
+        "45": 17.51,
+        "46": 6.59
+      },
+      "analysis": "Seed 46 collapsed (6.59, -58%). Increasing retreat distance from 2 to 3 makes agents at distance 3 move toward hub instead of holding, which disrupts retreat behavior. Distance 2 is optimal - agents close to hub (\u22642) should hold and heal, agents farther (>2) should move closer. All retreat/distance parameters are precisely calibrated."
     }
   ],
   "mission": "arena",
