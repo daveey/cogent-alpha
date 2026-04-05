@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 130,
+      "attempts": 131,
       "improvements": 7,
-      "last_used": "20260405-195-testing"
+      "last_used": "20260405-196-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "195",
-    "focus": "Aligner hotspot weight near-hub reduction",
-    "description": "Reduced hotspot weight near-hub from 1.86 to 1.85 (-0.54%)",
-    "rationale": "Hotspot weight near-hub determines penalty for contested junctions \u226410 from hub. Conservative -0.54% reduction builds on validated improvements 103 (2.0\u21921.9), 131 (1.9\u21921.88), 151 (1.88\u21921.86). Lower weight enables stronger near-hub recapture of contested junctions. Stacks with 087-194.",
-    "upload": "scissors_v111:v1",
+    "version": "196",
+    "focus": "Aligner hub penalty very-close multiplier reduction",
+    "description": "Reduced hub penalty very-close multiplier from 0.274 to 0.273 (-0.36%)",
+    "rationale": "Hub penalty very-close multiplier determines penalty for junctions \u226410 from hub. Conservative -0.36% reduction builds on validated improvements 102 (0.3\u21920.28), 130 (0.28\u21920.277), 148 (0.277\u21920.274). Lower multiplier encourages tighter hub clustering. Stacks with 087-195.",
+    "upload": "scissors_v112:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 195. Clean baseline near-hub hotspot weight exploration. Awaiting tournament validation."
+    "note": "Scissors attempt 196. Clean baseline very-close hub penalty exploration. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

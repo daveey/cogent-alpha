@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (196) Aligner hub penalty very-close multiplier reduction (0.274→0.273): scissors_v112:v1 qualifying - continued tighter hub clustering (-0.36%, stacks with 087-195)
 - [ ] (195) Aligner hotspot weight near-hub reduction (1.86→1.85): scissors_v111:v1 qualifying - continued near-hub recapture (-0.54%, stacks with 087-194)
 - [ ] (194) Aligner hotspot weight mid-range reduction (5.68→5.67): scissors_v110:v1 qualifying - continued mid-range contested tuning (-0.18%, stacks with 087-193)
 - [ ] (193) Aligner hotspot weight far-range reduction (11.76→11.74): scissors_v109:v1 qualifying - further far-range contested tuning (-0.17%, stacks with 087-192)
