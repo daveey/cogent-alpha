@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 289,
+      "attempts": 290,
       "improvements": 7,
-      "last_used": "20260405-354-testing"
+      "last_used": "20260405-355-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260405",
-    "version": "354",
-    "focus": "Emergency resource low threshold increase",
-    "description": "Increased emergency resource low threshold from 2.40 to 2.42 (+0.83%)",
-    "rationale": "Higher threshold triggers emergency mining earlier when team resources are low. Conservative +0.83% increase builds on validated improvements. Stacks with 087-353.",
-    "upload": "scissors_v270:v1",
+    "version": "355",
+    "focus": "Aligner heart batch target increase",
+    "description": "Increased aligner heart batch target from 3.40 to 3.42 (+0.59%)",
+    "rationale": "Higher heart batch target allows aligners to stay in field longer before returning to hub. Conservative +0.59% increase builds on validated improvements. Stacks with 087-354.",
+    "upload": "scissors_v271:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260405",
-    "note": "Scissors attempt 354. Clean baseline earlier emergency mining trigger tuning. Awaiting tournament validation."
+    "note": "Scissors attempt 355. Clean baseline aligner persistence tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
