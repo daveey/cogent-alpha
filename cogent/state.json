@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 777,
+      "attempts": 778,
       "improvements": 7,
-      "last_used": "20260406-843-testing"
+      "last_used": "20260406-844-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "843",
-    "focus": "Hub align distance increase",
-    "description": "Increased hub align distance from 26.70 to 26.71 (+0.04%)",
-    "rationale": "Hub align distance controls maximum range for aligners to capture junctions from the hub. Higher distance slightly extends hub reach for junction capture. Conservative +0.04% increase for bidirectional hub reach tuning. Stacks with 087-842.",
-    "upload": "gamma_v292_v1:v1",
+    "version": "844",
+    "focus": "Junction align distance increase",
+    "description": "Increased junction align distance from 16.50 to 16.51 (+0.06%)",
+    "rationale": "Junction align distance controls maximum range for chain-building between junctions. Higher distance slightly extends reach for building connected junction networks. Conservative +0.06% increase for bidirectional chain-building reach tuning. Stacks with 087-843.",
+    "upload": "gamma_v293_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 843. Increased hub align distance for bidirectional hub reach tuning. Awaiting tournament validation."
+    "note": "Attempt 844. Increased junction align distance for bidirectional chain-building reach tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
