@@ -762,3 +762,4 @@
 - [ ] (787) Hub penalty very-close range multiplier increase (0.260→0.261): gamma_v236_v1 qualifying - bidirectional hub clustering tuning (+0.38%, stacks with 087-786)
 - [ ] (788) Hotspot weight far-range increase (11.52→11.53): gamma_v237_v1 qualifying - bidirectional far-range contested junction tuning (+0.09%, stacks with 087-787)
 - [ ] (789) Hotspot weight near-hub increase (1.64→1.65): gamma_v238_v1 qualifying - bidirectional near-hub recapture tuning (+0.61%, stacks with 087-788)
+- [ ] (790) Hotspot weight mid-range increase (5.46→5.47): gamma_v239_v1 qualifying - bidirectional mid-range contested junction tuning (+0.18%, stacks with 087-789)
