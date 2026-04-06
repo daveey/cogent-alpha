@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 561,
+      "attempts": 562,
       "improvements": 7,
-      "last_used": "20260406-627-testing"
+      "last_used": "20260406-628-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "627",
-    "focus": "Hub penalty very-close multiplier increase",
-    "description": "Increased hub penalty very-close multiplier from 0.261 to 0.262 (+0.38%)",
-    "rationale": "Hub penalty very-close multiplier (≤10 distance) controls penalty for junctions nearest to hub. Higher multiplier increases penalty slightly, encouraging tighter clustering around hub. Conservative +0.38% increase builds on validated improvements. Stacks with 087-626.",
-    "upload": "gamma_v76:v1",
+    "version": "628",
+    "focus": "Hub penalty 10-15 range base increase",
+    "description": "Increased hub penalty 10-15 range base from 1.81 to 1.82 (+0.55%)",
+    "rationale": "Hub penalty 10-15 range base controls the baseline penalty for junctions at 10-15 distance from hub. Higher base increases penalty for mid-range junctions slightly. Conservative +0.55% increase builds on validated improvements. Stacks with 087-627.",
+    "upload": "gamma_v77:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Scissors attempt 627. Clean baseline increased hub penalty very-close multiplier. Awaiting tournament validation."
+    "note": "Scissors attempt 628. Clean baseline increased hub penalty 10-15 range base. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
