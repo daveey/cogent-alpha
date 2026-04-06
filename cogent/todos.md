@@ -845,3 +845,4 @@
 - [ ] (870) Hub align distance increase (26.71→26.72): gamma_v319_v1 qualifying - bidirectional hub reach tuning (+0.04%, stacks with 087-869)
 - [ ] (871) Junction align distance increase (16.51→16.52): gamma_v320_v1 qualifying - bidirectional chain-building reach tuning (+0.06%, stacks with 087-870)
 - [ ] (872) Junction AOE range increase (15.05→15.06): gamma_v321_v1 qualifying - bidirectional enemy AOE detection tuning (+0.07%, stacks with 087-871)
+- [ ] (873) Claimed target penalty increase (11.00→11.01): gamma_v322_v1 qualifying - bidirectional claim override tuning (+0.09%, stacks with 087-872)
