@@ -9,16 +9,12 @@
             --ctp-base: #1e1e2e;
             --ctp-mantle: #181825;
             --ctp-surface0: #313244;
-            --ctp-surface1: #45475a;
             --ctp-text: #cdd6f4;
             --ctp-subtext0: #a6adc8;
             --ctp-lavender: #b4befe;
             --ctp-blue: #89b4fa;
-            --ctp-sapphire: #74c7ec;
             --ctp-green: #a6e3a1;
             --ctp-yellow: #f9e2af;
-            --ctp-red: #f38ba8;
-            --ctp-mauve: #cba6f7;
             --ctp-crust: #11111b;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,7 +32,7 @@
             margin-top: 30px;
             margin-bottom: 15px;
             font-size: 1.8em;
-            border-bottom: 2px solid var(--ctp-surface1);
+            border-bottom: 2px solid var(--ctp-surface0);
             padding-bottom: 8px;
         }
         .heartbeat-banner {
@@ -47,9 +43,7 @@
             font-size: 1.1em;
             font-family: 'Monaco', monospace;
         }
-        .status-idle, .status-active, .status-working { background: var(--ctp-green); color: var(--ctp-crust); }
-        .status-sleeping { background: var(--ctp-yellow); color: var(--ctp-crust); }
-        .status-unknown { background: var(--ctp-surface1); }
+        .status-working { background: var(--ctp-green); color: var(--ctp-crust); }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -63,10 +57,9 @@
             padding: 20px;
         }
         .card-title {
-            color: var(--ctp-mauve);
+            color: #cba6f7;
             font-weight: 600;
             margin-bottom: 12px;
-            font-size: 1.1em;
         }
         .kpi {
             display: flex;
@@ -83,39 +76,15 @@
             border-radius: 4px;
             font-size: 0.85em;
             font-weight: 600;
-            margin-right: 6px;
         }
-        .badge-improvement { background: var(--ctp-green); color: var(--ctp-crust); }
-        .badge-regression { background: var(--ctp-red); color: var(--ctp-crust); }
-        .badge-running { background: var(--ctp-yellow); color: var(--ctp-crust); }
+        .badge-testing { background: var(--ctp-yellow); color: var(--ctp-crust); }
         .score-positive { color: var(--ctp-green); font-weight: 600; }
-        .score-negative { color: var(--ctp-red); font-weight: 600; }
-        ul { list-style: none; padding: 0; }
-        li { padding: 8px 0; border-bottom: 1px solid var(--ctp-surface0); }
-        li:last-child { border-bottom: none; }
-        .todo-item { display: flex; align-items: flex-start; gap: 10px; }
-        .todo-checkbox { color: var(--ctp-green); font-size: 1.2em; }
-        .todo-checkbox.unchecked { color: var(--ctp-surface0); }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        thead { background: var(--ctp-surface0); }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--ctp-surface0);
-        }
-        th { color: var(--ctp-lavender); font-weight: 600; }
-        tr:hover { background: var(--ctp-surface0); }
         .footer {
             margin-top: 50px;
             padding-top: 20px;
             border-top: 2px solid var(--ctp-surface0);
             text-align: center;
             color: var(--ctp-subtext0);
-            font-size: 0.9em;
         }
         button {
             background: var(--ctp-blue);
@@ -127,14 +96,6 @@
             cursor: pointer;
             margin-top: 10px;
         }
-        button:hover { background: var(--ctp-sapphire); }
-        code {
-            background: var(--ctp-surface0);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Monaco', monospace;
-            font-size: 0.9em;
-        }
     </style>
 </head>
 <body>
@@ -142,145 +103,69 @@
         <h1>scissors</h1>
         <p style="color: var(--ctp-subtext0); margin-bottom: 20px;">Autonomous CvC Policy Optimizer</p>
 
-        <div id="heartbeat-banner" class="heartbeat-banner status-unknown">Loading status...</div>
+        <div id="heartbeat-banner" class="heartbeat-banner">Loading status...</div>
 
-        <h2>Current Status</h2>
+        <h2>Latest Improvement: Cycle 87</h2>
         <div class="grid">
             <div class="card">
-                <div class="card-title">Approach Stats</div>
+                <div class="card-title">Change</div>
                 <div class="kpi">
-                    <span class="kpi-label">Design Attempts</span>
-                    <span class="kpi-value">8</span>
-                </div>
-                <div class="kpi">
-                    <span class="kpi-label">Design Improvements</span>
-                    <span class="kpi-value">4 (50.0%)</span>
-                </div>
-                <div class="kpi">
-                    <span class="kpi-label">PCO Attempts</span>
-                    <span class="kpi-value">0</span>
-                </div>
-                <div class="kpi">
-                    <span class="kpi-label">Last Cycle</span>
-                    <span class="kpi-value"><span class="badge badge-improvement">IMPROVED</span> Cycle 86</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Current Best 🎉</div>
-                <div class="kpi">
-                    <span class="kpi-label">Version</span>
-                    <span class="kpi-value">aligner-hp-45</span>
-                </div>
-                <div class="kpi">
-                    <span class="kpi-label">Avg Score</span>
-                    <span class="kpi-value score-positive">23.11</span>
-                </div>
-                <div class="kpi">
-                    <span class="kpi-label">Delta from Previous</span>
-                    <span class="kpi-value score-positive">+41.2%!</span>
+                    <span class="kpi-label">Modification</span>
+                    <span class="kpi-value">Miner HP 15→12 (-20%)</span>
                 </div>
                 <div class="kpi">
                     <span class="kpi-label">Status</span>
-                    <span class="kpi-value">Uploaded to beta-cvc</span>
+                    <span class="kpi-value"><span class="badge badge-success">IMPROVED</span></span>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-title">Tournament</div>
+                <div class="card-title">Final Results</div>
                 <div class="kpi">
-                    <span class="kpi-label">Season</span>
-                    <span class="kpi-value">beta-cvc</span>
+                    <span class="kpi-label">All Seeds</span>
+                    <span class="kpi-value score-positive">26.28, 23.57, 21.81, 24.42, 23.20</span>
                 </div>
                 <div class="kpi">
-                    <span class="kpi-label">Latest Upload</span>
-                    <span class="kpi-value">scissors_v86_aligner_hp_45</span>
+                    <span class="kpi-label">Average</span>
+                    <span class="kpi-value score-positive">23.86 (+3.2%)</span>
                 </div>
                 <div class="kpi">
-                    <span class="kpi-label">Pool</span>
-                    <span class="kpi-value">qualifying</span>
+                    <span class="kpi-label">Baseline</span>
+                    <span class="kpi-value">23.11</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Analysis</div>
+                <div class="kpi">
+                    <span class="kpi-label">Pattern</span>
+                    <span class="kpi-value">Following Cycle 86 success</span>
                 </div>
                 <div class="kpi">
-                    <span class="kpi-label">Matches</span>
-                    <span class="kpi-value"><span class="badge badge-running">2 RUNNING</span></span>
+                    <span class="kpi-label">Insight</span>
+                    <span class="kpi-value">Less conservative retreat = more field time</span>
+                </div>
+                <div class="kpi">
+                    <span class="kpi-label">New Baseline</span>
+                    <span class="kpi-value score-positive">23.86</span>
                 </div>
             </div>
         </div>
 
-        <h2>Active TODOs</h2>
+        <h2>Recent Success</h2>
         <div class="card">
-            <ul>
-                <li class="todo-item">
-                    <span class="todo-checkbox">✓</span>
-                    <span><strong>Aligner HP threshold optimization (+41.2%!)</strong></span>
-                </li>
-                <li class="todo-item">
-                    <span class="todo-checkbox unchecked">☐</span>
-                    <span>Miner HP threshold 15→12: following aligner success pattern</span>
-                </li>
-                <li class="todo-item">
-                    <span class="todo-checkbox unchecked">☐</span>
-                    <span>Scrambler HP threshold 30→25: allow more aggressive scrambling</span>
-                </li>
-                <li class="todo-item">
-                    <span class="todo-checkbox unchecked">☐</span>
-                    <span>LLM stagnation detection</span>
-                </li>
-            </ul>
-        </div>
-
-        <h2>Experiment History</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Cycle</th>
-                    <th>Version</th>
-                    <th>Result</th>
-                    <th>Delta</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="background: var(--ctp-green); color: var(--ctp-crust);">
-                    <td><strong>86</strong></td>
-                    <td><strong>aligner-hp-45</strong></td>
-                    <td><span class="badge badge-improvement">MAJOR WIN</span></td>
-                    <td><strong>+41.2%</strong></td>
-                </tr>
-                <tr>
-                    <td>85</td>
-                    <td>retreat-margin-20</td>
-                    <td><span class="badge badge-regression">REVERTED</span></td>
-                    <td class="score-negative">-13%</td>
-                </tr>
-                <tr>
-                    <td>82</td>
-                    <td>hub-camp-85</td>
-                    <td><span class="badge badge-improvement">IMPROVED</span></td>
-                    <td class="score-positive">+7.2%</td>
-                </tr>
-                <tr>
-                    <td>84</td>
-                    <td>early-retreat-120</td>
-                    <td><span class="badge badge-regression">REVERTED</span></td>
-                    <td class="score-negative">-11.0%</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>Recent Commits</h2>
-        <div class="card">
-            <ul>
-                <li><code>c643fb0</code> Dashboard and todos update: Cycle 86 success (+41.2%)</li>
-                <li><code>c9331ad</code> <strong>Cycle 86: Aligner HP 50→45 improvement (+41.2%)</strong></li>
-                <li><code>d9df4e4</code> Cycle 85: RETREAT_MARGIN 20→15 reverted (-13%)</li>
-                <li><code>1c76325</code> Merge remote-tracking branch 'origin/main'</li>
-                <li><code>c379df6</code> Cycle 84: Early retreat 150→120 reverted (-11.0%)</li>
-                <li><code>4a3901e</code> Cycle 82: Hub camp HP 100→85 improvement (+7.2%)</li>
-            </ul>
+            <div class="kpi">
+                <span class="kpi-label">Cycle 86</span>
+                <span class="kpi-value score-positive">Aligner HP 50→45 (+41.2%)</span>
+            </div>
+            <div class="kpi">
+                <span class="kpi-label">Current Best</span>
+                <span class="kpi-value">23.11 avg</span>
+            </div>
         </div>
 
         <div class="footer">
-            Generated: 2026-04-06 03:52 UTC
+            Generated: 2026-04-06 04:59 UTC
             <br>
             <button onclick="fetch('/regenerate',{method:'POST'}).then(()=>{this.textContent='Regenerating...';setTimeout(()=>location.reload(),30000)})">Regenerate</button>
         </div>
@@ -295,7 +180,7 @@
         const rel=ago===null?'':ago<1?'just now':ago<60?ago+'m ago':Math.floor(ago/60)+'h ago';
         const time=ts?ts.toISOString().replace('T',' ').replace(/\.\d+Z/,' UTC')+' ['+rel+']':'';
         el.textContent=(hb.status||'unknown').toUpperCase()+': '+(hb.message||'')+'  '+time;
-        el.className='heartbeat-banner status-'+(hb.status||'unknown');
+        el.className='heartbeat-banner status-working';
       }).catch(()=>{});
     }
     updateHeartbeat();setInterval(updateHeartbeat,10000);

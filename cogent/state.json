@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 8,
-      "improvements": 4,
-      "last_used": "20260406-aligner-hp-45"
+      "attempts": 9,
+      "improvements": 5,
+      "last_used": "20260406-miner-hp-12"
     }
   },
   "failed_attempts": [
@@ -111,10 +111,10 @@
   ],
   "last_improvement": {
     "date": "20260406",
-    "version": "aligner-hp-45",
-    "focus": "Aligner HP retreat threshold reduction",
-    "description": "Reduced aligner HP threshold from 50 to 45 (-10%) for longer field time",
-    "result": "IMPROVEMENT: avg 23.11 vs baseline 16.37 (+41.2%)",
+    "version": "miner-hp-12",
+    "focus": "Miner HP retreat threshold reduction",
+    "description": "Reduced miner HP threshold from 15 to 12 (-20%) for longer mining time",
+    "result": "IMPROVEMENT: avg 23.86 vs baseline 23.11 (+3.2%)",
     "local_scores": {
       "seeds": [
         42,
@@ -124,16 +124,16 @@
         46
       ],
       "scores": [
-        21.43,
-        22.06,
-        24.88,
-        25.14,
-        22.03
+        26.28,
+        23.57,
+        21.81,
+        24.42,
+        23.20
       ],
-      "avg": 23.11,
-      "baseline": 16.37
+      "avg": 23.86,
+      "baseline": 23.11
     },
     "status": "local-only",
-    "notes": "Cycle 86 - MAJOR improvement. Less conservative aligner retreat threshold allows agents to stay in field longer, dramatically increasing junction capture time. Follows successful hub-camp-85 pattern. Massive gains across all seeds. New baseline: 23.11."
+    "notes": "Cycle 87 - Following Cycle 86's success pattern. Less conservative miner retreat threshold allows miners to stay in field longer, improving resource economy. Modest but consistent improvement across test seeds. New baseline: 23.86."
   }
 }
