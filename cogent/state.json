@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 688,
+      "attempts": 689,
       "improvements": 7,
-      "last_used": "20260406-754-testing"
+      "last_used": "20260406-755-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "754",
-    "focus": "Junction align distance increase",
-    "description": "Increased junction align distance from 16.46 to 16.48 (+0.12%)",
-    "rationale": "Junction align distance controls how far junctions can chain-build from other junctions in the alignment network. Higher distance extends chain-building reach for wider network. Conservative +0.12% increase for bidirectional chain-building reach tuning. Stacks with 087-753.",
-    "upload": "gamma_v203_v1:v1",
+    "version": "755",
+    "focus": "Claimed target penalty reduction",
+    "description": "Reduced claimed target penalty from 11.01 to 10.99 (-0.18%)",
+    "rationale": "Claimed target penalty discourages agents from pursuing junctions already claimed by teammates. Lower penalty allows more flexible claim override for better coordination. Conservative -0.18% reduction for bidirectional claim override tuning. Stacks with 087-754.",
+    "upload": "gamma_v204_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 754. Increased junction align distance for bidirectional chain-building reach tuning. Awaiting tournament validation."
+    "note": "Attempt 755. Reduced claimed target penalty for bidirectional claim override tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
