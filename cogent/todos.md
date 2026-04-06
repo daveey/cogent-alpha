@@ -837,3 +837,4 @@
 - [ ] (862) Hub penalty far-range multiplier increase (7.81→7.82): gamma_v311_v1 qualifying - bidirectional far-range multiplier tuning (+0.13%, stacks with 087-861)
 - [ ] (863) Hub penalty far-range base increase (48.84→48.85): gamma_v312_v1 qualifying - bidirectional far-range base tuning (+0.02%, stacks with 087-862)
 - [ ] (864) Miner HP threshold increase (18.71→18.72): gamma_v313_v1 qualifying - bidirectional resource gathering tuning (+0.05%, stacks with 087-863)
+- [ ] (865) Aligner HP threshold increase (45.71→45.72): gamma_v314_v1 qualifying - bidirectional aligner retreat tuning (+0.02%, stacks with 087-864)
