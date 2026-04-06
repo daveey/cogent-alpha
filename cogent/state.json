@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 614,
+      "attempts": 615,
       "improvements": 7,
-      "last_used": "20260406-680-testing"
+      "last_used": "20260406-681-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "680",
-    "focus": "Scrambler blocked neutrals weight reduction",
-    "description": "Reduced scrambler blocked neutrals weight from 8.82 to 8.80 (-0.23%)",
-    "rationale": "Scrambler blocked neutrals weight rewards targeting enemy junctions that block neutral junction access. Lower weight reduces expansion-blocking priority. Conservative -0.23% reduction builds on validated improvements. Stacks with 087-679.",
-    "upload": "gamma_v129:v1",
+    "version": "681",
+    "focus": "Aligner HP threshold increase",
+    "description": "Increased aligner HP threshold from 45.66 to 45.68 (+0.044%)",
+    "rationale": "Aligner HP threshold controls retreat timing. Higher threshold triggers earlier retreat for safer aligner positioning. Conservative +0.044% increase builds on validated improvements. Stacks with 087-680.",
+    "upload": "gamma_v130:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Scissors attempt 680. Clean baseline reduced scrambler blocked neutrals weight. Awaiting tournament validation."
+    "note": "Scissors attempt 681. Clean baseline increased aligner HP threshold. Awaiting tournament validation."
   },
   },
   "last_improvement": {
