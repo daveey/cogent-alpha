@@ -41,6 +41,7 @@ class CogletAgentPolicy(CvcEngine):
         super().__init__(*args, **kwargs)
         # Set by CogletPolicyImpl when LLM provides guidance
         self._llm_resource_bias: str | None = None
+        self._llm_objective: str | None = None
 
     def _macro_directive(self, state: MettagridState) -> MacroDirective:
         # LLM override takes priority
