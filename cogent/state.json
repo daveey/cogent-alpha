@@ -6,12 +6,27 @@
       "last_used": null
     },
     "design": {
-      "attempts": 23,
+      "attempts": 24,
       "improvements": 7,
       "last_used": "20260406-junction-aoe-20"
     }
   },
   "failed_attempts": [
+    {
+      "date": "20260406",
+      "version": "hub-penalty-far-6.0-reverted",
+      "focus": "Hub penalty curve tuning",
+      "description": "Reduced hub penalty far multiplier from 8.0 to 6.0 (-25%) for junctions >25 distance from hub",
+      "result": "REGRESSION: avg 23.59 vs baseline 25.42 (-7.2%)",
+      "local_scores": {
+        "seeds": [42, 43, 44, 45, 46],
+        "scores": [22.26, 22.08, 24.95, 23.47, 25.19],
+        "avg": 23.59,
+        "baseline": 25.42
+      },
+      "status": "reverted",
+      "notes": "Cycle 101 - Clear regression. Lower far penalty allowed aligners to target junctions too far from hub, increasing travel time and reducing field presence. The existing 8.0 multiplier is optimal for strongly discouraging far junctions. Success rate: 7/24 = 29.2% (10 consecutive failures)."
+    },
     {
       "date": "20260406",
       "version": "enemy-aoe-weight-10.0-reverted",
