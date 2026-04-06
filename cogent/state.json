@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 603,
+      "attempts": 604,
       "improvements": 7,
-      "last_used": "20260406-669-testing"
+      "last_used": "20260406-670-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "669",
-    "focus": "Hotspot weight near-hub reduction",
-    "description": "Reduced hotspot weight near-hub from 1.66 to 1.64 (-1.20%)",
-    "rationale": "Hotspot weight near-hub (≤10 distance from hub) controls penalty for contested near-hub junctions. Lower weight reduces avoidance of near-hub contested junctions, enabling better recapture. Conservative -1.20% reduction builds on validated improvements. Stacks with 087-668.",
-    "upload": "gamma_v118:v1",
+    "version": "670",
+    "focus": "Hotspot penalty cap reduction",
+    "description": "Reduced hotspot penalty cap from 3.34 to 3.32 (-0.60%)",
+    "rationale": "Hotspot penalty cap controls the maximum hotspot count used in penalty calculation. Lower cap limits the penalty ceiling for heavily contested junctions. Conservative -0.60% reduction builds on validated improvements. Stacks with 087-669.",
+    "upload": "gamma_v119:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Scissors attempt 669. Clean baseline reduced hotspot weight near-hub. Awaiting tournament validation."
+    "note": "Scissors attempt 670. Clean baseline reduced hotspot penalty cap. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
