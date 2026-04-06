@@ -244,6 +244,9 @@ def _build_analysis_prompt(context: dict) -> str:
         f"Safe distance to hub: {context.get('safe_distance', 'unknown')}",
     ]
 
+    # Detect stagnation patterns
+    stagnation_detected = context.get('stalled', False) or context.get('oscillating', False)
+
     lines.append(
         "\nAnalyze the game state and provide strategic guidance."
         "\nRespond with ONLY a JSON object:"
@@ -251,14 +254,28 @@ def _build_analysis_prompt(context: dict) -> str:
         ' "role": null|"miner"|"aligner"|"scrambler",'
         ' "objective": null|"expand"|"defend"|"economy_bootstrap",'
         ' "analysis": "1-2 sentence strategic assessment"}'
-        "\nRules:"
-        "\n- resource_bias: element with lowest supply"
-        "\n- role: suggest role change ONLY if agent is stuck/stagnating or"
-        "\n  team composition is badly unbalanced. null = keep current role."
+        "\n\nRules:"
+        "\n- resource_bias: element with lowest hub supply"
+    )
+
+    if stagnation_detected:
+        lines.append(
+            "\n- **STAGNATION DETECTED**: Agent is stuck/oscillating. MUST break pattern:"
+            "\n  * If stalled: change role immediately (miner→aligner, aligner→scrambler, scrambler→miner)"
+            "\n  * If oscillating: change role or set objective to force new behavior"
+            "\n  * Priority: break the stuck pattern over maintaining current role"
+        )
+    else:
+        lines.append(
+            "\n- role: suggest role change if agent is stuck OR team composition is unbalanced"
+            "\n  (e.g., too many miners, not enough aligners). null = keep current role"
+        )
+
+    lines.append(
         "\n- objective: 'expand' if friendly < enemy (need more junctions),"
-        "\n  'defend' if we have junctions but enemy is catching up,"
-        "\n  'economy_bootstrap' if resources are critically low,"
-        "\n  null = normal operation."
+        "\n  'defend' if friendly > enemy but under pressure,"
+        "\n  'economy_bootstrap' if hub resources critically low (any element < 2),"
+        "\n  null = normal operation"
     )
     return "\n".join(lines)
 
