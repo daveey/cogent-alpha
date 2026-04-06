@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 814,
+      "attempts": 815,
       "improvements": 7,
-      "last_used": "20260406-880-testing"
+      "last_used": "20260406-881-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "880",
-    "focus": "Mid-range hotspot weight increase",
-    "description": "Increased mid-range hotspot weight from 5.48 to 5.49 (+0.18%)",
-    "rationale": "Mid-range hotspot weight controls penalty for contested junctions at 10-15 distance from hub. Higher value increases avoidance of mid-range contested areas, balancing defense and expansion. Conservative +0.18% increase for bidirectional mid-range contested junction tuning. Stacks with 087-879.",
-    "upload": "gamma_v329_v1:v1",
+    "version": "881",
+    "focus": "Far-range hotspot weight increase",
+    "description": "Increased far-range hotspot weight from 11.54 to 11.55 (+0.09%)",
+    "rationale": "Far-range hotspot weight controls base penalty for contested junctions beyond 15 distance from hub. Higher value increases avoidance of far-range contested areas in four_score multi-team format. Conservative +0.09% increase for bidirectional far-range contested junction tuning. Stacks with 087-880.",
+    "upload": "gamma_v330_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 880. Increased mid-range hotspot weight for bidirectional mid-range contested junction tuning. Awaiting tournament validation."
+    "note": "Attempt 881. Increased far-range hotspot weight for bidirectional far-range contested junction tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
