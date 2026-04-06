@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 679,
+      "attempts": 680,
       "improvements": 7,
-      "last_used": "20260406-745-testing"
+      "last_used": "20260406-746-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "745",
-    "focus": "Scrambler threat bonus reduction",
-    "description": "Reduced scrambler threat_bonus from 10.62 to 10.60 (-0.19%)",
-    "rationale": "Scrambler threat_bonus weight controls priority for defending friendly junctions from nearby enemy presence. Lower weight reduces defensive priority for more balanced offense/defense. Conservative -0.19% reduction for bidirectional defensive priority tuning. Stacks with 087-744.",
-    "upload": "gamma_v194_v1:v1",
+    "version": "746",
+    "focus": "Junction AOE range increase",
+    "description": "Increased junction AOE range from 15.0 to 15.02 (+0.13%)",
+    "rationale": "Junction AOE range controls how far enemy junctions threaten aligners, affecting retreat decisions. Higher range means earlier retreats from enemy presence. Conservative +0.13% increase for bidirectional enemy AOE detection tuning. Stacks with 087-745.",
+    "upload": "gamma_v195_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 745. Reduced scrambler threat_bonus for bidirectional defensive priority tuning. Awaiting tournament validation."
+    "note": "Attempt 746. Increased junction AOE range for bidirectional enemy AOE detection tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
