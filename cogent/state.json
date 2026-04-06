@@ -6,12 +6,27 @@
       "last_used": null
     },
     "design": {
-      "attempts": 18,
+      "attempts": 19,
       "improvements": 7,
       "last_used": "20260406-junction-aoe-20"
     }
   },
   "failed_attempts": [
+    {
+      "date": "20260406",
+      "version": "claim-penalty-8.0-reverted",
+      "focus": "Claim penalty reduction",
+      "description": "Reduced _CLAIMED_TARGET_PENALTY from 12.0 to 8.0 (-33%)",
+      "result": "REGRESSION: avg 23.57 vs baseline 25.42 (-7.3%)",
+      "local_scores": {
+        "seeds": [42, 43, 44, 45, 46],
+        "scores": [22.80, 22.42, 23.14, 24.47, 25.04],
+        "avg": 23.57,
+        "baseline": 25.42
+      },
+      "status": "reverted",
+      "notes": "Cycle 96 - Regression. Lower claim penalty caused worse performance across all seeds. Opposite direction of previous failed attempt (25→reverted). The existing 12.0 penalty appears optimal for balancing coordination vs duplication."
+    },
     {
       "date": "20260406",
       "version": "expansion-bonus-7.0-reverted",

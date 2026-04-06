@@ -8,8 +8,9 @@
 
 ## Next Candidates
 - [ ] Junction scoring parameter tuning: hub penalty curves, network bonus, teammate penalty  
-- [ ] Claim penalty adjustment (currently 12.0)
 - [ ] Enemy AOE weight in scoring (currently 8.0)
+- [ ] Hotspot weight in scoring (currently 8.0, reduced to 2.0/5.0 near hub)
+- [ ] Target switch threshold (currently 3.0)
 - [ ] Explore other non-HP parameters that can be validated locally
 - [ ] **BLOCKED:** LLM-dependent changes (cannot validate without LLM access in local tests)
 
@@ -17,6 +18,7 @@
 **Critical finding:** Local tests run with `ANTHROPIC_API_KEY=` (no LLM) per docs/cogames.md, but tournament uses Bedrock (LLM enabled). Cannot validate LLM-dependent changes locally. Cycle 94 reverted due to this issue.
 
 ## Completed
+- [x] Claim penalty 12.0→8.0 tested and reverted (-7.3%)
 - [x] Expansion bonus weight 5.0→7.0 tested and reverted (-8.3%)
 - [x] LLM objective wiring tested and reverted (false positive, testing protocol issue)
 - [x] Hotspot tracking implemented
