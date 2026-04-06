@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 586,
+      "attempts": 587,
       "improvements": 7,
-      "last_used": "20260406-652-testing"
+      "last_used": "20260406-653-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "652",
-    "focus": "Aligner heart batch target increase",
-    "description": "Increased aligner heart batch target from 3.54 to 3.56 (+0.57%)",
-    "rationale": "Aligner heart batch target controls aligner persistence and heart consumption rate. Higher target increases aligner staying power. Conservative +0.57% increase builds on validated improvements. Stacks with 087-651.",
-    "upload": "gamma_v101:v1",
+    "version": "653",
+    "focus": "Scrambler heart batch target increase",
+    "description": "Increased scrambler heart batch target from 3.54 to 3.56 (+0.57%)",
+    "rationale": "Scrambler heart batch target controls scrambler persistence and heart consumption rate. Higher target increases scrambler staying power. Conservative +0.57% increase builds on validated improvements. Stacks with 087-652.",
+    "upload": "gamma_v102:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Scissors attempt 652. Clean baseline increased aligner heart batch target. Awaiting tournament validation."
+    "note": "Scissors attempt 653. Clean baseline increased scrambler heart batch target. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
