@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 3,
-      "improvements": 2,
-      "last_used": "20260406-oscillation-3"
+      "attempts": 4,
+      "improvements": 3,
+      "last_used": "20260406-hub-camp-85"
     }
   },
   "failed_attempts": [
@@ -42,10 +42,10 @@
   ],
   "last_improvement": {
     "date": "20260406",
-    "version": "oscillation-3",
-    "focus": "Oscillation unstick threshold reduction",
-    "description": "Reduced _OSCILLATION_UNSTICK_STEPS from 4 to 3 (-25%) for faster oscillation loop detection",
-    "result": "IMPROVEMENT: avg 15.27 vs baseline 13.65 (+11.9%)",
+    "version": "hub-camp-85",
+    "focus": "Hub camp HP threshold reduction",
+    "description": "Reduced hub camp HP threshold from 100 to 85 (-15%) for faster early expansion",
+    "result": "IMPROVEMENT: avg 16.37 vs baseline 15.27 (+7.2%)",
     "local_scores": {
       "seeds": [
         42,
@@ -55,16 +55,16 @@
         46
       ],
       "scores": [
-        17.52,
-        17.22,
-        16.9,
-        16.97,
-        7.74
+        15.97,
+        16.33,
+        16.87,
+        15.08,
+        17.62
       ],
-      "avg": 15.27,
-      "baseline": 13.65
+      "avg": 16.37,
+      "baseline": 15.27
     },
     "status": "local-only",
-    "notes": "Delta Cycle 81 - Major improvement. Faster oscillation detection significantly improved performance on most seeds. Reproduces Cycle 72 success from previous optimization run. New baseline: 15.27."
+    "notes": "Delta Cycle 82 - Good improvement. Less conservative hub camping allows earlier expansion while maintaining safety. Consistent gains across all seeds. New baseline: 16.37."
   }
 }
