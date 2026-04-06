@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 607,
+      "attempts": 608,
       "improvements": 7,
-      "last_used": "20260406-673-testing"
+      "last_used": "20260406-674-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "673",
-    "focus": "Teammate penalty reduction",
-    "description": "Reduced teammate penalty from 9.53 to 9.51 (-0.21%)",
-    "rationale": "Teammate penalty discourages targeting junctions when teammates are closer. Lower penalty allows more flexible coordination. Conservative -0.21% reduction builds on validated improvements. Stacks with 087-672.",
-    "upload": "gamma_v122:v1",
+    "version": "674",
+    "focus": "Expansion bonus weight reduction",
+    "description": "Reduced expansion bonus weight from 6.64 to 6.62 (-0.30%)",
+    "rationale": "Expansion bonus weight controls the per-junction bonus for unlocking unreachable entities. Lower weight reduces expansion incentive. Conservative -0.30% reduction builds on validated improvements. Stacks with 087-673.",
+    "upload": "gamma_v123:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Scissors attempt 673. Clean baseline reduced teammate penalty. Awaiting tournament validation."
+    "note": "Scissors attempt 674. Clean baseline reduced expansion bonus weight. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
