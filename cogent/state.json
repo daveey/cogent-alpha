@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 613,
+      "attempts": 614,
       "improvements": 7,
-      "last_used": "20260406-679-testing"
+      "last_used": "20260406-680-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "679",
-    "focus": "Scrambler threat bonus reduction",
-    "description": "Reduced scrambler threat bonus from 10.62 to 10.60 (-0.19%)",
-    "rationale": "Scrambler threat bonus prioritizes enemy junctions near friendly network for defensive disruption. Lower bonus reduces defensive targeting priority. Conservative -0.19% reduction builds on validated improvements. Stacks with 087-678.",
-    "upload": "gamma_v128:v1",
+    "version": "680",
+    "focus": "Scrambler blocked neutrals weight reduction",
+    "description": "Reduced scrambler blocked neutrals weight from 8.82 to 8.80 (-0.23%)",
+    "rationale": "Scrambler blocked neutrals weight rewards targeting enemy junctions that block neutral junction access. Lower weight reduces expansion-blocking priority. Conservative -0.23% reduction builds on validated improvements. Stacks with 087-679.",
+    "upload": "gamma_v129:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Scissors attempt 679. Clean baseline reduced scrambler threat bonus. Awaiting tournament validation."
+    "note": "Scissors attempt 680. Clean baseline reduced scrambler blocked neutrals weight. Awaiting tournament validation."
   },
   },
   "last_improvement": {
