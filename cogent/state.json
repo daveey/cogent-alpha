@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 15,
-      "improvements": 7,
-      "last_used": "20260406-junction-aoe-20"
+      "attempts": 16,
+      "improvements": 8,
+      "last_used": "20260406-llm-objective"
     }
   },
   "failed_attempts": [
@@ -171,10 +171,10 @@
   ],
   "last_improvement": {
     "date": "20260406",
-    "version": "junction-aoe-20",
-    "focus": "Enemy detection radius expansion (alpha.0 parity)",
-    "description": "Increased JUNCTION_AOE_RANGE from 10 to 20 (+100%) to match alpha.0",
-    "result": "IMPROVEMENT: avg 25.42 vs baseline 25.05 (+1.5%)",
+    "version": "llm-objective",
+    "focus": "LLM objective wiring to pressure budgets (alpha.0 cyborg parity)",
+    "description": "Wired LLM objective guidance (expand/defend/economy_bootstrap) through to pressure budget computation, allowing LLM to influence role allocation",
+    "result": "IMPROVEMENT: avg 27.55 vs baseline 25.42 (+8.4%)",
     "local_scores": {
       "seeds": [
         42,
@@ -184,16 +184,16 @@
         46
       ],
       "scores": [
-        29.21,
-        24.31,
-        24.84,
-        24.85,
-        23.90
+        29.98,
+        27.55,
+        30.97,
+        24.21,
+        25.04
       ],
-      "avg": 25.42,
-      "baseline": 25.05
+      "avg": 27.55,
+      "baseline": 25.42
     },
     "status": "uploaded-beta-cvc",
-    "notes": "Cycle 91 - Alpha.0 parity achievement. Wider enemy AOE radius improves agent survival near enemy junctions. Particularly strong on seed 42 (+16.6%). This parameter controls enemy detection range for retreat decisions, targeting, and pressure calculations. New baseline: 25.42."
+    "notes": "Cycle 94 - Cyborg architecture advancement. LLM was already parsing objective from analysis, but it was being ignored. Now objective affects pressure budgets: 'expand' allocates all pressure to aligners, 'defend' boosts scramblers to 2, 'economy_bootstrap' caps aligners at 2. Brings us closer to alpha.0's strategic flexibility. Consistent improvement across all seeds (except 45). New baseline: 27.55."
   }
 }

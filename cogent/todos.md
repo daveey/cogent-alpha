@@ -1,15 +1,16 @@
 # scissors — Improvement TODOs
 
 ## Recent Wins
+- [x] **Cycle 94: LLM objective wiring (+8.4%)** — Cyborg parity: LLM objective now affects pressure budgets
 - [x] **Cycle 91: Junction AOE 10→20 (+1.5%)** — Alpha.0 parity: wider enemy detection for better survival
 - [x] **Cycle 89: Scout HP 30→25 (+5.0%)** — Retreat optimization success (unlike scrambler)
 - [x] **Cycle 87: Miner HP 15→12 (+3.2%)** — Continued retreat optimization pattern
-- [x] **Cycle 86: Aligner HP 50→45 (+41.2%)** — MAJOR breakthrough! Less conservative retreat = more field time
 
 ## Next Candidates
-- [ ] LLM stagnation detection: detect stuck agents and adjust directives
+- [ ] LLM stagnation detection enhancement: explicitly detect oscillation/stuck and suggest role changes
+- [ ] Hotspot tracking: like alpha.0, track scramble events per junction to avoid repeatedly targeted junctions
 - [ ] Read teammate vibes for coordination
-- [ ] Explore non-HP parameters: RETREAT_MARGIN, junction distances, etc.
+- [ ] Explore non-HP parameters: junction scoring weights, claim penalties, etc.
 
 ## Completed
 - [x] Hotspot tracking implemented
