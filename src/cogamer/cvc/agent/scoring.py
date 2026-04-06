@@ -70,7 +70,7 @@ def aligner_target_score(
         elif hub_dist > 15:
             hub_penalty = (hub_dist - 15) * 2.79 + 9.54  # Increased multiplier from 2.78 to 2.79 (+0.36%) for bidirectional 15-25 range multiplier tuning
         elif hub_dist > 10:
-            hub_penalty = (hub_dist - 10) * 1.31 + 1.81  # Increased base from 1.80 to 1.81 (+0.56%) for bidirectional 10-15 range base tuning
+            hub_penalty = (hub_dist - 10) * 1.32 + 1.81  # Increased multiplier from 1.31 to 1.32 (+0.76%) for bidirectional 10-15 range multiplier tuning
         else:
             hub_penalty = hub_dist * 0.261  # Increased from 0.260 to 0.261 (+0.38%) for bidirectional hub clustering tuning
     # Reduce hotspot penalty for hub-proximal junctions (worth defending)
