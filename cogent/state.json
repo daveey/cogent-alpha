@@ -6,12 +6,27 @@
       "last_used": null
     },
     "design": {
-      "attempts": 24,
+      "attempts": 25,
       "improvements": 7,
       "last_used": "20260406-junction-aoe-20"
     }
   },
   "failed_attempts": [
+    {
+      "date": "20260406",
+      "version": "scramble-threat-bonus-12.0-reverted",
+      "focus": "Scrambler threat bonus increase",
+      "description": "Increased scramble threat_bonus from 10.0 to 12.0 (+20%) for enemy junctions near friendly network",
+      "result": "MAJOR REGRESSION: avg 22.06 vs baseline 25.42 (-13.2%)",
+      "local_scores": {
+        "seeds": [42, 43, 44, 45, 46],
+        "scores": [16.13, 22.82, 21.77, 25.54, 24.03],
+        "avg": 22.06,
+        "baseline": 25.42
+      },
+      "status": "reverted",
+      "notes": "Cycle 102 - Major regression. Higher threat bonus caused scramblers to over-prioritize defensive targets near friendly junctions, likely neglecting offensive opportunities and neutral junction blocking. Seed 42 particularly affected (-36.5%). The existing 10.0 multiplier is optimal. Success rate: 7/25 = 28.0% (11 consecutive failures)."
+    },
     {
       "date": "20260406",
       "version": "hub-penalty-far-6.0-reverted",

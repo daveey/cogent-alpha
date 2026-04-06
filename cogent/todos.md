@@ -18,11 +18,13 @@
 - Teammate penalty 6.0 is optimal (4.0 failed -43.3%, major regression)
 - Enemy AOE weight 8.0 is optimal (10.0 too marginal +0.6%, likely noise)
 - Hub penalty far multiplier 8.0 is optimal (6.0 failed -7.2%)
+- Scramble threat bonus 10.0 is optimal (12.0 failed -13.2%, major regression)
 
 ## Testing Protocol Issue
 **Critical finding:** Local tests run with `ANTHROPIC_API_KEY=` (no LLM) per docs/cogames.md, but tournament uses Bedrock (LLM enabled). Cannot validate LLM-dependent changes locally. Cycle 94 reverted due to this issue.
 
 ## Completed
+- [x] Scramble threat bonus 10.0→12.0 tested and reverted (-13.2%, major regression)
 - [x] Hub penalty far multiplier 8.0→6.0 tested and reverted (-7.2%)
 - [x] Enemy AOE weight 8.0→10.0 tested and reverted (+0.6%, too marginal)
 - [x] Teammate penalty 6.0→4.0 tested and reverted (-43.3%, major regression)
