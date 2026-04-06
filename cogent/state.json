@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 606,
+      "attempts": 607,
       "improvements": 7,
-      "last_used": "20260406-672-testing"
+      "last_used": "20260406-673-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "672",
-    "focus": "Network bonus cap reduction",
-    "description": "Reduced network bonus cap from 4.58 to 4.56 (-0.44%)",
-    "rationale": "Network bonus cap controls the maximum nearby friendly junctions counted for chain-building bonus. Lower cap reduces dense network clustering bonus ceiling. Conservative -0.44% reduction builds on validated improvements. Stacks with 087-671.",
-    "upload": "gamma_v121:v1",
+    "version": "673",
+    "focus": "Teammate penalty reduction",
+    "description": "Reduced teammate penalty from 9.53 to 9.51 (-0.21%)",
+    "rationale": "Teammate penalty discourages targeting junctions when teammates are closer. Lower penalty allows more flexible coordination. Conservative -0.21% reduction builds on validated improvements. Stacks with 087-672.",
+    "upload": "gamma_v122:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Scissors attempt 672. Clean baseline reduced network bonus cap. Awaiting tournament validation."
+    "note": "Scissors attempt 673. Clean baseline reduced teammate penalty. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
