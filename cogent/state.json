@@ -6,12 +6,27 @@
       "last_used": null
     },
     "design": {
-      "attempts": 17,
+      "attempts": 18,
       "improvements": 7,
       "last_used": "20260406-junction-aoe-20"
     }
   },
   "failed_attempts": [
+    {
+      "date": "20260406",
+      "version": "expansion-bonus-7.0-reverted",
+      "focus": "Expansion bonus weight increase",
+      "description": "Increased expansion bonus from 5.0 to 7.0 (+40%) in aligner_target_score",
+      "result": "REGRESSION: avg 23.31 vs baseline 25.42 (-8.3%)",
+      "local_scores": {
+        "seeds": [42, 43, 44, 45, 46],
+        "scores": [21.46, 25.25, 21.74, 23.23, 24.89],
+        "avg": 23.31,
+        "baseline": 25.42
+      },
+      "status": "reverted",
+      "notes": "Cycle 95 - Regression. Increasing expansion bonus weight made agents overly aggressive at targeting high-expansion junctions, causing poor performance. Seeds 42 and 44 particularly affected (-24.9% and similar). The existing 5.0 weight appears optimal."
+    },
     {
       "date": "20260406",
       "version": "llm-objective-reverted",
