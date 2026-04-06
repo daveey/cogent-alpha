@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (571) Hotspot penalty cap increase (3.32→3.34): gamma:v20 qualifying - continued contested junction penalty cap tuning (+0.60%, stacks with 087-570)
 - [ ] (570) Hotspot weight near-hub increase (1.64→1.66): gamma:v19 qualifying - continued near-hub contested junction tuning (+1.22%, stacks with 087-569)
 - [ ] (569) Hotspot weight mid-range increase (5.46→5.48): gamma:v18 qualifying - continued mid-range contested junction tuning (+0.37%, stacks with 087-568)
 - [ ] (568) Hotspot weight far-range increase (11.52→11.54): gamma:v17 qualifying - continued far-range contested junction tuning (+0.17%, stacks with 087-567)
