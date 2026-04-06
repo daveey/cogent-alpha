@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (719) Scrambler heart batch target reduction (3.58→3.56): gamma_v168_v1:v1 qualifying - bidirectional scrambler persistence tuning (-0.56%, stacks with 087-718)
 - [ ] (718) Aligner heart batch target reduction (3.58→3.56): gamma_v167_v1:v1 qualifying - bidirectional aligner persistence tuning (-0.56%, stacks with 087-717)
 - [ ] (717) Emergency resource threshold reduction (2.58→2.56): gamma_v166_v1:v1 qualifying - bidirectional emergency mining trigger tuning (-0.78%, stacks with 087-716)
 - [ ] (716) Scrambler HP threshold reduction (34.31→34.29): gamma_v165_v1:v1 qualifying - bidirectional disruption tuning (-0.058%, stacks with 087-715)
