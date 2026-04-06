@@ -12,7 +12,7 @@ from cvc.agent.types import (
 from cvc.agent.geometry import manhattan
 from cvc.agent.scoring import within_alignment_network
 
-_RETREAT_MARGIN = 15
+_RETREAT_MARGIN = 20
 _ECONOMY_BOOTSTRAP_ALIGNER_BUDGET = 2
 _ALIGNER_PRIORITY = (4, 5, 6, 7, 3, 2, 1, 0)
 _SCRAMBLER_PRIORITY = (7, 6, 3, 2, 1, 0)
