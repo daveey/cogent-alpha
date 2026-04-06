@@ -760,3 +760,4 @@
 - [ ] (785) Hub penalty 15-25 range multiplier increase (2.77→2.78): gamma_v234_v1 qualifying - bidirectional 15-25 range multiplier tuning (+0.36%, stacks with 087-784)
 - [ ] (786) Hub penalty 10-15 range multiplier increase (1.30→1.31): gamma_v235_v1 qualifying - bidirectional 10-15 range multiplier tuning (+0.77%, stacks with 087-785)
 - [ ] (787) Hub penalty very-close range multiplier increase (0.260→0.261): gamma_v236_v1 qualifying - bidirectional hub clustering tuning (+0.38%, stacks with 087-786)
+- [ ] (788) Hotspot weight far-range increase (11.52→11.53): gamma_v237_v1 qualifying - bidirectional far-range contested junction tuning (+0.09%, stacks with 087-787)
