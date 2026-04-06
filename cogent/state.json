@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 729,
+      "attempts": 730,
       "improvements": 7,
-      "last_used": "20260406-795-testing"
+      "last_used": "20260406-796-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "795",
-    "focus": "Hub penalty 10-15 range base increase",
-    "description": "Increased hub penalty 10-15 range base from 1.80 to 1.81 (+0.56%)",
-    "rationale": "Hub penalty 10-15 range base sets penalty floor for junctions 10-15 distance from hub. Higher base increases minimum penalty for near-mid-range junctions. Conservative +0.56% increase for bidirectional 10-15 range base tuning. Stacks with 087-794.",
-    "upload": "gamma_v244_v1:v1",
+    "version": "796",
+    "focus": "Scrambler corner pressure divisor increase",
+    "description": "Increased corner pressure divisor from 7.49 to 7.50 (+0.13%)",
+    "rationale": "Corner pressure divisor controls rate at which scrambler priority increases for distant enemies. Higher divisor decreases pressure growth rate, making scramblers less aggressive toward far enemies. Conservative +0.13% increase for bidirectional corner pressure divisor tuning. Stacks with 087-795.",
+    "upload": "gamma_v245_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 795. Increased hub penalty 10-15 range base for bidirectional 10-15 range base tuning. Awaiting tournament validation."
+    "note": "Attempt 796. Increased scrambler corner pressure divisor for bidirectional corner pressure divisor tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
