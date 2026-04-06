@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (630) Hub penalty 15-25 range base increase (9.54→9.55): gamma_v79:v1 qualifying - continued 15-25 range base tuning (+0.10%, stacks with 087-629) [MILESTONE: 630 attempts!]
 - [ ] (629) Hub penalty 10-15 range multiplier increase (1.31→1.32): gamma_v78:v1 qualifying - continued 10-15 range multiplier tuning (+0.76%, stacks with 087-628)
 - [ ] (628) Hub penalty 10-15 range base increase (1.81→1.82): gamma_v77:v1 qualifying - continued 10-15 range base penalty tuning (+0.55%, stacks with 087-627)
 - [ ] (627) Hub penalty very-close multiplier increase (0.261→0.262): gamma_v76:v1 qualifying - continued tighter hub clustering tuning (+0.38%, stacks with 087-626)
