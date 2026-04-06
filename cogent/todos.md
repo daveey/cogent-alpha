@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (585) Emergency resource low threshold increase (2.54→2.56): gamma:v34 qualifying - continued earlier emergency mining trigger tuning (+0.79%, stacks with 087-584)
 - [ ] (584) Scrambler HP threshold increase (34.27→34.29): gamma:v33 qualifying - continued aggressive disruption (+0.058%, stacks with 087-583)
 - [ ] (583) Miner HP threshold increase (18.64→18.66): gamma:v32 qualifying - continued aggressive resource gathering (+0.11%, stacks with 087-582)
 - [ ] (582) Aligner HP threshold reduction (45.68→45.66): gamma:v31 qualifying - continued aligner retreat tuning (-0.044%, stacks with 087-581)
