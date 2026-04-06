@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 7,
-      "improvements": 3,
-      "last_used": "20260406-retreat-margin-20-reverted"
+      "attempts": 8,
+      "improvements": 4,
+      "last_used": "20260406-aligner-hp-45"
     }
   },
   "failed_attempts": [
@@ -111,10 +111,10 @@
   ],
   "last_improvement": {
     "date": "20260406",
-    "version": "hub-camp-85",
-    "focus": "Hub camp HP threshold reduction",
-    "description": "Reduced hub camp HP threshold from 100 to 85 (-15%) for faster early expansion",
-    "result": "IMPROVEMENT: avg 16.37 vs baseline 15.27 (+7.2%)",
+    "version": "aligner-hp-45",
+    "focus": "Aligner HP retreat threshold reduction",
+    "description": "Reduced aligner HP threshold from 50 to 45 (-10%) for longer field time",
+    "result": "IMPROVEMENT: avg 23.11 vs baseline 16.37 (+41.2%)",
     "local_scores": {
       "seeds": [
         42,
@@ -124,16 +124,16 @@
         46
       ],
       "scores": [
-        15.97,
-        16.33,
-        16.87,
-        15.08,
-        17.62
+        21.43,
+        22.06,
+        24.88,
+        25.14,
+        22.03
       ],
-      "avg": 16.37,
-      "baseline": 15.27
+      "avg": 23.11,
+      "baseline": 16.37
     },
     "status": "local-only",
-    "notes": "Delta Cycle 82 - Good improvement. Less conservative hub camping allows earlier expansion while maintaining safety. Consistent gains across all seeds. New baseline: 16.37."
+    "notes": "Cycle 86 - MAJOR improvement. Less conservative aligner retreat threshold allows agents to stay in field longer, dramatically increasing junction capture time. Follows successful hub-camp-85 pattern. Massive gains across all seeds. New baseline: 23.11."
   }
 }

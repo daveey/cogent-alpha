@@ -8,49 +8,29 @@
         :root {
             --ctp-base: #1e1e2e;
             --ctp-mantle: #181825;
-            --ctp-crust: #11111b;
             --ctp-surface0: #313244;
             --ctp-surface1: #45475a;
-            --ctp-surface2: #585b70;
             --ctp-text: #cdd6f4;
             --ctp-subtext0: #a6adc8;
-            --ctp-subtext1: #bac2de;
             --ctp-lavender: #b4befe;
             --ctp-blue: #89b4fa;
             --ctp-sapphire: #74c7ec;
-            --ctp-sky: #89dceb;
-            --ctp-teal: #94e2d5;
             --ctp-green: #a6e3a1;
             --ctp-yellow: #f9e2af;
-            --ctp-peach: #fab387;
-            --ctp-maroon: #eba0ac;
             --ctp-red: #f38ba8;
             --ctp-mauve: #cba6f7;
-            --ctp-pink: #f5c2e7;
-            --ctp-flamingo: #f2cdcd;
-            --ctp-rosewater: #f5e0dc;
+            --ctp-crust: #11111b;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--ctp-base);
             color: var(--ctp-text);
             line-height: 1.6;
             padding: 20px;
         }
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: var(--ctp-lavender);
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 { color: var(--ctp-lavender); margin-bottom: 10px; font-size: 2.5em; }
         h2 {
             color: var(--ctp-blue);
             margin-top: 30px;
@@ -59,24 +39,17 @@
             border-bottom: 2px solid var(--ctp-surface1);
             padding-bottom: 8px;
         }
-        h3 {
-            color: var(--ctp-sapphire);
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
         .heartbeat-banner {
             padding: 12px 20px;
             margin-bottom: 20px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 1.1em;
-            font-family: 'Monaco', 'Courier New', monospace;
+            font-family: 'Monaco', monospace;
         }
         .status-idle, .status-active, .status-working { background: var(--ctp-green); color: var(--ctp-crust); }
         .status-sleeping { background: var(--ctp-yellow); color: var(--ctp-crust); }
-        .status-stopping { background: var(--ctp-red); color: var(--ctp-crust); }
-        .status-unknown { background: var(--ctp-surface1); color: var(--ctp-text); }
+        .status-unknown { background: var(--ctp-surface1); }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -98,21 +71,12 @@
         .kpi {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             padding: 8px 0;
             border-bottom: 1px solid var(--ctp-surface0);
         }
-        .kpi:last-child {
-            border-bottom: none;
-        }
-        .kpi-label {
-            color: var(--ctp-subtext0);
-        }
-        .kpi-value {
-            font-weight: 600;
-            color: var(--ctp-text);
-            font-size: 1.1em;
-        }
+        .kpi:last-child { border-bottom: none; }
+        .kpi-label { color: var(--ctp-subtext0); }
+        .kpi-value { font-weight: 600; font-size: 1.1em; }
         .badge {
             display: inline-block;
             padding: 4px 10px;
@@ -123,78 +87,28 @@
         }
         .badge-improvement { background: var(--ctp-green); color: var(--ctp-crust); }
         .badge-regression { background: var(--ctp-red); color: var(--ctp-crust); }
-        .badge-design { background: var(--ctp-blue); color: var(--ctp-crust); }
-        .badge-pco { background: var(--ctp-mauve); color: var(--ctp-crust); }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--ctp-surface0);
-        }
-        li:last-child {
-            border-bottom: none;
-        }
-        .todo-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .todo-checkbox {
-            color: var(--ctp-green);
-            font-size: 1.2em;
-        }
-        .todo-checkbox.unchecked {
-            color: var(--ctp-surface2);
-        }
+        .badge-testing { background: var(--ctp-yellow); color: var(--ctp-crust); }
+        .score-positive { color: var(--ctp-green); font-weight: 600; }
+        .score-negative { color: var(--ctp-red); font-weight: 600; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 8px 0; border-bottom: 1px solid var(--ctp-surface0); }
+        li:last-child { border-bottom: none; }
+        .todo-item { display: flex; align-items: flex-start; gap: 10px; }
+        .todo-checkbox { color: var(--ctp-green); font-size: 1.2em; }
+        .todo-checkbox.unchecked { color: var(--ctp-surface0); }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
         }
-        thead {
-            background: var(--ctp-surface0);
-        }
+        thead { background: var(--ctp-surface0); }
         th, td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid var(--ctp-surface0);
         }
-        th {
-            color: var(--ctp-lavender);
-            font-weight: 600;
-        }
-        tr:hover {
-            background: var(--ctp-surface0);
-        }
-        .score-positive {
-            color: var(--ctp-green);
-            font-weight: 600;
-        }
-        .score-negative {
-            color: var(--ctp-red);
-            font-weight: 600;
-        }
-        .match-completed {
-            color: var(--ctp-green);
-        }
-        .match-failed {
-            color: var(--ctp-red);
-        }
-        .conversations {
-            background: var(--ctp-mantle);
-            border: 1px solid var(--ctp-surface0);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .empty-state {
-            color: var(--ctp-subtext0);
-            font-style: italic;
-            text-align: center;
-            padding: 40px;
-        }
+        th { color: var(--ctp-lavender); font-weight: 600; }
+        tr:hover { background: var(--ctp-surface0); }
         .footer {
             margin-top: 50px;
             padding-top: 20px;
@@ -213,14 +127,12 @@
             cursor: pointer;
             margin-top: 10px;
         }
-        button:hover {
-            background: var(--ctp-sapphire);
-        }
+        button:hover { background: var(--ctp-sapphire); }
         code {
             background: var(--ctp-surface0);
             padding: 2px 6px;
             border-radius: 3px;
-            font-family: 'Monaco', 'Courier New', monospace;
+            font-family: 'Monaco', monospace;
             font-size: 0.9em;
         }
     </style>
@@ -238,19 +150,19 @@
                 <div class="card-title">Approach Stats</div>
                 <div class="kpi">
                     <span class="kpi-label">Design Attempts</span>
-                    <span class="kpi-value">6</span>
+                    <span class="kpi-value">7 (8 testing)</span>
                 </div>
                 <div class="kpi">
                     <span class="kpi-label">Design Improvements</span>
-                    <span class="kpi-value">3 (50%)</span>
+                    <span class="kpi-value">3 (42.9%)</span>
                 </div>
                 <div class="kpi">
                     <span class="kpi-label">PCO Attempts</span>
                     <span class="kpi-value">0</span>
                 </div>
                 <div class="kpi">
-                    <span class="kpi-label">Last Approach</span>
-                    <span class="kpi-value"><span class="badge badge-design">DESIGN</span></span>
+                    <span class="kpi-label">Current Cycle</span>
+                    <span class="kpi-value"><span class="badge badge-testing">TESTING</span> Cycle 86</span>
                 </div>
             </div>
 
@@ -265,28 +177,28 @@
                     <span class="kpi-value score-positive">16.37</span>
                 </div>
                 <div class="kpi">
-                    <span class="kpi-label">Delta from Baseline</span>
-                    <span class="kpi-value score-positive">+7.2%</span>
-                </div>
-                <div class="kpi">
-                    <span class="kpi-label">Status</span>
-                    <span class="kpi-value">local-only</span>
+                    <span class="kpi-label">Baseline</span>
+                    <span class="kpi-value">Cycle 82</span>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-title">Tournament</div>
+                <div class="card-title">Cycle 86 Testing</div>
                 <div class="kpi">
-                    <span class="kpi-label">Season</span>
-                    <span class="kpi-value">beta-cvc</span>
+                    <span class="kpi-label">Change</span>
+                    <span class="kpi-value">Aligner HP 50→45</span>
                 </div>
                 <div class="kpi">
-                    <span class="kpi-label">Leaderboard</span>
-                    <span class="kpi-value">Not entered</span>
+                    <span class="kpi-label">Seeds 42-45</span>
+                    <span class="kpi-value score-positive">21.43, 22.06, 24.88, 25.14</span>
                 </div>
                 <div class="kpi">
-                    <span class="kpi-label">Recent Matches</span>
-                    <span class="kpi-value">18 completed, 5 failed</span>
+                    <span class="kpi-label">Avg (4 seeds)</span>
+                    <span class="kpi-value score-positive">23.38 (+43%!)</span>
+                </div>
+                <div class="kpi">
+                    <span class="kpi-label">Progress</span>
+                    <span class="kpi-value">Testing seed 46/5 (final)</span>
                 </div>
             </div>
         </div>
@@ -296,23 +208,23 @@
             <ul>
                 <li class="todo-item">
                     <span class="todo-checkbox">✓</span>
-                    <span>Hotspot tracking: track scramble events per junction, deprioritize frequently-scrambled junctions</span>
+                    <span>Hotspot tracking implemented</span>
                 </li>
                 <li class="todo-item">
                     <span class="todo-checkbox">✓</span>
-                    <span>Wider enemy AOE for retreat: wired _near_enemy_territory (radius 20) into _should_retreat — +458% avg score</span>
+                    <span>Wider enemy AOE for retreat</span>
+                </li>
+                <li class="todo-item">
+                    <span class="todo-checkbox">✓</span>
+                    <span>RETREAT_MARGIN tested and reverted</span>
                 </li>
                 <li class="todo-item">
                     <span class="todo-checkbox unchecked">☐</span>
-                    <span><code>RETREAT_MARGIN 15→20</code>: match alpha.0's more conservative survival threshold (testing)</span>
+                    <span>LLM stagnation detection</span>
                 </li>
                 <li class="todo-item">
                     <span class="todo-checkbox unchecked">☐</span>
-                    <span>LLM stagnation detection: detect stuck agents and adjust directives</span>
-                </li>
-                <li class="todo-item">
-                    <span class="todo-checkbox unchecked">☐</span>
-                    <span>Read teammate vibes for coordination</span>
+                    <span>Teammate vibes coordination</span>
                 </li>
             </ul>
         </div>
@@ -321,117 +233,36 @@
         <table>
             <thead>
                 <tr>
-                    <th>Date</th>
+                    <th>Cycle</th>
                     <th>Version</th>
-                    <th>Focus</th>
                     <th>Result</th>
-                    <th>Delta</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
+                <tr style="background: var(--ctp-surface0);">
+                    <td>86</td>
+                    <td>aligner-hp-45</td>
+                    <td><span class="badge badge-testing">TESTING</span></td>
+                    <td class="score-positive">Avg 23.38 (+43%) across 4 seeds, 1 remaining</td>
+                </tr>
                 <tr>
-                    <td>2026-04-06</td>
+                    <td>85</td>
+                    <td>retreat-margin-20</td>
+                    <td><span class="badge badge-regression">REVERTED</span></td>
+                    <td class="score-negative">-13%</td>
+                </tr>
+                <tr>
+                    <td>82</td>
                     <td>hub-camp-85</td>
-                    <td>Hub camp HP threshold reduction</td>
                     <td><span class="badge badge-improvement">IMPROVED</span></td>
                     <td class="score-positive">+7.2%</td>
                 </tr>
-                <tr>
-                    <td>2026-04-06</td>
-                    <td>early-retreat-120</td>
-                    <td>Early retreat window duration</td>
-                    <td><span class="badge badge-regression">REVERTED</span></td>
-                    <td class="score-negative">-11.0%</td>
-                </tr>
-                <tr>
-                    <td>2026-04-06</td>
-                    <td>hub-camp-dist-2</td>
-                    <td>Hub camp distance threshold</td>
-                    <td><span class="badge badge-regression">REVERTED</span></td>
-                    <td class="score-negative">-16.3%</td>
-                </tr>
-                <tr>
-                    <td>2026-04-06</td>
-                    <td>stall-14</td>
-                    <td>Stall unstick threshold</td>
-                    <td><span class="badge badge-regression">REVERTED</span></td>
-                    <td class="score-negative">-4.3%</td>
-                </tr>
             </tbody>
         </table>
-
-        <h2>Recent Tournament Matches</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Status</th>
-                    <th>Pool</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>00:39</td>
-                    <td class="match-failed">failed</td>
-                    <td>qualifying</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>00:28</td>
-                    <td class="match-completed">completed</td>
-                    <td>competitive</td>
-                    <td>2.04</td>
-                </tr>
-                <tr>
-                    <td>00:23</td>
-                    <td class="match-completed">completed</td>
-                    <td>competitive</td>
-                    <td>8.17</td>
-                </tr>
-                <tr>
-                    <td>00:23</td>
-                    <td class="match-completed">completed</td>
-                    <td>competitive</td>
-                    <td>5.21</td>
-                </tr>
-                <tr>
-                    <td>00:22</td>
-                    <td class="match-completed">completed</td>
-                    <td>class="match-completed">completed</td>
-                    <td>18.42</td>
-                </tr>
-                <tr>
-                    <td>00:22</td>
-                    <td class="match-completed">completed</td>
-                    <td>competitive</td>
-                    <td>9.62</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>Recent Conversations</h2>
-        <div class="conversations">
-            <div class="empty-state">No conversations yet</div>
-        </div>
-
-        <h2>Recent Commits</h2>
-        <div class="card">
-            <ul>
-                <li><code>ed796f6</code> Dashboard: Update tournament stats and approach stats</li>
-                <li><code>0a15524</code> Dashboard: Update with Cycle 81 testing status and match failures</li>
-                <li><code>c379df6</code> Cycle 84: Early retreat window 150→120 reverted (-11.0%)</li>
-                <li><code>cac8e71</code> Cycle 81: Test RETREAT_MARGIN 15→20 (alpha.0 parity)</li>
-                <li><code>3cd9c29</code> Cycle 83: Hub camp distance 3→2 reverted (-16.3%)</li>
-                <li><code>4a3901e</code> Cycle 82: Hub camp HP 100→85 improvement (+7.2%)</li>
-                <li><code>835c64a</code> Wake up: restore state, generate dashboard, start tick loop</li>
-                <li><code>49bd96c</code> Cycle 81: Oscillation unstick 4→3 improvement (+11.9%)</li>
-                <li><code>4a9b2cd</code> Cycle 80: Stall unstick 12→14 reverted (-4.3%)</li>
-            </ul>
-        </div>
 
         <div class="footer">
-            Generated: 2026-04-06 02:24 UTC
+            Generated: 2026-04-06 03:38 UTC
             <br>
             <button onclick="fetch('/regenerate',{method:'POST'}).then(()=>{this.textContent='Regenerating...';setTimeout(()=>location.reload(),30000)})">Regenerate</button>
         </div>

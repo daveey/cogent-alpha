@@ -28,7 +28,7 @@ _SCRAMBLER_EXPLORE_OFFSETS = ((36, -36), (36, 36), (-36, 36), (-36, -36))
 _ELEMENTS = ("carbon", "oxygen", "germanium", "silicon")
 _HP_THRESHOLDS = {
     "miner": 15,
-    "aligner": 50,
+    "aligner": 45,
     "scrambler": 30,
     "scout": 30,
     "unknown": 30,
