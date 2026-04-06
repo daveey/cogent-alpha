@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 753,
+      "attempts": 754,
       "improvements": 7,
-      "last_used": "20260406-819-testing"
+      "last_used": "20260406-820-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "819",
-    "focus": "Hotspot penalty cap increase",
-    "description": "Increased hotspot penalty cap from 3.33 to 3.34 (+0.30%)",
-    "rationale": "Hotspot penalty cap limits maximum avoidance penalty for heavily contested junctions. Higher cap allows stronger avoidance in extreme contested scenarios. Conservative +0.30% increase for bidirectional contested junction penalty cap tuning. Stacks with 087-818.",
-    "upload": "gamma_v268_v1:v1",
+    "version": "820",
+    "focus": "Network bonus weight increase",
+    "description": "Increased network bonus weight from 0.94 to 0.95 (+1.06%)",
+    "rationale": "Network bonus weight controls chain-building incentive strength. Higher weight prioritizes junctions near existing friendly network more strongly. Conservative +1.06% increase for bidirectional network consolidation weight tuning. Stacks with 087-819.",
+    "upload": "gamma_v269_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 819. Increased hotspot penalty cap for bidirectional contested junction penalty cap tuning. Awaiting tournament validation."
+    "note": "Attempt 820. Increased network bonus weight for bidirectional network consolidation weight tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
