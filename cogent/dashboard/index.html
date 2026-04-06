@@ -120,6 +120,7 @@
         .badge.regression { background: var(--red); color: var(--crust); }
         .badge.design { background: var(--blue); color: var(--crust); }
         .badge.pco { background: var(--mauve); color: var(--crust); }
+        .badge.testing { background: var(--yellow); color: var(--crust); }
 
         table {
             width: 100%;
@@ -236,13 +237,18 @@
             font-weight: 600;
             color: var(--text);
         }
+
+        .highlight {
+            background: var(--surface2);
+            border-left: 4px solid var(--yellow) !important;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="status-banner idle">
-            <span>Status: <strong>idle</strong> - Tick - new day check</span>
-            <span style="font-size: 0.9em;">Last update: 2026-04-06 00:00:32 UTC</span>
+            <span>Status: <strong>idle</strong> - Tick - completed improvement cycle</span>
+            <span style="font-size: 0.9em;">Last update: 2026-04-06 00:12:36 UTC</span>
         </div>
 
         <h1>✂️ scissors - CoGames Dashboard</h1>
@@ -260,14 +266,14 @@
                 <div class="kpi-label">22 matches</div>
             </div>
             <div class="card kpi">
-                <div class="kpi-label">Total Versions</div>
-                <div class="kpi-value">13</div>
-                <div class="kpi-label">scissors_v1</div>
+                <div class="kpi-label">Total Attempts</div>
+                <div class="kpi-value">197</div>
+                <div class="kpi-label">15 improvements</div>
             </div>
             <div class="card kpi">
-                <div class="kpi-label">Improvement Rate</div>
-                <div class="kpi-value">7.7%</div>
-                <div class="kpi-label">15 / 196 attempts</div>
+                <div class="kpi-label">Hit Rate</div>
+                <div class="kpi-value">7.6%</div>
+                <div class="kpi-label">design approach</div>
             </div>
         </div>
 
@@ -275,81 +281,34 @@
         <div class="card">
             <h3>In Progress</h3>
             <ul class="todo-list">
-                <li><strong>Testing infrastructure blocked:</strong> Local four_score tests take 10+ min per seed (50+ min for 5-seed validation). Arena hits observation budget errors. Improve.md 30-min loop incompatible with test duration.</li>
+                <li class="highlight"><strong>⏱️ TESTING:</strong> scissors_v2:v1 qualifying in beta-cvc (LLM stagnation detection - uploaded 00:06 UTC)</li>
+                <li><strong>Testing infrastructure blocked:</strong> Local four_score tests take 10+ min per seed (50+ min for 5-seed validation). Arena hits observation budget errors. Using tournament validation as workaround.</li>
             </ul>
 
-            <h3>Current Status</h3>
+            <h3>Latest Improvement (20260406 00:06 UTC)</h3>
             <div class="stat-row">
-                <span class="stat-label">Best Policy</span>
-                <span class="stat-value">scissors_v1:v5 - rank #35, 12.00 avg (22 matches)</span>
+                <span class="stat-label">Type</span>
+                <span class="stat-value">🏗️ Architectural - LLM Stagnation Detection</span>
             </div>
             <div class="stat-row">
-                <span class="stat-label">Latest Failed</span>
-                <span class="stat-value">scissors_v1:v13 - rank #64, 9.75 avg (20 matches) - FAILED (-37.2%)</span>
+                <span class="stat-label">Change</span>
+                <span class="stat-value">Enhanced LLM analyze prompt to detect and respond to agent stagnation</span>
             </div>
             <div class="stat-row">
-                <span class="stat-label">Critical Learning</span>
-                <span class="stat-value">Local testing on arena mission is UNRELIABLE - must tournament-validate</span>
+                <span class="stat-label">Upload</span>
+                <span class="stat-value">scissors_v2:v1 → beta-cvc (qualifying)</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Rationale</span>
+                <span class="stat-value">First step toward alpha.0-style cyborg architecture. Addresses key differentiator gap.</span>
             </div>
 
             <h3>Strategy</h3>
             <ul class="todo-list">
                 <li><strong>Tournament-based validation</strong> works well - continue using beta-cvc for fast feedback</li>
-                <li><strong>Parameter tuning exhausted</strong> - 11 consecutive failures (019-028). Need architectural improvements</li>
-                <li><strong>Need architectural changes:</strong> LLM stagnation detection, junction discovery, teammate vibes</li>
+                <li><strong>LLM stagnation detection</strong> is first architectural improvement (vs parameter tuning)</li>
+                <li><strong>Need more architectural changes:</strong> Junction discovery, teammate vibes, PCO evolution</li>
             </ul>
-        </div>
-
-        <h2>Recent Experiments (Local - Delta Track)</h2>
-        <div class="card">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cycle</th>
-                        <th>Change</th>
-                        <th>Result</th>
-                        <th>Score</th>
-                        <th>Delta</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>73</td>
-                        <td>Oscillation unstick 3→2</td>
-                        <td><span class="badge regression">REVERTED</span></td>
-                        <td>13.41</td>
-                        <td>-15.5%</td>
-                    </tr>
-                    <tr>
-                        <td>72</td>
-                        <td>Oscillation unstick 4→3</td>
-                        <td><span class="badge improvement">IMPROVEMENT</span></td>
-                        <td>15.87</td>
-                        <td>+0.9%</td>
-                    </tr>
-                    <tr>
-                        <td>71</td>
-                        <td>Stall unstick 14→13</td>
-                        <td><span class="badge regression">REVERTED</span></td>
-                        <td>11.86</td>
-                        <td>-24.6%</td>
-                    </tr>
-                    <tr>
-                        <td>70</td>
-                        <td>Stall unstick 14→15</td>
-                        <td><span class="badge regression">REVERTED</span></td>
-                        <td>14.93</td>
-                        <td>-5.0%</td>
-                    </tr>
-                    <tr>
-                        <td>69</td>
-                        <td>Oscillation unstick 4→5</td>
-                        <td><span class="badge regression">REVERTED</span></td>
-                        <td>15.08</td>
-                        <td>-4.1%</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
 
         <h2>Tournament Submissions (scissors_v1)</h2>
@@ -447,13 +406,35 @@
             </table>
         </div>
 
+        <h2>Latest Testing (scissors_v2)</h2>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Policy</th>
+                        <th>Status</th>
+                        <th>Uploaded</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight">
+                        <td><strong>scissors_v2:v1</strong></td>
+                        <td><span class="badge testing">QUALIFYING</span></td>
+                        <td>2026-04-06 00:06 UTC</td>
+                        <td>LLM stagnation detection - enhanced prompt to suggest role changes when agents stuck/oscillating</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <h2>Approach Statistics</h2>
         <div class="grid">
             <div class="card">
                 <h3><span class="badge design">Design</span></h3>
                 <div class="stat-row">
                     <span class="stat-label">Attempts</span>
-                    <span class="stat-value">196</span>
+                    <span class="stat-value">197</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Improvements</span>
@@ -461,11 +442,11 @@
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Hit Rate</span>
-                    <span class="stat-value">7.7%</span>
+                    <span class="stat-value">7.6%</span>
                 </div>
                 <div class="stat-row">
                     <span class="stat-label">Last Used</span>
-                    <span class="stat-value">oscillation-2</span>
+                    <span class="stat-value">llm-stagnation</span>
                 </div>
             </div>
             <div class="card">
@@ -493,23 +474,7 @@
         <div class="conversations">
             <div class="conversation-entry conversation-incoming">
                 <div class="conversation-meta">
-                    <strong>From cli</strong> • 2026-04-06 00:01:36 UTC • ch-cf1a42ea557f
-                </div>
-                <div class="conversation-body">
-                    Regenerate the dashboard now. Use --policy scissors (not --mine) when checking leaderboard.
-                </div>
-            </div>
-            <div class="conversation-entry conversation-outgoing">
-                <div class="conversation-meta">
-                    <strong>To cli</strong> • 2026-04-06 00:01:40 UTC • ch-cf1a42ea557f
-                </div>
-                <div class="conversation-body">
-                    Acknowledged. Regenerating dashboard with --policy scissors.
-                </div>
-            </div>
-            <div class="conversation-entry conversation-incoming">
-                <div class="conversation-meta">
-                    <strong>From cli</strong> • 2026-04-06 00:03:21 UTC • ch-b17421066909
+                    <strong>From cli</strong> • 2026-04-06 00:03:57 UTC • ch-b17421066909
                 </div>
                 <div class="conversation-body">
                     Run: git fetch origin && git merge origin/main --no-edit. Then regenerate the dashboard. Use --policy scissors when checking leaderboard, never --mine.
@@ -517,10 +482,26 @@
             </div>
             <div class="conversation-entry conversation-outgoing">
                 <div class="conversation-meta">
-                    <strong>To cli</strong> • 2026-04-06 00:03:32 UTC • ch-b17421066909
+                    <strong>To cli</strong> • 2026-04-06 00:06:25 UTC • ch-b17421066909
                 </div>
                 <div class="conversation-body">
-                    Acknowledged. Running git fetch and merge, then regenerating dashboard.
+                    Complete. Merged origin/main (resolved conflict in improve.md), regenerated dashboard showing only scissors_v1 policies. Best: scissors_v1:v5 rank #35 (12.00 avg, 22 matches). Committed and pushed.
+                </div>
+            </div>
+            <div class="conversation-entry conversation-incoming">
+                <div class="conversation-meta">
+                    <strong>From cli</strong> • 2026-04-06 00:06:38 UTC • ch-5aa46bd28f55
+                </div>
+                <div class="conversation-body">
+                    Did you pull origin/main? If not, run: git fetch origin && git merge origin/main --no-edit. Then regenerate the dashboard immediately.
+                </div>
+            </div>
+            <div class="conversation-entry conversation-outgoing">
+                <div class="conversation-meta">
+                    <strong>To cli</strong> • 2026-04-06 00:06:49 UTC • ch-5aa46bd28f55
+                </div>
+                <div class="conversation-body">
+                    Merge confirmed in git log: ee3d73d merged origin/main at 00:04 UTC, dashboard regenerated in c954cef. All changes pushed to origin.
                 </div>
             </div>
         </div>
@@ -531,7 +512,7 @@
             <ul class="todo-list">
                 <li><strong>Tournament-based testing:</strong> Fast feedback (5-15 min) vs 75+ min local testing</li>
                 <li><strong>Conservative incremental changes:</strong> Small adjustments (8→10, 6→8) succeed</li>
-                <li><strong>Synergistic improvements:</strong> Combined 014+015+016 stack outperforms</li>
+                <li><strong>Architectural improvements:</strong> LLM stagnation detection (testing) targets key gap vs alpha.0</li>
             </ul>
 
             <h3>What Fails</h3>
@@ -543,7 +524,7 @@
         </div>
 
         <footer>
-            <p>Generated: 2026-04-06 00:04 UTC</p>
+            <p>Generated: 2026-04-06 00:13 UTC</p>
             <p>scissors - The Trickster - "Every plan has a seam — I find it."</p>
             <button onclick="fetch('/regenerate',{method:'POST'}).then(()=>{this.textContent='Regenerating...';setTimeout(()=>location.reload(),30000)})">Regenerate</button>
         </footer>
