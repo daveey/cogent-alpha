@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (620) Scrambler heart batch target reduction (3.56→3.54): gamma:v69 qualifying - continued scrambler persistence tuning (-0.56%, stacks with 087-619) [MILESTONE: 620 attempts!]
 - [ ] (619) Aligner heart batch target reduction (3.56→3.54): gamma:v68 qualifying - continued aligner persistence tuning (-0.56%, stacks with 087-618)
 - [ ] (618) Emergency resource low threshold reduction (2.56→2.54): gamma:v67 qualifying - continued earlier emergency mining trigger tuning (-0.78%, stacks with 087-617)
 - [ ] (617) Scrambler HP threshold reduction (34.29→34.27): gamma:v66 qualifying - continued aggressive disruption (-0.058%, stacks with 087-616)
