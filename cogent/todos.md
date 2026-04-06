@@ -757,3 +757,4 @@
 - [ ] (782) Claimed target penalty reduction (10.99→10.98): gamma_v231_v1 qualifying - bidirectional claim override tuning (-0.09%, stacks with 087-781)
 - [ ] (783) Target claim steps increase (33.50→33.51): gamma_v232_v1 qualifying - bidirectional claim validity tuning (+0.03%, stacks with 087-782)
 - [ ] (784) Extractor memory steps increase (858→859): gamma_v233_v1 qualifying - bidirectional extractor memory tuning (+0.12%, stacks with 087-783)
+- [ ] (785) Hub penalty 15-25 range multiplier increase (2.77→2.78): gamma_v234_v1 qualifying - bidirectional 15-25 range multiplier tuning (+0.36%, stacks with 087-784)
