@@ -6,12 +6,27 @@
       "last_used": null
     },
     "design": {
-      "attempts": 13,
+      "attempts": 14,
       "improvements": 7,
       "last_used": "20260406-junction-aoe-20"
     }
   },
   "failed_attempts": [
+    {
+      "date": "20260406",
+      "version": "network-bonus-1.0-reverted",
+      "focus": "Chain-building scoring weight adjustment",
+      "description": "Increased network bonus from 0.5 to 1.0 (+100%) to encourage stronger chain-building",
+      "result": "REGRESSION: avg 21.04 vs baseline 25.42 (-17.2%)",
+      "local_scores": {
+        "seeds": [42, 43, 44, 46],
+        "scores": [21.27, 21.70, 21.20, 19.97],
+        "avg": 21.04,
+        "baseline": 25.42
+      },
+      "status": "reverted",
+      "notes": "Cycle 92 - Major regression. Doubling network bonus weight caused severe performance drop across all seeds tested. May have caused agents to over-prioritize clustering around existing junctions instead of expanding to new territories. Alpha.0's 0.5 weight appears to be the optimal balance."
+    },
     {
       "date": "20260406",
       "version": "llm-stagnation-reverted",

@@ -21,3 +21,4 @@
 - [x] Scrambler HP threshold 30→25 tested and reverted
 - [x] Scout HP threshold optimization
 - [x] LLM stagnation detection enhancement tested and reverted
+- [x] Network bonus weight 0.5→1.0 tested and reverted
