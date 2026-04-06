@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 732,
+      "attempts": 733,
       "improvements": 7,
-      "last_used": "20260406-798-testing"
+      "last_used": "20260406-799-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "798",
-    "focus": "Scrambler blocked neutrals weight increase",
-    "description": "Increased blocked neutrals weight from 8.81 to 8.82 (+0.11%)",
-    "rationale": "Blocked neutrals weight controls scrambler priority for enemy junctions that block neutral territory. Higher weight improves expansion-blocking focus. Conservative +0.11% increase for bidirectional expansion-blocking tuning. Stacks with 087-797.",
-    "upload": "gamma_v247_v1:v1",
+    "version": "799",
+    "focus": "Miner HP threshold increase",
+    "description": "Increased miner HP threshold from 18.69 to 18.70 (+0.05%)",
+    "rationale": "Miner HP threshold controls retreat timing for resource gatherers. Higher threshold enables more aggressive resource gathering before retreating. Conservative +0.05% increase for bidirectional resource gathering tuning. Stacks with 087-798.",
+    "upload": "gamma_v248_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 798. Increased scrambler blocked neutrals weight for bidirectional expansion-blocking tuning. Awaiting tournament validation."
+    "note": "Attempt 799. Increased miner HP threshold for bidirectional resource gathering tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

@@ -771,3 +771,4 @@
 - [ ] (796) Scrambler corner pressure divisor increase (7.49→7.50): gamma_v245_v1 qualifying - bidirectional corner pressure divisor tuning (+0.13%, stacks with 087-795)
 - [ ] (797) Scrambler threat bonus increase (10.61→10.62): gamma_v246_v1 qualifying - bidirectional defensive priority tuning (+0.09%, stacks with 087-796)
 - [ ] (798) Scrambler blocked neutrals weight increase (8.81→8.82): gamma_v247_v1 qualifying - bidirectional expansion-blocking tuning (+0.11%, stacks with 087-797)
+- [ ] (799) Miner HP threshold increase (18.69→18.70): gamma_v248_v1 qualifying - bidirectional resource gathering tuning (+0.05%, stacks with 087-798)
