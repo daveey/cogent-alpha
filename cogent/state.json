@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 656,
+      "attempts": 657,
       "improvements": 7,
-      "last_used": "20260406-722-testing"
+      "last_used": "20260406-723-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "722",
-    "focus": "Claimed target penalty increase",
-    "description": "Increased claimed target penalty from 10.99 to 11.01 (+0.18%)",
-    "rationale": "Claimed target penalty discourages agents from pursuing junctions already claimed by teammates. Higher penalty strengthens claim respect for better coordination. Conservative +0.18% increase for bidirectional claim override tuning. Stacks with 087-721.",
-    "upload": "gamma_v171_v1:v1",
+    "version": "723",
+    "focus": "Target claim steps reduction",
+    "description": "Reduced target claim steps from 33.50 to 33.45 (-0.15%)",
+    "rationale": "Target claim steps controls how long a junction claim remains valid before expiring. Lower value means faster claim turnover, allowing more dynamic target reallocation. Conservative -0.15% reduction for bidirectional claim validity tuning. Stacks with 087-722.",
+    "upload": "gamma_v172_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 722. Increased claimed target penalty for bidirectional claim override tuning. Awaiting tournament validation."
+    "note": "Attempt 723. Reduced target claim steps for bidirectional claim validity tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
