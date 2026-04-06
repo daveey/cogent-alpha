@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 672,
+      "attempts": 673,
       "improvements": 7,
-      "last_used": "20260406-738-testing"
+      "last_used": "20260406-739-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "738",
-    "focus": "Expansion bonus weight increase",
-    "description": "Increased expansion bonus weight from 6.60 to 6.62 (+0.30%)",
-    "rationale": "Expansion bonus weight controls strength of bonus for unlocking access to unreachable entities. Higher weight increases expansion priority. Conservative +0.30% increase for bidirectional expansion emphasis tuning. Stacks with 087-737.",
-    "upload": "gamma_v187_v1:v1",
+    "version": "739",
+    "focus": "Expansion bonus cap increase",
+    "description": "Increased expansion bonus cap from 37.70 to 37.75 (+0.13%)",
+    "rationale": "Expansion bonus cap limits maximum bonus for unlocking access to unreachable entities. Higher cap allows stronger expansion incentive. Conservative +0.13% increase for bidirectional expansion bonus ceiling tuning. Stacks with 087-738.",
+    "upload": "gamma_v188_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 738. Increased expansion bonus weight for bidirectional expansion emphasis tuning. Awaiting tournament validation."
+    "note": "Attempt 739. Increased expansion bonus cap for bidirectional expansion bonus ceiling tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

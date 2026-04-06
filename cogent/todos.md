@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (739) Expansion bonus cap increase (37.70→37.75): gamma_v188_v1:v1 qualifying - bidirectional expansion bonus ceiling tuning (+0.13%, stacks with 087-738)
 - [ ] (738) Expansion bonus weight increase (6.60→6.62): gamma_v187_v1:v1 qualifying - bidirectional expansion emphasis tuning (+0.30%, stacks with 087-737)
 - [ ] (737) Network bonus weight increase (0.92→0.93): gamma_v186_v1:v1 qualifying - bidirectional network consolidation tuning (+1.09%, stacks with 087-736)
 - [ ] (736) Network bonus cap increase (4.54→4.56): gamma_v185_v1:v1 qualifying - bidirectional network consolidation tuning (+0.44%, stacks with 087-735)
