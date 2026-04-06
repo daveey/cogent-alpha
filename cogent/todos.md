@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (684) Scrambler HP threshold increase (34.29→34.31): gamma_v133:v1 qualifying - continued aggressive disruption (+0.058%, stacks with 087-683)
 - [ ] (683) Miner HP threshold increase (18.66→18.68): gamma_v132:v1 qualifying - continued aggressive resource gathering (+0.11%, stacks with 087-682)
 - [ ] (682) Junction AOE range increase (10.66→15.0): gamma_v131:v1 qualifying - wider enemy detection for earlier retreats (+41%, toward alpha.0's approach)
 - [ ] (681) Aligner HP threshold increase (45.66→45.68): gamma_v130:v1 qualifying - continued aligner retreat tuning (+0.044%, stacks with 087-680)

@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 617,
+      "attempts": 618,
       "improvements": 7,
-      "last_used": "20260406-683-testing"
+      "last_used": "20260406-684-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "683",
-    "focus": "Miner HP threshold increase",
-    "description": "Increased miner HP threshold from 18.66 to 18.68 (+0.11%)",
-    "rationale": "Miner HP threshold controls retreat timing for resource gatherers. Higher threshold triggers earlier retreat for safer mining operations. Conservative +0.11% increase for continued aggressive resource gathering while maintaining safety. Stacks with 087-682.",
-    "upload": "gamma_v132:v1",
+    "version": "684",
+    "focus": "Scrambler HP threshold increase",
+    "description": "Increased scrambler HP threshold from 34.29 to 34.31 (+0.058%)",
+    "rationale": "Scrambler HP threshold controls retreat timing for disruptors. Higher threshold triggers earlier retreat for safer disruption operations in contested territory. Conservative +0.058% increase for continued aggressive disruption while maintaining survival. Stacks with 087-683.",
+    "upload": "gamma_v133:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 683. Increased miner HP threshold for continued aggressive resource gathering. Awaiting tournament validation."
+    "note": "Attempt 684. Increased scrambler HP threshold for continued aggressive disruption. Awaiting tournament validation."
   },
   },
   "last_improvement": {
