@@ -797,3 +797,4 @@
 - [ ] (822) Expansion bonus weight increase (6.63→6.64): gamma_v271_v1 qualifying - bidirectional expansion bonus weight tuning (+0.15%, stacks with 087-821)
 - [ ] (823) Expansion bonus cap increase (37.76→37.77): gamma_v272_v1 qualifying - bidirectional expansion bonus cap tuning (+0.03%, stacks with 087-822)
 - [ ] (824) Enemy AOE penalty increase (10.77→10.78): gamma_v273_v1 qualifying - bidirectional enemy avoidance tuning (+0.09%, stacks with 087-823)
+- [ ] (825) Teammate penalty increase (9.52→9.53): gamma_v274_v1 qualifying - bidirectional coordination tuning (+0.11%, stacks with 087-824)
