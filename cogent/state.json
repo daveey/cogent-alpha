@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 819,
+      "attempts": 820,
       "improvements": 7,
-      "last_used": "20260406-885-testing"
+      "last_used": "20260406-886-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "885",
-    "focus": "Teammate penalty increase",
-    "description": "Increased teammate penalty from 9.54 to 9.55 (+0.10%)",
-    "rationale": "Teammate penalty controls avoidance of junctions when teammates are closer. Higher value increases penalty for targeting junctions that teammates can reach faster, improving coordination. Conservative +0.10% increase for bidirectional coordination tuning. Stacks with 087-884.",
-    "upload": "gamma_v334_v1:v1",
+    "version": "886",
+    "focus": "Network bonus cap increase",
+    "description": "Increased network bonus cap from 4.58 to 4.59 (+0.22%)",
+    "rationale": "Network bonus cap limits maximum reward for chain-building near friendly junctions. Higher cap allows stronger consolidation around dense network clusters. Conservative +0.22% increase for bidirectional network consolidation cap tuning. Stacks with 087-885.",
+    "upload": "gamma_v335_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 885. Increased teammate penalty for bidirectional coordination tuning. Awaiting tournament validation."
+    "note": "Attempt 886. Increased network bonus cap for bidirectional network consolidation tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
