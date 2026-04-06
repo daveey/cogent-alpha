@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 731,
+      "attempts": 732,
       "improvements": 7,
-      "last_used": "20260406-797-testing"
+      "last_used": "20260406-798-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "797",
-    "focus": "Scrambler threat bonus increase",
-    "description": "Increased threat bonus from 10.61 to 10.62 (+0.09%)",
-    "rationale": "Threat bonus controls scrambler priority for enemy junctions near friendly network. Higher bonus improves defensive focus protecting our score. Conservative +0.09% increase for bidirectional defensive priority tuning. Stacks with 087-796.",
-    "upload": "gamma_v246_v1:v1",
+    "version": "798",
+    "focus": "Scrambler blocked neutrals weight increase",
+    "description": "Increased blocked neutrals weight from 8.81 to 8.82 (+0.11%)",
+    "rationale": "Blocked neutrals weight controls scrambler priority for enemy junctions that block neutral territory. Higher weight improves expansion-blocking focus. Conservative +0.11% increase for bidirectional expansion-blocking tuning. Stacks with 087-797.",
+    "upload": "gamma_v247_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Attempt 797. Increased scrambler threat bonus for bidirectional defensive priority tuning. Awaiting tournament validation."
+    "note": "Attempt 798. Increased scrambler blocked neutrals weight for bidirectional expansion-blocking tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
