@@ -87,6 +87,7 @@
         }
         .badge-improvement { background: var(--ctp-green); color: var(--ctp-crust); }
         .badge-regression { background: var(--ctp-red); color: var(--ctp-crust); }
+        .badge-running { background: var(--ctp-yellow); color: var(--ctp-crust); }
         .score-positive { color: var(--ctp-green); font-weight: 600; }
         .score-negative { color: var(--ctp-red); font-weight: 600; }
         ul { list-style: none; padding: 0; }
@@ -199,6 +200,10 @@
                     <span class="kpi-label">Pool</span>
                     <span class="kpi-value">qualifying</span>
                 </div>
+                <div class="kpi">
+                    <span class="kpi-label">Matches</span>
+                    <span class="kpi-value"><span class="badge badge-running">2 RUNNING</span></span>
+                </div>
             </div>
         </div>
 
@@ -207,19 +212,15 @@
             <ul>
                 <li class="todo-item">
                     <span class="todo-checkbox">✓</span>
-                    <span>Hotspot tracking implemented</span>
-                </li>
-                <li class="todo-item">
-                    <span class="todo-checkbox">✓</span>
-                    <span>Wider enemy AOE for retreat</span>
-                </li>
-                <li class="todo-item">
-                    <span class="todo-checkbox">✓</span>
-                    <span>Aligner HP threshold optimization (+41.2%!)</span>
+                    <span><strong>Aligner HP threshold optimization (+41.2%!)</strong></span>
                 </li>
                 <li class="todo-item">
                     <span class="todo-checkbox unchecked">☐</span>
-                    <span>Test miner/scrambler HP thresholds</span>
+                    <span>Miner HP threshold 15→12: following aligner success pattern</span>
+                </li>
+                <li class="todo-item">
+                    <span class="todo-checkbox unchecked">☐</span>
+                    <span>Scrambler HP threshold 30→25: allow more aggressive scrambling</span>
                 </li>
                 <li class="todo-item">
                     <span class="todo-checkbox unchecked">☐</span>
@@ -269,6 +270,7 @@
         <h2>Recent Commits</h2>
         <div class="card">
             <ul>
+                <li><code>c643fb0</code> Dashboard and todos update: Cycle 86 success (+41.2%)</li>
                 <li><code>c9331ad</code> <strong>Cycle 86: Aligner HP 50→45 improvement (+41.2%)</strong></li>
                 <li><code>d9df4e4</code> Cycle 85: RETREAT_MARGIN 20→15 reverted (-13%)</li>
                 <li><code>1c76325</code> Merge remote-tracking branch 'origin/main'</li>
@@ -278,7 +280,7 @@
         </div>
 
         <div class="footer">
-            Generated: 2026-04-06 03:40 UTC
+            Generated: 2026-04-06 03:52 UTC
             <br>
             <button onclick="fetch('/regenerate',{method:'POST'}).then(()=>{this.textContent='Regenerating...';setTimeout(()=>location.reload(),30000)})">Regenerate</button>
         </div>
