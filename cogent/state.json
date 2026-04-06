@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 539,
+      "attempts": 540,
       "improvements": 7,
-      "last_used": "20260406-605-testing"
+      "last_used": "20260406-606-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260406",
-    "version": "605",
-    "focus": "Network bonus weight reduction",
-    "description": "Reduced network bonus weight from 0.94 to 0.93 (-1.06%)",
-    "rationale": "Network bonus weight incentivizes building junctions near existing friendly junctions. Lower weight reduces network clustering incentive. Conservative -1.06% reduction builds on validated improvements. Stacks with 087-604.",
-    "upload": "gamma:v54",
+    "version": "606",
+    "focus": "Network bonus cap reduction",
+    "description": "Reduced network bonus cap from 4.58 to 4.56 (-0.44%)",
+    "rationale": "Network bonus cap limits maximum bonus from nearby friendly junctions. Lower cap reduces maximum bonus for dense network clusters. Conservative -0.44% reduction builds on validated improvements. Stacks with 087-605.",
+    "upload": "gamma:v55",
     "season": "beta-four-score",
     "uploaded_at": "20260406",
-    "note": "Scissors attempt 605. Clean baseline reduced network bonus weight. Awaiting tournament validation."
+    "note": "Scissors attempt 606. Clean baseline reduced network bonus cap. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
