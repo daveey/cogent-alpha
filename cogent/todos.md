@@ -1,6 +1,7 @@
 # scissors — Improvement TODOs
 
 ## In Progress
+- [ ] (688) Hub align distance increase (26.66→26.68): gamma_v137:v1 qualifying - continued extended hub reach (+0.08%, stacks with 087-687)
 - [ ] (687) Scrambler heart batch target increase (3.56→3.58): gamma_v136:v1 qualifying - continued scrambler persistence (+0.56%, stacks with 087-686)
 - [ ] (686) Aligner heart batch target increase (3.56→3.58): gamma_v135:v1 qualifying - continued aligner persistence (+0.56%, stacks with 087-685)
 - [ ] (685) Emergency resource threshold increase (2.56→2.58): gamma_v134:v1 qualifying - earlier emergency mining trigger (+0.78%, stacks with 087-684)
