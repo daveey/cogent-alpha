@@ -6,9 +6,9 @@
       "last_used": null
     },
     "design": {
-      "attempts": 2,
-      "improvements": 1,
-      "last_used": "20260406-stall-14-reverted"
+      "attempts": 6,
+      "improvements": 3,
+      "last_used": "20260406-early-retreat-120"
     }
   },
   "failed_attempts": [
@@ -38,6 +38,87 @@
       },
       "status": "reverted",
       "notes": "Delta Cycle 80 - Testing after codebase reset. Stall threshold 14 regressed in new context (previous testing showed 14 optimal, but other parameters have changed)."
+    },
+    {
+      "date": "20260406",
+      "version": "hub-camp-dist-2-reverted",
+      "focus": "Hub camp distance threshold",
+      "description": "Reduced hub camp distance from 3 to 2 (-33%) to require agents to be closer to hub for camping",
+      "result": "REGRESSION: avg 13.70 vs baseline 16.37 (-16.3%)",
+      "local_scores": {
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          15.21,
+          14.8,
+          14.62,
+          15.97,
+          7.91
+        ],
+        "avg": 13.7,
+        "baseline": 16.37
+      },
+      "status": "reverted",
+      "notes": "Delta Cycle 83 - Regression. Tighter distance requirement reduced hub camping effectiveness, particularly damaging on seed 46. Context matters: with HP threshold at 85 (not 100), distance 3 works better than 2."
+    },
+    {
+      "date": "20260406",
+      "version": "early-retreat-120-reverted",
+      "focus": "Early retreat window duration",
+      "description": "Reduced early retreat window from 150 to 120 steps (-20%)",
+      "result": "REGRESSION: avg 14.58 vs baseline 16.37 (-11.0%)",
+      "local_scores": {
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          17.12,
+          16.44,
+          17.19,
+          15.08,
+          7.05
+        ],
+        "avg": 14.58,
+        "baseline": 16.37
+      },
+      "status": "reverted",
+      "notes": "Delta Cycle 84 - Regression. Shorter early retreat window reduced performance, particularly on seed 46. The longer 150-step window provides better early game flexibility in current context."
     }
-  ]
+  ],
+  "last_improvement": {
+    "date": "20260406",
+    "version": "hub-camp-85",
+    "focus": "Hub camp HP threshold reduction",
+    "description": "Reduced hub camp HP threshold from 100 to 85 (-15%) for faster early expansion",
+    "result": "IMPROVEMENT: avg 16.37 vs baseline 15.27 (+7.2%)",
+    "local_scores": {
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "scores": [
+        15.97,
+        16.33,
+        16.87,
+        15.08,
+        17.62
+      ],
+      "avg": 16.37,
+      "baseline": 15.27
+    },
+    "status": "local-only",
+    "notes": "Delta Cycle 82 - Good improvement. Less conservative hub camping allows earlier expansion while maintaining safety. Consistent gains across all seeds. New baseline: 16.37."
+  }
 }
