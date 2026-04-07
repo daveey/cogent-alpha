@@ -945,3 +945,4 @@
 - [ ] (970) Miner HP threshold increase (18.74→18.75): gamma_v419_v1 qualifying - bidirectional resource gathering tuning (+0.05%, stacks with 087-969)
 - [ ] (971) Aligner HP threshold increase (45.74→45.75): gamma_v420_v1 qualifying - bidirectional aligner retreat tuning (+0.02%, stacks with 087-970) [MILESTONE: 971 attempts!]
 - [ ] (972) Scrambler HP threshold increase (34.37→34.38): gamma_v421_v1 qualifying - bidirectional disruption tuning (+0.03%, stacks with 087-971)
+- [ ] (973) Emergency resource threshold increase (2.64→2.65): gamma_v422_v1 qualifying - bidirectional emergency mining trigger tuning (+0.38%, stacks with 087-972)
