@@ -955,3 +955,4 @@
 - [ ] (980) Target claim steps increase (33.56→33.57): gamma_v429_v1 qualifying - bidirectional claim validity tuning (+0.03%, stacks with 087-979) [MILESTONE: 980 attempts!]
 - [ ] (981) Extractor memory steps increase (865→866): gamma_v430_v1 qualifying - bidirectional extractor memory tuning (+0.12%, stacks with 087-980)
 - [ ] (982) Hub penalty far-range multiplier increase (7.85→7.86): gamma_v431_v1 qualifying - bidirectional far-range multiplier tuning (+0.13%, stacks with 087-981)
+- [ ] (983) Hub penalty far-range base increase (48.88→48.89): gamma_v432_v1 qualifying - bidirectional far-range base tuning (+0.02%, stacks with 087-982)
