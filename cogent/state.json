@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 853,
+      "attempts": 854,
       "improvements": 7,
-      "last_used": "20260407-919-testing"
+      "last_used": "20260407-920-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260407",
-    "version": "919",
-    "focus": "Hub penalty 15-25 range multiplier increase",
-    "description": "Increased hub penalty 15-25 range multiplier from 2.82 to 2.84 (+0.71%)",
-    "rationale": "Hub penalty 15-25 range multiplier controls penalty scaling for junctions at 15-25 distance from hub. Higher value increases penalty gradient in this range, encouraging closer positioning. Conservative +0.71% increase for bidirectional 15-25 range multiplier tuning. Stacks with 087-918.",
-    "upload": "gamma_v368_v1:v1",
+    "version": "920",
+    "focus": "Hub penalty 15-25 range base increase",
+    "description": "Increased hub penalty 15-25 range base from 9.57 to 9.58 (+0.10%)",
+    "rationale": "Hub penalty 15-25 range base controls minimum penalty at the start of this range. Higher value increases base penalty, encouraging agents to stay closer to hub. Conservative +0.10% increase for bidirectional 15-25 range base tuning. Stacks with 087-919.",
+    "upload": "gamma_v369_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260407",
-    "note": "Attempt 919. Increased hub penalty 15-25 range multiplier for bidirectional 15-25 range multiplier tuning. Awaiting tournament validation."
+    "note": "Attempt 920. Increased hub penalty 15-25 range base for bidirectional 15-25 range base tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
