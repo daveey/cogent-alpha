@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 860,
+      "attempts": 861,
       "improvements": 7,
-      "last_used": "20260407-926-testing"
+      "last_used": "20260407-927-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260407",
-    "version": "926",
-    "focus": "Hotspot penalty cap increase",
-    "description": "Increased hotspot penalty cap from 3.35 to 3.36 (+0.30%)",
-    "rationale": "Hotspot penalty cap controls maximum hotspot count used in penalty calculation. Higher value allows penalty to scale with more contested recaptures. Conservative +0.30% increase for bidirectional contested junction penalty cap tuning. Stacks with 087-925.",
-    "upload": "gamma_v375_v1:v1",
+    "version": "927",
+    "focus": "Network bonus cap increase",
+    "description": "Increased network bonus cap from 4.60 to 4.61 (+0.22%)",
+    "rationale": "Network bonus cap controls maximum nearby friendly junctions counted for chain-building bonus. Higher value allows bonus to scale with more adjacent friendly junctions. Conservative +0.22% increase for bidirectional network consolidation cap tuning. Stacks with 087-926.",
+    "upload": "gamma_v376_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260407",
-    "note": "Attempt 926. Increased hotspot penalty cap for bidirectional contested junction penalty cap tuning. Awaiting tournament validation."
+    "note": "Attempt 927. Increased network bonus cap for bidirectional network consolidation cap tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",

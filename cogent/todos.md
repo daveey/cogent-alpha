@@ -899,3 +899,4 @@
 - [ ] (924) Hotspot weight mid-range increase (5.49→5.50): gamma_v373_v1 qualifying - bidirectional mid-range contested junction tuning (+0.18%, stacks with 087-923)
 - [ ] (925) Hotspot weight far-range increase (11.55→11.56): gamma_v374_v1 qualifying - bidirectional far-range contested junction tuning (+0.09%, stacks with 087-924)
 - [ ] (926) Hotspot penalty cap increase (3.35→3.36): gamma_v375_v1 qualifying - bidirectional contested junction penalty cap tuning (+0.30%, stacks with 087-925)
+- [ ] (927) Network bonus cap increase (4.60→4.61): gamma_v376_v1 qualifying - bidirectional network consolidation cap tuning (+0.22%, stacks with 087-926)
