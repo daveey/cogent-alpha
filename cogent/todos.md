@@ -947,3 +947,4 @@
 - [ ] (972) Scrambler HP threshold increase (34.37→34.38): gamma_v421_v1 qualifying - bidirectional disruption tuning (+0.03%, stacks with 087-971)
 - [ ] (973) Emergency resource threshold increase (2.64→2.65): gamma_v422_v1 qualifying - bidirectional emergency mining trigger tuning (+0.38%, stacks with 087-972)
 - [ ] (974) Aligner heart batch target increase (3.64→3.65): gamma_v423_v1 qualifying - bidirectional aligner persistence tuning (+0.27%, stacks with 087-973)
+- [ ] (975) Scrambler heart batch target increase (3.64→3.65): gamma_v424_v1 qualifying - bidirectional scrambler persistence tuning (+0.27%, stacks with 087-974)
