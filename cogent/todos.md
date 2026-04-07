@@ -25,7 +25,7 @@
 ## Testing Protocol Issues
 **Critical finding #1:** Local tests run with `ANTHROPIC_API_KEY=` (no LLM) per docs/cogames.md, but tournament uses Bedrock (LLM enabled). Cannot validate LLM-dependent changes locally. Cycle 94 reverted due to this issue.
 
-**Critical finding #2 (Apr 7):** Testing infrastructure experiencing hangs. Cycle 105 tests hung indefinitely after "Increasing action timeout" message. All 5 test processes consumed CPU but produced no output for 28+ hours. Last successful test run: Apr 6 23:20. Diagnostics showed no resource exhaustion, no stale locks, code imports successfully. Suspected deadlock in game engine or policy interaction. Requires investigation before continuing improvement cycles.
+**Critical finding #2 (Apr 7):** Testing infrastructure experiencing hangs with 8-cog games. Cycle 105 tests hung indefinitely after "Increasing action timeout" message. All 5 test processes consumed CPU but produced no output for 28+ hours. Last successful test run: Apr 6 23:20. Further diagnostics (Apr 7): Games with 1-2 cogs complete in ~90s but score 0.00 (wrong game configuration). Games with 8 cogs (required configuration for valid testing) hang consistently after timeout message. Affects both cb7fcb8 (Cycle 104) and current HEAD. Suspected deadlock in game engine with 8-agent coordination. **BLOCKS ALL IMPROVEMENT CYCLES** - requires operator investigation.
 
 ## Completed
 - [x] Scramble corner_pressure divisor 8.0→6.0 tested and reverted (-0.6%, too marginal, high variance)

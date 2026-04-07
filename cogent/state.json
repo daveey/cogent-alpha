@@ -20,7 +20,7 @@
       "result": "INFRASTRUCTURE FAILURE: Tests hung indefinitely",
       "local_scores": null,
       "status": "aborted",
-      "notes": "Cycle 105 - Testing infrastructure failure. All 5 test processes hung after \"Increasing action timeout\" message, consuming CPU but producing no output. Tests previously worked (last successful run at 23:20 on Apr 6). Attempted diagnostics: no resource exhaustion (6.3Gi mem available), no stale locks, code imports successfully. Issue appears to be deadlock in game engine or policy interaction. Aborted after 28+ hours. Success rate: 7/28 = 25.0% (14 consecutive failures including this abort)."
+      "notes": "Cycle 105 - Testing infrastructure failure. All 5 test processes hung after \"Increasing action timeout\" message, consuming CPU but producing no output for 28+ hours. Last successful test: Apr 6 23:20. Additional diagnostics (Apr 7): 1-2 cog games complete quickly but score 0.00 (invalid configuration). 8-cog games (required for testing) hang consistently. Issue reproduces on both cb7fcb8 (Cycle 104) and HEAD, suggesting engine-level deadlock with 8-agent coordination rather than policy bug. BLOCKS ALL IMPROVEMENT CYCLES. Success rate: 7/28 = 25.0% (14 consecutive failures including this infrastructure abort)."
     },
     {
       "date": "20260406",
