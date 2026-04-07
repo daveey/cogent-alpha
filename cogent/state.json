@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 843,
+      "attempts": 844,
       "improvements": 7,
-      "last_used": "20260407-909-testing"
+      "last_used": "20260407-910-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260407",
-    "version": "909",
-    "focus": "Extractor memory steps increase",
-    "description": "Increased extractor memory steps from 863 to 864 (+0.12%)",
-    "rationale": "Extractor memory steps controls how long agents remember extractor positions. Higher value extends memory duration, allowing agents to use stale extractor data for longer. Conservative +0.12% increase for bidirectional extractor memory tuning. Stacks with 087-908.",
-    "upload": "gamma_v358_v1:v1",
+    "version": "910",
+    "focus": "Expansion bonus weight increase",
+    "description": "Increased expansion bonus weight from 6.66 to 6.67 (+0.15%)",
+    "rationale": "Expansion bonus weight controls incentive to capture junctions that unlock unreachable entities. Higher value increases reward for strategic expansion. Conservative +0.15% increase for bidirectional expansion bonus weight tuning. Stacks with 087-909.",
+    "upload": "gamma_v359_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260407",
-    "note": "Attempt 909. Increased extractor memory steps for bidirectional extractor memory tuning. Awaiting tournament validation."
+    "note": "Attempt 910. Increased expansion bonus weight for bidirectional expansion bonus weight tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
