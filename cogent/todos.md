@@ -22,8 +22,10 @@
 - Scramble blocked_neutrals weight 6.0 is optimal (8.0 failed -12.5%, major regression)
 - Scramble corner_pressure divisor 8.0 is optimal (6.0 too marginal -0.6%, high variance)
 
-## Testing Protocol Issue
-**Critical finding:** Local tests run with `ANTHROPIC_API_KEY=` (no LLM) per docs/cogames.md, but tournament uses Bedrock (LLM enabled). Cannot validate LLM-dependent changes locally. Cycle 94 reverted due to this issue.
+## Testing Protocol Issues
+**Critical finding #1:** Local tests run with `ANTHROPIC_API_KEY=` (no LLM) per docs/cogames.md, but tournament uses Bedrock (LLM enabled). Cannot validate LLM-dependent changes locally. Cycle 94 reverted due to this issue.
+
+**Critical finding #2 (Apr 7):** Testing infrastructure experiencing hangs. Cycle 105 tests hung indefinitely after "Increasing action timeout" message. All 5 test processes consumed CPU but produced no output for 28+ hours. Last successful test run: Apr 6 23:20. Diagnostics showed no resource exhaustion, no stale locks, code imports successfully. Suspected deadlock in game engine or policy interaction. Requires investigation before continuing improvement cycles.
 
 ## Completed
 - [x] Scramble corner_pressure divisor 8.0→6.0 tested and reverted (-0.6%, too marginal, high variance)

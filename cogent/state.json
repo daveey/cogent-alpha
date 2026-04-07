@@ -6,12 +6,22 @@
       "last_used": null
     },
     "design": {
-      "attempts": 27,
+      "attempts": 28,
       "improvements": 7,
       "last_used": "20260406-junction-aoe-20"
     }
   },
   "failed_attempts": [
+    {
+      "date": "20260407",
+      "version": "scramble-corner-pressure-cap-12.0-aborted",
+      "focus": "Scrambler corner pressure cap exploration",
+      "description": "Attempted to test corner_pressure cap from 10.0 to 12.0 (+20%)",
+      "result": "INFRASTRUCTURE FAILURE: Tests hung indefinitely",
+      "local_scores": null,
+      "status": "aborted",
+      "notes": "Cycle 105 - Testing infrastructure failure. All 5 test processes hung after \"Increasing action timeout\" message, consuming CPU but producing no output. Tests previously worked (last successful run at 23:20 on Apr 6). Attempted diagnostics: no resource exhaustion (6.3Gi mem available), no stale locks, code imports successfully. Issue appears to be deadlock in game engine or policy interaction. Aborted after 28+ hours. Success rate: 7/28 = 25.0% (14 consecutive failures including this abort)."
+    },
     {
       "date": "20260406",
       "version": "scramble-corner-pressure-divisor-6.0-reverted",
@@ -19,8 +29,20 @@
       "description": "Reduced scramble corner_pressure divisor from 8.0 to 6.0 (-25%), increasing pressure bonus by 33%",
       "result": "MARGINAL REGRESSION: avg 25.26 vs baseline 25.42 (-0.6%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [26.78, 32.38, 22.61, 24.49, 20.03],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          26.78,
+          32.38,
+          22.61,
+          24.49,
+          20.03
+        ],
         "avg": 25.26,
         "baseline": 25.42
       },
@@ -34,8 +56,20 @@
       "description": "Increased scramble blocked_neutrals weight from 6.0 to 8.0 (+33%) in scramble_target_score",
       "result": "MAJOR REGRESSION: avg 22.25 vs baseline 25.42 (-12.5%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [21.89, 22.48, 19.95, 23.38, 23.54],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          21.89,
+          22.48,
+          19.95,
+          23.38,
+          23.54
+        ],
         "avg": 22.25,
         "baseline": 25.42
       },
@@ -49,8 +83,20 @@
       "description": "Increased scramble threat_bonus from 10.0 to 12.0 (+20%) for enemy junctions near friendly network",
       "result": "MAJOR REGRESSION: avg 22.06 vs baseline 25.42 (-13.2%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [16.13, 22.82, 21.77, 25.54, 24.03],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          16.13,
+          22.82,
+          21.77,
+          25.54,
+          24.03
+        ],
         "avg": 22.06,
         "baseline": 25.42
       },
@@ -64,8 +110,20 @@
       "description": "Reduced hub penalty far multiplier from 8.0 to 6.0 (-25%) for junctions >25 distance from hub",
       "result": "REGRESSION: avg 23.59 vs baseline 25.42 (-7.2%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [22.26, 22.08, 24.95, 23.47, 25.19],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          22.26,
+          22.08,
+          24.95,
+          23.47,
+          25.19
+        ],
         "avg": 23.59,
         "baseline": 25.42
       },
@@ -79,8 +137,20 @@
       "description": "Increased enemy_aoe weight from 8.0 to 10.0 (+25%) in aligner_target_score",
       "result": "MARGINAL: avg 25.58 vs baseline 25.42 (+0.6%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [22.80, 27.52, 28.81, 23.76, 24.99],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          22.80,
+          27.52,
+          28.81,
+          23.76,
+          24.99
+        ],
         "avg": 25.58,
         "baseline": 25.42
       },
@@ -94,8 +164,12 @@
       "description": "Reduced teammate_penalty from 6.0 to 4.0 (-33%) in aligner_target_score",
       "result": "MAJOR REGRESSION: seed 42 scored 14.41 vs baseline 25.42 (-43.3%)",
       "local_scores": {
-        "seeds": [42],
-        "scores": [14.41],
+        "seeds": [
+          42
+        ],
+        "scores": [
+          14.41
+        ],
         "avg": 14.41,
         "baseline": 25.42
       },
@@ -109,8 +183,20 @@
       "description": "Reduced hotspot_weight from 8.0 to 6.0 (-25%) in aligner_target_score",
       "result": "MARGINAL: avg 25.51 vs baseline 25.42 (+0.4%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [28.73, 26.53, 24.22, 23.96, 24.12],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          28.73,
+          26.53,
+          24.22,
+          23.96,
+          24.12
+        ],
         "avg": 25.51,
         "baseline": 25.42
       },
@@ -124,8 +210,20 @@
       "description": "Reduced _TARGET_SWITCH_THRESHOLD from 3.0 to 2.5 (-16.7%)",
       "result": "REGRESSION: avg 22.76 vs baseline 25.42 (-10.5%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [14.60, 20.54, 30.86, 23.78, 24.01],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          14.60,
+          20.54,
+          30.86,
+          23.78,
+          24.01
+        ],
         "avg": 22.76,
         "baseline": 25.42
       },
@@ -139,8 +237,20 @@
       "description": "Reduced _CLAIMED_TARGET_PENALTY from 12.0 to 8.0 (-33%)",
       "result": "REGRESSION: avg 23.57 vs baseline 25.42 (-7.3%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [22.80, 22.42, 23.14, 24.47, 25.04],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          22.80,
+          22.42,
+          23.14,
+          24.47,
+          25.04
+        ],
         "avg": 23.57,
         "baseline": 25.42
       },
@@ -154,8 +264,20 @@
       "description": "Increased expansion bonus from 5.0 to 7.0 (+40%) in aligner_target_score",
       "result": "REGRESSION: avg 23.31 vs baseline 25.42 (-8.3%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [21.46, 25.25, 21.74, 23.23, 24.89],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          21.46,
+          25.25,
+          21.74,
+          23.23,
+          24.89
+        ],
         "avg": 23.31,
         "baseline": 25.42
       },
@@ -169,8 +291,20 @@
       "description": "Wired LLM objective (expand/defend/economy_bootstrap) through to pressure budget computation",
       "result": "FALSE POSITIVE: avg 27.55 vs baseline 25.42 (+8.4% apparent)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [29.98, 27.55, 30.97, 24.21, 25.04],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          29.98,
+          27.55,
+          30.97,
+          24.21,
+          25.04
+        ],
         "avg": 27.55,
         "baseline": 25.42
       },
@@ -184,8 +318,20 @@
       "description": "Reduced late-game HP modifiers: aligner/scrambler 10→5, miner/scout 5→0",
       "result": "REGRESSION: avg 23.09 vs baseline 25.42 (-9.2%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [20.69, 21.31, 23.01, 25.73, 24.73],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          20.69,
+          21.31,
+          23.01,
+          25.73,
+          24.73
+        ],
         "avg": 23.09,
         "baseline": 25.42
       },
@@ -199,8 +345,18 @@
       "description": "Increased network bonus from 0.5 to 1.0 (+100%) to encourage stronger chain-building",
       "result": "REGRESSION: avg 21.04 vs baseline 25.42 (-17.2%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 46],
-        "scores": [21.27, 21.70, 21.20, 19.97],
+        "seeds": [
+          42,
+          43,
+          44,
+          46
+        ],
+        "scores": [
+          21.27,
+          21.70,
+          21.20,
+          19.97
+        ],
         "avg": 21.04,
         "baseline": 25.42
       },
@@ -214,8 +370,20 @@
       "description": "Enhanced LLM prompt with explicit stagnation detection and role-switching directives",
       "result": "REGRESSION: avg 23.76 vs baseline 25.05 (-5.1%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [24.58, 25.83, 23.44, 24.78, 20.15],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          24.58,
+          25.83,
+          23.44,
+          24.78,
+          20.15
+        ],
         "avg": 23.76,
         "baseline": 25.05
       },
@@ -229,8 +397,20 @@
       "description": "Reduced scrambler HP threshold from 30 to 25 (-16.7%)",
       "result": "REGRESSION: avg 21.76 vs baseline 23.86 (-8.8%)",
       "local_scores": {
-        "seeds": [42, 43, 44, 45, 46],
-        "scores": [21.51, 18.32, 23.44, 24.42, 21.11],
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "scores": [
+          21.51,
+          18.32,
+          23.44,
+          24.42,
+          21.11
+        ],
         "avg": 21.76,
         "baseline": 23.86
       },
@@ -244,8 +424,12 @@
       "description": "Increased RETREAT_MARGIN from 15 to 20 (+33%) to match alpha.0",
       "result": "REGRESSION: seed 42 scored 13.88 vs expected ~16 (-13%)",
       "local_scores": {
-        "seeds": [42],
-        "scores": [13.88],
+        "seeds": [
+          42
+        ],
+        "scores": [
+          13.88
+        ],
         "avg": 13.88,
         "baseline": 16.37
       },
@@ -341,8 +525,20 @@
     "description": "Increased JUNCTION_AOE_RANGE from 10 to 20 (+100%) to match alpha.0",
     "result": "IMPROVEMENT: avg 25.42 vs baseline 25.05 (+1.5%)",
     "local_scores": {
-      "seeds": [42, 43, 44, 45, 46],
-      "scores": [29.21, 24.31, 24.84, 24.85, 23.90],
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "scores": [
+        29.21,
+        24.31,
+        24.84,
+        24.85,
+        23.90
+      ],
       "avg": 25.42,
       "baseline": 25.05
     },
