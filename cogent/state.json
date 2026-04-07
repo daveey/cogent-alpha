@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 866,
+      "attempts": 867,
       "improvements": 7,
-      "last_used": "20260407-932-testing"
+      "last_used": "20260407-933-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260407",
-    "version": "932",
-    "focus": "Teammate penalty increase",
-    "description": "Increased teammate penalty from 9.56 to 9.57 (+0.10%)",
-    "rationale": "Teammate penalty controls penalty when a teammate is closer to a target. Higher value reduces target duplication by encouraging agents to pursue different targets. Conservative +0.10% increase for bidirectional coordination tuning. Stacks with 087-931.",
-    "upload": "gamma_v381_v1:v1",
+    "version": "933",
+    "focus": "Scrambler blocked neutrals weight increase",
+    "description": "Increased scrambler blocked neutrals weight from 8.85 to 8.86 (+0.11%)",
+    "rationale": "Scrambler blocked neutrals weight controls bonus for enemy junctions that block neutral junction access. Higher value encourages scramblers to target enemies that block expansion. Conservative +0.11% increase for bidirectional expansion-blocking tuning. Stacks with 087-932.",
+    "upload": "gamma_v382_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260407",
-    "note": "Attempt 932. Increased teammate penalty for bidirectional coordination tuning. Awaiting tournament validation."
+    "note": "Attempt 933. Increased scrambler blocked neutrals weight for bidirectional expansion-blocking tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
