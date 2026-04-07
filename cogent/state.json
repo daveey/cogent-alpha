@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 901,
+      "attempts": 902,
       "improvements": 7,
-      "last_used": "20260407-967-testing"
+      "last_used": "20260407-968-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260407",
-    "version": "967",
-    "focus": "Corner pressure cap increase",
-    "description": "Increased corner pressure cap from 10.95 to 10.96 (+0.09%)",
-    "rationale": "Corner pressure cap limits maximum pressure for far-corner enemy targets. Higher cap allows more aggressive far-corner targeting. Conservative +0.09% increase for bidirectional corner pressure cap tuning. Stacks with 087-966.",
-    "upload": "gamma_v416_v1:v1",
+    "version": "968",
+    "focus": "Threat bonus increase",
+    "description": "Increased threat bonus from 10.66 to 10.67 (+0.09%)",
+    "rationale": "Threat bonus prioritizes enemy junctions near friendly network for defensive scrambling. Higher value increases defensive priority. Conservative +0.09% increase for bidirectional defensive priority tuning. Stacks with 087-967.",
+    "upload": "gamma_v417_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260407",
-    "note": "Attempt 967. Increased corner pressure cap for bidirectional corner pressure tuning. Awaiting tournament validation."
+    "note": "Attempt 968. Increased threat bonus for bidirectional defensive priority tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
