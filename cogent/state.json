@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 903,
+      "attempts": 904,
       "improvements": 7,
-      "last_used": "20260407-969-testing"
+      "last_used": "20260407-970-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260407",
-    "version": "969",
-    "focus": "Blocked neutrals bonus increase",
-    "description": "Increased blocked neutrals multiplier from 8.86 to 8.87 (+0.11%)",
-    "rationale": "Blocked neutrals bonus prioritizes enemy junctions that block neutral junction expansion. Higher value increases expansion-blocking priority. Conservative +0.11% increase for bidirectional expansion-blocking tuning. Stacks with 087-968.",
-    "upload": "gamma_v418_v1:v1",
+    "version": "970",
+    "focus": "Miner HP threshold increase",
+    "description": "Increased miner HP threshold from 18.74 to 18.75 (+0.05%)",
+    "rationale": "Miner HP threshold controls when miners retreat to hub for safety. Higher threshold makes miners retreat earlier, improving survival. Conservative +0.05% increase for bidirectional resource gathering tuning. Stacks with 087-969.",
+    "upload": "gamma_v419_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260407",
-    "note": "Attempt 969. Increased blocked neutrals bonus for bidirectional expansion-blocking tuning. Awaiting tournament validation."
+    "note": "Attempt 970. Increased miner HP threshold for bidirectional resource gathering tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
