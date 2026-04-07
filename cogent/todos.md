@@ -908,3 +908,4 @@
 - [ ] (933) Scrambler blocked neutrals weight increase (8.85→8.86): gamma_v382_v1 qualifying - bidirectional expansion-blocking tuning (+0.11%, stacks with 087-932)
 - [ ] (934) Scrambler corner pressure divisor increase (7.51→7.52): gamma_v383_v1 qualifying - bidirectional pressure growth tuning (+0.13%, stacks with 087-933)
 - [ ] (935) Scrambler corner pressure cap increase (10.94→10.95): gamma_v384_v1 qualifying - bidirectional corner pressure cap tuning (+0.09%, stacks with 087-934)
+- [ ] (936) Scrambler threat bonus increase (10.65→10.66): gamma_v385_v1 qualifying - bidirectional defensive priority tuning (+0.09%, stacks with 087-935)

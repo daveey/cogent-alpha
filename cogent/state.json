@@ -6,21 +6,21 @@
       "last_used": null
     },
     "design": {
-      "attempts": 869,
+      "attempts": 870,
       "improvements": 7,
-      "last_used": "20260407-935-testing"
+      "last_used": "20260407-936-testing"
     }
   },
   "testing_in_progress": {
     "date": "20260407",
-    "version": "935",
-    "focus": "Scrambler corner pressure cap increase",
-    "description": "Increased scrambler corner pressure cap from 10.94 to 10.95 (+0.09%)",
-    "rationale": "Scrambler corner pressure cap controls maximum pressure bonus value. Higher cap allows pressure to scale with very distant targets. Conservative +0.09% increase for bidirectional corner pressure cap tuning. Stacks with 087-934.",
-    "upload": "gamma_v384_v1:v1",
+    "version": "936",
+    "focus": "Scrambler threat bonus increase",
+    "description": "Increased scrambler threat bonus from 10.65 to 10.66 (+0.09%)",
+    "rationale": "Scrambler threat bonus controls priority for enemy junctions near friendly network. Higher value encourages defensive scrambling to protect our score. Conservative +0.09% increase for bidirectional defensive priority tuning. Stacks with 087-935.",
+    "upload": "gamma_v385_v1:v1",
     "season": "beta-four-score",
     "uploaded_at": "20260407",
-    "note": "Attempt 935. Increased scrambler corner pressure cap for bidirectional corner pressure cap tuning. Awaiting tournament validation."
+    "note": "Attempt 936. Increased scrambler threat bonus for bidirectional defensive priority tuning. Awaiting tournament validation."
   },
   "last_improvement": {
     "date": "20260404",
