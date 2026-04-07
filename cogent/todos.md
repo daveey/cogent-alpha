@@ -943,3 +943,4 @@
 - [ ] (968) Threat bonus increase (10.66→10.67): gamma_v417_v1 qualifying - bidirectional defensive priority tuning (+0.09%, stacks with 087-967)
 - [ ] (969) Blocked neutrals multiplier increase (8.86→8.87): gamma_v418_v1 qualifying - bidirectional expansion-blocking tuning (+0.11%, stacks with 087-968)
 - [ ] (970) Miner HP threshold increase (18.74→18.75): gamma_v419_v1 qualifying - bidirectional resource gathering tuning (+0.05%, stacks with 087-969)
+- [ ] (971) Aligner HP threshold increase (45.74→45.75): gamma_v420_v1 qualifying - bidirectional aligner retreat tuning (+0.02%, stacks with 087-970) [MILESTONE: 971 attempts!]
