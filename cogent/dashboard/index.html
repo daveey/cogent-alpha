@@ -90,6 +90,7 @@ h3 { font-size: 1.2rem; margin: 20px 0 10px; color: var(--ctp-teal); }
 .badge-success { background: #2d4a2c; color: var(--ctp-green); }
 .badge-failure { background: #4a2c2c; color: var(--ctp-red); }
 .badge-marginal { background: #4a3d2c; color: var(--ctp-yellow); }
+.badge-aborted { background: #3d2c3d; color: var(--ctp-mauve); border: 1px solid var(--ctp-red); }
 .todo-list {
   background: var(--ctp-mantle);
   padding: 20px;
@@ -149,12 +150,12 @@ button:hover { background: var(--ctp-blue); }
   </div>
   <div class="kpi-card">
     <div class="kpi-label">Design Attempts</div>
-    <div class="kpi-value">27</div>
-    <div class="kpi-subvalue">7 improvements (25.9%)</div>
+    <div class="kpi-value">28</div>
+    <div class="kpi-subvalue">7 improvements (25.0%)</div>
   </div>
   <div class="kpi-card">
     <div class="kpi-label">Current Streak</div>
-    <div class="kpi-value">13</div>
+    <div class="kpi-value">14</div>
     <div class="kpi-subvalue">consecutive failures</div>
   </div>
   <div class="kpi-card">
@@ -167,6 +168,7 @@ button:hover { background: var(--ctp-blue); }
 <h2>🎯 Active TODOs</h2>
 <div class="todo-list">
   <div class="todo-item"><strong>Next Candidates:</strong></div>
+  <div class="todo-item">□ <strong>BLOCKED:</strong> Testing infrastructure hanging - requires investigation</div>
   <div class="todo-item">□ Explore other non-HP parameters that can be validated locally</div>
   <div class="todo-item">□ <strong>BLOCKED:</strong> LLM-dependent changes (cannot validate without LLM access in local tests)</div>
   <div class="todo-item" style="margin-top: 20px;"><strong>Recent Wins:</strong></div>
@@ -189,11 +191,11 @@ button:hover { background: var(--ctp-blue); }
   </thead>
   <tbody>
     <tr>
-      <td>In Progress</td>
+      <td>2026-04-07</td>
       <td>Scramble corner_pressure cap</td>
       <td>10.0→12.0</td>
-      <td><span class="badge badge-marginal">TESTING</span></td>
-      <td>—</td>
+      <td><span class="badge badge-aborted">INFRA FAILURE</span></td>
+      <td>Aborted (28h hang)</td>
     </tr>
     <tr>
       <td>2026-04-06</td>
@@ -275,8 +277,8 @@ button:hover { background: var(--ctp-blue); }
     <div style="font-size: 0.9rem; color: var(--ctp-subtext0);">Manual parameter tuning</div>
   </div>
   <div style="text-align: right;">
-    <div style="font-size: 1.5rem; font-weight: 700; color: var(--ctp-mauve);">25.9%</div>
-    <div style="font-size: 0.9rem; color: var(--ctp-overlay2);">7 of 27 attempts</div>
+    <div style="font-size: 1.5rem; font-weight: 700; color: var(--ctp-mauve);">25.0%</div>
+    <div style="font-size: 0.9rem; color: var(--ctp-overlay2);">7 of 28 attempts</div>
   </div>
 </div>
 <div class="stat-bar">
@@ -301,6 +303,14 @@ button:hover { background: var(--ctp-blue); }
 <h2>⚠️ Known Issues</h2>
 <div class="todo-list">
   <div class="todo-item">
+    <strong style="color: var(--ctp-red);">Testing Infrastructure Failure (NEW - Apr 7)</strong>
+    <div style="font-size: 0.9rem; color: var(--ctp-subtext0); margin-top: 5px;">
+      All test processes hang after "Increasing action timeout" message. Cycle 105 aborted after 28+ hours.
+      Last successful test: Apr 6 23:20. Diagnostics show no resource exhaustion, no stale locks, code imports successfully.
+      Suspected deadlock in game engine or policy interaction. Requires investigation before continuing improvement cycles.
+    </div>
+  </div>
+  <div class="todo-item">
     <strong style="color: var(--ctp-red);">Testing Protocol Gap</strong>
     <div style="font-size: 0.9rem; color: var(--ctp-subtext0); margin-top: 5px;">
       Local tests run with ANTHROPIC_API_KEY= (no LLM) per docs/cogames.md, but tournament uses Bedrock (LLM enabled).
@@ -310,7 +320,7 @@ button:hover { background: var(--ctp-blue); }
   <div class="todo-item">
     <strong style="color: var(--ctp-yellow);">Parameter Exhaustion</strong>
     <div style="font-size: 0.9rem; color: var(--ctp-subtext0); margin-top: 5px;">
-      All major scoring parameters have been tested. Simple parameter tuning approach yielding diminishing returns (13 consecutive failures).
+      All major scoring parameters have been tested. Simple parameter tuning approach yielding diminishing returns (14 consecutive failures).
       Need architectural improvements, PCO evolution, or strategic changes.
     </div>
   </div>
@@ -331,7 +341,7 @@ button:hover { background: var(--ctp-blue); }
 </div>
 
 <div class="footer">
-  <div>Generated: 2026-04-06 14:00 UTC</div>
+  <div>Generated: 2026-04-07 00:30 UTC</div>
   <button onclick="fetch('/regenerate',{method:'POST'}).then(()=>{this.textContent='Regenerating...';setTimeout(()=>location.reload(),30000)})">Regenerate</button>
 </div>
 </div>
